@@ -1,13 +1,9 @@
 /*
-ESTE GM TIENE AUTORIZACION DE SER LIBERADO,
-LA VERSION ONLINE ES SIMPLEMENTE UNA COPIA.
 
-Puteros Role Play
+San Antón Role Play
 -----------------------------------------------------------------
-*** COCAINA GRATIS PARA TODOS LOS USUARIOS
-*** version 2
-**  Jeferson
-* 	Fenix
+*** Devon
+*** Jayceon
 -----------------------------------------------------------------
 -----------------------------------------------------------------
 -----------------------------------------------------------------
@@ -39,7 +35,7 @@ Puteros Role Play
 native IsValidVehicle(vehicleid);
 
 #define 			SERVER_GM_TEXT 				"2.6"
-#define 			SERVER_SHOP_URL				"www.zenoncity.com/"
+#define 			SERVER_SHOP_URL				"N/A"
 #define 			SERVER_TS3_IP				"192.223.28.93" // CAmbiar
 // -=====================================-
 //#pragma 			tabsize 					(0) <- Without this the gamemode is optimized
@@ -1472,7 +1468,7 @@ new Text3D:Camera3D[MAX_PLAYERS];
 new EMSCallTime[MAX_PLAYERS];
 new EMSAccepted[MAX_PLAYERS];
 //TextDraw
-new Text:ZenonCity[3], Text:MOTD, Text:flash, Text:Speedo[MAX_PLAYERS];
+new Text:SanAnton[3], Text:MOTD, Text:flash, Text:Speedo[MAX_PLAYERS];
 new Text:LoginMenu[3];
 //TUTORIAL
 new Text:TutTxt[4];
@@ -2343,7 +2339,7 @@ main()
 	print("-------------------------------------------");
 	print("**Initiating Gamemode");
 	print("* Loading AMX...");
-	print("* Welcome to Zenon City Roleplay");
+	print("* Welcome to San Antón Roleplay");
 	print("-------------------------------------------");
 	print(" ");
 }
@@ -3720,7 +3716,7 @@ public OnPlayerConnect(playerid)
 	new playerIP[16];
 	GetPlayerIp(playerid, playerIP, sizeof(playerIP));
 	SetPlayerColor(playerid,COLOR_GRAD2);
-	SendClientMessage(playerid, COLOR_GENERAL, "SERVER: "COL_WHITE"Bienvenido a Zenon City Roleplay.");
+	SendClientMessage(playerid, COLOR_GENERAL, "SERVER: "COL_WHITE"Bienvenido a San Antón Roleplay.");
 	if(CheckBan(playerIP) == 1)
 	{
 	    SetPlayerName(playerid, "BannedPlayer");
@@ -3789,9 +3785,9 @@ ShowMenuLogin(playerid)
 	TextDrawShowForPlayer(playerid, TextdrawZCL6);
 	TextDrawShowForPlayer(playerid, TextdrawZCL7);
 	
-	TextDrawHideForPlayer(playerid, ZenonCity[0]);
-	TextDrawHideForPlayer(playerid, ZenonCity[1]);
-	TextDrawHideForPlayer(playerid, ZenonCity[2]);
+	TextDrawHideForPlayer(playerid, SanAnton[0]);
+	TextDrawHideForPlayer(playerid, SanAnton[1]);
+	TextDrawHideForPlayer(playerid, SanAnton[2]);
 	SelectTextDraw(playerid, COLOR_NEWS2);
 	return 1;
 }
@@ -3807,9 +3803,9 @@ HideMenuLogin(playerid)
 	TextDrawHideForPlayer(playerid, TextdrawZCL6);
 	TextDrawHideForPlayer(playerid, TextdrawZCL7);
 	
-	TextDrawShowForPlayer(playerid, ZenonCity[0]);
-	TextDrawShowForPlayer(playerid, ZenonCity[1]);
-	TextDrawShowForPlayer(playerid, ZenonCity[2]);
+	TextDrawShowForPlayer(playerid, SanAnton[0]);
+	TextDrawShowForPlayer(playerid, SanAnton[1]);
+	TextDrawShowForPlayer(playerid, SanAnton[2]);
 	return 1;
 }
 
@@ -4495,7 +4491,7 @@ if(IsPlayerConnectedEx(playerid))
 		Streamer_UpdateEx(playerid,-2368.5532, 249.3627, 35.708,0,0);
 		Info[playerid][pAge] = 18; Info[playerid][pSex] = 1;
 	 	format(szDialog, sizeof(szDialog), ""COL_WHITE"Hola %s, antes de empezar tienes que ingresar la edad\nde tu personaje.\n\nMínimo 18 y Máximo 99", GetPlayerNameEx(playerid));
-		ShowPlayerDialog(playerid, REG_AGE, DIALOG_STYLE_INPUT,""COL_GENERAL"Zenon City Roleplay - "COL_WHITE"1/4", szDialog,">","");
+		ShowPlayerDialog(playerid, REG_AGE, DIALOG_STYLE_INPUT,""COL_GENERAL"San Antón Roleplay - "COL_WHITE"1/4", szDialog,">","");
 		return 1;
     }
     if(Info[playerid][pTut] == 0)
@@ -7038,10 +7034,10 @@ scriptTimers[7] = SetTimer("EMSUpdate", 5000, 1);
 scriptTimers[9] = SetTimer("SpecUpdate", 5000, 1);
 scriptTimers[10] = SetTimer("Anticheat", 1000, 1);*/
 SendRconCommand("mapname San Andreas");
-SendRconCommand("weburl www.ZenonCity.com");
+SendRconCommand("weburl N/A");
 SendRconCommand("gamemodetext Role Play Español - RPG - RP");
 new servergmtextstr[64]; // DO NOT REMOVE THIS
-format(servergmtextstr, 64, "hostname Zenon City Roleplay v%s [Español]", SERVER_GM_TEXT); // DO NOT REMOVE THIS
+format(servergmtextstr, 64, "hostname San Antón Roleplay v%s [Español]", SERVER_GM_TEXT); // DO NOT REMOVE THIS
 SendRconCommand(servergmtextstr); // DO NOT REMOVE THIS
 //// DO NOT REMOVE THIS
 new string[42];
@@ -7172,7 +7168,7 @@ TextDrawFont(LoginMenu[0], 1);
 TextDrawSetProportional(LoginMenu[0], 1);
 textdrawscount++;
 
-LoginMenu[1] = TextDrawCreate(172.500000, 27.416671, "Zenon City");
+LoginMenu[1] = TextDrawCreate(172.500000, 27.416671, "San Antón");
 TextDrawLetterSize(LoginMenu[1], 1.381247, 4.195834);
 TextDrawTextSize(LoginMenu[1], 484.375000, -1464.166503);
 TextDrawAlignment(LoginMenu[1], 1);
@@ -7221,7 +7217,7 @@ TextDrawTextSize(TutTxt[0], 166.000000, 0.000000);
 textdrawscount++;
 
 TutTxt[1] =
-TextDrawCreate(313.500000, 232.960052, "WEB: ~w~zenoncity.com");
+TextDrawCreate(313.500000, 232.960052, "WEB: ~w~N/A");
 TextDrawBackgroundColor(TutTxt[1], 255);
 TextDrawFont(TutTxt[1], 1);
 TextDrawLetterSize(TutTxt[1], 0.276499, 1.387199);
@@ -7233,7 +7229,7 @@ TextDrawSetShadow(TutTxt[1], 1);
 textdrawscount++;
 
 TutTxt[2] =
-TextDrawCreate(213.000000, 130.480026, "Zenon City Role Play - Tutorial");
+TextDrawCreate(213.000000, 130.480026, "San Anton Roleplay - Tutorial");
 TextDrawLetterSize(TutTxt[2], 0.307999, 1.600000);
 TextDrawTextSize(TutTxt[2], 439.000000, -35.840011);
 TextDrawAlignment(TutTxt[2], 1);
@@ -7272,39 +7268,39 @@ TextDrawColor(txtAnimHelper,0xFFFFFFFF);
 TextDrawAlignment(txtAnimHelper,3);
 textdrawscount++;
 
-ZenonCity[0] =
-TextDrawCreate(87.000000, 323.000000, "Zenon ~w~City");
-TextDrawAlignment(ZenonCity[0], 2);
-TextDrawBackgroundColor(ZenonCity[0], 32);
-TextDrawFont(ZenonCity[0], 2);
-TextDrawLetterSize(ZenonCity[0], 0.310000, 1.100000);
-TextDrawColor(ZenonCity[0], COLOR_GENERAL);
-TextDrawSetOutline(ZenonCity[0], 1);
-TextDrawSetProportional(ZenonCity[0], 1);
-TextDrawSetShadow(ZenonCity[0], 1);
+SanAnton[0] =
+TextDrawCreate(87.000000, 323.000000, "San Anton");
+TextDrawAlignment(SanAnton[0], 2);
+TextDrawBackgroundColor(SanAnton[0], 32);
+TextDrawFont(SanAnton[0], 2);
+TextDrawLetterSize(SanAnton[0], 0.310000, 1.100000);
+TextDrawColor(SanAnton[0], COLOR_GENERAL);
+TextDrawSetOutline(SanAnton[0], 1);
+TextDrawSetProportional(SanAnton[0], 1);
+TextDrawSetShadow(SanAnton[0], 1);
 textdrawscount++;
 
-ZenonCity[1] =
+SanAnton[1] =
 TextDrawCreate(89.000000, 330.000000, "-");
-TextDrawAlignment(ZenonCity[1], 2);
-TextDrawBackgroundColor(ZenonCity[1], 32);
-TextDrawFont(ZenonCity[1], 2);
-TextDrawLetterSize(ZenonCity[1], 7.460000, 1.000000);
-TextDrawColor(ZenonCity[1], -1);
-TextDrawSetOutline(ZenonCity[1], 1);
-TextDrawSetProportional(ZenonCity[1], 1);
-TextDrawSetShadow(ZenonCity[1], 1);
+TextDrawAlignment(SanAnton[1], 2);
+TextDrawBackgroundColor(SanAnton[1], 32);
+TextDrawFont(SanAnton[1], 2);
+TextDrawLetterSize(SanAnton[1], 7.460000, 1.000000);
+TextDrawColor(SanAnton[1], -1);
+TextDrawSetOutline(SanAnton[1], 1);
+TextDrawSetProportional(SanAnton[1], 1);
+TextDrawSetShadow(SanAnton[1], 1);
 textdrawscount++;
 
-ZenonCity[2] =
-TextDrawCreate(500.000000, 12.000000, "zenoncity.com");
-TextDrawBackgroundColor(ZenonCity[2], 32);
-TextDrawFont(ZenonCity[2], 2);
-TextDrawLetterSize(ZenonCity[2], 0.300000, 1.300000);
-TextDrawColor(ZenonCity[2], -1);
-TextDrawSetOutline(ZenonCity[2], 1);
-TextDrawSetProportional(ZenonCity[2], 1);
-TextDrawSetShadow(ZenonCity[2], 1);
+SanAnton[2] =
+TextDrawCreate(500.000000, 12.000000, "N/A");
+TextDrawBackgroundColor(SanAnton[2], 32);
+TextDrawFont(SanAnton[2], 2);
+TextDrawLetterSize(SanAnton[2], 0.300000, 1.300000);
+TextDrawColor(SanAnton[2], -1);
+TextDrawSetOutline(SanAnton[2], 1);
+TextDrawSetProportional(SanAnton[2], 1);
+TextDrawSetShadow(SanAnton[2], 1);
 textdrawscount++;
 
 //login new fenix
@@ -7380,7 +7376,7 @@ TextDrawSetOutline(TextdrawZCL5, 0);
 TextDrawFont(TextdrawZCL5, 0);
 textdrawscount++;
 
-TextdrawZCL6 = TextDrawCreate(473.125000, 221.083297, "Zenon");
+TextdrawZCL6 = TextDrawCreate(473.125000, 221.083297, "San Anton");
 TextDrawLetterSize(TextdrawZCL6, 0.449999, 1.600000);
 TextDrawAlignment(TextdrawZCL6, 1);
 TextDrawColor(TextdrawZCL6, -5963521);
@@ -7389,17 +7385,6 @@ TextDrawSetOutline(TextdrawZCL6, 0);
 TextDrawBackgroundColor(TextdrawZCL6, 255);
 TextDrawFont(TextdrawZCL6, 2);
 TextDrawSetProportional(TextdrawZCL6, 1);
-textdrawscount++;
-
-TextdrawZCL7 = TextDrawCreate(540.625000, 221.083374, "City");
-TextDrawLetterSize(TextdrawZCL7, 0.449999, 1.600000);
-TextDrawAlignment(TextdrawZCL7, 1);
-TextDrawColor(TextdrawZCL7, -1);
-TextDrawSetShadow(TextdrawZCL7, 0);
-TextDrawSetOutline(TextdrawZCL7, 1);
-TextDrawBackgroundColor(TextdrawZCL7, 255);
-TextDrawFont(TextdrawZCL7, 2);
-TextDrawSetProportional(TextdrawZCL7, 1);
 textdrawscount++;
 
 TextInfoZC0 = TextDrawCreate(482.000000, 122.833335, "usebox");
@@ -7446,7 +7431,7 @@ TextDrawFont(TextInfoZC3, 2);
 TextDrawSetProportional(TextInfoZC3, 1);
 TextDrawSetSelectable(TextInfoZC3, 1);
 
-TextInfoZC4 = TextDrawCreate(278.125000, 119.583328, "City: Informacion");
+TextInfoZC4 = TextDrawCreate(278.125000, 119.583328, ": Informacion");
 TextDrawLetterSize(TextInfoZC4, 0.449999, 1.600000);
 TextDrawAlignment(TextInfoZC4, 1);
 TextDrawColor(TextInfoZC4, -1061109505);
@@ -7456,17 +7441,7 @@ TextDrawBackgroundColor(TextInfoZC4, 255);
 TextDrawFont(TextInfoZC4, 2);
 TextDrawSetProportional(TextInfoZC4, 1);
 
-TextInfoZC5 = TextDrawCreate(206.250000, 119.583320, "Zenon");
-TextDrawLetterSize(TextInfoZC5, 0.449999, 1.600000);
-TextDrawAlignment(TextInfoZC5, 1);
-TextDrawColor(TextInfoZC5, -5963521);
-TextDrawSetShadow(TextInfoZC5, 0);
-TextDrawSetOutline(TextInfoZC5, 1);
-TextDrawBackgroundColor(TextInfoZC5, 255);
-TextDrawFont(TextInfoZC5, 2);
-TextDrawSetProportional(TextInfoZC5, 1);
-
-TextInfoZC6 = TextDrawCreate(176.250000, 177.333236, "IP Ts3: 192.223.28.93");
+TextInfoZC6 = TextDrawCreate(176.250000, 177.333236, "IP Ts3: N/A");
 TextDrawLetterSize(TextInfoZC6, 0.449999, 1.600000);
 TextDrawAlignment(TextInfoZC6, 1);
 TextDrawColor(TextInfoZC6, -1061109505);
@@ -7476,7 +7451,7 @@ TextDrawBackgroundColor(TextInfoZC6, 255);
 TextDrawFont(TextInfoZC6, 2);
 TextDrawSetProportional(TextInfoZC6, 1);
 
-TextInfoZC7 = TextDrawCreate(176.250000, 222.833374, "Web: www.ZenonCity.com");
+TextInfoZC7 = TextDrawCreate(176.250000, 222.833374, "Web: N/A");
 TextDrawLetterSize(TextInfoZC7, 0.449999, 1.600000);
 TextDrawAlignment(TextInfoZC7, 1);
 TextDrawColor(TextInfoZC7, -1061109505);
@@ -20937,11 +20912,11 @@ case	NGMENUWEP:
 	{
         if(response)
         {
-	         if(strval(inputtext) < 18 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, REG_AGE, DIALOG_STYLE_INPUT,""COL_GENERAL"Zenon City - "COL_WHITE"1/4", "ATENCIÓN!\n\n"COL_WHITE"* La edad mínima es 18\n * La edad máxima es 99",">","");
+	         if(strval(inputtext) < 18 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, REG_AGE, DIALOG_STYLE_INPUT,""COL_GENERAL"San Antón - "COL_WHITE"1/4", "ATENCIÓN!\n\n"COL_WHITE"* La edad mínima es 18\n * La edad máxima es 99",">","");
 	         {
 	         	Info[playerid][pAge] = strval(inputtext);
  				format(szDialog, sizeof(szDialog), ""COL_WHITE"* Edad: %d\n\nBien, ahora necesitamos saber que sexo es tu personaje.", strval(inputtext));
-				ShowPlayerDialog(playerid, REG_SEX, DIALOG_STYLE_MSGBOX,""COL_GENERAL"Zenon City Roleplay - "COL_WHITE"2/4", szDialog,"Hombre","Mujer");
+				ShowPlayerDialog(playerid, REG_SEX, DIALOG_STYLE_MSGBOX,""COL_GENERAL"San Antón Roleplay - "COL_WHITE"2/4", szDialog,"Hombre","Mujer");
 	         }
 	    }
 	}
@@ -20952,14 +20927,14 @@ case	NGMENUWEP:
 			Info[playerid][pSex] = 1;
 	        Info[playerid][pChar] = 299;
 			format(szDialog, sizeof(szDialog), ""COL_WHITE"* Edad: %d.\n* Sexo: Masculino.\n\nLo último, como toda persona, todos tienen un lugar de nacimiento pero está vez tendrás que elegir un acento para tu personaje.\nEjm:\n\nNorteamericano.\nColombiano.", Info[playerid][pAge]);
-	        ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"Zenon City Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
+	        ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
 	    }
 		else
 		{
 			Info[playerid][pSex] = 2;
 			Info[playerid][pChar] = 93;
 			format(szDialog, sizeof(szDialog), ""COL_WHITE"* Edad: %d.\n* Sexo: Femenino.\n\nLo último, como toda persona, todos tienen un lugar de nacimiento pero está vez tendrás que elegir un acento para tu personaje.\nEjm:\n\nNorteamericano.\nColombiano.", Info[playerid][pAge]);
-	        ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"Zenon City Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
+	        ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
 		}
 	}
 	case D_REGACENT:
@@ -20969,17 +20944,17 @@ case	NGMENUWEP:
 	        if(isnumeric(inputtext))
 	        {
 	            format(szDialog, sizeof(szDialog), ""COL_WHITE"No se puede ingresar números.\nDebes usar menos de 14 letras.\nEjemplo:\n\n* Colombiano\n* Chino\n* Argentino\n* Peruano\n* Ingresa el que quieras...");
-				return ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"Zenon City Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
+				return ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
 	        }
 	        if(isnull(inputtext))
 	        {
 	            format(szDialog, sizeof(szDialog), ""COL_WHITE"No has ingresado nada.\nDebes usar menos de 14 letras.\nEjemplo:\n\n* Colombiano\n* Chino\n* Argentino\n* Peruano\n* Ingresa el que quieras...");
-				return ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"Zenon City Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
+				return ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
 	        }
         	if(strlen(inputtext) >= 15)
 			{
 			    format(szDialog, sizeof(szDialog), ""COL_WHITE"El acento que elegiste usa demasiados carácteres.\nDebes usar menos de 15 letras.\nEjemplo:\n\n* Colombiano\n* Chino\n* Argentino\n* Peruano\n* Ingresa el que quieras...");
-                return ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"Zenon City Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
+                return ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
 			}
 			strmid(Info[playerid][pAcento], inputtext, 0, strlen(inputtext), 40);
 	        new atext[7];
@@ -20989,7 +20964,7 @@ case	NGMENUWEP:
 				case 2: atext = "Mujer";
 			}
 			format(szDialog, sizeof(szDialog), ""COL_WHITE"Muy bien eso es todo pero antes debes confirmar tus datos.\n\n * Nombre: %s.\n * Edad: %d.\n * Sexo: %s.\n * Acento: %s.\n\nSi quieras corregir tus datos selecciona cancelar.", GetPlayerNameEx(playerid),Info[playerid][pAge],atext,Info[playerid][pAcento]);
-			ShowPlayerDialog(playerid, D_REGCON, DIALOG_STYLE_MSGBOX,""COL_GENERAL"Zenon City Roleplay - "COL_WHITE"4/4", szDialog,"Confirmar","Cancelar");
+			ShowPlayerDialog(playerid, D_REGCON, DIALOG_STYLE_MSGBOX,""COL_GENERAL"San Antón Roleplay - "COL_WHITE"4/4", szDialog,"Confirmar","Cancelar");
 	    }
 	}
     case D_REGCON:
@@ -21002,7 +20977,7 @@ case	NGMENUWEP:
 	    else
 	    {
       	 	format(szDialog, sizeof(szDialog), ""COL_WHITE"Hola de nuevo %s, antes de empezar tienes que ingresar la edad\nde tu personaje.\n\nMínimo 18 y Máximo 99", GetPlayerNameEx(playerid));
-			ShowPlayerDialog(playerid, REG_AGE, DIALOG_STYLE_INPUT,""COL_GENERAL"Zenon City - "COL_WHITE"1/4", szDialog,">","");
+			ShowPlayerDialog(playerid, REG_AGE, DIALOG_STYLE_INPUT,""COL_GENERAL"San Antón - "COL_WHITE"1/4", szDialog,">","");
 	    }
 	}
 	case DIALOG_REG_TUT:
@@ -21078,7 +21053,7 @@ case	NGMENUWEP:
 	    	{
 	    	    StopAudioStreamForPlayer(playerid);
 	    	    PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=2187022", X, Y, Z, Distance, 0);
-				SendClientMessageEx(playerid, COLOR_GENERAL, "Escuchando actualmente: {FFFFFF}ZenonCity Metal Time - "COL_GENERAL"Género: Rock & Metal");
+				SendClientMessageEx(playerid, COLOR_GENERAL, "Escuchando actualmente: {FFFFFF}SanAnton Metal Time - "COL_GENERAL"Género: Rock & Metal");
 			}
 	    	if(listitem == 3)
 	    	{
@@ -25244,7 +25219,7 @@ zcmd(removegps, playerid, params[]){
 	if(IsPlayerConnectedEx(playerid)) DisablePlayerCheckpoint(playerid);
 	return 1;
 }
-zcmd(saltarputotuto, playerid, params[]){
+zcmd(esnifococaina, playerid, params[]){
     if(TutStep[playerid] > 0){
 		TutTime[playerid] = 14;
 		Tutorial_Inside(playerid);
@@ -29842,7 +29817,7 @@ zcmd(ao, playerid, params[]){
     return 1;
 }
 
-CMD:fenixrubiksnoliberoestegm(playerid, params[]) COLOR_FUCK
+CMD:franciscoacostaputero(playerid, params[]) COLOR_FUCK
 
 CMD:crearregalo(playerid, params[])  // By JunkBuster
 {
@@ -40628,12 +40603,9 @@ CMD:creditos(playerid, params[])
 	if(IsPlayerConnectedEx(playerid))
 	{
 		SendClientMessageEx(playerid, COLOR_WHITE, " Equipo de Desarrollo:");
-		SendClientMessageEx(playerid, COLOR_GRAD2, " Fenix - Jeff - Junkbuster");
-		SendClientMessageEx(playerid, COLOR_GRAD2, " Nerak - S.Luján - Skybur");
-		SendClientMessageEx(playerid, COLOR_WHITE, " Tenico:");
-		SendClientMessageEx(playerid, COLOR_GRAD2, " Alejandro");
-		SendClientMessageEx(playerid, COLOR_GRAD2, " Muchas gracias a San Andreas Multiplayer.");
-		SendClientMessageEx(playerid, COLOR_WHITE, " Zenon City Role Play © - 2014");
+		SendClientMessageEx(playerid, COLOR_GRAD2, " Devon");
+		SendClientMessageEx(playerid, COLOR_GRAD2, " Jayceon ");
+		SendClientMessageEx(playerid, COLOR_WHITE, " San Antón Roleplay © - 2023");
 	}
 	return 1;
 }
@@ -40739,7 +40711,7 @@ CMD:shoporden(playerid, params[])
 		SendClientMessageEx(playerid, COLOR_WHITE, string);
 	    return 1;
 	}
-	ShowPlayerDialog(playerid, DIALOG_SHOPORDER, DIALOG_STYLE_INPUT, "Órden de Compra", "Esto es para las órdenes de tienda de www.zenoncity.com/shop\n\nSi usted no tiene una orden de la tienda, por favor cancele este cuadro de diálogo ahora mismo.\n\nAdvertencia: Abuso de esta característica es sancionable con baneo permanente.\n\nPor favor ingrese la orden de compra (Si no la sabe ingrese 1):", "Enviar", "Cancelar" );
+	ShowPlayerDialog(playerid, DIALOG_SHOPORDER, DIALOG_STYLE_INPUT, "Órden de Compra", "Esto es para las órdenes de la tienda online/shop\n\nSi usted no tiene una orden de la tienda, por favor cancele este cuadro de diálogo ahora mismo.\n\nAdvertencia: Abuso de esta característica es sancionable con baneo permanente.\n\nPor favor ingrese la orden de compra (Si no la sabe ingrese 1):", "Enviar", "Cancelar" );
 	return 1;
 }
 
@@ -45432,7 +45404,7 @@ if(ShowRules[playerid] == 1)
         	SetTimerEx("TutRolTimer", 14000, 0, "d", playerid);
         	SendClientMessageEx(playerid, COLOR_GENERAL, "Fin - Reglas de Rol");
         	SendClientMessageEx(playerid, COLOR_WHITE, "Bien, espero que hayas aprendido en este resumen de las reglas de nuestro servidor, puedes entrar a nuestro");
-        	SendClientMessageEx(playerid, COLOR_WHITE, "foro (www.zenoncity.com) y buscar más información, ahora volverás a tu posición anterior, no perderás nada.");
+        	SendClientMessageEx(playerid, COLOR_WHITE, "foro (N/A) y buscar más información, ahora volverás a tu posición anterior, no perderás nada.");
         	SendClientMessageEx(playerid, COLOR_WHITE, "Recuerda siempre que más importante es el rol de un presonaje. Bienvenido y disfruta del servidor!");
         }
         case 10:
@@ -45694,9 +45666,9 @@ function Tutorial_Inside(playerid) // Tutorial optimizado
 		            GivePlayerCash(playerid,500);
 		            format(string, sizeof(string), "~y~Bienvenido~n~%s", GetPlayerNameEx(playerid));
 		            GameTextForPlayer(playerid, string, 4000, 1);
-		            TextDrawShowForPlayer(playerid, ZenonCity[0]);
-		            TextDrawShowForPlayer(playerid, ZenonCity[1]);
-		            TextDrawShowForPlayer(playerid, ZenonCity[2]);
+		            TextDrawShowForPlayer(playerid, SanAnton[0]);
+		            TextDrawShowForPlayer(playerid, SanAnton[1]);
+		            TextDrawShowForPlayer(playerid, SanAnton[2]);
 	            }
 			}
 		}
