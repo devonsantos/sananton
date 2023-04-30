@@ -4,7 +4,7 @@ LA VERSION ONLINE ES SIMPLEMENTE UNA COPIA.
 
 Puteros Role Play
 -----------------------------------------------------------------
-*** COCAINA GRATIS PARA TODOS LOS USUARIOS
+*** JunkBuster
 **  Jeferson
 * 	Fenix
 -----------------------------------------------------------------
