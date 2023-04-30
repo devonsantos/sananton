@@ -30614,7 +30614,7 @@ if(strcmp(params, "motor", true) == 0 && IsPlayerInAnyVehicle(playerid) && GetPl
 			}
 	    }
 	}
-		SendClientMessageEx(playerid, COLOR_WHITE, "Motor del vehículo se está prendiendo, por favor espera ...");
+		SendClientMessageEx(playerid, COLOR_WHITE, "Motor del vehículo se está encendiendo...");
 		SetTimerEx("SetVehicleEngine", 1000, 0, "dd",  vehicleid, playerid);
 	}
 }
@@ -43569,7 +43569,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 				}
 		    }
 		}
-			SendClientMessageEx(playerid, COLOR_WHITE, "Motor del vehículo se está prendiendo, por favor espera ...");
+			SendClientMessageEx(playerid, COLOR_WHITE, "Motor del vehículo se está encendiendo...");
 			SetTimerEx("SetVehicleEngine", 1000, 0, "dd",  vehicleid, playerid);
 		}
 	}
