@@ -5,6 +5,7 @@ LA VERSION ONLINE ES SIMPLEMENTE UNA COPIA.
 Zenon City Role Play
 -----------------------------------------------------------------
 *** COCAINA GRATIS PARA TODOS LOS USUARIOS
+*** version 2
 **  Jeferson
 * 	Fenix
 -----------------------------------------------------------------
