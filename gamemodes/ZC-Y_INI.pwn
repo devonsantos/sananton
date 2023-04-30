@@ -4,7 +4,7 @@ LA VERSION ONLINE ES SIMPLEMENTE UNA COPIA.
 
 Zenon City Role Play
 -----------------------------------------------------------------
-*** JunkBuster
+*** COCAINA GRATIS PARA TODOS LOS USUARIOS
 **  Jeferson
 * 	Fenix
 -----------------------------------------------------------------
