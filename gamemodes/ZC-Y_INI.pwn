@@ -5724,7 +5724,7 @@ if(newstate == PLAYER_STATE_DRIVER)
     GetVehicleParamsEx(newcar,engine,lights,alarm,doors,bonnet,boot,objective);
 	if((engine == VEHICLE_PARAMS_UNSET || engine == VEHICLE_PARAMS_OFF) && GetVehicleModel(newcar) != 509 && GetVehicleModel(newcar) != 481 && GetVehicleModel(newcar) != 510)
 	{
-		SendClientMessageEx(playerid, COLOR_WHITE, "Este vehiculo tiene el motor apagado - si quieres prenderlo, escribe /v motor.");
+		SendClientMessageEx(playerid, COLOR_WHITE, "El motor del vehículo está apagado, escribe /v motor o pulsa la tecla N para arrancarlo.");
 	}
 	if(IsARentCar(newcar))
 	{
@@ -27466,7 +27466,7 @@ if(Info[playerid][pVehicleKeysFrom] != INVALID_PLAYER_ID)
 			new engine, lights, alarm, doors, bonnet, boot, objective;
 			GetVehicleParamsEx(PlayerVehicleInfo[playerid][d][pvId], engine, lights, alarm, doors, bonnet, boot, objective);
 			if(boot == VEHICLE_PARAMS_OFF || boot == VEHICLE_PARAMS_UNSET) return SendClientMessageEx(playerid, COLOR_GREY, "* Necesitas tener el maletero abierto! (/v maletero para abrirlo)");
-			if(engine == VEHICLE_PARAMS_ON) return SendClientMessageEx(playerid, COLOR_GREY, "* Necesitas tener el motor apagado! (/v motor para apagarlo)");
+			if(engine == VEHICLE_PARAMS_ON) return SendClientMessageEx(playerid, COLOR_WHITE, "* El motor del vehículo debe estar apagado, escribe /v motor o pulsa la tecla N para apagarlo.");
 			foreach(Player, i)
 			{
  				if(GetPVarInt(i, "pDynamicBB") == 1)
@@ -27507,7 +27507,7 @@ for(new d = 0 ; d < MAX_PLAYERVEHICLES; d++)
 			new engine, lights, alarm, doors, bonnet, boot, objective;
 			GetVehicleParamsEx(PlayerVehicleInfo[playerid][d][pvId], engine, lights, alarm, doors, bonnet, boot, objective);
 			if(boot == VEHICLE_PARAMS_OFF || boot == VEHICLE_PARAMS_UNSET) return SendClientMessageEx(playerid, COLOR_GREY, "* Necesitas tener el maletero abierto! (/v maletero para abrirlo)");
-			if(engine == VEHICLE_PARAMS_ON) return SendClientMessageEx(playerid, COLOR_GREY, "* Necesitas tener el motor apagado! (/v motor para apagarlo)");
+			if(engine == VEHICLE_PARAMS_ON) return SendClientMessageEx(playerid, COLOR_GREY, "* El motor del vehículo debe estar apagado, escribe /v motor o pulsa la tecla N para apagarlo.");
 			foreach(Player, i)
 			{
  				if(GetPVarType(i, "pDynamicBB"))
@@ -31001,7 +31001,7 @@ if(IsPlayerInAnyVehicle(playerid) && GetPlayerState(playerid) == PLAYER_STATE_DR
     new vehicleid = GetPlayerVehicleID(playerid);
     new engine,lights,alarm,doors,bonnet,boot,objective;
 	GetVehicleParamsEx(vehicleid,engine,lights,alarm,doors,bonnet,boot,objective);
-    if(engine == VEHICLE_PARAMS_ON) return SendClientMessageEx(playerid, COLOR_GRAD2, "Es necesario apagar el motor antes de llenar el tanque (/v motor).");
+    if(engine == VEHICLE_PARAMS_ON) return SendClientMessageEx(playerid, COLOR_GRAD2, "El motor del vehículo debe estar apagado, escribe /v motor o pulsa la tecla N para apagarlo.");
     if(!IsAtGasStation(playerid)) return SendClientMessageEx(playerid, COLOR_GRAD2, "No estás en la gasolineria.");
     if(GetVehicleModel(vehicleid) == 481 || GetVehicleModel(vehicleid) == 509 || GetVehicleModel(vehicleid) == 510) return SendClientMessageEx(playerid,COLOR_RED,"Este vehiculo no necesita gasolina.");
     if(VehicleFuel[vehicleid] >= 500) return SendClientMessageEx(playerid, COLOR_RED, "El tanque de gasolina de este vehiculo está lleno.");
@@ -43803,6 +43803,77 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			}
 		}
 	}
+	/* Arrancar motor del vehículo (Tecla "N") */
+	if(IsKeyJustDown(KEY_NO, newkeys, oldkeys) && IsPlayerInAnyVehicle(playerid) && GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
+	{
+		new engine,lights,alarm,doors,bonnet,boot,objective,vehicleid;
+		vehicleid = GetPlayerVehicleID(playerid);
+		if(GetVehicleModel(vehicleid) == 481 || GetVehicleModel(vehicleid) == 509 || GetVehicleModel(vehicleid) == 510) return SendClientMessageEx(playerid,COLOR_WHITE,"[ERROR]: No puedes usar este comando si estás en este tipo de vehiculos.");
+		GetVehicleParamsEx(vehicleid,engine,lights,alarm,doors,bonnet,boot,objective);
+		if(engine == VEHICLE_PARAMS_ON)
+		{
+			SetVehicleEngine(vehicleid, playerid);
+		}
+		else if((engine == VEHICLE_PARAMS_OFF || engine == VEHICLE_PARAMS_UNSET))
+		{
+		    if(GetPVarType(playerid, "pDynamicBB"))
+		{
+		    DeletePVar(playerid, "pDynamicBB"); DeletePVar(playerid, "pDynamicBBStation"); DeletePVar(playerid, "pDynamicBBLabel");
+		    DeletePVar(playerid, "pDynamicBBX"); DeletePVar(playerid, "pDynamicBBY"); DeletePVar(playerid, "pDynamicBBZ");
+		    if(GetPVarType(playerid, "pDynamicBBArea"))
+		    {
+		        new string[128];
+				format(string, sizeof(string), "* %s apago su stereo.", SenderName(playerid));
+		        foreach(Player, i)
+				{
+		            if(IsPlayerInDynamicArea(i, GetPVarInt(playerid, "pDynamicBBArea")))
+		            {
+		                StopAudioEx(i);
+		                SendClientMessage(i, COLOR_PURPLE, string);
+					}
+				}
+		        DeletePVar(playerid, "pDynamicBBArea");
+			}
+			SendClientMessage(playerid, COLOR_WHITE, "Apagaste tu stereo!");
+		}
+			else
+		{
+		    foreach(Player, i)
+			{
+		        if(GetPVarType(i, "pDynamicBB"))
+		        {
+					if(GetPVarInt(i, "pDynamicBBVW") == GetPlayerVirtualWorld(playerid) && GetPVarInt(i, "pDynamicBBInt") == GetPlayerInterior(playerid) && IsPlayerInRangeOfPoint(playerid, 5.0, GetPVarFloat(i, "pDynamicBBX"), GetPVarFloat(i, "pDynamicBBY"), GetPVarFloat(i, "pDynamicBBZ")))
+					{
+					    DeletePVar(i, "pDynamicBB");
+						DeletePVar(i, "pDynamicBBStation");
+					    DeletePVar(i, "pDynamicBBX");
+						DeletePVar(i, "pDynamicBBY");
+						DeletePVar(i, "pDynamicBBZ");
+						DeletePVar(i, "pDynamicBBInt");
+						DeletePVar(i, "pDynamicBBVW");
+
+					    new string[128];
+					    if(GetPVarType(i, "pDynamicBBArea"))
+					    {
+					        for(new x=0; x<MAX_PLAYERS; x++)
+							{
+					            if(IsPlayerInDynamicArea(x, GetPVarInt(x, "pDynamicBBArea")))
+					            {
+					                StopAudioEx(x);
+					                SendClientMessage(x, COLOR_PURPLE, string);
+								}
+							}
+					        DeletePVar(i, "pDynamicBBArea");
+						}
+						return 1;
+					}
+				}
+		    }
+		}
+			SendClientMessageEx(playerid, COLOR_WHITE, "Motor del vehículo se está prendiendo, por favor espera ...");
+			SetTimerEx("SetVehicleEngine", 1000, 0, "dd",  vehicleid, playerid);
+		}
+	}
 	if(IsKeyJustDown(KEY_CROUCH, newkeys, oldkeys))
 	{
 		for(new x = 0; x < MAX_BUSINESS; x++)
@@ -46572,7 +46643,7 @@ function SetVehicleEngine(vehicleid, playerid)
 		if(f_vHealth < 350.0) return SendClientMessageEx(playerid, COLOR_RED, "El coche no prenderá, el motor se ha quemado! (/servicios)");
 	    if(VehicleFuel[vehicleid] <= 0) return SendClientMessageEx(playerid, COLOR_RED, "El coche no prenderá, no hay gasolina en el tanque! (/servicios)");
 		SetVehicleParamsEx(vehicleid,VEHICLE_PARAMS_ON,lights,alarm,doors,bonnet,boot,objective);
-		SendClientMessageEx(playerid, COLOR_WHITE, "Vehiculo a encendido con éxito. (/v motor para apagarlo).");
+		SendClientMessageEx(playerid, COLOR_WHITE, "El motor del vehículo ha arrancado, escribe /v motor o pulsa la tecla N para apagarlo.");
 		arr_Engine{vehicleid} = 1;
 	}
 	return 1;
