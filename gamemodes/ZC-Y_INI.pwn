@@ -2427,262 +2427,31 @@ return 1;
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {
 
-if(!IsValidVehicle(vehicleid))
-{
-    format(szMessage, sizeof(szMessage), "AdmWarning: %s fue baneado automáticamente, razón: Crasher",GetPlayerNameEx(playerid));
-    SendClientMessageToAllEx(COLOR_LIGHTRED, szMessage);
-    DestroyVehicle(vehicleid);
-    print(szMessage);
-    Info[playerid][pBanned] = 2;
-    new ip[32];
-    GetPlayerIp(playerid,ip,sizeof(ip));
-    AddBan(ip);
-   	SendClientMessageEx(playerid, COLOR_GENERAL, "Aviso:"COL_WHITE"Fuiste expulsado automáticamente por usar hacks ilegales dentro del servidor.");
-    Expulsar(playerid);
-}
-Seatbelt[playerid] = 0;
-if(GetPVarInt(playerid, "Injured") == 1) SetPVarInt(playerid, "ToBeEjected", 1);
-if(Info[playerid][pEstado] != 0) SetPVarInt( playerid, "ToBeEjected", 1 );
-SetPVarInt(playerid, "LastWeapon", GetPlayerWeapon(playerid));
-new engine,lights,alarm,doors,bonnet,boot,objective;
-GetVehicleParamsEx(vehicleid,engine,lights,alarm,doors,bonnet,boot,objective);
-if(engine == VEHICLE_PARAMS_UNSET) switch(GetVehicleModel(vehicleid))
-{
-	case 509, 481, 510: VehicleFuel[vehicleid] = 500, arr_Engine{vehicleid} = 1, SetVehicleParamsEx(vehicleid,VEHICLE_PARAMS_ON,lights,alarm,doors,bonnet,boot,objective), arr_Engine{vehicleid} = 1;
-	default: SetVehicleParamsEx(vehicleid,VEHICLE_PARAMS_OFF,VEHICLE_PARAMS_OFF,alarm,doors,bonnet,boot,objective), arr_Engine{vehicleid} = 0;
-}
-if(!ispassenger)
-{
-	if(FBI_Vehicle(vehicleid))
-  	{
-	    if(Team_FBI(playerid)) { return 1; }
-	    else
- 		{
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No perteneces al FBI!");
-			return 1;
-		}
-	}
-	else if(SAMD_Vehicle(vehicleid))
+	if(!IsValidVehicle(vehicleid))
 	{
-	    if(Team_SAMD(playerid)) { return 1; }
-	    else
-	    {
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No perteneces a SAMD!");
-			return 1;
-		}
+	    format(szMessage, sizeof(szMessage), "AdmWarning: %s fue baneado automáticamente, razón: Crasher",GetPlayerNameEx(playerid));
+	    SendClientMessageToAllEx(COLOR_LIGHTRED, szMessage);
+	    DestroyVehicle(vehicleid);
+	    print(szMessage);
+	    Info[playerid][pBanned] = 2;
+	    new ip[32];
+	    GetPlayerIp(playerid,ip,sizeof(ip));
+	    AddBan(ip);
+	   	SendClientMessageEx(playerid, COLOR_GENERAL, "Aviso:"COL_WHITE"Fuiste expulsado automáticamente por usar hacks ilegales dentro del servidor.");
+	    Expulsar(playerid);
 	}
-	else if(Mecanico_Vehicle(vehicleid))
+	Seatbelt[playerid] = 0;
+	if(GetPVarInt(playerid, "Injured") == 1) SetPVarInt(playerid, "ToBeEjected", 1);
+	if(Info[playerid][pEstado] != 0) SetPVarInt( playerid, "ToBeEjected", 1 );
+	SetPVarInt(playerid, "LastWeapon", GetPlayerWeapon(playerid));
+	new engine,lights,alarm,doors,bonnet,boot,objective;
+	GetVehicleParamsEx(vehicleid,engine,lights,alarm,doors,bonnet,boot,objective);
+	if(engine == VEHICLE_PARAMS_UNSET) switch(GetVehicleModel(vehicleid))
 	{
-	    if(Team_Mecanicos(playerid)) { return 1; }
-	    else
-	    {
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No perteneces al taller de mecánica!");
-			return 1;
-		}
+		case 509, 481, 510: VehicleFuel[vehicleid] = 500, arr_Engine{vehicleid} = 1, SetVehicleParamsEx(vehicleid,VEHICLE_PARAMS_ON,lights,alarm,doors,bonnet,boot,objective), arr_Engine{vehicleid} = 1;
+		default: SetVehicleParamsEx(vehicleid,VEHICLE_PARAMS_OFF,VEHICLE_PARAMS_OFF,alarm,doors,bonnet,boot,objective), arr_Engine{vehicleid} = 0;
 	}
-	else if(VIP_Car(vehicleid))
-	{
-	    if(Info[playerid][pVIP] != 0) return SendClientMessageEx(playerid, COLOR_YELLOW, "VIP: Este vehículo es del garage VIP, tiene gasolina ilimitada.");
-		RemovePlayerFromVehicle(playerid);
-		new Float:slx, Float:sly, Float:slz;
-		GetPlayerPos(playerid, slx, sly, slz);
-		SetPlayerPos(playerid, slx, sly, slz);
-		NOPCheck(playerid);
-		SendClientMessageEx(playerid, COLOR_GREY, "* Este vehiculo es del garage VIP y no eres VIP!");
-		return 1;
-	}
-	else if(CNN_Vehicle(vehicleid))
-	{
-	    if(Team_LSTV(playerid)) { return 1; }
-	    else
-	    {
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No perteneces a SA News!");
-			return 1;
-		}
-	}
-	else if(GobierAuto(vehicleid))
-	{
-	    if(Gobierno(playerid)) { return 1; }
-	    else
-		{
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No formas parte del gobierno!");
-			return 1;
-		}
-	}
-	else if(IsAnNGCar(vehicleid))
-	{
-		if(Team_NG(playerid)) { return 1; }
-	    else
-		{
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No perteneces a la Guardia Nacional!");
-			return 1;
-		}
-	}
-	else if (LSPD_IsACopCar(vehicleid))
-	{
-		if(Team_SAPD(playerid)) return 1;
-		else
-		{
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No formas parte del cuerpo de policías!");
-			return 1;
-		}
-	}
-	else if (IsAnSecurityCar(vehicleid))
-	{
-		if(BankSystem(playerid)) return 1;
-		else
-		{
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No formas parte del personal del Banco de Los Santos!");
-			return 1;
-		}
-	}
-	// Jobs
-	else if(IsAPizzabike(vehicleid))
-	{
-	    if(Info[playerid][pJob] == 5 || Info[playerid][pJob2] == 5) { return 1; }
-	    else
-		{
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No eres Pizza Boy!");
-			return 1;
-		}
-	}
-	else if(Taxi_Vehicle(vehicleid) || Bus_Vehicle(vehicleid))
-	{
-	    if(Info[playerid][pJob] == 9 || Info[playerid][pJob2] == 9) { return 1; }
-	    else
-		{
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No eres Taxista!");
-			return 1;
-		}
-	}
-	else if(IsAHarvest(vehicleid))
-	{
-	    if(Info[playerid][pJob] == 10 || Info[playerid][pJob2] == 10) { return 1; }
-	    else
-	    {
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-			NOPCheck(playerid);
-			SendClientMessageEx(playerid, COLOR_GREY, "* No eres Cosechador!");
-			return 1;
-		}
-	}
-	else if(IsATruckerCar(vehicleid))
-	{
-    	if(Info[playerid][pJob] == 7 || Info[playerid][pJob2] == 7)
-		{
-			new string[128];
-			new truckcontents = TruckContents[vehicleid];
-			new truckcontentname[25];
-			if(truckcontents == 0)
-			{ format(truckcontentname, sizeof(truckcontentname), "Nada"); }
-			else if(truckcontents >= 1 && truckcontents <= 3)
-			{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Alimentos y comidas");}
-			else if(truckcontents >= 4 && truckcontents <= 6)
-			{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Ropa y Calzado"); }
-			else if(truckcontents == 7)
-			{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Materiales Legales"); }
-			else if(truckcontents >= 8 && truckcontents <= 10)
-			{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Objetos del 24/7"); }
-			else if(truckcontents >= 11 && truckcontents <= 15)
-			{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Armas Ilegales"); }
-			else if(truckcontents >= 16 && truckcontents <= 20)
-			{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Drogas"); }
-			else if(truckcontents >= 21 && truckcontents <= 25)
-			{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Materiales Ilegales"); }
-			format(string, sizeof(string), "TRABAJO: (Registro: %s %d) - (Contenido: %s{FFFF00})", GetVehicleName(vehicleid), vehicleid, truckcontentname);
-			SendClientMessageEx(playerid, COLOR_YELLOW, string);
-			if(IsACop(playerid) && truckcontents >= 11)
-			{
-				SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Para remover productos ilegales usa /limpiarcamion cerca del camión.");
-			}
-			if(truckcontents > 0 && TruckUsed[playerid] == INVALID_VEHICLE_ID)
-			{
-				SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Para entregar productos usa /robarcamion como el conductor.");
-			}
-			else if(TruckUsed[playerid] == INVALID_VEHICLE_ID)
-			{
-				SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Para obtener productos y entregarlos usa /cargarcamion siendo el conductor.");
-			}
-			else if(TruckUsed[playerid] == vehicleid && gPlayerCheckpointStatus[playerid] == CHECKPOINT_RETURNTRUCK)
-			{
-				SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Este es tu camión, aún no lo has devuelto a Ocean Docks para que te pagen.");
-			}
-			else if(TruckUsed[playerid] == vehicleid)
-			{
-				SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Este es tu camión, aún no has entregado los productos.");
-			}
-			else if(TruckUsed[playerid] != INVALID_VEHICLE_ID)
-			{
-				SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Ya estás en otra entrega, usa /cancelar camión para cancelar la entrega.");
-			}
-		}
-    	else
-		{
-		    RemovePlayerFromVehicle(playerid);
-		    new Float:slx, Float:sly, Float:slz;
-			GetPlayerPos(playerid, slx, sly, slz);
-			SetPlayerPos(playerid, slx, sly, slz);
-		    SendClientMessageEx(playerid, COLOR_GREY, "* No eres camionero!");
-		}
-	}
-}
-else if(!IsPlayerInRangeOfVehicle(playerid, vehicleid, 7.5) || LockStatus[vehicleid] >= 1){ // G-bugging fix
-	ClearAnimations(playerid);
-}
-return 1;
+	return 1;
 }
 Team_SAPD(playerid){
 if(IsPlayerConnectedEx(playerid)){
@@ -5681,7 +5450,6 @@ if(newstate == PLAYER_STATE_PASSENGER)
 if(newstate == PLAYER_STATE_DRIVER)
 {// 38 / 49 / 56 = SS
     TextDrawShowForPlayer(playerid, Speedo[playerid]);
-    NOPCheck(playerid);
 	SetPlayerArmedWeapon(playerid, 0);
     fVehSpeed[playerid] = 0.0;
 	new newcar = GetPlayerVehicleID(playerid);
@@ -7362,7 +7130,7 @@ SAMCVehicles[6] = AddStaticVehicleEx(487,1117.3091000,-1308.3262000,33.3584000,2
 //FBI
 FBIVehicle[0] = AddStaticVehicleEx(421,1511.6005,-1478.1461,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
 FBIVehicle[1] = AddStaticVehicleEx(421,1520.0981,-1478.1387,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
-FBIVehicle[2] = AddStaticVehicleEx(421,1515.7172 -1478.1461,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
+FBIVehicle[2] = AddStaticVehicleEx(421,1515.7172, -1478.1461,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
 FBIVehicle[3] = AddStaticVehicleEx(490,1537.4667,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
 FBIVehicle[4] = AddStaticVehicleEx(490,1533.2220,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
 FBIVehicle[5] = AddStaticVehicleEx(490,1528.8412,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
@@ -27527,7 +27295,7 @@ if(strcmp(params, "motor", true) == 0 && IsPlayerInAnyVehicle(playerid) && GetPl
 {
 	new engine,lights,alarm,doors,bonnet,boot,objective,vehicleid;
 	vehicleid = GetPlayerVehicleID(playerid);
-	if(GetVehicleModel(vehicleid) == 481 || GetVehicleModel(vehicleid) == 509 || GetVehicleModel(vehicleid) == 510) return SendClientMessageEx(playerid,COLOR_WHITE,"[ERROR]: No puedes usar este comando si estás en este tipo de vehiculos.");
+	if(GetVehicleModel(vehicleid) == 481 || GetVehicleModel(vehicleid) == 509 || GetVehicleModel(vehicleid) == 510) return SendClientMessageEx(playerid,COLOR_WHITE,"El único motor son los pedales, a pedalear imbécil.");
 	GetVehicleParamsEx(vehicleid,engine,lights,alarm,doors,bonnet,boot,objective);
 	if(engine == VEHICLE_PARAMS_ON)
 	{
@@ -27536,60 +27304,218 @@ if(strcmp(params, "motor", true) == 0 && IsPlayerInAnyVehicle(playerid) && GetPl
 	else if((engine == VEHICLE_PARAMS_OFF || engine == VEHICLE_PARAMS_UNSET))
 	{
 	    if(GetPVarType(playerid, "pDynamicBB"))
-	{
-	    DeletePVar(playerid, "pDynamicBB"); DeletePVar(playerid, "pDynamicBBStation"); DeletePVar(playerid, "pDynamicBBLabel");
-	    DeletePVar(playerid, "pDynamicBBX"); DeletePVar(playerid, "pDynamicBBY"); DeletePVar(playerid, "pDynamicBBZ");
-	    if(GetPVarType(playerid, "pDynamicBBArea"))
-	    {
-	        new string[128];
-			format(string, sizeof(string), "* %s apago su stereo.", SenderName(playerid));
-	        foreach(Player, i)
-			{
-	            if(IsPlayerInDynamicArea(i, GetPVarInt(playerid, "pDynamicBBArea")))
-	            {
-	                StopAudioEx(i);
-	                SendClientMessage(i, COLOR_PURPLE, string);
+		{
+		    DeletePVar(playerid, "pDynamicBB"); DeletePVar(playerid, "pDynamicBBStation"); DeletePVar(playerid, "pDynamicBBLabel");
+		    DeletePVar(playerid, "pDynamicBBX"); DeletePVar(playerid, "pDynamicBBY"); DeletePVar(playerid, "pDynamicBBZ");
+		    if(GetPVarType(playerid, "pDynamicBBArea"))
+		    {
+		        new string[128];
+				format(string, sizeof(string), "* %s apago su stereo.", SenderName(playerid));
+		        foreach(Player, i)
+				{
+		            if(IsPlayerInDynamicArea(i, GetPVarInt(playerid, "pDynamicBBArea")))
+		            {
+		                StopAudioEx(i);
+		                SendClientMessage(i, COLOR_PURPLE, string);
+					}
 				}
+		        DeletePVar(playerid, "pDynamicBBArea");
 			}
-	        DeletePVar(playerid, "pDynamicBBArea");
+			SendClientMessage(playerid, COLOR_WHITE, "Apagaste tu stereo!");
 		}
-		SendClientMessage(playerid, COLOR_WHITE, "Apagaste tu stereo!");
-	}
 		else
-	{
+		{
+		    foreach(Player, i)
+			{
+		        if(GetPVarType(i, "pDynamicBB"))
+		        {
+					if(GetPVarInt(i, "pDynamicBBVW") == GetPlayerVirtualWorld(playerid) && GetPVarInt(i, "pDynamicBBInt") == GetPlayerInterior(playerid) && IsPlayerInRangeOfPoint(playerid, 5.0, GetPVarFloat(i, "pDynamicBBX"), GetPVarFloat(i, "pDynamicBBY"), GetPVarFloat(i, "pDynamicBBZ")))
+					{
+					    DeletePVar(i, "pDynamicBB");
+						DeletePVar(i, "pDynamicBBStation");
+					    DeletePVar(i, "pDynamicBBX");
+						DeletePVar(i, "pDynamicBBY");
+						DeletePVar(i, "pDynamicBBZ");
+						DeletePVar(i, "pDynamicBBInt");
+						DeletePVar(i, "pDynamicBBVW");
+
+					    new string[128];
+					    if(GetPVarType(i, "pDynamicBBArea"))
+					    {
+					        for(new x=0; x<MAX_PLAYERS; x++)
+							{
+					            if(IsPlayerInDynamicArea(x, GetPVarInt(x, "pDynamicBBArea")))
+					            {
+					                StopAudioEx(x);
+					                SendClientMessage(x, COLOR_PURPLE, string);
+								}
+							}
+					        DeletePVar(i, "pDynamicBBArea");
+						}
+						return 1;
+					}
+				}
+		    }
+		}
 	    foreach(Player, i)
 		{
-	        if(GetPVarType(i, "pDynamicBB"))
-	        {
-				if(GetPVarInt(i, "pDynamicBBVW") == GetPlayerVirtualWorld(playerid) && GetPVarInt(i, "pDynamicBBInt") == GetPlayerInterior(playerid) && IsPlayerInRangeOfPoint(playerid, 5.0, GetPVarFloat(i, "pDynamicBBX"), GetPVarFloat(i, "pDynamicBBY"), GetPVarFloat(i, "pDynamicBBZ")))
+			new v = GetPlayerVehicle(i, vehicleid);
+		    if(v != -1)
+			{
+				if(i != playerid)
 				{
-				    DeletePVar(i, "pDynamicBB");
-					DeletePVar(i, "pDynamicBBStation");
-				    DeletePVar(i, "pDynamicBBX");
-					DeletePVar(i, "pDynamicBBY");
-					DeletePVar(i, "pDynamicBBZ");
-					DeletePVar(i, "pDynamicBBInt");
-					DeletePVar(i, "pDynamicBBVW");
-
-				    new string[128];
-				    if(GetPVarType(i, "pDynamicBBArea"))
-				    {
-				        for(new x=0; x<MAX_PLAYERS; x++)
-						{
-				            if(IsPlayerInDynamicArea(x, GetPVarInt(x, "pDynamicBBArea")))
-				            {
-				                StopAudioEx(x);
-				                SendClientMessage(x, COLOR_PURPLE, string);
-							}
-						}
-				        DeletePVar(i, "pDynamicBBArea");
-					}
+					SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
 					return 1;
 				}
 			}
-	    }
-	}
-		SendClientMessageEx(playerid, COLOR_WHITE, "Motor del vehículo se está encendiendo...");
+		}
+		if(FBI_Vehicle(vehicleid))
+	  	{
+			if(!Team_FBI(playerid)) {
+			
+				SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if(SAMD_Vehicle(vehicleid))
+		{
+		    if(!Team_SAMD(playerid)) {
+		    
+				SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if(Mecanico_Vehicle(vehicleid))
+		{
+		    if(!Team_Mecanicos(playerid)) {
+		    
+                SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if(CNN_Vehicle(vehicleid))
+		{
+		    if(!Team_LSTV(playerid)) {
+		    
+                SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if(GobierAuto(vehicleid))
+		{
+		    if(!Gobierno(playerid)) {
+		    
+			    SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if(IsAnNGCar(vehicleid))
+		{
+			if(!Team_NG(playerid)) {
+			
+			    SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if (LSPD_IsACopCar(vehicleid))
+		{
+			if(!Team_SAPD(playerid)) {
+			
+				SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if (IsAnSecurityCar(vehicleid))
+		{
+			if(!BankSystem(playerid)) {
+			
+				SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		// Jobs
+		else if(IsAPizzabike(vehicleid))
+		{
+		    if(Info[playerid][pJob] != 5 || Info[playerid][pJob2] != 5) {
+		    
+				SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if(Taxi_Vehicle(vehicleid) || Bus_Vehicle(vehicleid))
+		{
+		    if(Info[playerid][pJob] != 9 || Info[playerid][pJob2] != 9) {
+		    
+				SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if(IsAHarvest(vehicleid))
+		{
+		    if(Info[playerid][pJob] != 10 || Info[playerid][pJob2] != 10) {
+
+				SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		else if(IsATruckerCar(vehicleid))
+		{
+	    	if(Info[playerid][pJob] == 7 || Info[playerid][pJob2] == 7)
+			{
+				new string[128];
+				new truckcontents = TruckContents[vehicleid];
+				new truckcontentname[25];
+				if(truckcontents == 0)
+				{ format(truckcontentname, sizeof(truckcontentname), "Nada"); }
+				else if(truckcontents >= 1 && truckcontents <= 3)
+				{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Alimentos y comidas");}
+				else if(truckcontents >= 4 && truckcontents <= 6)
+				{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Ropa y Calzado"); }
+				else if(truckcontents == 7)
+				{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Materiales Legales"); }
+				else if(truckcontents >= 8 && truckcontents <= 10)
+				{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Objetos del 24/7"); }
+				else if(truckcontents >= 11 && truckcontents <= 15)
+				{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Armas Ilegales"); }
+				else if(truckcontents >= 16 && truckcontents <= 20)
+				{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Drogas"); }
+				else if(truckcontents >= 21 && truckcontents <= 25)
+				{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Materiales Ilegales"); }
+				format(string, sizeof(string), "TRABAJO: (Registro: %s %d) - (Contenido: %s{FFFF00})", GetVehicleName(vehicleid), vehicleid, truckcontentname);
+				SendClientMessageEx(playerid, COLOR_YELLOW, string);
+				if(IsACop(playerid) && truckcontents >= 11)
+				{
+					SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Para remover productos ilegales usa /limpiarcamion cerca del camión.");
+				}
+				if(truckcontents > 0 && TruckUsed[playerid] == INVALID_VEHICLE_ID)
+				{
+					SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Para entregar productos usa /robarcamion como el conductor.");
+				}
+				else if(TruckUsed[playerid] == INVALID_VEHICLE_ID)
+				{
+					SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Para obtener productos y entregarlos usa /cargarcamion siendo el conductor.");
+				}
+				else if(TruckUsed[playerid] == vehicleid && gPlayerCheckpointStatus[playerid] == CHECKPOINT_RETURNTRUCK)
+				{
+					SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Este es tu camión, aún no lo has devuelto a Ocean Docks para que te pagen.");
+				}
+				else if(TruckUsed[playerid] == vehicleid)
+				{
+					SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Este es tu camión, aún no has entregado los productos.");
+				}
+				else if(TruckUsed[playerid] != INVALID_VEHICLE_ID)
+				{
+					SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Ya estás en otra entrega, usa /cancelar camión para cancelar la entrega.");
+				}
+			}
+	    	else
+			{
+				SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+				return 1;
+			}
+		}
+		SendClientMessageEx(playerid, COLOR_WHITE, "Arrancando el motor del vehículo...");
+		PlayerPlaySound(playerid, 1022, 0.0, 0.0, 0.0);
 		SetTimerEx("SetVehicleEngine", 1000, 0, "dd",  vehicleid, playerid);
 	}
 }
@@ -40388,60 +40314,218 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		}
 		else if((engine == VEHICLE_PARAMS_OFF || engine == VEHICLE_PARAMS_UNSET))
 		{
-		    if(GetPVarType(playerid, "pDynamicBB"))
-		{
-		    DeletePVar(playerid, "pDynamicBB"); DeletePVar(playerid, "pDynamicBBStation"); DeletePVar(playerid, "pDynamicBBLabel");
-		    DeletePVar(playerid, "pDynamicBBX"); DeletePVar(playerid, "pDynamicBBY"); DeletePVar(playerid, "pDynamicBBZ");
-		    if(GetPVarType(playerid, "pDynamicBBArea"))
-		    {
-		        new string[128];
-				format(string, sizeof(string), "* %s apago su stereo.", SenderName(playerid));
-		        foreach(Player, i)
-				{
-		            if(IsPlayerInDynamicArea(i, GetPVarInt(playerid, "pDynamicBBArea")))
-		            {
-		                StopAudioEx(i);
-		                SendClientMessage(i, COLOR_PURPLE, string);
+
+			if(GetPVarType(playerid, "pDynamicBB"))
+			{
+			    DeletePVar(playerid, "pDynamicBB"); DeletePVar(playerid, "pDynamicBBStation"); DeletePVar(playerid, "pDynamicBBLabel");
+			    DeletePVar(playerid, "pDynamicBBX"); DeletePVar(playerid, "pDynamicBBY"); DeletePVar(playerid, "pDynamicBBZ");
+			    if(GetPVarType(playerid, "pDynamicBBArea"))
+			    {
+			        new string[128];
+					format(string, sizeof(string), "* %s apago su stereo.", SenderName(playerid));
+			        foreach(Player, i)
+					{
+			            if(IsPlayerInDynamicArea(i, GetPVarInt(playerid, "pDynamicBBArea")))
+			            {
+			                StopAudioEx(i);
+			                SendClientMessage(i, COLOR_PURPLE, string);
+						}
 					}
+			        DeletePVar(playerid, "pDynamicBBArea");
 				}
-		        DeletePVar(playerid, "pDynamicBBArea");
+				SendClientMessage(playerid, COLOR_WHITE, "Apagaste tu stereo!");
 			}
-			SendClientMessage(playerid, COLOR_WHITE, "Apagaste tu stereo!");
-		}
 			else
-		{
+			{
+			    foreach(Player, i)
+				{
+			        if(GetPVarType(i, "pDynamicBB"))
+			        {
+						if(GetPVarInt(i, "pDynamicBBVW") == GetPlayerVirtualWorld(playerid) && GetPVarInt(i, "pDynamicBBInt") == GetPlayerInterior(playerid) && IsPlayerInRangeOfPoint(playerid, 5.0, GetPVarFloat(i, "pDynamicBBX"), GetPVarFloat(i, "pDynamicBBY"), GetPVarFloat(i, "pDynamicBBZ")))
+						{
+						    DeletePVar(i, "pDynamicBB");
+							DeletePVar(i, "pDynamicBBStation");
+						    DeletePVar(i, "pDynamicBBX");
+							DeletePVar(i, "pDynamicBBY");
+							DeletePVar(i, "pDynamicBBZ");
+							DeletePVar(i, "pDynamicBBInt");
+							DeletePVar(i, "pDynamicBBVW");
+
+						    new string[128];
+						    if(GetPVarType(i, "pDynamicBBArea"))
+						    {
+						        for(new x=0; x<MAX_PLAYERS; x++)
+								{
+						            if(IsPlayerInDynamicArea(x, GetPVarInt(x, "pDynamicBBArea")))
+						            {
+						                StopAudioEx(x);
+						                SendClientMessage(x, COLOR_PURPLE, string);
+									}
+								}
+						        DeletePVar(i, "pDynamicBBArea");
+							}
+							return 1;
+						}
+					}
+			    }
+			}
 		    foreach(Player, i)
 			{
-		        if(GetPVarType(i, "pDynamicBB"))
-		        {
-					if(GetPVarInt(i, "pDynamicBBVW") == GetPlayerVirtualWorld(playerid) && GetPVarInt(i, "pDynamicBBInt") == GetPlayerInterior(playerid) && IsPlayerInRangeOfPoint(playerid, 5.0, GetPVarFloat(i, "pDynamicBBX"), GetPVarFloat(i, "pDynamicBBY"), GetPVarFloat(i, "pDynamicBBZ")))
+				new v = GetPlayerVehicle(i, vehicleid);
+			    if(v != -1)
+				{
+					if(i != playerid)
 					{
-					    DeletePVar(i, "pDynamicBB");
-						DeletePVar(i, "pDynamicBBStation");
-					    DeletePVar(i, "pDynamicBBX");
-						DeletePVar(i, "pDynamicBBY");
-						DeletePVar(i, "pDynamicBBZ");
-						DeletePVar(i, "pDynamicBBInt");
-						DeletePVar(i, "pDynamicBBVW");
-
-					    new string[128];
-					    if(GetPVarType(i, "pDynamicBBArea"))
-					    {
-					        for(new x=0; x<MAX_PLAYERS; x++)
-							{
-					            if(IsPlayerInDynamicArea(x, GetPVarInt(x, "pDynamicBBArea")))
-					            {
-					                StopAudioEx(x);
-					                SendClientMessage(x, COLOR_PURPLE, string);
-								}
-							}
-					        DeletePVar(i, "pDynamicBBArea");
-						}
+						SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
 						return 1;
 					}
 				}
-		    }
-		}
+			}
+			if(FBI_Vehicle(vehicleid))
+  			{
+				if(!Team_FBI(playerid)) {
+
+					SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if(SAMD_Vehicle(vehicleid))
+			{
+			    if(!Team_SAMD(playerid)) {
+
+					SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if(Mecanico_Vehicle(vehicleid))
+			{
+			    if(!Team_Mecanicos(playerid)) {
+
+	                SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if(CNN_Vehicle(vehicleid))
+			{
+			    if(!Team_LSTV(playerid)) {
+
+	                SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if(GobierAuto(vehicleid))
+			{
+			    if(!Gobierno(playerid)) {
+
+				    SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if(IsAnNGCar(vehicleid))
+			{
+				if(!Team_NG(playerid)) {
+
+				    SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if (LSPD_IsACopCar(vehicleid))
+			{
+				if(!Team_SAPD(playerid)) {
+
+					SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if (IsAnSecurityCar(vehicleid))
+			{
+				if(!BankSystem(playerid)) {
+
+					SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			// Jobs
+			else if(IsAPizzabike(vehicleid))
+			{
+			    if(Info[playerid][pJob] != 5 || Info[playerid][pJob2] != 5) {
+
+					SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if(Taxi_Vehicle(vehicleid) || Bus_Vehicle(vehicleid))
+			{
+			    if(Info[playerid][pJob] != 9 || Info[playerid][pJob2] != 9) {
+
+					SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if(IsAHarvest(vehicleid))
+			{
+			    if(Info[playerid][pJob] != 10 || Info[playerid][pJob2] != 10) {
+
+					SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
+			else if(IsATruckerCar(vehicleid))
+			{
+		    	if(Info[playerid][pJob] == 7 || Info[playerid][pJob2] == 7)
+				{
+					new string[128];
+					new truckcontents = TruckContents[vehicleid];
+					new truckcontentname[25];
+					if(truckcontents == 0)
+					{ format(truckcontentname, sizeof(truckcontentname), "Nada"); }
+					else if(truckcontents >= 1 && truckcontents <= 3)
+					{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Alimentos y comidas");}
+					else if(truckcontents >= 4 && truckcontents <= 6)
+					{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Ropa y Calzado"); }
+					else if(truckcontents == 7)
+					{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Materiales Legales"); }
+					else if(truckcontents >= 8 && truckcontents <= 10)
+					{ format(truckcontentname, sizeof(truckcontentname), "{00F70C}Objetos del 24/7"); }
+					else if(truckcontents >= 11 && truckcontents <= 15)
+					{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Armas Ilegales"); }
+					else if(truckcontents >= 16 && truckcontents <= 20)
+					{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Drogas"); }
+					else if(truckcontents >= 21 && truckcontents <= 25)
+					{ format(truckcontentname, sizeof(truckcontentname), "{FF0606}Materiales Ilegales"); }
+					format(string, sizeof(string), "TRABAJO: (Registro: %s %d) - (Contenido: %s{FFFF00})", GetVehicleName(vehicleid), vehicleid, truckcontentname);
+					SendClientMessageEx(playerid, COLOR_YELLOW, string);
+					if(IsACop(playerid) && truckcontents >= 11)
+					{
+						SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Para remover productos ilegales usa /limpiarcamion cerca del camión.");
+					}
+					if(truckcontents > 0 && TruckUsed[playerid] == INVALID_VEHICLE_ID)
+					{
+						SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Para entregar productos usa /robarcamion como el conductor.");
+					}
+					else if(TruckUsed[playerid] == INVALID_VEHICLE_ID)
+					{
+						SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Para obtener productos y entregarlos usa /cargarcamion siendo el conductor.");
+					}
+					else if(TruckUsed[playerid] == vehicleid && gPlayerCheckpointStatus[playerid] == CHECKPOINT_RETURNTRUCK)
+					{
+						SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Este es tu camión, aún no lo has devuelto a Ocean Docks para que te pagen.");
+					}
+					else if(TruckUsed[playerid] == vehicleid)
+					{
+						SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Este es tu camión, aún no has entregado los productos.");
+					}
+					else if(TruckUsed[playerid] != INVALID_VEHICLE_ID)
+					{
+						SendClientMessageEx(playerid, COLOR_YELLOW, "TRABAJO: Ya estás en otra entrega, usa /cancelar camión para cancelar la entrega.");
+					}
+				}
+		    	else
+				{
+					SendClientMessageEx(playerid, COLOR_RED, "No tienes las llaves de este vehículo.");
+					return 1;
+				}
+			}
 			SendClientMessageEx(playerid, COLOR_WHITE, "Motor del vehículo se está encendiendo...");
 			SetTimerEx("SetVehicleEngine", 1000, 0, "dd",  vehicleid, playerid);
 		}
