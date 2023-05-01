@@ -1173,7 +1173,6 @@ pRadio,
 pRadioFreq,
 pIpadMusic,
 pWeapons[13],
-pAcento[40],
 pHead,
 pCHits,
 pFHits,
@@ -1297,7 +1296,7 @@ new skinlist = mS_INVALID_LISTID,
 	JustReported[MAX_PLAYERS],
 	PlayerDuda[MAX_PLAYERS],
 	szDialog[255],
-	szMessage[128];
+	szMessage[255];
 
 new TransferMoney[MAX_PLAYERS],
 	TransferTo[MAX_PLAYERS],
@@ -1423,23 +1422,7 @@ new InsideMainMenu[MAX_PLAYERS];
 new HelpingNewbie[MAX_PLAYERS];
 new Advisors = 0;
 new AdvisorCall = 999;
-//login nuevo fenix def
-new Text:TextdrawZCL0;
-new Text:TextdrawZCL1;
-new Text:TextdrawZCL2;
-new Text:TextdrawZCL3;
-new Text:TextdrawZCL4;
-new Text:TextdrawZCL5;
-new Text:TextdrawZCL6;
-new Text:TextdrawZCL7;
-new Text:TextInfoZC0;
-new Text:TextInfoZC1;
-new Text:TextInfoZC2;
-new Text:TextInfoZC3;
-new Text:TextInfoZC4;
-new Text:TextInfoZC5;
-new Text:TextInfoZC6;
-new Text:TextInfoZC7;
+
 //lnfd
 
 new InviteOffer[MAX_PLAYERS];
@@ -2080,7 +2063,6 @@ function LoadUser_data(playerid,name[],value[])
 		format( mStr, sizeof( mStr ), "Gun%d", m);
 		INI_Int(mStr, Info[playerid][pWeapons][m]);
 	}
-	INI_String("Acento",Info[playerid][pAcento], 40);
 	INI_Int("PTokens",Info[playerid][pPaintTokens]);
 	INI_Int("Head",Info[playerid][pHead]);
 	INI_Int("TaxiLicense", Info[playerid][pTaxiLicense]);
@@ -3776,33 +3758,29 @@ function SafeLogin(playerid)
 ShowMenuLogin(playerid)
 {
 	ClearChatbox(playerid);
-	TextDrawShowForPlayer(playerid, TextdrawZCL0);
-	TextDrawShowForPlayer(playerid, TextdrawZCL1);
-	TextDrawShowForPlayer(playerid, TextdrawZCL2);
-	TextDrawShowForPlayer(playerid, TextdrawZCL3);
-	TextDrawShowForPlayer(playerid, TextdrawZCL4);
-	TextDrawShowForPlayer(playerid, TextdrawZCL5);
-	TextDrawShowForPlayer(playerid, TextdrawZCL6);
-	TextDrawShowForPlayer(playerid, TextdrawZCL7);
-	
-	TextDrawHideForPlayer(playerid, SanAnton[0]);
-	TextDrawHideForPlayer(playerid, SanAnton[1]);
-	TextDrawHideForPlayer(playerid, SanAnton[2]);
-	SelectTextDraw(playerid, COLOR_NEWS2);
+	new playername[MAX_PLAYER_NAME];
+	GetPlayerName(playerid, playername, sizeof(playername));
+    if(INI_Exist(playername))
+	{
+		InsideMainMenu[playerid] = true;
+		INI_ParseFile(UserPath(playerid), "LoadUser_pass", .bExtra = true, .extra = playerid);
+		format(szMessage, sizeof(szMessage), ""COL_WHITE"\n¡Bienvenido de nuevo %s!\n\nIngresa la contraseña asociada a tu cuenta para acceder al servidor.\n\n"COL_GENERAL"Recuerda respetar las normas del servidor para no ser sancionado."COL_WHITE"\n\n", GetPlayerNameEx(playerid));
+		ShowPlayerDialog(playerid,DLOGIN,DIALOG_STYLE_PASSWORD ,""COL_GENERAL"SAN ANTÓN "COL_WHITE"RP - INICIO DE SESIÓN",szMessage,"Iniciar","Salir");
+		SetPlayerVirtualWorld(playerid, 20);
+	}
+	else
+	{
+    	InsideMainMenu[playerid] = true;
+		format(szMessage, sizeof(szMessage), ""COL_WHITE"\n¡Hola %s!\n\nParece que aún no has entrado en nuestro servidor.\n\nTu nombre no se encuentra registrado en nuestra base de datos.\n\nPor favor, registrate ingresando una contraseña.\n\n", GetPlayerNameEx(playerid));
+		ShowPlayerDialog(playerid,DREGISTER,DIALOG_STYLE_INPUT ,""COL_GENERAL"SAN ANTÓN "COL_WHITE"RP - REGISTRO",szMessage,"Registrarse","Salir");
+		SetPlayerVirtualWorld(playerid, 20);
+	}
 	return 1;
 }
 
 HideMenuLogin(playerid)
 {
-	TextDrawHideForPlayer(playerid, TextdrawZCL0);
-	TextDrawHideForPlayer(playerid, TextdrawZCL1);
-	TextDrawHideForPlayer(playerid, TextdrawZCL2);
-	TextDrawHideForPlayer(playerid, TextdrawZCL3);
-	TextDrawHideForPlayer(playerid, TextdrawZCL4);
-	TextDrawHideForPlayer(playerid, TextdrawZCL5);
-	TextDrawHideForPlayer(playerid, TextdrawZCL6);
-	TextDrawHideForPlayer(playerid, TextdrawZCL7);
-	
+
 	TextDrawShowForPlayer(playerid, SanAnton[0]);
 	TextDrawShowForPlayer(playerid, SanAnton[1]);
 	TextDrawShowForPlayer(playerid, SanAnton[2]);
@@ -3981,7 +3959,6 @@ Info[playerid][pBanDuda] = 0;				Info[playerid][pRMuted] = 0;
 Info[playerid][pRMutedTotal] = 0;			Info[playerid][pRMutedTime] = 0;
 Info[playerid][pPasaporte] = 0;				Info[playerid][pRadio] = 0;
 Info[playerid][pRadioFreq] = 0;				Info[playerid][pIpadMusic] = 0;
-format(Info[playerid][pAcento], 40, "latino");
 Info[playerid][pPaintTeam] = 0; 			Info[playerid][pPaintTokens] = 0;
 Info[playerid][pVehicleKeysFrom] = INVALID_PLAYER_ID;
 Info[playerid][pVIPCHAT] = 0;				Info[playerid][pLockCar] = INVALID_VEHICLE_ID;
@@ -5717,7 +5694,7 @@ if(newstate == PLAYER_STATE_DRIVER)
     if(GetCarSale(newcar) != -1)
     {
 		format(szMessage, sizeof(szMessage),""COL_WHITE"Este vehículo está en venta.\n\nModelo: %s\nPrecio: %d\n\n¿Quieres comprar este vehículo?", GetVehicleName(newcar), varCarSale[GetCarSale(newcar)][CSVehCost]);
-		ShowPlayerDialog(playerid,DIALOG_CDBUY,DIALOG_STYLE_MSGBOX,""COL_GENERAL"ZC-RP - "COL_WHITE"Adquirir vehículo",szMessage,"Comprar","Cancelar");
+		ShowPlayerDialog(playerid,DIALOG_CDBUY,DIALOG_STYLE_MSGBOX,""COL_GENERAL"SA-RP - "COL_WHITE"Adquirir vehículo",szMessage,"Comprar","Cancelar");
 	    TogglePlayerControllable(playerid, false);
 	    return 1;
     }
@@ -7303,167 +7280,6 @@ TextDrawSetProportional(SanAnton[2], 1);
 TextDrawSetShadow(SanAnton[2], 1);
 textdrawscount++;
 
-//login new fenix
-TextdrawZCL0 = TextDrawCreate(626.375000, 224.333343, "usebox");
-TextDrawLetterSize(TextdrawZCL0, 0.000000, 20.618516);
-TextDrawTextSize(TextdrawZCL0, 434.250000, 0.000000);
-TextDrawAlignment(TextdrawZCL0, 1);
-TextDrawColor(TextdrawZCL0, 0);
-TextDrawUseBox(TextdrawZCL0, true);
-TextDrawBoxColor(TextdrawZCL0, 102);
-TextDrawSetShadow(TextdrawZCL0, 0);
-TextDrawSetOutline(TextdrawZCL0, 0);
-TextDrawFont(TextdrawZCL0, 0);
-textdrawscount++;
-
-TextdrawZCL1 = TextDrawCreate(455.000000, 256.083557, "Registrarse");
-TextDrawLetterSize(TextdrawZCL1, 0.449999, 1.600000);
-TextDrawAlignment(TextdrawZCL1, 1);
-TextDrawColor(TextdrawZCL1, -1061109505);
-TextDrawSetShadow(TextdrawZCL1, 0);
-TextDrawSetOutline(TextdrawZCL1, -1);
-TextDrawBackgroundColor(TextdrawZCL1, 51);
-TextDrawFont(TextdrawZCL1, 2);
-TextDrawSetProportional(TextdrawZCL1, 1);
-TextDrawSetSelectable(TextdrawZCL1, 1);
-textdrawscount++;
-
-TextdrawZCL2 = TextDrawCreate(454.375000, 295.166656, "Ingresar");
-TextDrawLetterSize(TextdrawZCL2, 0.449999, 1.600000);
-TextDrawAlignment(TextdrawZCL2, 1);
-TextDrawColor(TextdrawZCL2, -1061109505);
-TextDrawSetShadow(TextdrawZCL2, 0);
-TextDrawSetOutline(TextdrawZCL2, -1);
-TextDrawBackgroundColor(TextdrawZCL2, 51);
-TextDrawFont(TextdrawZCL2, 2);
-TextDrawSetProportional(TextdrawZCL2, 1);
-TextDrawSetSelectable(TextdrawZCL2, 1);
-textdrawscount++;
-
-TextdrawZCL3 = TextDrawCreate(454.375000, 335.416595, "Informacion");
-TextDrawLetterSize(TextdrawZCL3, 0.449999, 1.600000);
-TextDrawAlignment(TextdrawZCL3, 1);
-TextDrawColor(TextdrawZCL3, -1061109505);
-TextDrawSetShadow(TextdrawZCL3, 0);
-TextDrawSetOutline(TextdrawZCL3, -1);
-TextDrawBackgroundColor(TextdrawZCL3, 51);
-TextDrawFont(TextdrawZCL3, 2);
-TextDrawSetProportional(TextdrawZCL3, 1);
-TextDrawSetSelectable(TextdrawZCL3, 1);
-textdrawscount++;
-
-TextdrawZCL4 = TextDrawCreate(456.250000, 369.833343, "Salir");
-TextDrawLetterSize(TextdrawZCL4, 0.449999, 1.600000);
-TextDrawAlignment(TextdrawZCL4, 1);
-TextDrawColor(TextdrawZCL4, -1061109505);
-TextDrawSetShadow(TextdrawZCL4, 0);
-TextDrawSetOutline(TextdrawZCL4, 1);
-TextDrawBackgroundColor(TextdrawZCL4, 51);
-TextDrawFont(TextdrawZCL4, 2);
-TextDrawSetProportional(TextdrawZCL4, 1);
-TextDrawSetSelectable(TextdrawZCL4, 1);
-textdrawscount++;
-
-TextdrawZCL5 = TextDrawCreate(625.750000, 224.916656, "usebox");
-TextDrawLetterSize(TextdrawZCL5, 0.000000, 1.109259);
-TextDrawTextSize(TextdrawZCL5, 434.875000, 0.000000);
-TextDrawAlignment(TextdrawZCL5, 1);
-TextDrawColor(TextdrawZCL5, 0);
-TextDrawUseBox(TextdrawZCL5, true);
-TextDrawBoxColor(TextdrawZCL5, 102);
-TextDrawSetShadow(TextdrawZCL5, 0);
-TextDrawSetOutline(TextdrawZCL5, 0);
-TextDrawFont(TextdrawZCL5, 0);
-textdrawscount++;
-
-TextdrawZCL6 = TextDrawCreate(473.125000, 221.083297, "San Anton");
-TextDrawLetterSize(TextdrawZCL6, 0.449999, 1.600000);
-TextDrawAlignment(TextdrawZCL6, 1);
-TextDrawColor(TextdrawZCL6, -5963521);
-TextDrawSetShadow(TextdrawZCL6, 0);
-TextDrawSetOutline(TextdrawZCL6, 0);
-TextDrawBackgroundColor(TextdrawZCL6, 255);
-TextDrawFont(TextdrawZCL6, 2);
-TextDrawSetProportional(TextdrawZCL6, 1);
-textdrawscount++;
-
-TextInfoZC0 = TextDrawCreate(482.000000, 122.833335, "usebox");
-TextDrawLetterSize(TextInfoZC0, 0.000000, 22.951850);
-TextDrawTextSize(TextInfoZC0, 165.500000, 0.000000);
-TextDrawAlignment(TextInfoZC0, 1);
-TextDrawColor(TextInfoZC0, 0);
-TextDrawUseBox(TextInfoZC0, true);
-TextDrawBoxColor(TextInfoZC0, 102);
-TextDrawSetShadow(TextInfoZC0, 0);
-TextDrawSetOutline(TextInfoZC0, 0);
-TextDrawFont(TextInfoZC0, 0);
-
-TextInfoZC1 = TextDrawCreate(481.375000, 122.833335, "usebox");
-TextDrawLetterSize(TextInfoZC1, 0.000000, 1.109256);
-TextDrawTextSize(TextInfoZC1, 165.500000, 0.000000);
-TextDrawAlignment(TextInfoZC1, 1);
-TextDrawColor(TextInfoZC1, 0);
-TextDrawUseBox(TextInfoZC1, true);
-TextDrawBoxColor(TextInfoZC1, 102);
-TextDrawSetShadow(TextInfoZC1, 0);
-TextDrawSetOutline(TextInfoZC1, 0);
-TextDrawFont(TextInfoZC1, 0);
-
-TextInfoZC2 = TextDrawCreate(379.500000, 297.250030, "usebox");
-TextDrawLetterSize(TextInfoZC2, 0.000000, 2.664812);
-TextDrawTextSize(TextInfoZC2, 262.375000, 0.000000);
-TextDrawAlignment(TextInfoZC2, 1);
-TextDrawColor(TextInfoZC2, 0);
-TextDrawUseBox(TextInfoZC2, true);
-TextDrawBoxColor(TextInfoZC2, 102);
-TextDrawSetShadow(TextInfoZC2, 0);
-TextDrawSetOutline(TextInfoZC2, 0);
-TextDrawFont(TextInfoZC2, 0);
-
-TextInfoZC3 = TextDrawCreate(276.875000, 301.000030, "Aceptar");
-TextDrawLetterSize(TextInfoZC3, 0.449999, 1.600000);
-TextDrawAlignment(TextInfoZC3, 1);
-TextDrawColor(TextInfoZC3, -1061109505);
-TextDrawSetShadow(TextInfoZC3, 0);
-TextDrawSetOutline(TextInfoZC3, 1);
-TextDrawBackgroundColor(TextInfoZC3, 255);
-TextDrawFont(TextInfoZC3, 2);
-TextDrawSetProportional(TextInfoZC3, 1);
-TextDrawSetSelectable(TextInfoZC3, 1);
-
-TextInfoZC4 = TextDrawCreate(278.125000, 119.583328, ": Informacion");
-TextDrawLetterSize(TextInfoZC4, 0.449999, 1.600000);
-TextDrawAlignment(TextInfoZC4, 1);
-TextDrawColor(TextInfoZC4, -1061109505);
-TextDrawSetShadow(TextInfoZC4, 0);
-TextDrawSetOutline(TextInfoZC4, 1);
-TextDrawBackgroundColor(TextInfoZC4, 255);
-TextDrawFont(TextInfoZC4, 2);
-TextDrawSetProportional(TextInfoZC4, 1);
-
-TextInfoZC6 = TextDrawCreate(176.250000, 177.333236, "IP Ts3: N/A");
-TextDrawLetterSize(TextInfoZC6, 0.449999, 1.600000);
-TextDrawAlignment(TextInfoZC6, 1);
-TextDrawColor(TextInfoZC6, -1061109505);
-TextDrawSetShadow(TextInfoZC6, 0);
-TextDrawSetOutline(TextInfoZC6, 1);
-TextDrawBackgroundColor(TextInfoZC6, 255);
-TextDrawFont(TextInfoZC6, 2);
-TextDrawSetProportional(TextInfoZC6, 1);
-
-TextInfoZC7 = TextDrawCreate(176.250000, 222.833374, "Web: N/A");
-TextDrawLetterSize(TextInfoZC7, 0.449999, 1.600000);
-TextDrawAlignment(TextInfoZC7, 1);
-TextDrawColor(TextInfoZC7, -1061109505);
-TextDrawSetShadow(TextInfoZC7, 0);
-TextDrawSetOutline(TextInfoZC7, 1);
-TextDrawBackgroundColor(TextInfoZC7, 255);
-TextDrawFont(TextInfoZC7, 2);
-TextDrawSetProportional(TextInfoZC7, 1);
-
-
-//termina login nuevo fenix
-
 for(new i = 0; i<MAX_PLAYERS; i++) // FUCK OFF SCOTT xD
 {
 	Speedo[i] =
@@ -7561,9 +7377,9 @@ FBIVehicle[13] = AddStaticVehicleEx(487,319.66525269,-1508.03454590,77.93007660,
 FBIVehicle[14] = AddStaticVehicleEx(487,339.3534,-1485.7954,76.7156,220.2925,0,0,TIME_RESPAWN); //Maverick
 FBIVehicle[15] = AddStaticVehicleEx(487,301.4234,-1532.7819,76.6724,246.3760,0,0,TIME_RESPAWN); //Maverick
 // Mecánicos LS
-MecanicosVehicle[0] = AddStaticVehicleEx(525,2048.1238,-2087.0771,13.5000, 180.0000,-1, -1, 100,TIME_RESPAWN); //Tow Truck     92
-MecanicosVehicle[1] = AddStaticVehicleEx(525,2024.6377,-2069.3645,13.5000, 90.0000,-1, -1, 100,TIME_RESPAWN); //Tow Truck     93
-MecanicosVehicle[2] = AddStaticVehicleEx(552,2035.1687,-2092.4419,13.3038,-1,-1, 100,TIME_RESPAWN); //Utility
+MecanicosVehicle[0] = AddStaticVehicleEx(525,2048.1238,-2087.0771,13.5000, 180.0000,-1, -1,TIME_RESPAWN); //Tow Truck     92
+MecanicosVehicle[1] = AddStaticVehicleEx(525,2024.6377,-2069.3645,13.5000, 90.0000,-1, -1,TIME_RESPAWN); //Tow Truck     93
+MecanicosVehicle[2] = AddStaticVehicleEx(552,2035.1687,-2092.4419,13.3038, 180.0000,-1,-1,TIME_RESPAWN); //Utility
 
 // CNN Vehículos
 CNNVehicle[0] = AddStaticVehicleEx(488,741.7805800,-1369.6355000,25.9572100,180.6610000,3,118,TIME_RESPAWN); // News Van 116
@@ -12498,7 +12314,6 @@ stock OnPlayerSavedStats(const playerid)
 		    format(mStr,sizeof(mStr), "Gun%d", m);
 		    INI_WriteInt(File,mStr, Info[playerid][pWeapons][m]);
 		}
-		INI_WriteString(File,"Acento",Info[playerid][pAcento]);
 		INI_WriteInt(File,"PTokens",Info[playerid][pPaintTokens]);
 		INI_WriteInt(File,"Head",Info[playerid][pHead]);
 		INI_WriteInt(File,"TaxiLicense", Info[playerid][pTaxiLicense]);
@@ -13537,86 +13352,6 @@ public OnPlayerModelSelection(playerid, response, listid, modelid)
 	}
 	return 1;
 }
-public OnPlayerClickTextDraw(playerid, Text:clickedid)
-{
-	if (clickedid == TextdrawZCL1)
-	{
-			new playername[MAX_PLAYER_NAME];
-			GetPlayerName(playerid, playername, sizeof(playername));
-	    	if(INI_Exist(playername))
-   			{
-   			    gPlayerAccount[playerid] = 1;
-                ShowPlayerDialog(playerid, DIALOG_CUENTAEXIST, DIALOG_STYLE_MSGBOX, ""COL_GENERAL"ZC:RP - "COL_WHITE"Aviso", "Tu cuenta se encuentra registrada", "Aceptar", "");
-			}
-			else
-			{
-	        	InsideMainMenu[playerid] = true;
-				format(szMessage, sizeof(szMessage), ""COL_WHITE"Bienvenido %s!\nIngresa una contraseña para registrarte en el servidor.\n\n"COL_GENERAL"Contraseña:", GetPlayerNameEx(playerid));
-				ShowPlayerDialog(playerid,DREGISTER,DIALOG_STYLE_INPUT ,""COL_GENERAL"ZC:RP - "COL_WHITE"Registro",szMessage,"Registrar","Salir");
-	    		SetPlayerVirtualWorld(playerid, 20);
-			}
-		 	SelectTextDraw(playerid, COLOR_NEWS2);
-			return 1;
-	}
-	else if (clickedid == TextdrawZCL2)
-	{
-			new playername[MAX_PLAYER_NAME];
-			GetPlayerName(playerid, playername, sizeof(playername));
-            if(INI_Exist(playername))
-			{
-  				InsideMainMenu[playerid] = true;
- 				INI_ParseFile(UserPath(playerid), "LoadUser_pass", .bExtra = true, .extra = playerid);
-				format(szMessage, sizeof(szMessage), ""COL_WHITE"Bienvenido %s!\nIngresa tu contraseña para ingresar al servidor.\n\n"COL_GENERAL"Contraseña:", GetPlayerNameEx(playerid));
-				ShowPlayerDialog(playerid,DLOGIN,DIALOG_STYLE_PASSWORD ,""COL_GENERAL"ZC:RP - "COL_WHITE"Ingreso",szMessage,"Entrar","Salir");
-				SetPlayerVirtualWorld(playerid, 20);
-			}
-			else
-			{
-   				gPlayerAccount[playerid] = 0;
-                ShowPlayerDialog(playerid, DIALOG_NOLOGIN, DIALOG_STYLE_MSGBOX, ""COL_GENERAL"ZC:RP - "COL_WHITE"Aviso", "Tu cuenta no se encuentra registrada", "Aceptar", "");
-                SelectTextDraw(playerid, COLOR_NEWS2);
-			}
-		 	SelectTextDraw(playerid, COLOR_NEWS2);
-	}
-	else if (clickedid == TextdrawZCL4)
-	{
-	    	TextDrawHideForPlayer(playerid, TextdrawZCL0);
-			TextDrawHideForPlayer(playerid, TextdrawZCL1);
-			TextDrawHideForPlayer(playerid, TextdrawZCL2);
-			TextDrawHideForPlayer(playerid, TextdrawZCL3);
-			TextDrawHideForPlayer(playerid, TextdrawZCL4);
-			TextDrawHideForPlayer(playerid, TextdrawZCL5);
-			TextDrawHideForPlayer(playerid, TextdrawZCL6);
-			TextDrawHideForPlayer(playerid, TextdrawZCL7);
-			Expulsar(playerid);
-
-	}
-	else if (clickedid == TextdrawZCL3)
-	{
-            TextDrawShowForPlayer(playerid, TextInfoZC0);
-			TextDrawShowForPlayer(playerid, TextInfoZC1);
-			TextDrawShowForPlayer(playerid, TextInfoZC2);
-			TextDrawShowForPlayer(playerid, TextInfoZC3);
-			TextDrawShowForPlayer(playerid, TextInfoZC4);
-			TextDrawShowForPlayer(playerid, TextInfoZC5);
-			TextDrawShowForPlayer(playerid, TextInfoZC6);
-			TextDrawShowForPlayer(playerid, TextInfoZC7);
-			SelectTextDraw(playerid, COLOR_NEWS2);
-	}
-	else if (clickedid == TextInfoZC3)
-	{
- 			TextDrawHideForPlayer(playerid, TextInfoZC0);
-			TextDrawHideForPlayer(playerid, TextInfoZC1);
-			TextDrawHideForPlayer(playerid, TextInfoZC2);
-			TextDrawHideForPlayer(playerid, TextInfoZC3);
-			TextDrawHideForPlayer(playerid, TextInfoZC4);
-			TextDrawHideForPlayer(playerid, TextInfoZC5);
-			TextDrawHideForPlayer(playerid, TextInfoZC6);
-			TextDrawHideForPlayer(playerid, TextInfoZC7);
-			SelectTextDraw(playerid, COLOR_NEWS2);
-	}
-	return 1;
-}
 
 public OnPlayerEditDynamicObject(playerid, objectid, response, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz)
 {
@@ -13718,11 +13453,11 @@ case DIALOG_BOOMBOX:
         }
 		switch(listitem)
   		{
-    		case 0: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX1,DIALOG_STYLE_MSGBOX,""COL_GENERAL"ZC:RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nAbsolutely Smooth Jazz - SKY.FM","Continuar","Atrás"); }
-            case 1: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX2,DIALOG_STYLE_MSGBOX,""COL_GENERAL"ZC:RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nRADIO SOUND POP - BRASIL","Continuar","Atrás"); }
-            case 2: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX3,DIALOG_STYLE_MSGBOX,""COL_GENERAL"ZC:RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nHOT 108 JAMZ","Continuar","Atrás"); }
-            case 3: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX4,DIALOG_STYLE_MSGBOX,""COL_GENERAL"ZC:RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nVenice Classic Radio Italia","Continuar","Atrás"); }
-            case 4: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX5,DIALOG_STYLE_MSGBOX,""COL_GENERAL"ZC:RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nRockRadio1.Com - Classic Rock and Heavy Metal","Continuar","Atrás"); }
+    		case 0: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX1,DIALOG_STYLE_MSGBOX,""COL_GENERAL"SA-RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nAbsolutely Smooth Jazz - SKY.FM","Continuar","Atrás"); }
+            case 1: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX2,DIALOG_STYLE_MSGBOX,""COL_GENERAL"SA-RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nRADIO SOUND POP - BRASIL","Continuar","Atrás"); }
+            case 2: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX3,DIALOG_STYLE_MSGBOX,""COL_GENERAL"SA-RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nHOT 108 JAMZ","Continuar","Atrás"); }
+            case 3: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX4,DIALOG_STYLE_MSGBOX,""COL_GENERAL"SA-RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nVenice Classic Radio Italia","Continuar","Atrás"); }
+            case 4: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX5,DIALOG_STYLE_MSGBOX,""COL_GENERAL"SA-RP - Stereo",""COL_WHITE"¿Deseas colocar esta estación?\nRockRadio1.Com - Classic Rock and Heavy Metal","Continuar","Atrás"); }
             case 5: { ShowPlayerDialog(playerid,DIALOG_BOOMBOX6,DIALOG_STYLE_INPUT, ""COL_GENERAL"Stereo - Inserta URL", ""COL_WHITE"Inserta un Stream (www.shoutcast.com) para reproducirlo", "Continuar", "Cancelar"); }
 			case 6:
 			{
@@ -17895,11 +17630,11 @@ case	NGMENUWEP:
 	{
         if(response)
         {
-	         if(strval(inputtext) < 18 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, REG_AGE, DIALOG_STYLE_INPUT,""COL_GENERAL"San Antón - "COL_WHITE"1/4", "ATENCIÓN!\n\n"COL_WHITE"* La edad mínima es 18\n * La edad máxima es 99",">","");
+	         if(strval(inputtext) < 18 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, REG_AGE, DIALOG_STYLE_INPUT,""COL_GENERAL"San Antón - "COL_WHITE"1/3", "ATENCIÓN!\n\n"COL_WHITE"* La edad mínima es 18\n * La edad máxima es 99",">","");
 	         {
 	         	Info[playerid][pAge] = strval(inputtext);
  				format(szDialog, sizeof(szDialog), ""COL_WHITE"* Edad: %d\n\nBien, ahora necesitamos saber que sexo es tu personaje.", strval(inputtext));
-				ShowPlayerDialog(playerid, REG_SEX, DIALOG_STYLE_MSGBOX,""COL_GENERAL"San Antón Roleplay - "COL_WHITE"2/4", szDialog,"Hombre","Mujer");
+				ShowPlayerDialog(playerid, REG_SEX, DIALOG_STYLE_MSGBOX,""COL_GENERAL"San Antón Roleplay - "COL_WHITE"2/3", szDialog,"Hombre","Mujer");
 	         }
 	    }
 	}
@@ -17909,52 +17644,22 @@ case	NGMENUWEP:
 		{
 			Info[playerid][pSex] = 1;
 	        Info[playerid][pChar] = 299;
-			format(szDialog, sizeof(szDialog), ""COL_WHITE"* Edad: %d.\n* Sexo: Masculino.\n\nLo último, como toda persona, todos tienen un lugar de nacimiento pero está vez tendrás que elegir un acento para tu personaje.\nEjm:\n\nNorteamericano.\nColombiano.", Info[playerid][pAge]);
-	        ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
+			format(szDialog, sizeof(szDialog), ""COL_WHITE"* Edad: %d.\n* Sexo: Masculino.\n\nPor favor, confirma que has introducido los datos correctamente para seguir con el registro.\n\nPuedes volver atrás para corregir los datos.", Info[playerid][pAge]);
+	        ShowPlayerDialog(playerid, D_REGCON, DIALOG_STYLE_MSGBOX, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/3",szDialog, "Confirmar", "Volver");
 	    }
 		else
 		{
 			Info[playerid][pSex] = 2;
 			Info[playerid][pChar] = 93;
-			format(szDialog, sizeof(szDialog), ""COL_WHITE"* Edad: %d.\n* Sexo: Femenino.\n\nLo último, como toda persona, todos tienen un lugar de nacimiento pero está vez tendrás que elegir un acento para tu personaje.\nEjm:\n\nNorteamericano.\nColombiano.", Info[playerid][pAge]);
-	        ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
+			format(szDialog, sizeof(szDialog), ""COL_WHITE"* Edad: %d.\n* Sexo: Femenino.\n\nPor favor, confirma que has introducido los datos correctamente para seguir con el registro.\n\nPuedes volver atrás para corregir los datos.", Info[playerid][pAge]);
+	        ShowPlayerDialog(playerid, D_REGCON, DIALOG_STYLE_MSGBOX, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/3",szDialog, "Confirmar", "Volver");
 		}
-	}
-	case D_REGACENT:
-	{
-	    if(response)
-	    {
-	        if(isnumeric(inputtext))
-	        {
-	            format(szDialog, sizeof(szDialog), ""COL_WHITE"No se puede ingresar números.\nDebes usar menos de 14 letras.\nEjemplo:\n\n* Colombiano\n* Chino\n* Argentino\n* Peruano\n* Ingresa el que quieras...");
-				return ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
-	        }
-	        if(isnull(inputtext))
-	        {
-	            format(szDialog, sizeof(szDialog), ""COL_WHITE"No has ingresado nada.\nDebes usar menos de 14 letras.\nEjemplo:\n\n* Colombiano\n* Chino\n* Argentino\n* Peruano\n* Ingresa el que quieras...");
-				return ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
-	        }
-        	if(strlen(inputtext) >= 15)
-			{
-			    format(szDialog, sizeof(szDialog), ""COL_WHITE"El acento que elegiste usa demasiados carácteres.\nDebes usar menos de 15 letras.\nEjemplo:\n\n* Colombiano\n* Chino\n* Argentino\n* Peruano\n* Ingresa el que quieras...");
-                return ShowPlayerDialog(playerid, D_REGACENT, DIALOG_STYLE_INPUT, ""COL_GENERAL"San Antón Roleplay - "COL_WHITE"3/4",szDialog, "Ok", "");
-			}
-			strmid(Info[playerid][pAcento], inputtext, 0, strlen(inputtext), 40);
-	        new atext[7];
-			switch(Info[playerid][pSex])
-			{
-				case 1: atext = "Hombre";
-				case 2: atext = "Mujer";
-			}
-			format(szDialog, sizeof(szDialog), ""COL_WHITE"Muy bien eso es todo pero antes debes confirmar tus datos.\n\n * Nombre: %s.\n * Edad: %d.\n * Sexo: %s.\n * Acento: %s.\n\nSi quieras corregir tus datos selecciona cancelar.", GetPlayerNameEx(playerid),Info[playerid][pAge],atext,Info[playerid][pAcento]);
-			ShowPlayerDialog(playerid, D_REGCON, DIALOG_STYLE_MSGBOX,""COL_GENERAL"San Antón Roleplay - "COL_WHITE"4/4", szDialog,"Confirmar","Cancelar");
-	    }
 	}
     case D_REGCON:
 	{
 	    if(response)
 	    {
-			new rt[] = "{FFFFFF}Gracias por confirmar los datos de tu personaje.\n\nAhora tienes que pasar por nuestro tutorial, te ayudará en un futuro.\n\nTerminando llegarás al aeropuerto donde comenzará la historia.\nSuerte! Gracias por preferirnos\n\n¿Preparado?";
+			new rt[] = "{FFFFFF}Gracias por confirmar los datos de tu personaje.\n\nAhora tienes que pasar por nuestro tutorial, te ayudará en un futuro.\n\nTerminando llegarás al aeropuerto donde comenzará la historia.\n¡Suerte! Gracias por preferirnos\n\n¿Preparado?";
 	        ShowPlayerDialog(playerid,DIALOG_REG_TUT,DIALOG_STYLE_MSGBOX,""COL_GENERAL"Fin del registro", rt,"Ver","");
 	    }
 	    else
@@ -18330,7 +18035,7 @@ case	NGMENUWEP:
 			    new cam = Random(1,8);
 				SetPlayerJoinCamera(playerid, cam);
 				format(szDialog, sizeof(szDialog), ""COL_WHITE"Ha ocurrido un error!\nHas ingresado una contraseña incorrecta.\nVuelve a ingresar tu contraseña correcta.\n\n"COL_GENERAL"Contraseña:", GetPlayerNameEx(playerid));
-				ShowPlayerDialog(playerid,DLOGIN,DIALOG_STYLE_PASSWORD ,""COL_GENERAL"ZC:RP - "COL_WHITE"ERROR",szDialog,"Entrar","Salir");
+				ShowPlayerDialog(playerid,DLOGIN,DIALOG_STYLE_PASSWORD ,""COL_GENERAL"SA-RP - "COL_WHITE"ERROR",szDialog,"Entrar","Salir");
 				SetPlayerVirtualWorld(playerid, 20);
             	return 1;
 			}
@@ -18345,7 +18050,7 @@ case	NGMENUWEP:
    	    		new cam = Random(1,8);
 				SetPlayerJoinCamera(playerid, cam);
 				format(szDialog, sizeof(szDialog), ""COL_WHITE"Ha ocurrido un error.\nDebes ingresar una contraseña no mayor de 24 carácteres.\nVuelve a intentarlo.\n\n"COL_GENERAL"Contraseña:");
-				ShowPlayerDialog(playerid,DREGISTER,DIALOG_STYLE_INPUT ,""COL_GENERAL"ZC:RP - "COL_WHITE"ERROR",szDialog,"Registrar","Salir");
+				ShowPlayerDialog(playerid,DREGISTER,DIALOG_STYLE_INPUT ,""COL_GENERAL"SA-RP - "COL_WHITE"ERROR",szDialog,"Registrar","Salir");
             	return 1;
         	}
         	if(isnull(inputtext))
@@ -18353,7 +18058,7 @@ case	NGMENUWEP:
         	    new cam = Random(1,8);
 				SetPlayerJoinCamera(playerid, cam);
 				format(szDialog, sizeof(szDialog), ""COL_WHITE"Ha ocurrido un error.\nDebes ingresar una contraseña con más de 1 carácter, no has ingresado nada.\nVuelve a intentarlo.\n\n"COL_GENERAL"Contraseña:");
-				ShowPlayerDialog(playerid,DREGISTER,DIALOG_STYLE_PASSWORD,""COL_GENERAL"ZC:RP - "COL_WHITE"ERROR",szDialog,"Registrar","Salir");
+				ShowPlayerDialog(playerid,DREGISTER,DIALOG_STYLE_PASSWORD,""COL_GENERAL"SA-RP - "COL_WHITE"ERROR",szDialog,"Registrar","Salir");
             	return 1;
         	}
         	InsideMainMenu[playerid] = false;
@@ -19613,39 +19318,12 @@ case	NGMENUWEP:
 			case    6: return ShowPlayerDialog(playerid,D_CVOTHERS,DIALOG_STYLE_LIST,""COL_GENERAL"Todo a 1 Coin","Navaja\nBat\nDesert E\nEscopeta\nMP5\nAK-47\nM4\nSniper\nMochila Rockstar\nBigotes Falsos\nEstrella Sheriff","Seleccionar","Atrás");
 			case    7:
 			{
-	            format(szDialog, sizeof(szDialog),""COL_WHITE"En esta opción cambiarás tu acento por 2 coins.\n\n* Acento actual: %s",Info[playerid][pAcento]);
+	            format(szDialog, sizeof(szDialog),""COL_WHITE"En esta opción cambiarás tu acento por 2 coins.\n\n");
 				ShowPlayerDialog(playerid,D_CVACENTO,DIALOG_STYLE_MSGBOX ,""COL_GENERAL"Cambiar Acento",szDialog,"Seguir","Salir");
-			}
+   }
 		}
 	}
-	case    D_CVACENTO:
-	{
-	    if(response)
-	    {
-	        if(Info[playerid][pCoinsVip] < 2) return SendClientMessageEx(playerid, COLOR_GREY, "* No tienes suficientes coins para comprar esta función.");
-	        if(isnull(inputtext))
-	        {
-	            format(szDialog, sizeof(szDialog), ""COL_WHITE"Debes usar menos de 14 letras.\nEjemplo:\n\n* Colombiano\n* Chino\n* Argentino\n* Africano\n* Ingresa el que quieras...");
-				return ShowPlayerDialog(playerid, D_CVACENTO, DIALOG_STYLE_INPUT, ""COL_GENERAL"Cambiar Acento",szDialog, "Ok", "Atrás");
-	        }
-        	if(strlen(inputtext) >= 15)
-			{
-			    format(szDialog, sizeof(szDialog), ""COL_WHITE"El acento que elegiste usa demasiados carácteres.\nDebes usar menos de 15 letras.\nEjemplo:\n\n* Colombiano\n* Chino\n* Argentino\n* Peruano\n* Ingresa el que quieras...");
-                return ShowPlayerDialog(playerid, D_CVACENTO, DIALOG_STYLE_INPUT, ""COL_GENERAL"Cambiar Acento",szDialog, "Ok", "Atrás");
-			}
-	        if(isnumeric(inputtext))
-	        {
-	            format(szDialog, sizeof(szDialog), ""COL_WHITE"No se puede ingresar números.\nDebes usar menos de 14 letras.\nEjemplo:\n\n* Colombiano\n* Chino\n* Argentino\n* Peruano\n* Ingresa el que quieras...");
-				return ShowPlayerDialog(playerid, D_CVACENTO, DIALOG_STYLE_INPUT, ""COL_GENERAL"Cambiar Acento",szDialog, "Ok", "Atrás");
-	        }
-			strmid(Info[playerid][pAcento], inputtext, 0, strlen(inputtext), 40);
-			Info[playerid][pCoinsVip] -= 2;
-		    format(szMessage, sizeof(szMessage), "[ACENTO] %s - Acento %s - Factura por 2 coins.", GetPlayerNameEx(playerid),inputtext);
-		    Log("logs/coins.log", szMessage);
-			format(szMessage, sizeof(szMessage), "Cambiaste tu acento por 2 coins. (Nuevo Acento: %s)",inputtext);
-			SendClientMessageEx(playerid, COLOR_GRAD2, szMessage);
-		}
-	}
+	case    D_CVACENTO: return SendClientMessageEx(playerid, COLOR_GREY, "* Cambio de acento no disponible.");
 	case    D_CVOTHERCONFIRM:
 	{
 	    if(response)
@@ -24949,7 +24627,7 @@ CMD:ayuda(playerid, params[])
 	if(IsPlayerConnectedEx(playerid))
 	{
     	new help[] = "Animaciones\nArmas\nBanco\nCasa\nChat\nCoche\nConcesionario\nFamilias\nLider\nMatrimonio\nPesca\nVip\nTeléfono\nTrabajo\nFacción\nGeneral\nNegocios\nStereo";
-    	ShowPlayerDialog(playerid, HELP_MENU, DIALOG_STYLE_LIST, ""COL_GENERAL"ZC:RP - "COL_WHITE"Ayuda", help, ">", "Salir");
+    	ShowPlayerDialog(playerid, HELP_MENU, DIALOG_STYLE_LIST, ""COL_GENERAL"SA-RP - "COL_WHITE"Ayuda", help, ">", "Salir");
 	}
 	return 1;
 }
@@ -26735,7 +26413,7 @@ zcmd(c, playerid, params[])
     if(Muted[playerid] == 1) return	SendClientMessageEx(playerid, TEAM_CYAN_COLOR, "* No puedes hablar estás silenciado.");
 	if(!IsPlayerConnectedEx(playerid)) return SendClientMessageEx(playerid, COLOR_GREY, "No estás logueado.");
 	if(isnull(params)) return SendClientMessageEx(playerid, COLOR_WHITE, "USA: /c [ic chat]");
-	format(szMessage, sizeof(szMessage), "[Acento %s] %s dice: %s", Info[playerid][pAcento],GetPlayerNameEx(playerid), params);
+	format(szMessage, sizeof(szMessage), "%s dice: %s",GetPlayerNameEx(playerid), params);
     NearMsg(playerid, COLOR_FADE1, szMessage, 15.0);
 	return 1;
 }
@@ -26750,7 +26428,7 @@ zcmd(s, playerid, params[]){
     if(!isnull(params)){
         switch(Info[playerid][pMaskuse]){
 			case 1: format(szMessage, sizeof(szMessage), "Desconocido susurra:  %s . . .", params);
-			default: format(szMessage, sizeof(szMessage), "[Acento %s] %s susurra: %s . . .", Info[playerid][pAcento],GetPlayerNameEx(playerid), params);
+			default: format(szMessage, sizeof(szMessage), "%s susurra: %s . . .", GetPlayerNameEx(playerid), params);
 		}
         ProxDetector(5.0, playerid, szMessage,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_FADE1,COLOR_FADE2);
 		format(szMessage, sizeof(szMessage), "susurro: %s", params);
@@ -26763,7 +26441,7 @@ zcmd(g, playerid, params[]){
     if(!isnull(params)){
         switch(Info[playerid][pMaskuse]){
 			case 1: format(szMessage, sizeof(szMessage), "Desconocido grita: ¡¡ %s !!", params);
-			default: format(szMessage, sizeof(szMessage), "[Acento %s] %s grita: %s!", Info[playerid][pAcento],GetPlayerNameEx(playerid), params);
+			default: format(szMessage, sizeof(szMessage), "%s grita: %s!", GetPlayerNameEx(playerid), params);
 		}
         ProxDetector(40.0, playerid, szMessage,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_FADE1,COLOR_FADE2);
 		format(szMessage, sizeof(szMessage), "grito: ¡¡ %s !!", params);
@@ -40198,10 +39876,10 @@ if(Info[playerid][pMaskuse] == 1)
 	SetPlayerChatBubble(playerid,text,COLOR_WHITE,20.0,5000);
 	return 0;
 }
-if(strlen(Info[playerid][pAcento]) >= 1)
+else
 {
     Anim_Hablar(playerid, text);
-	format(string, sizeof(string), "[Acento %s] %s dice: %s", Info[playerid][pAcento],GetPlayerNameEx(playerid), text);
+	format(string, sizeof(string), "%s dice: %s",GetPlayerNameEx(playerid), text);
     NearMsg(playerid, COLOR_FADE1, string, 15.0);
     SetPlayerChatBubble(playerid,text,-1,15.0,5000);
 }
@@ -41425,7 +41103,7 @@ if(IsPlayerConnectedEx(playerid) && IsPlayerConnectedEx(targetid))
     SendClientMessageEx(targetid,COLOR_GENERAL,"¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
 	format(string, sizeof(string), 				"Nombre: %s  Sexo: %s   Edad: %d", GetPlayerNameEx(playerid),sex,Info[playerid][pAge]);
 	SendClientMessageEx(targetid, COLOR_WHITE, string);
-	format(string, sizeof(string), 				"Fecha Nacimiento: %d   Origen: %s", 2013-Info[playerid][pAge],Info[playerid][pAcento]);
+	format(string, sizeof(string), 				"Fecha Nacimiento: %d", 2013-Info[playerid][pAge]);
 	SendClientMessageEx(targetid, COLOR_WHITE, string);
 	SendClientMessageEx(targetid,COLOR_GENERAL,"_______________________________________________________");
 }
