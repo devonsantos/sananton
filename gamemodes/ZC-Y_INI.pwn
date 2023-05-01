@@ -7478,8 +7478,8 @@ for(new i = 0; i<MAX_PLAYERS; i++) // FUCK OFF SCOTT xD
 }
 
 //San Andreas Police Departament Cars
-SAPDVehicles[0] = AddStaticVehicleEx(596,1601.872924,-1704.370971,5.612636,89.574440,1,0,TIME_RESPAWN); // Patrulla LS   	1 //596
-SAPDVehicles[1] = AddStaticVehicleEx(596,1601.902221,-1700.465332,5.634525,89.566131,1,0,TIME_RESPAWN); // Patrulla LS   	2 // 596
+SAPDVehicles[0] = AddStaticVehicleEx(596,1601.872924,-1704.370971,5.612636,89.574440,0,1,TIME_RESPAWN); // Patrulla LS   	1 //596
+SAPDVehicles[1] = AddStaticVehicleEx(596,1601.902221,-1700.465332,5.634525,89.566131,0,1,TIME_RESPAWN); // Patrulla LS   	2 // 596
 SAPDVehicles[2] = AddStaticVehicleEx(596,1601.933105,-1696.409912,5.642260,89.562606,0,1,TIME_RESPAWN); // Patrulla LS   	3 596/
 SAPDVehicles[3] = AddStaticVehicleEx(596,1601.963134,-1692.478881,5.656129,89.555740,0,1,TIME_RESPAWN); // Patrulla LS   	4 //569
 SAPDVehicles[4] = AddStaticVehicleEx(596,1595.511840,-1710.769531,5.613651,0.000000,0,1,TIME_RESPAWN); // Patrulla LS    	5
@@ -7510,22 +7510,20 @@ SAPDVehicles[28] =	AddStaticVehicleEx(523,1560.3358,-1708.2838,5.4613,359.7211,0
 SAPDVehicles[29] =	AddStaticVehicleEx(599,1544.9022,-1707.8859,6.0816,322.2441,0,1,TIME_RESPAWN); //30
 SAPDVehicles[30] =	AddStaticVehicleEx(599,1541.3705,-1705.2369,6.0824,318.1585,0,1,TIME_RESPAWN); ///31
 SAPDVehicles[31] =	AddStaticVehicleEx(599,1538.3998,-1701.8361,6.0766,309.0826,0,1,TIME_RESPAWN); ///32
-//SAPDVehicles[32] =	AddStaticVehicleEx(427,1557.8558,-1605.1543,13.5146,267.4417,0,1,TIME_RESPAWN); ///33
 SAPDVehicles[32] =	AddStaticVehicleEx(601,1544.6089,-1613.6875,13.1416,90.3137,0,1,TIME_RESPAWN); // ///34
-SAPDVehicles[33] =	AddStaticVehicleEx(497,1560.5781,-1644.7632,28.5767,90.9838,1,1,TIME_RESPAWN); /////35
+SAPDVehicles[33] =	AddStaticVehicleEx(497,1560.5781,-1644.7632,28.5767,90.9838,0,1,TIME_RESPAWN); /////35
 SAPDVehicles[34] = AddStaticVehicleEx(525,1556.5985,-1606.3214,13.2680,179.1279,17,20, TIME_RESPAWN); // Tow Truck
 SAPDVehicles[35] = AddStaticVehicleEx(525,1560.8201,-1606.3423,13.2557,178.6305,18,20, TIME_RESPAWN); // Tow Truck
-SAPDVehicles[36] = AddStaticVehicleEx(415,487.3500,-1638.3472,9001.7852,183.4520,0,0,TIME_RESPAWN); // Cheetah SAPD 1
-SAPDVehicles[37] = AddStaticVehicleEx(560,491.4538,-1638.0227,9001.7178,183.6139,0,0,TIME_RESPAWN); // Sultan SAPD 1
-SAPDVehicles[38] = AddStaticVehicleEx(560,492.4958,-1655.3491,9001.7314,3.5955,0,0,TIME_RESPAWN); // Sultan
-SAPDVehicles[39] = AddStaticVehicleEx(415,484.1988,-1655.9805,9001.7314,5.0119,0,0,TIME_RESPAWN); // Cheetah
-SAPDVehicles[40] = AddStaticVehicleEx(421,495.4609,-1638.1056,9001.7295,183.6311,0,0,TIME_RESPAWN);
-SAPDVehicles[41] = AddStaticVehicleEx(426,499.7182,-1637.6061,9001.7354,182.9925,0,0,TIME_RESPAWN); // Premier Change
-SAPDVehicles[42] = AddStaticVehicleEx(579,503.8369,-1637.5188,9001.7314,184.2466,0,0,TIME_RESPAWN); // Huntley Change
-SAPDVehicles[43] = AddStaticVehicleEx(461,507.7335,-1637.1544,9001.7295,184.5250,0,0,TIME_RESPAWN); // PCJ 600
-SAPDVehicles[45] = AddStaticVehicleEx(521,511.9490,-1637.0925,9001.7324,181.8966,1,0,TIME_RESPAWN); // fcr 900
-SAPDVehicles[46] = AddStaticVehicleEx(506,513.0107,-1654.1715,9001.7334,4.3899,0,0,TIME_RESPAWN); // Super GT
-
+SAPDVehicles[36] = AddStaticVehicleEx(415,487.3500,-1638.3472,9001.7852,183.4520,1,1,TIME_RESPAWN); // Cheetah SAPD 1
+SAPDVehicles[37] = AddStaticVehicleEx(560,491.4538,-1638.0227,9001.7178,183.6139,59,0,TIME_RESPAWN); // Sultan SAPD 1
+SAPDVehicles[38] = AddStaticVehicleEx(560,492.4958,-1655.3491,9001.7314,3.5955,48,0,TIME_RESPAWN); // Sultan
+SAPDVehicles[39] = AddStaticVehicleEx(415,484.1988,-1655.9805,9001.7314,5.0119,1,0,TIME_RESPAWN); // Cheetah
+SAPDVehicles[40] = AddStaticVehicleEx(421,495.4609,-1638.1056,9001.7295,183.6311,158,0,TIME_RESPAWN);
+SAPDVehicles[41] = AddStaticVehicleEx(426,499.7182,-1637.6061,9001.7354,182.9925,11,0,TIME_RESPAWN); // Premier Change
+SAPDVehicles[42] = AddStaticVehicleEx(579,503.8369,-1637.5188,9001.7314,184.2466,164,0,TIME_RESPAWN); // Huntley Change
+SAPDVehicles[43] = AddStaticVehicleEx(461,507.7335,-1637.1544,9001.7295,184.5250,5,0,TIME_RESPAWN); // PCJ 600
+SAPDVehicles[45] = AddStaticVehicleEx(521,511.9490,-1637.0925,9001.7324,181.8966,9,0,TIME_RESPAWN); // fcr 900
+SAPDVehicles[46] = AddStaticVehicleEx(506,513.0107,-1654.1715,9001.7334,4.3899,85,0,TIME_RESPAWN); // Super GT
 SAPDVehicles[47] = AddStaticVehicleEx(596,631.2089,-610.3391,16.0564,359.2538,57,1,TIME_RESPAWN);
 SAPDVehicles[48] = AddStaticVehicleEx(596,634.9767,-610.3834,16.0564,358.8744,57,1,TIME_RESPAWN);
 SAPDVehicles[49] = AddStaticVehicleEx(523,627.3511,-610.7618,16.1863,357.9838,57,1,TIME_RESPAWN);
@@ -7565,7 +7563,7 @@ FBIVehicle[15] = AddStaticVehicleEx(487,301.4234,-1532.7819,76.6724,246.3760,0,0
 // Mecánicos LS
 MecanicosVehicle[0] = AddStaticVehicleEx(525,2048.1238,-2087.0771,13.5000, 180.0000,-1, -1, 100,TIME_RESPAWN); //Tow Truck     92
 MecanicosVehicle[1] = AddStaticVehicleEx(525,2024.6377,-2069.3645,13.5000, 90.0000,-1, -1, 100,TIME_RESPAWN); //Tow Truck     93
-MecanicosVehicle[2] = AddStaticVehicleEx(552,2034.2194,-2092.8716,13.5000,90.0000,-1,-1, 100,TIME_RESPAWN); //Utility
+MecanicosVehicle[2] = AddStaticVehicleEx(552,2035.1687,-2092.4419,13.3038,-1,-1, 100,TIME_RESPAWN); //Utility
 
 // CNN Vehículos
 CNNVehicle[0] = AddStaticVehicleEx(488,741.7805800,-1369.6355000,25.9572100,180.6610000,3,118,TIME_RESPAWN); // News Van 116
@@ -7688,7 +7686,7 @@ CreateDynamic3DTextLabel("GYM Ganton Garage\nUsa /entrar con tu vehiculo para en
 CreateDynamic3DTextLabel("VIP Garage\nUsa /entrar con tu vehiculo para entrar",COLOR_YELLOW,853.3862,-1387.1884,13.7470+0.6,8.0);
 CreateDynamic3DTextLabel("/sacarsangre",COLOR_YELLOW,829.7163,-1225.0900,1195.0468+0.6,4.0);///SAMD
 CreateDynamic3DTextLabel("/cobrar\nDeudas del estado.",COLOR_GENERAL,358.8330,178.5853,1008.3828+0.6,4.0);/// /cobrar
-CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,317.4623,-1506.9045,24.9219+0.6,4.0);///arrest(FBI)
+CreateDynamic3DTextLabel("/arrestart",COLOR_DBLUE,317.4623,-1506.9045,24.9219+0.6,4.0);///arrest(FBI)
 CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,1559.3228,-1693.7491,5.8970+0.6,4.0);///arrest(LSPD)
 CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,613.3228,-589.1623,17.2266+0.6,4.0);///arrest(LSPD)
 //CreateDynamic3DTextLabel("/arrestojudicial\n(Sólo Policías)",COLOR_DBLUE,1455.6334,-1692.9596,15.4303+0.6,3.0); // arrest warr jud
@@ -9959,6 +9957,141 @@ CreateDynamicObject(2930, 1494.32617, -1764.85254, 3289.49268,   0.00000, 0.0000
 CreateDynamicObject(2930, 1497.51367, -1764.84570, 3289.50146,   0.00000, 0.00000, 90.43400);
 CreateDynamicObject(2930, 1500.73438, -1764.83887, 3289.50537,   0.00000, 0.00000, 90.43400);
 CreateDynamicObject(19273, 1482.16443, -1776.74268, 3282.33423,   0.00000, 0.00000, 269.92017);
+
+//Hotel by Jayceon
+CreateDynamicObject(1569, 979.29, -1011.87, 41.71,   0.00, 0.00, 0.00);
+CreateDynamicObject(1569, 1022.66, -984.38, 41.77,   0.00, 0.00, 0.00);
+CreateDynamicObject(1569, 1025.64, -984.37, 41.77,   0.00, 0.00, 180.00);
+CreateDynamicObject(1215, 1049.51, -968.01, 42.23,   0.00, 0.00, 0.00);
+CreateDynamicObject(1215, 1038.53, -969.53, 42.23,   0.00, 0.00, 0.00);
+CreateDynamicObject(1215, 1013.14, -973.14, 41.52,   0.00, 0.00, 0.00);
+CreateDynamicObject(1215, 1000.17, -974.42, 40.92,   0.00, 0.00, 0.00);
+CreateDynamicObject(4206, 997.38, -1013.04, 41.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(1569, 982.28, -1011.87, 41.71,   0.00, 0.00, 180.00);
+CreateDynamicObject(14590, 999.99, -962.66, 30.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(1566, 1002.96, -983.18, 26.02,   0.00, 0.00, 0.00);
+CreateDynamicObject(1566, 1002.97, -942.16, 26.02,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 984.60, -961.45, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 965.99, -959.54, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 981.42, -957.63, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 981.47, -964.47, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 979.95, -965.99, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 978.39, -967.48, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 979.05, -968.83, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 972.21, -967.44, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 971.55, -968.83, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 969.04, -966.16, 22.12,   0.00, 0.00, 180.00);
+CreateDynamicObject(19369, 970.69, -965.90, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 967.39, -964.65, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 983.00, -962.90, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 967.35, -957.92, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 968.94, -956.41, 22.12,   0.00, 0.00, 180.00);
+CreateDynamicObject(19369, 982.96, -959.18, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 976.79, -951.68, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 973.63, -951.68, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 968.94, -953.20, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 970.50, -951.68, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19379, 979.87, -961.19, 20.28,   0.00, 90.00, 90.00);
+CreateDynamicObject(19379, 975.60, -971.65, 20.26,   0.00, 90.00, 90.00);
+CreateDynamicObject(19379, 970.25, -961.19, 20.26,   0.00, 90.00, 90.00);
+CreateDynamicObject(18755, 975.32, -970.79, 22.29,   0.00, 0.00, 270.00);
+CreateDynamicObject(19369, 974.75, -968.83, 25.00,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 977.51, -968.95, 25.00,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 965.99, -962.74, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 965.99, -965.90, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(1566, 966.05, -962.84, 21.60,   0.00, 0.00, 90.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 984.55, -962.63, 21.60,   0.00, 0.00, 90.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.62);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 269.10);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.86);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(1566, 984.55, -959.46, 21.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(1566, 966.05, -959.69, 21.60,   0.00, 0.00, 268.80);
+CreateDynamicObject(19369, 984.60, -958.25, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 981.42, -954.51, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19369, 979.91, -951.68, 22.12,   0.00, 0.00, 90.00);
+CreateDynamicObject(19369, 981.42, -951.39, 22.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(19379, 970.25, -950.68, 20.26,   0.00, 90.00, 90.00);
+CreateDynamicObject(19379, 979.87, -950.68, 20.28,   0.00, 90.00, 90.00);
+CreateDynamicObject(948, 966.61, -959.00, 20.36,   0.00, 0.00, 4.98);
+CreateDynamicObject(948, 966.58, -963.63, 20.36,   0.00, 0.00, 4.98);
+CreateDynamicObject(948, 972.73, -968.38, 20.36,   0.00, 0.00, 0.00);
+CreateDynamicObject(948, 977.91, -968.53, 20.36,   0.00, 0.00, 0.00);
+CreateDynamicObject(2008, 979.09, -955.59, 20.34,   0.00, 0.00, 90.00);
+CreateDynamicObject(2024, 972.26, -955.72, 20.34,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 969.53, -952.19, 20.42,   0.00, 0.00, 0.00);
+CreateDynamicObject(2163, 981.26, -952.27, 20.32,   0.00, 0.00, 270.00);
+CreateDynamicObject(2164, 981.26, -954.03, 20.33,   0.00, 0.00, 270.00);
+CreateDynamicObject(2164, 981.29, -955.77, 20.33,   0.00, 0.00, 270.00);
+CreateDynamicObject(2163, 981.29, -957.49, 20.32,   0.00, 0.00, 270.00);
+CreateDynamicObject(2167, 979.55, -951.78, 20.33,   0.00, 0.00, 0.00);
+CreateDynamicObject(1663, 980.11, -954.77, 20.80,   0.00, 0.00, 270.00);
+CreateDynamicObject(2572, 970.90, -953.24, 20.34,   0.00, 0.00, 0.00);
+CreateDynamicObject(2572, 970.41, -956.44, 20.34,   0.00, 0.00, 90.00);
+CreateDynamicObject(2572, 980.47, -962.92, 20.34,   0.00, 0.00, 229.00);
+CreateDynamicObject(2069, 981.09, -965.54, 20.42,   0.00, 0.00, 0.00);
+CreateDynamicObject(19172, 972.47, -951.77, 22.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(19174, 969.04, -954.77, 22.54,   0.00, 0.00, 90.00);
+CreateDynamicObject(19173, 970.75, -965.81, 22.56,   0.00, 0.00, 180.00);
+CreateDynamicObject(14590, 999.99, -962.66, 15.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(14591, 999.99, -962.66, 30.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(14591, 999.99, -962.66, 15.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(1566, 1002.96, -983.14, 11.04,   0.00, 0.00, 0.00);
+CreateDynamicObject(1566, 1002.97, -942.16, 11.04,   0.00, 0.00, 0.00);
+CreateDynamicObject(14590, 999.99, -962.66, 0.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(14591, 999.99, -962.66, 0.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(1566, 1002.97, -942.16, -3.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(1566, 1002.96, -983.14, -3.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(19380, 970.27, -954.57, 23.94,   0.00, 90.00, 0.00);
+CreateDynamicObject(19380, 970.27, -964.20, 23.94,   0.00, 90.00, 0.00);
+CreateDynamicObject(19380, 980.74, -954.58, 23.94,   0.00, 90.00, 0.00);
+CreateDynamicObject(19380, 980.76, -964.20, 23.94,   0.00, 90.00, 0.00);
+CreateDynamicObject(2069, 970.02, -953.55, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 969.91, -956.30, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 969.71, -954.02, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 969.73, -955.95, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 971.10, -952.79, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 971.51, -952.54, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 973.33, -952.61, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 973.67, -952.87, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 978.85, -965.17, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 979.34, -965.12, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 980.53, -963.81, 18.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(2069, 980.66, -963.30, 18.74,   0.00, 0.00, 0.24);
+CreateDynamicObject(948, 972.41, -952.37, 20.36,   0.00, 0.00, 0.00);
+CreateDynamicObject(948, 969.33, -954.94, 20.36,   0.00, 0.00, 0.00);
+CreateDynamicObject(948, 980.20, -964.65, 20.36,   0.00, 0.00, 0.00);
+
 //ATM
 CreateDynamicObject(2942, 664.33, -577.96, 15.96,   0.00, 0.00, 0.00);
 CreateDynamicObject(2942, 665.59, -577.97, 15.96,   0.00, 0.00, 0.00);
@@ -11122,6 +11255,34 @@ CreateDynamicObject(3034, 1904.59998, -1766.59998, 4702.79980,   0.00000, 0.0000
 CreateDynamicObject(3034, 1897.00000, -1778.69995, 4702.00000,   0.00000, 0.00000, 182.00000);
 CreateDynamicObject(1723, 1892.54834, -1774.60742, 4700.39990,   0.00000, 0.00000, 70.12288);
 
+//Centro Comercial By Jayceon
+CreateDynamicObject(19322, 1117.59, -1490.01, 32.72,   0.00, 0.00, 0.00);
+CreateDynamicObject(19323, 1117.59, -1490.01, 32.72,   0.00, 0.00, 0.00);
+CreateDynamicObject(19325, 1101.75, -1435.20, 16.04,   0.00, 0.00, -0.30);
+CreateDynamicObject(19325, 1101.80, -1445.16, 16.04,   0.00, 0.00, 0.12);
+CreateDynamicObject(19325, 1101.75, -1452.35, 16.04,   0.00, 0.00, -0.54);
+CreateDynamicObject(19325, 1099.62, -1468.30, 16.04,   0.00, 0.00, -17.70);
+CreateDynamicObject(19325, 1096.34, -1478.71, 16.04,   0.00, 0.00, -17.64);
+CreateDynamicObject(19325, 1157.31, -1468.20, 16.04,   0.00, 0.00, 18.96);
+CreateDynamicObject(19325, 1160.52, -1477.98, 16.04,   0.00, 0.00, 18.60);
+CreateDynamicObject(19325, 1155.24, -1452.37, 16.04,   0.00, 0.00, 0.18);
+CreateDynamicObject(0, 1155.36, -1445.47, 16.04,   0.00, 0.00, -0.54);
+CreateDynamicObject(19325, 1155.39, -1434.93, 16.04,   0.00, 0.00, -0.54);
+CreateDynamicObject(0, 1163.15, -1441.53, 23.36,   0.00, 0.00, 0.00);
+CreateDynamicObject(19325, 1163.13, -1428.52, 23.36,   0.00, 0.00, 1.74);
+CreateDynamicObject(19325, 1155.39, -1445.58, 16.14,   0.00, 0.00, 0.00);
+CreateDynamicObject(19325, 1163.11, -1442.07, 23.76,   0.00, 0.00, 0.00);
+CreateDynamicObject(19325, 1097.13, -1502.45, 16.04,   0.00, 0.00, 20.16);
+CreateDynamicObject(19325, 1117.03, -1523.47, 16.04,   0.00, 0.00, 69.36);
+CreateDynamicObject(19325, 1139.54, -1523.60, 16.04,   0.00, 0.00, 110.16);
+CreateDynamicObject(19325, 1159.84, -1502.07, 16.04,   0.00, 0.00, 159.90);
+CreateDynamicObject(19325, 1154.96, -1526.59, 23.62,   0.00, 0.00, -41.88);
+CreateDynamicObject(19325, 1163.24, -1517.11, 23.62,   0.00, 0.00, -41.22);
+CreateDynamicObject(19325, 1100.88, -1526.42, 23.62,   0.00, 0.00, 42.54);
+CreateDynamicObject(19325, 1092.64, -1517.09, 23.62,   0.00, 0.00, 40.74);
+CreateDynamicObject(19325, 1094.40, -1458.21, 23.62,   0.00, 0.00, 0.60);
+CreateDynamicObject(19325, 1094.25, -1444.53, 23.62,   0.00, 0.00, -0.12);
+
 //Taller El Corona By Jayceon
 CreateDynamicObject(11387, 2028.89, -2083.08, 15.95,   0.00, 0.00, 270.00);
 CreateDynamicObject(3574, 2032.28, -2058.80, 15.07,   0.00, 0.00, 0.00);
@@ -11150,7 +11311,7 @@ CreateDynamicObject(1153, 2060.13, -2068.22, 12.76,   11.70, 0.00, 125.16);
 CreateDynamicObject(1155, 2059.88, -2067.86, 13.09,   1.02, 18.06, -182.82);
 CreateDynamicObject(11360, 2048.50, -2083.07, 14.65,   0.00, 0.00, 90.00);
 CreateDynamicObject(11359, 2028.86, -2069.22, 14.67,   0.00, 0.00, 90.00);
-CreateDynamicObject(2893, 2055.93, -2070.96, 13.88,   7.60, 0.00, 0.00);
+CreateDynamicObject(2893, 2055.87, -2070.94, 13.86,   7.60, 0.00, 0.00);
 CreateDynamicObject(2960, 2053.47, -2069.71, 11.15,   0.00, 90.00, 824.10);
 CreateDynamicObject(2960, 2053.52, -2069.85, 11.15,   0.00, 90.00, 733.98);
 CreateDynamicObject(2960, 2053.96, -2067.32, 11.57,   0.00, 90.00, 733.98);
@@ -11212,7 +11373,7 @@ CreateDynamicObject(2960, 2037.76, -2082.00, 11.08,   0.00, 90.00, 0.00);
 CreateDynamicObject(2960, 2037.63, -2081.44, 11.08,   0.00, 90.00, 90.00);
 CreateDynamicObject(2960, 2037.45, -2081.44, 11.08,   0.00, 90.00, 90.00);
 CreateDynamicObject(2960, 2036.18, -2081.45, 11.08,   0.00, 90.00, 90.00);
-CreateDynamicObject(2960, 2035.96, -2081.43, 11.08,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2035.96, -2081.45, 11.08,   0.00, 90.00, 90.00);
 CreateDynamicObject(2960, 2036.14, -2081.59, 11.08,   0.00, 90.00, 0.00);
 CreateDynamicObject(2960, 2036.15, -2082.00, 11.09,   0.00, 90.00, 0.00);
 CreateDynamicObject(2960, 2035.46, -2081.81, 11.93,   0.00, 90.00, 90.00);
@@ -11239,13 +11400,30 @@ CreateDynamicObject(2960, 2030.10, -2075.90, 11.53,   0.00, 90.00, 90.00);
 CreateDynamicObject(2960, 2029.91, -2075.47, 11.53,   0.00, 90.00, 90.00);
 CreateDynamicObject(18635, 2053.34, -2069.50, 13.43,   90.00, 0.00, 0.00);
 CreateDynamicObject(18635, 2053.64, -2069.82, 13.43,   90.00, 0.00, -71.16);
-CreateDynamicObject(2893, 2057.66, -2070.91, 13.90,   7.60, 0.00, 0.00);
-CreateDynamicObject(2893, 2055.95, -2070.96, 13.88,   -16.50, 0.00, 180.00);
-CreateDynamicObject(2893, 2057.66, -2065.12, 13.90,   -16.50, 0.00, 0.00);
-CreateDynamicObject(2893, 2049.31, -2065.67, 13.88,   -16.50, 0.00, 0.00);
-CreateDynamicObject(2893, 2047.54, -2065.67, 13.88,   -16.50, 0.00, 0.00);
+CreateDynamicObject(2893, 2057.72, -2070.91, 13.86,   7.60, 0.00, 0.00);
 CreateDynamicObject(3465, 2035.88, -2095.21, 14.10,   0.00, 0.00, 90.00);
 CreateDynamicObject(3465, 2033.96, -2095.21, 14.10,   0.00, 0.00, 90.00);
+CreateDynamicObject(19872, 2048.40, -2068.32, 11.93,   0.00, 0.00, 0.00);
+CreateDynamicObject(19872, 2056.78, -2068.33, 11.93,   0.00, 0.00, 0.00);
+CreateDynamicObject(19921, 2054.18, -2070.15, 12.68,   0.00, 0.00, 0.00);
+CreateDynamicObject(19900, 2051.50, -2068.36, 12.58,   0.00, 0.00, -26.40);
+CreateDynamicObject(19903, 2058.92, -2071.44, 12.61,   0.00, 0.00, -115.26);
+CreateDynamicObject(19621, 2051.43, -2068.36, 13.55,   0.00, 0.00, -79.80);
+CreateDynamicObject(19621, 2053.44, -2069.65, 13.55,   0.00, 0.00, 70.38);
+CreateDynamicObject(19627, 2058.57, -2071.53, 13.78,   0.00, 0.00, 0.00);
+CreateDynamicObject(19899, 2030.07, -2076.61, 12.59,   0.00, 0.00, 0.00);
+CreateDynamicObject(19917, 2036.55, -2065.80, 12.68,   0.00, 55.00, 0.00);
+CreateDynamicObject(19899, 2042.82, -2065.28, 12.59,   0.00, 0.00, 270.00);
+CreateDynamicObject(19899, 2033.52, -2065.28, 12.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(19816, 2054.09, -2069.91, 12.82,   90.00, 0.00, 0.00);
+CreateDynamicObject(19815, 2060.87, -2074.37, 14.46,   0.00, 0.00, 270.00);
+CreateDynamicObject(19810, 2038.42, -2074.71, 14.68,   0.00, 0.00, 0.00);
+CreateDynamicObject(19893, 2036.79, -2081.33, 13.39,   0.00, 0.00, 180.00);
+CreateDynamicObject(19896, 2036.13, -2081.43, 13.41,   0.00, 0.00, 0.00);
+CreateDynamicObject(19807, 2037.58, -2081.66, 13.44,   0.00, 0.00, -156.48);
+CreateDynamicObject(19835, 2037.07, -2081.30, 13.46,   0.00, 0.00, -20.46);
+CreateDynamicObject(11393, 2039.53, -2078.32, 14.08,   0.00, 0.00, 270.00);
+CreateDynamicObject(19625, 2035.91, -2081.58, 13.46,   18.84, -49.14, -24.90);
 
 
 // ++
@@ -40159,18 +40337,28 @@ function MapsRemoveForPlayer(playerid)
 	RemoveBuildingForPlayer(playerid, 1440, 1148.6797, -1385.1875, 13.2656, 0.25);
 	RemoveBuildingForPlayer(playerid, 1294, 1115.0781, -1285.3672, 17.0781, 0.25);
 	RemoveBuildingForPlayer(playerid, 5737, 1120.1563, -1303.4531, 18.5703, 0.25);
+	
+	//Centro Comercial By Jayceon
+	RemoveBuildingForPlayer(playerid, 6130, 1117.5859, -1490.0078, 32.7188, 0.25);
+	RemoveBuildingForPlayer(playerid, 6255, 1117.5859, -1490.0078, 32.7188, 0.25);
+	
 	//Taller El Corona By Jayceon
-	RemoveBuildingForPlayer(playerid, 5202, 2050.3594, -2045.9297, 20.8672, 0.25);
-	RemoveBuildingForPlayer(playerid, 3744, 2073.8281, -2091.2344, 15.1328, 0.25);
-	RemoveBuildingForPlayer(playerid, 3744, 2051.0547, -2089.6094, 15.1328, 0.25);
-	RemoveBuildingForPlayer(playerid, 3744, 2026.2500, -2093.3906, 15.1328, 0.25);
-	RemoveBuildingForPlayer(playerid, 3578, 2026.8359, -2099.4531, 13.3203, 0.25);
-	RemoveBuildingForPlayer(playerid, 3574, 2026.2500, -2093.3984, 15.0703, 0.25);
-	RemoveBuildingForPlayer(playerid, 3578, 2050.5938, -2099.4609, 13.3203, 0.25);
-	RemoveBuildingForPlayer(playerid, 3578, 2074.0156, -2099.4453, 13.3203, 0.25);
-	RemoveBuildingForPlayer(playerid, 3574, 2073.8359, -2091.2188, 15.0703, 0.25);
-	RemoveBuildingForPlayer(playerid, 3574, 2051.0469, -2089.6016, 15.0703, 0.25);
-	RemoveBuildingForPlayer(playerid, 5138, 2050.3594, -2045.9297, 20.8672, 0.25);
+RemoveBuildingForPlayer(playerid, 5202, 2050.3594, -2045.9297, 20.8672, 0.25);
+RemoveBuildingForPlayer(playerid, 3744, 2073.8281, -2091.2344, 15.1328, 0.25);
+RemoveBuildingForPlayer(playerid, 3744, 2051.0547, -2089.6094, 15.1328, 0.25);
+RemoveBuildingForPlayer(playerid, 3744, 2026.2500, -2093.3906, 15.1328, 0.25);
+RemoveBuildingForPlayer(playerid, 3578, 2026.8359, -2099.4531, 13.3203, 0.25);
+RemoveBuildingForPlayer(playerid, 3574, 2026.2500, -2093.3984, 15.0703, 0.25);
+RemoveBuildingForPlayer(playerid, 3578, 2050.5938, -2099.4609, 13.3203, 0.25);
+RemoveBuildingForPlayer(playerid, 3578, 2074.0156, -2099.4453, 13.3203, 0.25);
+RemoveBuildingForPlayer(playerid, 3574, 2073.8359, -2091.2188, 15.0703, 0.25);
+RemoveBuildingForPlayer(playerid, 3574, 2051.0469, -2089.6016, 15.0703, 0.25);
+RemoveBuildingForPlayer(playerid, 5138, 2050.3594, -2045.9297, 20.8672, 0.25);
+	
+	//Hotel By Jayceon
+	RemoveBuildingForPlayer(playerid, 1294, 987.7422, -973.4766, 43.5781, 0.25);
+	RemoveBuildingForPlayer(playerid, 6130, 1117.5859, -1490.0078, 32.7188, 0.25);
+	RemoveBuildingForPlayer(playerid, 6255, 1117.5859, -1490.0078, 32.7188, 0.25);
 
     //24/7 Ayunta By Map Team ZC 2013
     RemoveBuildingForPlayer(playerid, 4051, 1371.8203, -1754.8203, 19.0469, 0.25);
