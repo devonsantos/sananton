@@ -1496,7 +1496,7 @@ TaxiTrans[5],
 BusTrans[3],
 SAMCVehicles[7],
 MecanicosVehicle[3],
-FBIVehicle[16],
+FBIVehicle[13],
 NGLandVehicles[32],
 CNNVehicle[5],
 CarVIP[14],
@@ -7360,26 +7360,24 @@ SAMCVehicles[4] = AddStaticVehicleEx(416,1096.7418000,-1303.5461000,13.5780000,9
 SAMCVehicles[5] = AddStaticVehicleEx(416,1096.6582000,-1298.5181000,13.5780000,90.2400000,-1,-1,TIME_RESPAWN); // Ambulancia  57
 SAMCVehicles[6] = AddStaticVehicleEx(487,1117.3091000,-1308.3262000,33.3584000,269.4595000,3,118,TIME_RESPAWN); // Maverick 58
 //FBI
-FBIVehicle[0] = AddStaticVehicleEx(421,278.43112183,-1535.99670410,24.54375076,236.00000000,0,0,TIME_RESPAWN); //Elegant
-FBIVehicle[1] = AddStaticVehicleEx(421,281.64566040,-1531.28723145,24.54375076,233.99731445,0,0,TIME_RESPAWN); //Elegant
-FBIVehicle[2] = AddStaticVehicleEx(421,284.66522217,-1526.72875977,24.54375076,235.99731445,0,0,TIME_RESPAWN); //Elegant
-FBIVehicle[3] = AddStaticVehicleEx(421,287.99291992,-1521.94006348,24.54375076,233.99230957,0,0,TIME_RESPAWN); //Elegant
-FBIVehicle[4] = AddStaticVehicleEx(490,290.92388916,-1517.69372559,24.78887749,236.00000000,-1,-1,TIME_RESPAWN); //FBI Rancher
-FBIVehicle[5] = AddStaticVehicleEx(490,294.15356445,-1512.93969727,24.78887749,235.99731445,-1,-1,TIME_RESPAWN); //FBI Rancher
-FBIVehicle[6] = AddStaticVehicleEx(490,297.35870361,-1508.31335449,24.78887749,235.99731445,-1,-1,TIME_RESPAWN); //FBI Rancher
-FBIVehicle[7] = AddStaticVehicleEx(490,300.32995605,-1504.01623535,24.78887749,235.99731445,-1,-1,TIME_RESPAWN); //FBI Rancher
-FBIVehicle[8] = AddStaticVehicleEx(528,300.04907227,-1490.36193848,24.65375137,235.50000000,-1,-1,TIME_RESPAWN); //FBI Truck
-FBIVehicle[9] = AddStaticVehicleEx(528,306.08950806,-1481.64025879,24.62875175,235.49743652,-1,-1,TIME_RESPAWN); //FBI Truck
-FBIVehicle[10] = AddStaticVehicleEx(521,297.53024292,-1536.71789551,24.25412750,50.00000000,0,0,TIME_RESPAWN); //FCR-900
-FBIVehicle[11] = AddStaticVehicleEx(560,295.46044922,-1540.92248535,24.32372665,54.00000000,0,0,TIME_RESPAWN); //Sultan
-FBIVehicle[12] = AddStaticVehicleEx(560,302.93893433,-1485.83496094,24.39872551,233.99774170,0,0,TIME_RESPAWN); //Sultan
-FBIVehicle[13] = AddStaticVehicleEx(487,319.66525269,-1508.03454590,77.93007660,232.00000000,0,0,TIME_RESPAWN); //Maverick
-FBIVehicle[14] = AddStaticVehicleEx(487,339.3534,-1485.7954,76.7156,220.2925,0,0,TIME_RESPAWN); //Maverick
-FBIVehicle[15] = AddStaticVehicleEx(487,301.4234,-1532.7819,76.6724,246.3760,0,0,TIME_RESPAWN); //Maverick
+FBIVehicle[0] = AddStaticVehicleEx(421,1511.6005,-1478.1461,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
+FBIVehicle[1] = AddStaticVehicleEx(421,1520.0981,-1478.1387,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
+FBIVehicle[2] = AddStaticVehicleEx(421,1515.7172 -1478.1461,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
+FBIVehicle[3] = AddStaticVehicleEx(490,1537.4667,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
+FBIVehicle[4] = AddStaticVehicleEx(490,1533.2220,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
+FBIVehicle[5] = AddStaticVehicleEx(490,1528.8412,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
+FBIVehicle[6] = AddStaticVehicleEx(490,1524.3683,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
+FBIVehicle[7] = AddStaticVehicleEx(440,1511.7050,-1460.5887,9.5826,180.0000,71,71,TIME_RESPAWN); //Rumpo
+FBIVehicle[8] = AddStaticVehicleEx(566,1516.0023,-1460.5690,9.4626,180.0000,18,18,TIME_RESPAWN); //Tahoma
+FBIVehicle[9] = AddStaticVehicleEx(467,1520.2622,-1460.5767,9.1626,180.0000,1,191,TIME_RESPAWN); //Oceanic
+FBIVehicle[10] = AddStaticVehicleEx(582,1524.6580,-1460.5887,9.5026,180.0000,3,118,TIME_RESPAWN); //News Van
+FBIVehicle[11] = AddStaticVehicleEx(487,1481.3444,-1463.9010,40.6106,270.0000,0,0,TIME_RESPAWN); //Maverick
+FBIVehicle[12] = AddStaticVehicleEx(487,1481.3444,-1478.4860,40.6106,270.0000,0,0,TIME_RESPAWN); //Maverick
+
 // Mecánicos LS
-MecanicosVehicle[0] = AddStaticVehicleEx(525,2048.1238,-2087.0771,13.5000, 180.0000,-1, -1,TIME_RESPAWN); //Tow Truck     92
-MecanicosVehicle[1] = AddStaticVehicleEx(525,2024.6377,-2069.3645,13.5000, 90.0000,-1, -1,TIME_RESPAWN); //Tow Truck     93
-MecanicosVehicle[2] = AddStaticVehicleEx(552,2035.1687,-2092.4419,13.3038, 180.0000,-1,-1,TIME_RESPAWN); //Utility
+MecanicosVehicle[0] = AddStaticVehicleEx(525,2048.1238,-2087.0771,13.5000, 180.0000, 1, 7,TIME_RESPAWN); //Tow Truck     92
+MecanicosVehicle[1] = AddStaticVehicleEx(525,2024.6377,-2069.3645,13.5000, 90.0000, 1, 7,TIME_RESPAWN); //Tow Truck     93
+MecanicosVehicle[2] = AddStaticVehicleEx(552,2035.1687,-2092.4419,13.3038, 90.0000, 1, 7,TIME_RESPAWN); //Utility
 
 // CNN Vehículos
 CNNVehicle[0] = AddStaticVehicleEx(488,741.7805800,-1369.6355000,25.9572100,180.6610000,3,118,TIME_RESPAWN); // News Van 116
@@ -9091,6 +9089,21 @@ CreateDynamicObject(3877,322.47674561,-1521.57324219,78.37759399,0.00000000,0.00
 CreateDynamicObject(3877,317.59277344,-1494.85351562,78.40345764,0.00000000,0.00000000,321.99829102); //object(sf_rooflite) (2)
 CreateDynamicObject(3877,333.58984375,-1507.36132812,78.37911987,0.00000000,0.00000000,321.99829102); //object(sf_rooflite) (3)
 CreateDynamicObject(3934,320.10107422,-1508.41491699,76.73970795,0.00000000,0.00000000,322.00000000); //object(helipad01) (1)
+
+//FBI Exterior By Jayceon
+CreateObject(4003, 1526.12, -1450.25, 29.19,   0.00, 0.00, 0.00);
+CreateObject(9697, 1566.02, -1477.95, 8.53,   0.00, 0.00, 180.00);
+CreateObject(9697, 1474.47, -1460.30, 8.53,   0.00, 0.00, 0.00);
+CreateObject(0, 1509.46, -1471.69, 8.44,   0.00, 0.00, 90.00);
+CreateObject(1536, 1509.42, -1468.69, 8.44,   0.00, 0.00, 270.00);
+CreateObject(0, 1516.00, -1460.57, 9.46,   0.00, 0.00, 180.00);
+CreateObject(1536, 1495.78, -1467.67, 39.52,   0.00, 0.00, 90.00);
+CreateObject(0, 1495.75, -1483.31, 47.89,   0.00, 0.00, 0.00);
+CreateObject(3934, 1482.14, -1463.87, 39.52,   0.00, 0.00, 0.00);
+CreateObject(3934, 1482.04, -1478.46, 39.52,   0.00, 0.00, 0.00);
+CreateObject(0, 1496.12, -1450.93, 18.96,   0.00, 0.00, 241.14);
+CreateObject(2921, 1509.40, -1456.91, 13.11,   0.00, 0.00, 151.50);
+
 // ¿?
 CreateDynamicObject(1569, 2294, 2492.92, 2.29, 0, 0, 90);
 CreateDynamicObject(1569, 2294, 2492.92, 4.8, 0, 0, 90);
@@ -40108,6 +40121,14 @@ RemoveBuildingForPlayer(playerid, 5138, 2050.3594, -2045.9297, 20.8672, 0.25);
 	RemoveBuildingForPlayer(playerid, 1776, -35.9012,-57.1345,1003.5469, 20.0); //Snack vender @ Roboi's type 24/7 stores
 	RemoveBuildingForPlayer(playerid, 1775, -17.0036,-90.9709,1003.5469, 20.0); //Sprunk machine @ Other 24/7 stores
 	RemoveBuildingForPlayer(playerid, 1776, -17.0036,-90.9709,1003.5469, 20.0); //Snach vender @ Others 24/7 stores
+	
+	//Exterior FBI by Jayceon
+	RemoveBuildingForPlayer(playerid, 1265, 1539.2344, -1481.0781, 8.9141, 0.25);
+	RemoveBuildingForPlayer(playerid, 1265, 1536.5078, -1481.0938, 8.9531, 0.25);
+	RemoveBuildingForPlayer(playerid, 1372, 1534.9297, -1480.9922, 8.6094, 0.25);
+	RemoveBuildingForPlayer(playerid, 1265, 1537.2422, -1479.7422, 8.9453, 0.25);
+	RemoveBuildingForPlayer(playerid, 1372, 1537.9297, -1480.6094, 8.6094, 0.25);
+	
 	// Interiors House
 	RemoveBuildingForPlayer(playerid, 14862, 245.5547, 300.8594, 998.8359, 0.25);
 	RemoveBuildingForPlayer(playerid, 1740, 243.8828, 301.9766, 998.2344, 0.25);
