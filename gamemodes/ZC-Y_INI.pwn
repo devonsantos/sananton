@@ -7362,15 +7362,15 @@ SAMCVehicles[6] = AddStaticVehicleEx(487,1117.3091000,-1308.3262000,33.3584000,2
 //FBI
 FBIVehicle[0] = AddStaticVehicleEx(421,1511.6005,-1478.1461,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
 FBIVehicle[1] = AddStaticVehicleEx(421,1520.0981,-1478.1387,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
-FBIVehicle[2] = AddStaticVehicleEx(421,1515.7172 -1478.1461,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
+FBIVehicle[2] = AddStaticVehicleEx(421,1515.7172,-1478.1461,9.3826,0.0000,0,0,TIME_RESPAWN); //Elegant
 FBIVehicle[3] = AddStaticVehicleEx(490,1537.4667,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
 FBIVehicle[4] = AddStaticVehicleEx(490,1533.2220,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
 FBIVehicle[5] = AddStaticVehicleEx(490,1528.8412,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
 FBIVehicle[6] = AddStaticVehicleEx(490,1524.3683,-1478.1387,9.5826,0.0000,0,0,TIME_RESPAWN); //FBI Rancher
-FBIVehicle[7] = AddStaticVehicleEx(440,1511.7050,-1460.5887,9.5826,180.0000,71,71,TIME_RESPAWN); //Rumpo
-FBIVehicle[8] = AddStaticVehicleEx(566,1516.0023,-1460.5690,9.4626,180.0000,18,18,TIME_RESPAWN); //Tahoma
-FBIVehicle[9] = AddStaticVehicleEx(467,1520.2622,-1460.5767,9.1626,180.0000,1,191,TIME_RESPAWN); //Oceanic
-FBIVehicle[10] = AddStaticVehicleEx(582,1524.6580,-1460.5887,9.5026,180.0000,3,118,TIME_RESPAWN); //News Van
+FBIVehicle[7] = AddStaticVehicleEx(440,1511.7050,-1460.5887,9.5826,180.0000,71,0,TIME_RESPAWN); //Rumpo
+FBIVehicle[8] = AddStaticVehicleEx(566,1516.0023,-1460.5690,8.7,180.0000,121,121,TIME_RESPAWN); //Tahoma
+FBIVehicle[9] = AddStaticVehicleEx(467,1520.2622,-1460.5767,9.1800,180.0000,98,1,TIME_RESPAWN); //Oceanic
+FBIVehicle[10] = AddStaticVehicleEx(582,1524.6580,-1460.5887,9.5500,180.0000,1,191,TIME_RESPAWN); //News Van
 FBIVehicle[11] = AddStaticVehicleEx(487,1481.3444,-1463.9010,40.6106,270.0000,0,0,TIME_RESPAWN); //Maverick
 FBIVehicle[12] = AddStaticVehicleEx(487,1481.3444,-1478.4860,40.6106,270.0000,0,0,TIME_RESPAWN); //Maverick
 
@@ -7380,11 +7380,11 @@ MecanicosVehicle[1] = AddStaticVehicleEx(525,2024.6377,-2069.3645,13.5000, 90.00
 MecanicosVehicle[2] = AddStaticVehicleEx(552,2035.1687,-2092.4419,13.3038, 90.0000, 1, 7,TIME_RESPAWN); //Utility
 
 // CNN Vehículos
-CNNVehicle[0] = AddStaticVehicleEx(488,741.7805800,-1369.6355000,25.9572100,180.6610000,3,118,TIME_RESPAWN); // News Van 116
-CNNVehicle[1] = AddStaticVehicleEx(582,763.5914900,-1334.6970200,13.7694000,180.2610000,3,118,TIME_RESPAWN); // News Van 117
-CNNVehicle[2] = AddStaticVehicleEx(582,758.1728500,-1334.6855500,13.7694000,180.2580000,3,118,TIME_RESPAWN); // News Van 118
-CNNVehicle[3] = AddStaticVehicleEx(582,752.6593000,-1334.6239000,13.7694000,180.2580000,3,118,TIME_RESPAWN); // San News 119
-CNNVehicle[4] = AddStaticVehicleEx(582,747.0997300,-1334.6927500,13.7694000,180.2580000,3,118,TIME_RESPAWN); // San News 120
+CNNVehicle[0] = AddStaticVehicleEx(488,741.7805800,-1369.6355000,25.9572100,180.6610000,1,191,TIME_RESPAWN); // News Van 116
+CNNVehicle[1] = AddStaticVehicleEx(582,763.5914900,-1334.6970200,13.7694000,180.2610000,1,191,TIME_RESPAWN); // News Van 117
+CNNVehicle[2] = AddStaticVehicleEx(582,758.1728500,-1334.6855500,13.7694000,180.2580000,1,191,TIME_RESPAWN); // News Van 118
+CNNVehicle[3] = AddStaticVehicleEx(582,752.6593000,-1334.6239000,13.7694000,180.2580000,1,191,TIME_RESPAWN); // San News 119
+CNNVehicle[4] = AddStaticVehicleEx(582,747.0997300,-1334.6927500,13.7694000,180.2580000,1,191,TIME_RESPAWN); // San News 120
 // HireCar I
 Rentbike[0] = AddStaticVehicleEx(510,1734.0199,-1863.8273,13.1828,359.8940,151,151,TIME_RESPAWN);// 121
 Rentbike[1] = AddStaticVehicleEx(510,1732.0968,-1863.8464,13.1830,2.8231,65,65,TIME_RESPAWN);// 121
@@ -7592,9 +7592,9 @@ CreateDynamicMapIcon(1752.7062,-1894.1708,13.5574, 56, 0, 0, 0, -1, 500.0); // J
 CreateDynamicMapIcon(-104.2969,9.3283,3.1172, 56, 0, 0, 0, -1, 500.0); // Job cos
 CreateDynamicMapIcon(2226.1716,-1718.1792,13.5165, 56, 0, 0, 0, -1, 500.0); // Job bodyguard
 //FBI GARAGE - INTERIOR - HELIPORT
-CreateDynamic3DTextLabel("Pres. F Para entrar.",COLOR_YELLOW,316.2381,-1513.3770,24.9219+0.6,4.0);
-CreateDynamic3DTextLabel("Pres. F", COLOR_YELLOW,301.5812,-1490.6759,-45.1302+0.6,4.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,600,0);
-CreateDynamic3DTextLabel("Pres. F Para entrar.",COLOR_YELLOW,308.8113,-1509.8134,77.7645+0.6,4.0);
+CreateDynamic3DTextLabel("Usa F para entrar.",COLOR_YELLOW,1509.76,-1470.28,8.96+0.6,4.0);
+CreateDynamic3DTextLabel("Usa F para entrar.", COLOR_YELLOW,301.5812,-1490.6759,-45.1302+0.6,4.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,600,0);
+CreateDynamic3DTextLabel("Usa F para entrar.",COLOR_YELLOW,1495.3762,-1466.9791,40.5593+0.6,4.0);
 // <<<<<<<<<<<<<<<<Maps>>>>>>>>>>>>>>>>>>>
 CreateDynamicObject(4729, 682.85186767578, -446.04205322266, -26.629999160767, 20, 90, 0.000000, -1, 1, -1, 200.0);
 depgate = CreateDynamicObject(969,1619.69995117,-1852.59997559,12.50000000,0.00000000,0.00000000,2.75000000); //object(electricgate) (1)
@@ -9091,18 +9091,22 @@ CreateDynamicObject(3877,333.58984375,-1507.36132812,78.37911987,0.00000000,0.00
 CreateDynamicObject(3934,320.10107422,-1508.41491699,76.73970795,0.00000000,0.00000000,322.00000000); //object(helipad01) (1)
 
 //FBI Exterior By Jayceon
-CreateObject(4003, 1526.12, -1450.25, 29.19,   0.00, 0.00, 0.00);
-CreateObject(9697, 1566.02, -1477.95, 8.53,   0.00, 0.00, 180.00);
-CreateObject(9697, 1474.47, -1460.30, 8.53,   0.00, 0.00, 0.00);
-CreateObject(0, 1509.46, -1471.69, 8.44,   0.00, 0.00, 90.00);
-CreateObject(1536, 1509.42, -1468.69, 8.44,   0.00, 0.00, 270.00);
-CreateObject(0, 1516.00, -1460.57, 9.46,   0.00, 0.00, 180.00);
-CreateObject(1536, 1495.78, -1467.67, 39.52,   0.00, 0.00, 90.00);
-CreateObject(0, 1495.75, -1483.31, 47.89,   0.00, 0.00, 0.00);
-CreateObject(3934, 1482.14, -1463.87, 39.52,   0.00, 0.00, 0.00);
-CreateObject(3934, 1482.04, -1478.46, 39.52,   0.00, 0.00, 0.00);
-CreateObject(0, 1496.12, -1450.93, 18.96,   0.00, 0.00, 241.14);
-CreateObject(2921, 1509.40, -1456.91, 13.11,   0.00, 0.00, 151.50);
+CreateDynamicObject(4003, 1526.12, -1450.25, 29.19,   0.00, 0.00, 0.00);
+CreateDynamicObject(9697, 1566.02, -1477.95, 8.53,   0.00, 0.00, 180.00);
+CreateDynamicObject(9697, 1474.47, -1460.30, 8.53,   0.00, 0.00, 0.00);
+CreateDynamicObject(0, 1509.46, -1471.69, 8.44,   0.00, 0.00, 90.00);
+CreateDynamicObject(1536, 1509.43, -1468.69, 8.44,   0.00, 0.00, 270.00);
+CreateDynamicObject(0, 1516.00, -1460.57, 9.46,   0.00, 0.00, 180.00);
+CreateDynamicObject(1536, 1495.78, -1467.67, 39.52,   0.00, 0.00, 90.00);
+CreateDynamicObject(0, 1495.75, -1483.31, 47.89,   0.00, 0.00, 0.00);
+CreateDynamicObject(3934, 1482.14, -1463.87, 39.52,   0.00, 0.00, 0.00);
+CreateDynamicObject(3934, 1482.04, -1478.46, 39.52,   0.00, 0.00, 0.00);
+CreateDynamicObject(0, 1496.12, -1450.93, 18.96,   0.00, 0.00, 241.14);
+CreateDynamicObject(2921, 1509.40, -1456.91, 13.11,   0.00, 0.00, 151.50);
+CreateDynamicObject(1536, 1509.47, -1471.71, 8.44,   0.00, 0.00, 90.00);
+CreateDynamicObject(2921, 1505.67, -1451.01, 18.39,   0.00, 0.00, -134.16);
+CreateDynamicObject(2921, 1495.93, -1482.96, 47.61,   0.00, 0.00, -38.70);
+
 
 // ¿?
 CreateDynamicObject(1569, 2294, 2492.92, 2.29, 0, 0, 90);
@@ -14052,13 +14056,13 @@ case	ELEVATOR4:
 	{
 		if (listitem == 0)
 		{
-			SetPlayerPos(playerid, 301.5812,-1490.6759,-45.1302);
+			SetPlayerPos(playerid, 301.5812,-1490.6759,-45.1302); //Interior FBI
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 600);
 		}
 		else
 		{
-			SetPlayerPos(playerid, 308.8113,-1509.8134,77.7645);
+			SetPlayerPos(playerid,1495.3762,-1466.9791,40.5593); //Helipuerto FBI
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
 		}
@@ -14070,13 +14074,13 @@ case	ELEVATOR5:
 	{
 		if (listitem == 0)
 		{
-			SetPlayerPos(playerid, 316.2381,-1513.3770,24.9219);
+			SetPlayerPos(playerid, 1509.7577,-1470.2822,8.9605); //Garaje FBI
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
 		}
 		else
 		{
-			SetPlayerPos(playerid, 308.8113,-1509.8134,77.7645);
+			SetPlayerPos(playerid,1495.3762,-1466.9791,40.5593); //Helipuerto FBI
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
 		}
@@ -14088,13 +14092,13 @@ case	ELEVATOR7:
 	{
 		if (listitem == 0)
 		{
-			SetPlayerPos(playerid, 301.5812,-1490.6759,-45.1302);
+			SetPlayerPos(playerid, 301.5812,-1490.6759,-45.1302); //Interior FBI
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 600);
 		}
 		else
 		{
-			SetPlayerPos(playerid, 316.2381,-1513.3770,24.9219);
+			SetPlayerPos(playerid, 1509.7577,-1470.2822,8.9605); //Garaje FBI
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
 		}
@@ -39935,35 +39939,35 @@ for(new i = 0; i < sizeof(DDoorsInfo); i++)
     }
 }
 //FBI
-if(PlayerToPointStripped(1, playerid,325.4713,-1514.8862,36.0325, cx,cy,cz))
+if(PlayerToPointStripped(1, playerid,1519.2854,-1454.2081,14.5699, cx,cy,cz)) //PUERTA PRINCIPAL EXTERIOR
 {
     LoadObjects(playerid);
-	SetPlayerPos(playerid,278.0079,-1505.8489,-45.1302); Info[playerid][pVW] = 600;
+	SetPlayerPos(playerid,278.0079,-1505.8489,-45.1302); Info[playerid][pVW] = 600; //INTERIOR FBI
 	SetPlayerVirtualWorld(playerid, 600); SetPlayerFacingAngle(playerid, ESTE);
 	SetCameraBehindPlayer(playerid);
 }
-if(PlayerToPointStripped(1, playerid,278.0079,-1505.8489,-45.1302, cx,cy,cz))
+if(PlayerToPointStripped(1, playerid,278.0079,-1505.8489,-45.1302, cx,cy,cz)) //INTERIOR FBI
 {
-	SetPlayerPos(playerid,325.4713,-1514.8862,36.0325); SetPlayerFacingAngle(playerid, 90);
+	SetPlayerPos(playerid,1519.2854,-1454.2081,14.5699); SetPlayerFacingAngle(playerid, 90); //PUERTA PRINCIPAL EXTERIOR
 	SetCameraBehindPlayer(playerid); SetPlayerVirtualWorld(playerid, 0);
 }
 //FBI HELIPAD
-else if (PlayerToPointStripped(1, playerid,316.2381,-1513.3770,24.9219, cx,cy,cz))
+else if (PlayerToPointStripped(1, playerid,1509.7577,-1470.2822,8.9605, cx,cy,cz)) // GARAJE FBI
 {
-	ShowPlayerDialog( playerid, ELEVATOR4 , DIALOG_STYLE_LIST, "Elevador", "Interior\nHelipuerto", "Ir", "Cancelar");
+	ShowPlayerDialog( playerid, ELEVATOR4 , DIALOG_STYLE_LIST, "Ascensor", "Interior\nHelipuerto", "Ir", "Cancelar");
 }
-else if (PlayerToPointStripped(1, playerid,301.5812,-1490.6759,-45.1302, cx,cy,cz))
+else if (PlayerToPointStripped(1, playerid,301.5812,-1490.6759,-45.1302, cx,cy,cz)) //INTERIOR FBI
 {
 	if(!Team_FBI(playerid))
 	{
 		SendClientMessageEx(playerid,COLOR_GREY,"Acceso Denegado.");
 		return 1;
 	}
-	else ShowPlayerDialog( playerid, ELEVATOR5 , DIALOG_STYLE_LIST, "Elevador", "Garage\nHelipuerto", "Ir", "Cancelar");
+	else ShowPlayerDialog( playerid, ELEVATOR5 , DIALOG_STYLE_LIST, "Ascensor", "Garaje\nHelipuerto", "Ir", "Cancelar");
 }
-else if (PlayerToPointStripped(1, playerid,308.8113,-1509.8134,77.7645, cx,cy,cz))
+else if (PlayerToPointStripped(1, playerid,1495.3762,-1466.9791,40.5593, cx,cy,cz)) //HELIPUERTO FBI
 {
-	ShowPlayerDialog( playerid, ELEVATOR7 , DIALOG_STYLE_LIST, "Elevador", "Interior\nGarage", "Ir", "Cancelar");
+	ShowPlayerDialog( playerid, ELEVATOR7 , DIALOG_STYLE_LIST, "Ascensor", "Interior\nGaraje", "Ir", "Cancelar");
 }
 else if (PlayerToPointStripped(1, playerid,364.7064,-11.3221,1001.8516, cx,cy,cz) && GetPlayerInterior(playerid) == 9)
 {
