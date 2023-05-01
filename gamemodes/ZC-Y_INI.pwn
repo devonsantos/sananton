@@ -1512,7 +1512,7 @@ TruckerVehicles[15],
 TaxiTrans[5],
 BusTrans[3],
 SAMCVehicles[7],
-MecanicosVehicle[6],
+MecanicosVehicle[3],
 FBIVehicle[16],
 NGLandVehicles[32],
 CNNVehicle[5],
@@ -3085,7 +3085,7 @@ return 0;
 
 IsAtTaller(playerid){
 if(IsPlayerConnectedEx(playerid)){
- 	if(PlayerToPoint(15.0,playerid,2238.7720,-1912.6383,13.5890)){// LS
+ 	if(PlayerToPoint(15.0,playerid,2055.9255, -2070.9597, 13.8800)){//El Corona
 	    return 1;
 	}
 	else if(PlayerToPoint(15.0,playerid,2257.8123,-1914.6655,13.5944)){// LS
@@ -7563,12 +7563,10 @@ FBIVehicle[13] = AddStaticVehicleEx(487,319.66525269,-1508.03454590,77.93007660,
 FBIVehicle[14] = AddStaticVehicleEx(487,339.3534,-1485.7954,76.7156,220.2925,0,0,TIME_RESPAWN); //Maverick
 FBIVehicle[15] = AddStaticVehicleEx(487,301.4234,-1532.7819,76.6724,246.3760,0,0,TIME_RESPAWN); //Maverick
 // Mecánicos LS
-MecanicosVehicle[0] = AddStaticVehicleEx(525,2255.9697,-1958.4779,13.4730,359.2864,-1,103,TIME_RESPAWN); //Tow Truck     92
-MecanicosVehicle[1] = AddStaticVehicleEx(525,2260.9211,-1958.7180,13.4595,1.0471,-1,103,TIME_RESPAWN); //Tow Truck     93
-MecanicosVehicle[2] = AddStaticVehicleEx(525,2246.1553,-1958.5923,13.4605,0.2604,-1,103,TIME_RESPAWN); //Tow Truck     94
-MecanicosVehicle[3] = AddStaticVehicleEx(552,2265.9463,-1958.3639,13.4588,358.9032,96,-1,TIME_RESPAWN);//Utility       98
-MecanicosVehicle[4] = AddStaticVehicleEx(552,2271.0620,-1958.5648,13.4717,1.1405,96,-1,TIME_RESPAWN);  //Utility       99
-MecanicosVehicle[5] = AddStaticVehicleEx(552,2276.1050,-1958.5712,13.4618,358.3219,96,-1,TIME_RESPAWN); //Utility       100
+MecanicosVehicle[0] = AddStaticVehicleEx(525,2048.1238,-2087.0771,13.5000, 180.0000,-1, -1, 100,TIME_RESPAWN); //Tow Truck     92
+MecanicosVehicle[1] = AddStaticVehicleEx(525,2024.6377,-2069.3645,13.5000, 90.0000,-1, -1, 100,TIME_RESPAWN); //Tow Truck     93
+MecanicosVehicle[2] = AddStaticVehicleEx(552,2034.2194,-2092.8716,13.5000,90.0000,-1,-1, 100,TIME_RESPAWN); //Utility
+
 // CNN Vehículos
 CNNVehicle[0] = AddStaticVehicleEx(488,741.7805800,-1369.6355000,25.9572100,180.6610000,3,118,TIME_RESPAWN); // News Van 116
 CNNVehicle[1] = AddStaticVehicleEx(582,763.5914900,-1334.6970200,13.7694000,180.2610000,3,118,TIME_RESPAWN); // News Van 117
@@ -7760,7 +7758,7 @@ CreateDynamicMapIcon(453.9655,-1478.0486,30.8136, 45, 0, 0, 0, -1, 500.0); // Bi
 CreateDynamicMapIcon(2229.5786,-1721.5316,13.5638, 54, 0, 0, 0, -1, 500.0); // GYM
 CreateDynamicMapIcon(325.6813,-1515.0637,36.0325, 61, 0, 0, 0, -1, 500.0); // FBI
 CreateDynamicMapIcon(816.1325,-1386.1024,13.6537, 59, 0, 0, 0, -1, 500.0); // VIP
-CreateDynamicMapIcon(2263.9983,-1945.7395,13.5940, 27, 0, 0, 0, -1, 500.0); // Mecanicos
+CreateDynamicMapIcon(2034.2194,-2092.8716,13.5000, 27, 0, 0, 0, -1, 500.0); // Mecanicos
 CreateDynamicMapIcon(1368.7128,-1279.8639,13.5541, 6 ,  0, 0, 0, -1, 500.0); // Ammunation
 CreateDynamicMapIcon(1797.6865,-1578.5676,14.0869, 49, 0, 0, 0, -1, 500.0); // bar epica
 CreateDynamicMapIcon(1836.8391,-1682.6100,13.3312, 48, 0, 0, 0, -1, 500.0); // alahambra
@@ -11124,274 +11122,131 @@ CreateDynamicObject(3034, 1904.59998, -1766.59998, 4702.79980,   0.00000, 0.0000
 CreateDynamicObject(3034, 1897.00000, -1778.69995, 4702.00000,   0.00000, 0.00000, 182.00000);
 CreateDynamicObject(1723, 1892.54834, -1774.60742, 4700.39990,   0.00000, 0.00000, 70.12288);
 
-/*MECANICOS EXTERIOR NEW*/
-CreateDynamicObject(18766, 2301.37, -1929.49, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2301.49, -1920.95, 12.11,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2301.51, -1910.97, 12.11,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2301.55, -1909.28, 12.13,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2296.40, -1929.46, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2296.54, -1919.46, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2296.59, -1909.46, 12.10,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2291.45, -1929.44, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2286.46, -1929.42, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2281.50, -1929.39, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2276.52, -1929.42, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2271.56, -1929.39, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2266.64, -1929.41, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2261.66, -1929.33, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2256.68, -1929.45, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2251.72, -1929.40, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2246.78, -1929.38, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2241.92, -1929.38, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2236.92, -1929.42, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2232.08, -1929.40, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2228.51, -1929.65, 12.09,   89.94, -45.84, -230.04);
-CreateDynamicObject(18766, 2291.55, -1919.43, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2291.64, -1909.47, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2286.58, -1919.44, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2286.63, -1909.46, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2281.63, -1919.39, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2281.66, -1909.37, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2276.65, -1919.42, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2276.71, -1909.44, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2271.65, -1919.39, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2271.75, -1909.45, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2266.67, -1919.40, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2266.76, -1909.40, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2261.68, -1919.33, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2261.76, -1909.42, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2256.75, -1919.51, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2256.79, -1909.53, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2251.79, -1919.53, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2251.85, -1909.58, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2246.83, -1919.43, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2246.84, -1909.43, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2241.87, -1919.46, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2241.95, -1909.52, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2236.95, -1919.50, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2237.05, -1909.56, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2232.15, -1919.48, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2232.17, -1909.50, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2229.59, -1920.01, 12.09,   89.94, -45.84, -228.72);
-CreateDynamicObject(18766, 2230.45, -1910.18, 12.09,   89.94, -45.84, -228.72);
-CreateDynamicObject(18766, 2301.32, -1939.32, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2301.30, -1949.32, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2301.28, -1957.20, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2296.34, -1939.40, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2296.38, -1949.26, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2296.36, -1957.18, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2291.38, -1939.39, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2291.44, -1949.31, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2291.41, -1957.28, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2286.43, -1939.34, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2286.52, -1949.24, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2286.51, -1957.31, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2281.43, -1939.27, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2281.59, -1949.19, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2281.53, -1957.27, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2276.66, -1939.36, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2276.69, -1949.35, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2276.61, -1957.26, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2271.88, -1939.37, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2271.70, -1949.35, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2271.67, -1957.31, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2267.02, -1939.41, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2266.97, -1949.34, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2266.80, -1957.27, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2262.09, -1939.22, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2262.01, -1949.13, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2261.83, -1957.35, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2257.11, -1939.32, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2257.03, -1949.28, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2256.83, -1957.33, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2252.15, -1939.34, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2252.07, -1949.16, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2251.90, -1957.34, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2247.23, -1939.26, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2247.07, -1949.16, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2246.96, -1957.32, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2242.25, -1939.32, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2242.15, -1949.24, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2242.10, -1957.36, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2237.35, -1939.27, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2237.22, -1949.27, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2237.13, -1957.31, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2232.39, -1939.31, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2232.26, -1949.27, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2232.21, -1957.29, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2227.62, -1939.42, 12.09,   89.94, -45.84, -228.48);
-CreateDynamicObject(18766, 2226.78, -1948.71, 12.09,   89.94, -45.84, -226.74);
-CreateDynamicObject(18766, 2227.31, -1957.32, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2226.52, -1957.32, 12.09,   89.94, -45.84, -226.14);
-CreateDynamicObject(18766, 2226.98, -1947.57, 12.09,   89.94, -45.84, -226.14);
-CreateDynamicObject(18766, 2296.60, -1909.24, 12.10,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2291.61, -1909.23, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2286.61, -1909.16, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2281.62, -1909.10, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2276.69, -1909.06, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2271.73, -1909.03, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2266.76, -1908.98, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2261.77, -1908.94, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2256.75, -1908.94, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2251.76, -1908.90, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2246.81, -1908.87, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2241.73, -1908.84, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2236.75, -1908.80, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2232.09, -1908.74, 12.09,   89.94, -45.84, -224.58);
-CreateDynamicObject(18766, 2230.56, -1908.78, 12.09,   89.94, -45.84, -228.72);
-CreateDynamicObject(18766, 2229.85, -1916.10, 12.09,   89.94, -45.84, -229.56);
-CreateDynamicObject(18766, 2228.90, -1925.91, 12.09,   89.94, -45.84, -230.04);
-CreateDynamicObject(18766, 2227.53, -1939.00, 12.09,   89.94, -45.84, -230.46);
-CreateDynamicObject(18766, 2227.28, -1947.76, 12.09,   89.94, -45.84, -225.12);
-CreateDynamicObject(8947, 2238.94, -1917.48, 15.53,   0.00, 0.00, 0.00);
-CreateDynamicObject(8947, 2276.51, -1918.21, 15.41,   0.00, 0.00, 0.00);
-CreateDynamicObject(8947, 2257.62, -1917.79, 15.66,   0.00, 0.00, 0.00);
-CreateDynamicObject(1223, 2231.83, -1926.22, 12.00,   0.00, 0.00, 0.00);
-CreateDynamicObject(1223, 2231.83, -1922.23, 12.00,   0.00, 0.00, 0.00);
-CreateDynamicObject(1223, 2231.82, -1918.40, 12.00,   0.00, 0.00, 0.00);
-CreateDynamicObject(1223, 2231.73, -1912.82, 12.00,   0.00, 0.00, 0.00);
-CreateDynamicObject(1223, 2231.84, -1907.24, 12.00,   0.00, 0.00, 0.00);
-CreateDynamicObject(3761, 2245.01, -1925.79, 14.53,   0.00, 0.00, 0.00);
-CreateDynamicObject(3761, 2245.04, -1919.59, 14.53,   0.00, 0.00, 0.00);
-CreateDynamicObject(3761, 2245.00, -1913.42, 14.53,   0.00, 0.00, 0.00);
-CreateDynamicObject(3761, 2245.03, -1908.86, 14.53,   0.00, 0.00, 0.00);
-CreateDynamicObject(925, 2233.38, -1927.76, 13.66,   0.00, 0.00, -2.10);
-CreateDynamicObject(925, 2233.42, -1926.06, 13.66,   0.00, 0.00, -2.10);
-CreateDynamicObject(925, 2233.49, -1924.34, 13.66,   0.00, 0.00, -2.10);
-CreateDynamicObject(1223, 2250.52, -1927.03, 12.00,   0.00, 0.00, 0.00);
-CreateDynamicObject(1223, 2250.53, -1921.48, 12.00,   0.00, 0.00, 0.00);
-CreateDynamicObject(1223, 2250.49, -1912.37, 12.00,   0.00, 0.00, 0.00);
-CreateDynamicObject(1348, 2251.59, -1928.70, 13.27,   0.00, 0.00, 0.00);
-CreateDynamicObject(1348, 2251.57, -1927.68, 13.27,   0.00, 0.00, 0.00);
-CreateDynamicObject(1348, 2251.55, -1926.56, 13.27,   0.00, 0.00, 0.00);
-CreateDynamicObject(1348, 2251.52, -1925.44, 13.27,   0.00, 0.00, 0.00);
-CreateDynamicObject(1348, 2251.51, -1924.38, 13.27,   0.00, 0.00, 0.00);
-CreateDynamicObject(1338, 2251.56, -1922.88, 13.09,   0.00, 0.00, 0.00);
-CreateDynamicObject(1338, 2251.51, -1921.24, 13.09,   0.00, 0.00, 0.00);
-CreateDynamicObject(1338, 2251.62, -1919.68, 13.09,   0.00, 0.00, 0.00);
-CreateDynamicObject(1421, 2263.89, -1928.17, 13.31,   0.00, 0.00, -91.26);
-CreateDynamicObject(1421, 2262.87, -1928.17, 13.31,   0.00, 0.00, -91.26);
-CreateDynamicObject(1421, 2261.79, -1928.07, 13.31,   0.00, 0.00, -91.26);
-CreateDynamicObject(1421, 2263.85, -1926.13, 13.31,   0.00, 0.00, -91.26);
-CreateDynamicObject(1421, 2262.86, -1926.04, 13.31,   0.00, 0.00, -91.26);
-CreateDynamicObject(1421, 2261.80, -1925.95, 13.31,   0.00, 0.00, -91.26);
-CreateDynamicObject(3761, 2263.70, -1922.18, 14.53,   0.00, 0.00, 0.00);
-CreateDynamicObject(3761, 2263.73, -1915.65, 14.53,   0.00, 0.00, 0.00);
-CreateDynamicObject(16092, 2238.72, -1930.71, 10.23,   0.00, 0.00, -89.52);
-CreateDynamicObject(16092, 2257.21, -1930.98, 10.23,   0.00, 0.00, -90.06);
-CreateDynamicObject(16092, 2276.39, -1931.34, 10.23,   0.00, 0.00, -89.70);
-CreateDynamicObject(3761, 2282.20, -1913.05, 14.53,   0.00, 0.00, 0.00);
-CreateDynamicObject(3761, 2282.28, -1919.45, 14.53,   0.00, 0.00, 0.00);
-CreateDynamicObject(1299, 2281.33, -1924.36, 13.03,   0.00, 0.00, 0.00);
-CreateDynamicObject(1299, 2281.34, -1926.64, 13.03,   0.00, 0.00, 0.00);
-CreateDynamicObject(1299, 2281.27, -1928.94, 13.03,   0.00, 0.00, 0.00);
-CreateDynamicObject(1338, 2270.49, -1928.64, 13.28,   0.00, 0.00, 0.00);
-CreateDynamicObject(1338, 2272.08, -1928.59, 13.28,   0.00, 0.00, 0.00);
-CreateDynamicObject(1338, 2270.55, -1927.10, 13.28,   0.00, 0.00, 0.00);
-CreateDynamicObject(1338, 2272.10, -1927.09, 13.28,   0.00, 0.00, 0.00);
-CreateDynamicObject(1348, 2270.42, -1925.81, 13.27,   0.00, 0.00, 0.00);
-CreateDynamicObject(1348, 2272.11, -1925.83, 13.27,   0.00, 0.00, 0.00);
-CreateDynamicObject(1348, 2270.41, -1924.69, 13.27,   0.00, 0.00, 0.00);
-CreateDynamicObject(1348, 2272.10, -1924.74, 13.27,   0.00, 0.00, 0.00);
-CreateDynamicObject(10281, 2276.87, -1932.98, 18.43,   0.00, 0.00, 2.64);
-CreateDynamicObject(10281, 2257.24, -1932.74, 18.57,   0.00, 0.00, 2.64);
-CreateDynamicObject(10281, 2238.50, -1932.42, 18.57,   0.00, 0.00, 2.64);
-CreateDynamicObject(929, 2232.80, -1921.47, 13.39,   0.00, 0.00, -1.38);
-CreateDynamicObject(929, 2233.96, -1921.52, 13.39,   0.00, 0.00, -1.38);
-CreateDynamicObject(929, 2251.34, -1915.94, 13.39,   0.00, 0.00, -1.38);
-CreateDynamicObject(929, 2270.29, -1919.06, 13.39,   0.00, 0.00, -1.38);
-CreateDynamicObject(929, 2271.68, -1919.13, 13.39,   0.00, 0.00, -1.38);
-CreateDynamicObject(958, 2232.77, -1916.66, 13.41,   0.00, 0.00, -92.04);
-CreateDynamicObject(958, 2232.95, -1913.35, 13.41,   0.00, 0.00, -92.04);
-CreateDynamicObject(958, 2251.45, -1911.38, 13.41,   0.00, 0.00, -92.04);
-CreateDynamicObject(958, 2251.72, -1908.10, 13.41,   0.00, 0.00, -92.04);
-CreateDynamicObject(958, 2270.39, -1914.34, 13.41,   0.00, 0.00, -92.04);
-CreateDynamicObject(958, 2270.60, -1910.99, 13.41,   0.00, 0.00, -92.04);
-CreateDynamicObject(959, 2270.38, -1914.32, 13.43,   0.00, 0.00, -92.76);
-CreateDynamicObject(959, 2270.59, -1911.04, 13.43,   0.00, 0.00, -92.76);
-CreateDynamicObject(959, 2251.44, -1911.38, 13.43,   0.00, 0.00, -92.76);
-CreateDynamicObject(959, 2251.70, -1908.07, 13.43,   0.00, 0.00, -92.40);
-CreateDynamicObject(959, 2232.77, -1916.66, 13.43,   0.00, 0.00, -91.92);
-CreateDynamicObject(959, 2232.94, -1913.34, 13.43,   0.00, 0.00, -91.92);
-CreateDynamicObject(11417, 2306.62, -1958.28, 17.34,   0.00, 0.00, 0.00);
-CreateDynamicObject(11417, 2225.84, -1955.49, 17.43,   0.00, 0.00, 0.00);
-CreateDynamicObject(3475, 2304.75, -1936.37, 14.90,   0.00, 0.00, -180.72);
-CreateDynamicObject(3475, 2304.83, -1930.43, 14.90,   0.00, 0.00, -180.72);
-CreateDynamicObject(3475, 2304.93, -1924.61, 14.90,   0.00, 0.00, -180.72);
-CreateDynamicObject(3475, 2304.95, -1918.63, 14.90,   0.00, 0.00, -178.02);
-CreateDynamicObject(3475, 2304.87, -1912.63, 14.90,   0.00, 0.00, -178.02);
-CreateDynamicObject(3475, 2304.83, -1906.69, 14.90,   0.00, 0.00, -177.54);
-CreateDynamicObject(3475, 2301.96, -1904.10, 14.90,   0.00, 0.00, -87.78);
-CreateDynamicObject(3475, 2296.05, -1904.26, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2290.14, -1904.25, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2284.29, -1904.21, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2278.47, -1904.17, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2272.51, -1904.10, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2266.55, -1904.07, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2260.58, -1904.03, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2254.60, -1904.01, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2248.68, -1903.96, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2242.82, -1903.87, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2236.92, -1903.92, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2230.91, -1903.95, 14.90,   0.00, 0.00, -89.88);
-CreateDynamicObject(3475, 2228.04, -1906.76, 14.90,   0.00, 0.00, -3.78);
-CreateDynamicObject(3475, 2227.61, -1912.65, 14.90,   0.00, 0.00, -3.78);
-CreateDynamicObject(3475, 2227.11, -1918.60, 14.90,   0.00, 0.00, -3.78);
-CreateDynamicObject(3475, 2226.56, -1924.51, 14.90,   0.00, 0.00, -3.78);
-CreateDynamicObject(3475, 2226.13, -1930.53, 14.90,   0.00, 0.00, -3.78);
-CreateDynamicObject(3475, 2225.61, -1936.39, 14.90,   0.00, 0.00, -3.78);
-CreateDynamicObject(3475, 2225.10, -1942.31, 14.90,   0.00, 0.00, -3.78);
-CreateDynamicObject(3475, 2224.62, -1948.33, 14.90,   0.00, 0.00, -3.78);
-CreateDynamicObject(3475, 2224.19, -1954.25, 14.90,   0.00, 0.00, -3.78);
-CreateDynamicObject(3475, 2225.95, -1959.30, 14.90,   0.00, 0.00, 41.10);
-CreateDynamicObject(3475, 2230.76, -1961.85, 14.90,   0.00, 0.00, 84.60);
-CreateDynamicObject(3475, 2244.40, -1962.05, 14.90,   0.00, 0.00, 88.38);
-CreateDynamicObject(3475, 2250.38, -1962.21, 14.90,   0.00, 0.00, 88.38);
-CreateDynamicObject(3475, 2256.62, -1962.17, 14.90,   0.00, 0.00, 90.48);
-CreateDynamicObject(3475, 2262.56, -1962.22, 14.90,   0.00, 0.00, 90.48);
-CreateDynamicObject(3475, 2268.68, -1962.22, 14.90,   0.00, 0.00, 90.48);
-CreateDynamicObject(3475, 2274.58, -1962.27, 14.90,   0.00, 0.00, 90.48);
-CreateDynamicObject(3475, 2280.47, -1962.28, 14.90,   0.00, 0.00, 90.48);
-CreateDynamicObject(3475, 2286.41, -1962.22, 14.90,   0.00, 0.00, 90.48);
-CreateDynamicObject(3475, 2292.27, -1962.16, 14.90,   0.00, 0.00, 90.48);
-CreateDynamicObject(3475, 2298.23, -1962.24, 14.90,   0.00, 0.00, 90.48);
-CreateDynamicObject(3475, 2302.50, -1959.80, 14.90,   0.00, 0.00, 147.84);
-CreateDynamicObject(3475, 2304.54, -1942.29, 14.90,   0.00, 0.00, -180.72);
-CreateDynamicObject(8040, 2272.80, -2001.01, 13.37,   0.00, 0.00, -179.82);
-CreateDynamicObject(8041, 2232.89, -2000.89, 18.32,   0.00, 0.00, -179.94);
-CreateDynamicObject(1290, 2288.28, -2001.16, 19.00,   0.00, 0.00, -96.84);
-CreateDynamicObject(1290, 2276.42, -2001.37, 19.00,   0.00, 0.00, -96.84);
-CreateDynamicObject(1290, 2263.74, -2001.30, 19.00,   0.00, 0.00, -96.84);
-CreateDynamicObject(1290, 2253.65, -2001.31, 19.00,   0.00, 0.00, -96.84);
-CreateDynamicObject(3475, 2309.06, -1982.56, 16.54,   0.00, 0.00, -90.00);
-CreateDynamicObject(3475, 2302.99, -1982.57, 16.54,   0.00, 0.00, -90.00);
-CreateDynamicObject(3475, 2297.09, -1982.53, 16.54,   0.00, 0.00, -90.00);
-CreateDynamicObject(3475, 2291.18, -1982.54, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2285.41, -1982.51, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2279.54, -1982.54, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2273.67, -1982.48, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2267.91, -1982.45, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2261.93, -1982.44, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2255.99, -1982.45, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2250.09, -1982.58, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2244.25, -1982.68, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2238.43, -1982.80, 16.54,   0.00, 0.00, -89.16);
-CreateDynamicObject(3475, 2233.21, -1989.02, 16.54,   0.00, 0.00, -0.30);
-CreateDynamicObject(18284, 2294.18, -1910.49, 15.41,   0.00, 0.00, -91.86);
-CreateDynamicObject(1676, 2285.85, -1910.18, 14.19,   0.00, 0.00, 87.48);
-CreateDynamicObject(1676, 2291.45, -1910.63, 14.19,   0.00, 0.00, 87.48);
-CreateDynamicObject(1676, 2302.49, -1910.65, 14.19,   0.00, 0.00, 87.48);
-CreateDynamicObject(1676, 2296.98, -1910.69, 14.19,   0.00, 0.00, 87.48);
-CreateDynamicObject(10183, 2278.70, -1958.35, 12.60,   0.00, 0.00, -134.10);
-CreateDynamicObject(10183, 2263.74, -1958.22, 12.60,   0.00, 0.00, -135.24);
-CreateDynamicObject(11417, 2234.81, -1718.19, 26.66,   0.00, 0.00, 0.00);
-CreateDynamicObject(6986, 2231.07, -1710.93, 26.97,   -88.44, -29.58, -31.02);
-CreateDynamicObject(3096, 2230.44, -1713.82, 25.34,   0.00, 0.00, -93.18);
-CreateDynamicObject(3096, 2230.62, -1706.40, 25.34,   0.00, 0.00, -93.18);
-CreateDynamicObject(3096, 2230.60, -1706.46, 27.66,   0.00, 0.00, -93.18);
-CreateDynamicObject(3096, 2230.57, -1706.55, 30.20,   0.00, 0.00, -93.18);
-CreateDynamicObject(12839, 2246.92, -1924.58, 15.99,   0.00, 0.00, -179.82);
-CreateDynamicObject(18234, 2235.56, -1915.25, 18.52,   0.00, 0.00, -180.12);
+//Taller El Corona By Jayceon
+CreateDynamicObject(11387, 2028.89, -2083.08, 15.95,   0.00, 0.00, 270.00);
+CreateDynamicObject(3574, 2032.28, -2058.80, 15.07,   0.00, 0.00, 0.00);
+CreateDynamicObject(3574, 2001.01, -2091.02, 15.07,   0.00, 0.00, 90.00);
+CreateDynamicObject(10846, 2075.58, -2090.92, 16.54,   0.00, 0.00, 90.00);
+CreateDynamicObject(10845, 2007.24, -2062.54, 15.69,   0.00, 0.00, 92.70);
+CreateDynamicObject(11389, 2044.90, -2073.71, 15.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(11388, 2044.90, -2073.65, 19.37,   0.00, 0.00, 270.00);
+CreateDynamicObject(11390, 2044.92, -2073.67, 16.99,   0.00, 0.00, 270.00);
+CreateDynamicObject(11391, 2036.74, -2065.68, 13.84,   0.00, 0.00, 270.00);
+CreateDynamicObject(11392, 2046.11, -2074.64, 12.61,   0.00, 0.00, 270.00);
+CreateDynamicObject(11393, 2039.53, -2078.32, 14.08,   0.00, 0.00, 270.00);
+CreateDynamicObject(18633, 2039.85, -2065.30, 13.49,   0.00, 270.00, -44.88);
+CreateDynamicObject(18634, 2038.90, -2065.41, 13.49,   0.00, 270.00, 54.96);
+CreateDynamicObject(18635, 2038.98, -2064.99, 13.45,   90.00, 0.00, 0.00);
+CreateDynamicObject(18635, 2046.23, -2066.82, 13.45,   90.00, 0.00, 0.00);
+CreateDynamicObject(1348, 2052.36, -2081.33, 13.28,   0.00, 0.00, -51.96);
+CreateDynamicObject(1348, 2043.07, -2081.74, 13.28,   0.00, 0.00, 6.54);
+CreateDynamicObject(1348, 2041.03, -2080.80, 13.28,   0.00, 0.00, -68.70);
+CreateDynamicObject(1714, 2036.84, -2080.06, 12.56,   0.00, 0.00, 0.00);
+CreateDynamicObject(2332, 2031.51, -2081.89, 13.02,   0.00, 0.00, 180.00);
+CreateDynamicObject(1723, 2038.49, -2077.29, 12.58,   0.00, 0.00, 270.00);
+CreateDynamicObject(1139, 2060.25, -2070.44, 13.42,   -10.44, 302.04, 3.66);
+CreateDynamicObject(1146, 2060.45, -2070.02, 13.36,   -10.44, 302.04, 3.66);
+CreateDynamicObject(1153, 2060.13, -2068.22, 12.76,   11.70, 0.00, 125.16);
+CreateDynamicObject(1155, 2059.88, -2067.86, 13.09,   1.02, 18.06, -182.82);
+CreateDynamicObject(11360, 2048.50, -2083.07, 14.65,   0.00, 0.00, 90.00);
+CreateDynamicObject(11359, 2028.86, -2069.22, 14.67,   0.00, 0.00, 90.00);
+CreateDynamicObject(2893, 2055.93, -2070.96, 13.88,   7.60, 0.00, 0.00);
+CreateDynamicObject(2960, 2053.47, -2069.71, 11.15,   0.00, 90.00, 824.10);
+CreateDynamicObject(2960, 2053.52, -2069.85, 11.15,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2053.96, -2067.32, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2054.17, -2067.49, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2054.19, -2067.19, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2053.05, -2067.26, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2052.83, -2067.24, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2052.90, -2067.03, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2052.98, -2067.41, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2054.34, -2066.28, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2054.19, -2065.97, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2054.42, -2066.13, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2053.10, -2066.30, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2053.21, -2066.10, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2052.95, -2065.97, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2052.88, -2066.17, 11.57,   0.00, 90.00, 733.98);
+CreateDynamicObject(2960, 2051.26, -2067.00, 11.45,   0.00, 90.00, 669.24);
+CreateDynamicObject(2960, 2051.38, -2066.94, 11.45,   0.00, 90.00, 669.24);
+CreateDynamicObject(2960, 2046.38, -2067.17, 11.15,   0.00, 90.00, 669.24);
+CreateDynamicObject(2960, 2046.13, -2067.18, 11.15,   0.00, 90.00, 572.10);
+CreateDynamicObject(19303, 2043.19, -2065.69, 12.57,   0.00, 0.00, 0.00);
+CreateDynamicObject(19303, 2042.44, -2065.71, 12.57,   0.00, 0.00, 0.00);
+CreateDynamicObject(2960, 2043.63, -2065.42, 11.53,   0.00, 90.00, 572.10);
+CreateDynamicObject(2960, 2036.38, -2065.52, 10.79,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2041.95, -2065.43, 11.53,   0.00, 90.00, 0.00);
+CreateDynamicObject(19303, 2039.31, -2065.46, 12.20,   0.00, 0.00, 0.00);
+CreateDynamicObject(19303, 2038.91, -2065.43, 12.20,   0.00, 0.00, 0.00);
+CreateDynamicObject(2960, 2040.08, -2065.17, 11.15,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2038.44, -2065.22, 11.15,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2035.68, -2065.39, 10.79,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2035.29, -2066.09, 10.79,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2034.67, -2065.42, 11.53,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2032.61, -2065.41, 11.53,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2039.71, -2077.46, 11.39,   0.00, 90.00, 0.00);
+CreateDynamicObject(19303, 2033.89, -2065.71, 12.58,   0.00, 0.00, 0.00);
+CreateDynamicObject(19303, 2033.14, -2065.71, 12.58,   0.00, 0.00, 0.00);
+CreateDynamicObject(2960, 2039.85, -2076.71, 11.39,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2039.85, -2075.96, 11.39,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2040.05, -2080.40, 11.39,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2039.80, -2081.15, 11.39,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2040.39, -2081.76, 11.39,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2051.92, -2082.18, 11.39,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.05, -2078.52, 12.47,   0.00, 90.00, 0.00);
+CreateDynamicObject(1348, 2060.23, -2077.05, 13.30,   0.00, 0.00, -70.00);
+CreateDynamicObject(2960, 2060.07, -2079.00, 12.47,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.05, -2079.54, 12.47,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.06, -2080.18, 12.47,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.07, -2080.74, 12.49,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.04, -2081.09, 12.47,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.00, -2074.69, 11.57,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.27, -2074.75, 11.57,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.18, -2074.47, 11.57,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.06, -2074.48, 11.57,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.26, -2072.25, 11.81,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.36, -2072.47, 11.81,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2060.46, -2072.11, 11.57,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2037.76, -2081.62, 11.08,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2037.76, -2082.00, 11.08,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2037.63, -2081.44, 11.08,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2037.45, -2081.44, 11.08,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2036.18, -2081.45, 11.08,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2035.96, -2081.43, 11.08,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2036.14, -2081.59, 11.08,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2036.15, -2082.00, 11.09,   0.00, 90.00, 0.00);
+CreateDynamicObject(2960, 2035.46, -2081.81, 11.93,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2034.94, -2081.77, 11.93,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2035.03, -2081.93, 11.93,   0.00, 90.00, -5.46);
+CreateDynamicObject(2960, 2034.99, -2082.13, 11.93,   0.00, 90.00, -5.46);
+CreateDynamicObject(19303, 2030.28, -2081.36, 12.46,   0.00, 0.00, 90.00);
+CreateDynamicObject(19303, 2030.28, -2079.63, 12.46,   0.00, 0.00, 90.00);
+CreateDynamicObject(19303, 2030.27, -2078.89, 12.46,   0.00, 0.00, 90.00);
+CreateDynamicObject(19303, 2030.49, -2076.96, 12.58,   0.00, 0.00, 90.00);
+CreateDynamicObject(19303, 2030.49, -2076.18, 12.58,   0.00, 0.00, 90.00);
+CreateDynamicObject(2960, 2029.95, -2081.56, 11.41,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2029.95, -2080.83, 11.41,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2029.99, -2080.15, 11.41,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2030.01, -2080.33, 11.41,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2029.93, -2079.62, 11.41,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2029.92, -2079.11, 11.41,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2029.96, -2078.63, 11.41,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2029.93, -2078.17, 11.41,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2030.22, -2077.38, 11.53,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2030.30, -2076.88, 11.53,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2030.23, -2076.41, 11.53,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2030.10, -2075.90, 11.53,   0.00, 90.00, 90.00);
+CreateDynamicObject(2960, 2029.91, -2075.47, 11.53,   0.00, 90.00, 90.00);
+CreateDynamicObject(18635, 2053.34, -2069.50, 13.43,   90.00, 0.00, 0.00);
+CreateDynamicObject(18635, 2053.64, -2069.82, 13.43,   90.00, 0.00, -71.16);
+CreateDynamicObject(2893, 2057.66, -2070.91, 13.90,   7.60, 0.00, 0.00);
+CreateDynamicObject(2893, 2055.95, -2070.96, 13.88,   -16.50, 0.00, 180.00);
+CreateDynamicObject(2893, 2057.66, -2065.12, 13.90,   -16.50, 0.00, 0.00);
+CreateDynamicObject(2893, 2049.31, -2065.67, 13.88,   -16.50, 0.00, 0.00);
+CreateDynamicObject(2893, 2047.54, -2065.67, 13.88,   -16.50, 0.00, 0.00);
+CreateDynamicObject(3465, 2035.88, -2095.21, 14.10,   0.00, 0.00, 90.00);
+CreateDynamicObject(3465, 2033.96, -2095.21, 14.10,   0.00, 0.00, 90.00);
+
 
 // ++
 CreateDynamicObject(971,1025.2795,-1029.2299,32.1016,-0.00000,0.000000,0); // Pay & Spray
@@ -40304,75 +40159,18 @@ function MapsRemoveForPlayer(playerid)
 	RemoveBuildingForPlayer(playerid, 1440, 1148.6797, -1385.1875, 13.2656, 0.25);
 	RemoveBuildingForPlayer(playerid, 1294, 1115.0781, -1285.3672, 17.0781, 0.25);
 	RemoveBuildingForPlayer(playerid, 5737, 1120.1563, -1303.4531, 18.5703, 0.25);
-	//MECANICOS
-	RemoveBuildingForPlayer(playerid, 5317, 2264.2109, -1953.2188, 15.7109, 0.25);
-	RemoveBuildingForPlayer(playerid, 5318, 2267.9609, -1997.8906, 18.5781, 0.25);
-	RemoveBuildingForPlayer(playerid, 3748, 2238.2188, -1916.1094, 15.1875, 0.25);
-	RemoveBuildingForPlayer(playerid, 3748, 2261.4609, -1916.0313, 15.1875, 0.25);
-	RemoveBuildingForPlayer(playerid, 3748, 2284.7031, -1915.8750, 15.1797, 0.25);
-	RemoveBuildingForPlayer(playerid, 3744, 2313.0469, -2008.5391, 15.0234, 0.25);
-	RemoveBuildingForPlayer(playerid, 1266, 2300.3281, -1954.5469, 21.8281, 0.25);
-	RemoveBuildingForPlayer(playerid, 1266, 2236.5625, -1988.0469, 26.2813, 0.25);
-	RemoveBuildingForPlayer(playerid, 1226, 2217.9688, -2001.5313, 16.4609, 0.25);
-	RemoveBuildingForPlayer(playerid, 5293, 2282.8203, -2033.5000, 20.5469, 0.25);
-	RemoveBuildingForPlayer(playerid, 5372, 2282.8203, -2033.5000, 20.5469, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2229.2109, -2010.9844, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1635, 2255.8438, -2013.5859, 15.1484, 0.25);
-	RemoveBuildingForPlayer(playerid, 1687, 2236.1406, -2010.2344, 18.2969, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2271.7344, -2013.6172, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2311.1563, -2019.7188, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 5310, 2267.9609, -1997.8906, 18.5781, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2227.4688, -1987.5781, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1260, 2236.5625, -1988.0469, 26.2813, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2245.7422, -1981.6406, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1635, 2235.8281, -1982.2031, 17.6250, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2272.4688, -1981.8516, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1226, 2256.2500, -1976.3906, 16.3906, 0.25);
-	RemoveBuildingForPlayer(playerid, 1687, 2300.1797, -1997.0547, 25.4688, 0.25);
-	RemoveBuildingForPlayer(playerid, 1315, 2302.5859, -1975.3516, 15.8125, 0.25);
-	RemoveBuildingForPlayer(playerid, 1635, 2296.6719, -1982.2031, 17.6250, 0.25);
-	RemoveBuildingForPlayer(playerid, 3574, 2313.0469, -2008.5391, 15.0234, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2316.7266, -1982.0156, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1315, 2225.2109, -1969.2500, 15.8125, 0.25);
-	RemoveBuildingForPlayer(playerid, 1226, 2264.1094, -1968.0391, 16.3906, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2231.1172, -1962.8359, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2225.1094, -1956.9453, 12.7188, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2256.0156, -1962.7422, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2285.9063, -1962.8594, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 5309, 2264.2109, -1953.2188, 15.7109, 0.25);
-	RemoveBuildingForPlayer(playerid, 1635, 2230.1797, -1943.5469, 17.0156, 0.25);
-	RemoveBuildingForPlayer(playerid, 5266, 2278.0000, -1942.8672, 20.0781, 0.25);
-	RemoveBuildingForPlayer(playerid, 1635, 2268.8906, -1943.5781, 17.0156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1260, 2300.3281, -1954.5469, 21.8281, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2225.8750, -1933.5156, 12.7188, 0.25);
-	RemoveBuildingForPlayer(playerid, 678, 2253.3828, -1932.9219, 12.6484, 0.25);
-	RemoveBuildingForPlayer(playerid, 678, 2233.2188, -1933.0625, 12.6484, 0.25);
-	RemoveBuildingForPlayer(playerid, 673, 2229.1016, -1928.7578, 11.4453, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2247.2578, -1929.2188, 12.7188, 0.25);
-	RemoveBuildingForPlayer(playerid, 678, 2246.2109, -1931.2578, 12.6484, 0.25);
-	RemoveBuildingForPlayer(playerid, 673, 2229.1016, -1911.8125, 11.4453, 0.25);
-	RemoveBuildingForPlayer(playerid, 673, 2229.1016, -1920.2891, 11.4453, 0.25);
-	RemoveBuildingForPlayer(playerid, 3628, 2238.2188, -1916.1094, 15.1875, 0.25);
-	RemoveBuildingForPlayer(playerid, 712, 2266.1953, -1932.9531, 21.9844, 0.25);
-	RemoveBuildingForPlayer(playerid, 3628, 2261.4609, -1916.0313, 15.1875, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2277.2031, -1933.5547, 12.7422, 0.25);
-	RemoveBuildingForPlayer(playerid, 678, 2278.8672, -1933.5000, 12.6484, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2291.2266, -1929.0156, 12.7188, 0.25);
-	RemoveBuildingForPlayer(playerid, 678, 2289.4375, -1933.5547, 12.6484, 0.25);
-	RemoveBuildingForPlayer(playerid, 3628, 2284.7031, -1915.8750, 15.1797, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2253.5391, -1904.2656, 12.7109, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2229.8750, -1904.1250, 12.6016, 0.25);
-	RemoveBuildingForPlayer(playerid, 620, 2240.7969, -1900.1328, 10.8047, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2277.2031, -1905.0547, 12.7422, 0.25);
-	RemoveBuildingForPlayer(playerid, 620, 2265.2891, -1900.1328, 10.8047, 0.25);
-	RemoveBuildingForPlayer(playerid, 1226, 2280.5469, -1898.5703, 16.3906, 0.25);
-	RemoveBuildingForPlayer(playerid, 673, 2293.1016, -1900.3281, 11.4453, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2291.2813, -1905.1719, 12.8594, 0.25);
-	RemoveBuildingForPlayer(playerid, 1308, 2304.0938, -1961.6328, 11.5156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1315, 2311.2266, -1954.4531, 15.8125, 0.25);
-	RemoveBuildingForPlayer(playerid, 1635, 2302.1016, -1958.6563, 17.0156, 0.25);
-	RemoveBuildingForPlayer(playerid, 1226, 2309.3672, -1933.9609, 16.3906, 0.25);
-	RemoveBuildingForPlayer(playerid, 712, 2300.9688, -1909.5547, 21.5000, 0.25);
+	//Taller El Corona By Jayceon
+	RemoveBuildingForPlayer(playerid, 5202, 2050.3594, -2045.9297, 20.8672, 0.25);
+	RemoveBuildingForPlayer(playerid, 3744, 2073.8281, -2091.2344, 15.1328, 0.25);
+	RemoveBuildingForPlayer(playerid, 3744, 2051.0547, -2089.6094, 15.1328, 0.25);
+	RemoveBuildingForPlayer(playerid, 3744, 2026.2500, -2093.3906, 15.1328, 0.25);
+	RemoveBuildingForPlayer(playerid, 3578, 2026.8359, -2099.4531, 13.3203, 0.25);
+	RemoveBuildingForPlayer(playerid, 3574, 2026.2500, -2093.3984, 15.0703, 0.25);
+	RemoveBuildingForPlayer(playerid, 3578, 2050.5938, -2099.4609, 13.3203, 0.25);
+	RemoveBuildingForPlayer(playerid, 3578, 2074.0156, -2099.4453, 13.3203, 0.25);
+	RemoveBuildingForPlayer(playerid, 3574, 2073.8359, -2091.2188, 15.0703, 0.25);
+	RemoveBuildingForPlayer(playerid, 3574, 2051.0469, -2089.6016, 15.0703, 0.25);
+	RemoveBuildingForPlayer(playerid, 5138, 2050.3594, -2045.9297, 20.8672, 0.25);
 
     //24/7 Ayunta By Map Team ZC 2013
     RemoveBuildingForPlayer(playerid, 4051, 1371.8203, -1754.8203, 19.0469, 0.25);
