@@ -25168,57 +25168,56 @@ CMD:ah(playerid, params[]) return cmd_ahelp(playerid, params);
 CMD:ahelp(playerid, params[])
 {
 	#pragma unused params
-		if(Info[playerid][pAdmin] >= 1)
-		{
-		 	SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {2ECCFA}Administrador Junior");
-		 	SendClientMessageEx(playerid, COLOR_WHITE, "/adminduty /jail /congelar /descongelar /ir /traer /sendtols /a /aa /spec /check");
-		 	SendClientMessageEx(playerid, COLOR_WHITE, "/ar (AReporte) /rr (RReporte) /nao (RevReporte) /darrol /leveluno /togmods /revive");
-		 	
-		}
-		if(Info[playerid][pAdmin]>=2)
-		{
-		    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {01A9DB}Administrador");
-			SendClientMessageEx(playerid, COLOR_WHITE, "/weaponr /bigears /slap /setskin /jail(cuenta) /liberar /jetpack /irapunto /enmascarados /dudamute");
-            SendClientMessageEx(playerid, COLOR_WHITE, "/togac /silenciar /alimpiar /sethp /setarmor /banear /admute (unmute) /checkllaves");
-			SendClientMessageEx(playerid, COLOR_WHITE, "/fixvid /fixveh /fly /setint /setvw /checkwep /kick /disarm /rtcar /recargarcochesd /fullhunger");
-		if(Info[playerid][pAdmin]>=3)
-		{
-			SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {0040FF}Administrador lider");
-	 		SendClientMessageEx(playerid, COLOR_WHITE, "/rtcar /iracochede /respawncars  /warn /rto(reset) /wepreset /recargarcochesd /racall /banip /entercar");
-	 		SendClientMessageEx(playerid, COLOR_WHITE, "/getcar /gotocar /mark (gotomark) /ao /reportes /god /unlockveh /vehslap /setcarvw /fixvehall /obanear");
-	 		SendClientMessageEx(playerid, COLOR_WHITE, "/fixvehall /forcedied /adarfichas /minombre /gotoco /ncambios /aname /dname");
-		}
-		if(Info[playerid][pAdmin]>=4)
-		{
-		    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {0B614B}Administrador General");
-			SendClientMessageEx(playerid, COLOR_WHITE, "/unban /money /famchat /mole /pstat /listatoys /setadminname ");
-			SendClientMessageEx(playerid, COLOR_WHITE, "/unbanip /facchat /cnnn /facmotd /fammotd /givegun /makeleader /adminfam");
-			SendClientMessageEx(playerid, COLOR_WHITE, "/goinhouse /gotohouse /editar /hacermod /destruircar /darestilopelea");
-		}
-		if(Info[playerid][pAdmin]>=5)
-		{
-		    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {688A08}Administrador Director");
-	 		SendClientMessageEx(playerid, COLOR_WHITE, "/limpiarreportes /loteria /obanear /deletecp /forcep /makebanap /makefmod /makefammod ");
-	 		SendClientMessageEx(playerid, COLOR_WHITE, "/ocambiarpassde /togpm /bloqbug (unbloq) /setadminlvl /kickstaff /cleanvarstaff /amotd");
-	 		SendClientMessageEx(playerid, COLOR_WHITE, "/avecasa /mmotd /hacerlidermod /kickmod /setmoney /tod /weatherall /adminnegocio");
-		}
-		if(Info[playerid][pAdmin]>=6)
-		{
-  			SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {DBA901}Executive Admin");
-		    SendClientMessageEx(playerid, COLOR_WHITE, "/update /crearregalo(OFF) /motd /nonewbie (desactiva canal dudas)");
-			SendClientMessageEx(playerid, COLOR_WHITE, "/mps /admins /kickstaff /adminpuntos /ddedit /admincasa /darobjeto");
-		}
-        if(Info[playerid][pAdmin]>=7)
-        {
-  		    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {FF0000}Server Admin");
-	 		SendClientMessageEx(playerid, COLOR_WHITE, "/adminshop /noac /crearsalecar /borrarsalecar /editarcamara /crear(borrar)camara");
-	 		SendClientMessageEx(playerid, COLOR_WHITE, "/Setfbanco (Nuevo Balance De Banco) /settax (Nuevo Balance De Estado)");
-	 		SendClientMessageEx(playerid, COLOR_WHITE, "/crearatm /borraratm /editaratm");
-	 	}
-        
-		SendClientMessageEx(playerid, COLOR_GENERAL, "--------------------------------------------------------------------------------------------------------------------------------");
-		}
-		else NoAutorizado
+	if(Info[playerid][pAdmin] <= 0) return NoAutorizado
+	if(Info[playerid][pAdmin] >= 1)
+	{
+	 	SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {2ECCFA}Administrador Junior");
+	 	SendClientMessageEx(playerid, COLOR_WHITE, "/adminduty /jail /congelar /descongelar /ir /traer /sendtols /a /aa /spec /check");
+	 	SendClientMessageEx(playerid, COLOR_WHITE, "/ar (AReporte) /rr (RReporte) /nao (RevReporte) /darrol /leveluno /togmods /revive");
+	 	
+	}
+	else if(Info[playerid][pAdmin] >= 2)
+	{
+	    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {01A9DB}Administrador");
+		SendClientMessageEx(playerid, COLOR_WHITE, "/weaponr /bigears /slap /setskin /jail(cuenta) /liberar /jetpack /irapunto /enmascarados /dudamute");
+        SendClientMessageEx(playerid, COLOR_WHITE, "/togac /silenciar /alimpiar /sethp /setarmor /banear /admute (unmute) /checkllaves");
+		SendClientMessageEx(playerid, COLOR_WHITE, "/fixvid /fixveh /fly /setint /setvw /checkwep /kick /disarm /rtcar /recargarcochesd /fullhunger");
+	}
+	else if(Info[playerid][pAdmin] >= 3)
+	{
+		SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {0040FF}Administrador lider");
+ 		SendClientMessageEx(playerid, COLOR_WHITE, "/rtcar /iracochede /respawncars  /warn /rto(reset) /wepreset /recargarcochesd /racall /banip /entercar");
+ 		SendClientMessageEx(playerid, COLOR_WHITE, "/getcar /gotocar /mark (gotomark) /ao /reportes /god /unlockveh /vehslap /setcarvw /fixvehall /obanear");
+ 		SendClientMessageEx(playerid, COLOR_WHITE, "/fixvehall /forcedied /adarfichas /minombre /gotoco /ncambios /aname /dname");
+	}
+	else if(Info[playerid][pAdmin] >= 4)
+	{
+	    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {0B614B}Administrador General");
+		SendClientMessageEx(playerid, COLOR_WHITE, "/unban /money /famchat /mole /pstat /listatoys /setadminname ");
+		SendClientMessageEx(playerid, COLOR_WHITE, "/unbanip /facchat /cnnn /facmotd /fammotd /givegun /makeleader /adminfam");
+		SendClientMessageEx(playerid, COLOR_WHITE, "/goinhouse /gotohouse /editar /hacermod /destruircar /darestilopelea");
+	}
+	else if(Info[playerid][pAdmin] >= 5)
+	{
+	    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {688A08}Administrador Director");
+ 		SendClientMessageEx(playerid, COLOR_WHITE, "/limpiarreportes /loteria /obanear /deletecp /forcep /makebanap /makefmod /makefammod ");
+ 		SendClientMessageEx(playerid, COLOR_WHITE, "/ocambiarpassde /togpm /bloqbug (unbloq) /setadminlvl /kickstaff /cleanvarstaff /amotd");
+ 		SendClientMessageEx(playerid, COLOR_WHITE, "/avecasa /mmotd /hacerlidermod /kickmod /setmoney /tod /weatherall /adminnegocio");
+	}
+	else if(Info[playerid][pAdmin] >= 6)
+	{
+		SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {DBA901}Executive Admin");
+	    SendClientMessageEx(playerid, COLOR_WHITE, "/update /crearregalo(OFF) /motd /nonewbie (desactiva canal dudas)");
+		SendClientMessageEx(playerid, COLOR_WHITE, "/mps /admins /kickstaff /adminpuntos /ddedit /admincasa /darobjeto");
+	}
+    else if(Info[playerid][pAdmin] >= 7)
+    {
+	    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {FF0000}Server Admin");
+ 		SendClientMessageEx(playerid, COLOR_WHITE, "/adminshop /noac /crearsalecar /borrarsalecar /editarcamara /crear(borrar)camara");
+ 		SendClientMessageEx(playerid, COLOR_WHITE, "/Setfbanco (Nuevo Balance De Banco) /settax (Nuevo Balance De Estado)");
+ 		SendClientMessageEx(playerid, COLOR_WHITE, "/crearatm /borraratm /editaratm");
+ 	}
+	SendClientMessageEx(playerid, COLOR_GENERAL, "--------------------------------------------------------------------------------------------------------------------------------");
 	return 1;
 }
 zcmd(modhelp, playerid, params[]){
@@ -39929,17 +39928,17 @@ function MapsRemoveForPlayer(playerid)
 	RemoveBuildingForPlayer(playerid, 6255, 1117.5859, -1490.0078, 32.7188, 0.25);
 	
 	//Taller El Corona By Jayceon
-RemoveBuildingForPlayer(playerid, 5202, 2050.3594, -2045.9297, 20.8672, 0.25);
-RemoveBuildingForPlayer(playerid, 3744, 2073.8281, -2091.2344, 15.1328, 0.25);
-RemoveBuildingForPlayer(playerid, 3744, 2051.0547, -2089.6094, 15.1328, 0.25);
-RemoveBuildingForPlayer(playerid, 3744, 2026.2500, -2093.3906, 15.1328, 0.25);
-RemoveBuildingForPlayer(playerid, 3578, 2026.8359, -2099.4531, 13.3203, 0.25);
-RemoveBuildingForPlayer(playerid, 3574, 2026.2500, -2093.3984, 15.0703, 0.25);
-RemoveBuildingForPlayer(playerid, 3578, 2050.5938, -2099.4609, 13.3203, 0.25);
-RemoveBuildingForPlayer(playerid, 3578, 2074.0156, -2099.4453, 13.3203, 0.25);
-RemoveBuildingForPlayer(playerid, 3574, 2073.8359, -2091.2188, 15.0703, 0.25);
-RemoveBuildingForPlayer(playerid, 3574, 2051.0469, -2089.6016, 15.0703, 0.25);
-RemoveBuildingForPlayer(playerid, 5138, 2050.3594, -2045.9297, 20.8672, 0.25);
+	RemoveBuildingForPlayer(playerid, 5202, 2050.3594, -2045.9297, 20.8672, 0.25);
+	RemoveBuildingForPlayer(playerid, 3744, 2073.8281, -2091.2344, 15.1328, 0.25);
+	RemoveBuildingForPlayer(playerid, 3744, 2051.0547, -2089.6094, 15.1328, 0.25);
+	RemoveBuildingForPlayer(playerid, 3744, 2026.2500, -2093.3906, 15.1328, 0.25);
+	RemoveBuildingForPlayer(playerid, 3578, 2026.8359, -2099.4531, 13.3203, 0.25);
+	RemoveBuildingForPlayer(playerid, 3574, 2026.2500, -2093.3984, 15.0703, 0.25);
+	RemoveBuildingForPlayer(playerid, 3578, 2050.5938, -2099.4609, 13.3203, 0.25);
+	RemoveBuildingForPlayer(playerid, 3578, 2074.0156, -2099.4453, 13.3203, 0.25);
+	RemoveBuildingForPlayer(playerid, 3574, 2073.8359, -2091.2188, 15.0703, 0.25);
+	RemoveBuildingForPlayer(playerid, 3574, 2051.0469, -2089.6016, 15.0703, 0.25);
+	RemoveBuildingForPlayer(playerid, 5138, 2050.3594, -2045.9297, 20.8672, 0.25);
 	
 	//Hotel By Jayceon
 	RemoveBuildingForPlayer(playerid, 1294, 987.7422, -973.4766, 43.5781, 0.25);
