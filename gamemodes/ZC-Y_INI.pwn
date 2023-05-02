@@ -512,16 +512,17 @@ enum vCoords
 	Float:vvvZ,
 };
 
-new Offsets[9][vCoords] = {
-{560, 0.398071289,0.75390625,0.43879509}, // Tablero Sultna
-{415, 0.409729004, 0.526367188, 0.206963539}, // Tablero Cheetah
-{421, 0.421691895, 0.804931641, 0.256482124}, // Tablero Washington
-{426, 0.575378418, 0.786132812, 0.361483574}, // Tablero Premir
-{579, 0.454345703, 0.575683594, 0.645122528}, // Tablero Huntley
-{402, 0.53515625, 0.562988281, 0.278743744}, // Tablero Buffalo
-{461, 0.00000000, -0.932861328, 0.494509697}, // PCJ 600
-{521, 0.00000000, -0.928955078, 0.558652878},  // FCR 900
-{506, 0.541137695, 0.282714844, 0.272130013} // Super Gt
+new Offsets[10][vCoords] = {
+{467, 0.398071289, 0.873906250, 0.400000000}, // Salpicadero Oceanic
+{415, 0.409729004, 0.526367188, 0.206963539}, // Salpicadero Cheetah
+{421, 0.421691895, 0.804931641, 0.256482124}, // Salpicadero Washington
+{533, 0.575378418, 0.526132812, 0.361483574}, // Salpicadero Feltzer
+{579, 0.454345703, 0.575683594, 0.645122528}, // Salpicadero Huntley
+{582, 0.454345703, 1.505683594, 0.510000000}, // Salpicadero News Van
+{440, 0.454345703, 1.505683594, 0.410000000}, //Salpicadero  Rumpo
+{525, 0.00000000, 0.000000000, 0.000000000}, //Puente Tow Truck
+{498, 0.00000000, -0.928955078, 0.558652878},  //Salpicadero Boxville
+{566, 0.575378418, 0.790000000, 0.401483574} //Salpicadero Tahoma
 };
 
 enum ddInfo
@@ -766,27 +767,21 @@ enum ptInfo
 new PlayerToyInfo[MAX_PLAYERS+1][MAX_PLAYERTOYS][ptInfo];
 
 enum HoldingEnumAllCop { holdingmodelid, holdingprice, holdingmodelname[24] }
-new HoldingObjectsCop[15][HoldingEnumAllCop] = {
-{18642,1000,"Taser"},
-{19141,2500,"Casco SWAT"},
-{19142,2500,"Chaleco SWAT"},
-{18636,1000,"Gorro Policía"},
-{19099,1000,"Gorro Policía 2"},
-{19100,1000,"Gorro Policía 3"},
-{18637,1000,"Escudo Policía"},
-{19161,1000,"Sombrero Policía"},
-{19162,1000,"Sombrero Policía 2"},
-{19200,1000,"Casco Policía"},
-{19520,50,"Sombrero Piloto"},
-{19521,50,"Sombrero Cop"},
-{19138,1000,"Lentes"},
-{19139,1000,"Lentes 2"},
-{19140,1000,"Lentes 3"}
+new HoldingObjectsCop[9][HoldingEnumAllCop] = {
+{19775,0,"Placa SAPD"},
+{19747,0,"Placa SAPD Dillimore"},
+{19776,0,"Tarjeta FBI"},
+{11750,0,"Esposas"},
+{19773,0,"Arma con funda"},
+{19942,0,"Walkie-Talkie"},
+{19142,0,"Chaleco antibalas"},
+{18637,0,"Escudo antidisturbios"},
+{19777,0,"Insignia FBI"}
 };
 
 enum HoldingEnumAll { holdingmodelid, holdingmodelname[24] }
 new HoldingObjectsAll[263][HoldingEnumAll] = {
-{18642,"Taser"},
+{19775,"Placa SAPD"},
 {18643,"Laser Rojo"},
 {19080,"Laser Azul"},
 {19081,"Laser Rosado"},
@@ -810,16 +805,16 @@ new HoldingObjectsAll[263][HoldingEnumAll] = {
 {18693,"Flama Larga"},
 {18698,"Insectos"},
 {18708,"Burbujas"},
-{19141,"Casco SWAT"},
-{19515,"Chaleco Antibalas"},
-{19142,"Chaleco SWAT"},
-{18636,"Gorro Policía"},
-{19099,"Gorro Policía 2"},
-{19100,"Gorro Policía 3"},
-{18637,"Escudo Policía"},
-{19161,"Sombrero Policía"},
-{19162,"Sombrero Policía 2"},
-{19520,"Sombrero Piloto"},
+{19747,"Placa SAPD Dillimore"},
+{19515,"Chaleco antibalas"},
+{19776,"Tarjeta FBI"},
+{11750,"Grilletes"},
+{19773,"Arma con funda"},
+{19942,"Walkie-Talkie"},
+{19142,"Chaleco antibalas"},
+{19942,"Walkie-Talkie"},
+{18637,"Escudo antidisturbios"},
+{19777,"Insignia FBI"},
 {19521,"Sombrero Cop"},
 {19200,"Casco Policía"},
 {19138,"Lentes"},
@@ -1490,7 +1485,7 @@ new hospitalgate;
 new gobiernogate, gobiernogate1;
 new depgate;
 //Cars
-new SAPDVehicles[52],
+new SAPDVehicles[37],
 TruckerVehicles[15],
 TaxiTrans[5],
 BusTrans[3],
@@ -7061,58 +7056,43 @@ for(new i = 0; i<MAX_PLAYERS; i++) // FUCK OFF SCOTT xD
 	TextDrawSetShadow		(Speedo[i], 1);
 }
 
-//San Andreas Police Departament Cars
-SAPDVehicles[0] = AddStaticVehicleEx(596,1601.872924,-1704.370971,5.612636,89.574440,0,1,TIME_RESPAWN); // Patrulla LS   	1 //596
-SAPDVehicles[1] = AddStaticVehicleEx(596,1601.902221,-1700.465332,5.634525,89.566131,0,1,TIME_RESPAWN); // Patrulla LS   	2 // 596
-SAPDVehicles[2] = AddStaticVehicleEx(596,1601.933105,-1696.409912,5.642260,89.562606,0,1,TIME_RESPAWN); // Patrulla LS   	3 596/
-SAPDVehicles[3] = AddStaticVehicleEx(596,1601.963134,-1692.478881,5.656129,89.555740,0,1,TIME_RESPAWN); // Patrulla LS   	4 //569
-SAPDVehicles[4] = AddStaticVehicleEx(596,1595.511840,-1710.769531,5.613651,0.000000,0,1,TIME_RESPAWN); // Patrulla LS    	5
-SAPDVehicles[5] = AddStaticVehicleEx(596,1591.606079,-1710.771240,5.626485,0.000000,0,1,TIME_RESPAWN); // Patrulla LS    	6
-SAPDVehicles[6] = AddStaticVehicleEx(596,1587.455688,-1710.772827,5.648460,0.000000,0,1,TIME_RESPAWN); // Patrulla LS    	7
-SAPDVehicles[7] = AddStaticVehicleEx(596,1583.698120,-1710.773315,5.648464,0.000000,0,1,TIME_RESPAWN); // Patrulla LS    	8
-SAPDVehicles[8] = AddStaticVehicleEx(599,1526.548095,-1644.479614,6.056174,179.637084,0,1,TIME_RESPAWN); // Ranger   		9
-SAPDVehicles[9] = AddStaticVehicleEx(599,1530.429199,-1644.505371,6.124225,179.634948,0,1,TIME_RESPAWN); // Ranger   		10
-SAPDVehicles[10] = AddStaticVehicleEx(599,1534.434448,-1644.530761,6.133507,179.633880,0,1,TIME_RESPAWN); // Ranger   		11
-SAPDVehicles[11] = 	AddStaticVehicleEx(599,1538.758666,-1644.558349,6.156028,179.631210,0,1,TIME_RESPAWN); // Ranger   		12
-SAPDVehicles[12] = 	AddStaticVehicleEx(523,1567.272338,-1708.937011,5.457219,354.100372,0,1,TIME_RESPAWN); // HPV 1000 		13
-SAPDVehicles[13] = 	AddStaticVehicleEx(523,1565.331420,-1708.737304,5.475297,354.107971,0,1,TIME_RESPAWN); // HPV 1000 		14
-SAPDVehicles[14] = 	AddStaticVehicleEx(523,1562.516479,-1708.446411,5.508016,354.100280,0,1,TIME_RESPAWN); // HPV 1000 		15
-SAPDVehicles[15] = 	AddStaticVehicleEx(427,1571.071044,-1615.492797,13.514673,268.842010,0,1,TIME_RESPAWN); // Enforcer    	16
-SAPDVehicles[16] = 	AddStaticVehicleEx(427,1557.802734,-1615.510131,13.514776,269.681549,0,1,TIME_RESPAWN); // Enforcer    	17
-SAPDVehicles[17] = 	AddStaticVehicleEx(601,1544.134521,-1609.579345,13.141159,269.321655,0,1,TIME_RESPAWN); // SWAT Van    	18
-SAPDVehicles[18] = 	AddStaticVehicleEx(497,1563.660034,-1655.212158,28.589679,88.595161,0,1,TIME_RESPAWN); // Police Maverick  19
-SAPDVehicles[19] =  AddStaticVehicleEx(596,1535.9159,-1667.7427,13.1292,359.7549,0,1,TIME_RESPAWN); //20
-SAPDVehicles[20] =	AddStaticVehicleEx(596,1535.8901,-1677.7660,13.1263,179.5659,0,1,TIME_RESPAWN); //21
-SAPDVehicles[21] =	AddStaticVehicleEx(596,1602.0083,-1687.9724,5.6367,89.0936,0,1,TIME_RESPAWN); //22
-SAPDVehicles[22] =	AddStaticVehicleEx(596,1578.5010,-1710.9355,5.6371,357.7198,0,1,TIME_RESPAWN); //23
-SAPDVehicles[23] =	AddStaticVehicleEx(596,1574.3030,-1710.9478,5.6381,359.8578,0,1,TIME_RESPAWN); //24
-SAPDVehicles[24] =	AddStaticVehicleEx(596,1570.2288,-1711.0248,5.6373,359.6110,0,1,TIME_RESPAWN); //25
-SAPDVehicles[25] =	AddStaticVehicleEx(523,1566.0752,-1713.0042,5.4606,2.9605,0,1,TIME_RESPAWN); //26
-SAPDVehicles[26] =	AddStaticVehicleEx(523,1563.8184,-1713.0892,5.4617,3.3756,0,1,TIME_RESPAWN); //27
-SAPDVehicles[27] =	AddStaticVehicleEx(523,1560.1859,-1713.1456,5.4604,359.4186,0,1,TIME_RESPAWN); //28
-SAPDVehicles[28] =	AddStaticVehicleEx(523,1560.3358,-1708.2838,5.4613,359.7211,0,1,TIME_RESPAWN); //29
-SAPDVehicles[29] =	AddStaticVehicleEx(599,1544.9022,-1707.8859,6.0816,322.2441,0,1,TIME_RESPAWN); //30
-SAPDVehicles[30] =	AddStaticVehicleEx(599,1541.3705,-1705.2369,6.0824,318.1585,0,1,TIME_RESPAWN); ///31
-SAPDVehicles[31] =	AddStaticVehicleEx(599,1538.3998,-1701.8361,6.0766,309.0826,0,1,TIME_RESPAWN); ///32
-SAPDVehicles[32] =	AddStaticVehicleEx(601,1544.6089,-1613.6875,13.1416,90.3137,0,1,TIME_RESPAWN); // ///34
-SAPDVehicles[33] =	AddStaticVehicleEx(497,1560.5781,-1644.7632,28.5767,90.9838,0,1,TIME_RESPAWN); /////35
-SAPDVehicles[34] = AddStaticVehicleEx(525,1556.5985,-1606.3214,13.2680,179.1279,17,20, TIME_RESPAWN); // Tow Truck
-SAPDVehicles[35] = AddStaticVehicleEx(525,1560.8201,-1606.3423,13.2557,178.6305,18,20, TIME_RESPAWN); // Tow Truck
-SAPDVehicles[36] = AddStaticVehicleEx(415,487.3500,-1638.3472,9001.7852,183.4520,1,1,TIME_RESPAWN); // Cheetah SAPD 1
-SAPDVehicles[37] = AddStaticVehicleEx(560,491.4538,-1638.0227,9001.7178,183.6139,59,0,TIME_RESPAWN); // Sultan SAPD 1
-SAPDVehicles[38] = AddStaticVehicleEx(560,492.4958,-1655.3491,9001.7314,3.5955,48,0,TIME_RESPAWN); // Sultan
-SAPDVehicles[39] = AddStaticVehicleEx(415,484.1988,-1655.9805,9001.7314,5.0119,1,0,TIME_RESPAWN); // Cheetah
-SAPDVehicles[40] = AddStaticVehicleEx(421,495.4609,-1638.1056,9001.7295,183.6311,158,0,TIME_RESPAWN);
-SAPDVehicles[41] = AddStaticVehicleEx(426,499.7182,-1637.6061,9001.7354,182.9925,11,0,TIME_RESPAWN); // Premier Change
-SAPDVehicles[42] = AddStaticVehicleEx(579,503.8369,-1637.5188,9001.7314,184.2466,164,0,TIME_RESPAWN); // Huntley Change
-SAPDVehicles[43] = AddStaticVehicleEx(461,507.7335,-1637.1544,9001.7295,184.5250,5,0,TIME_RESPAWN); // PCJ 600
-SAPDVehicles[45] = AddStaticVehicleEx(521,511.9490,-1637.0925,9001.7324,181.8966,9,0,TIME_RESPAWN); // fcr 900
-SAPDVehicles[46] = AddStaticVehicleEx(506,513.0107,-1654.1715,9001.7334,4.3899,85,0,TIME_RESPAWN); // Super GT
-SAPDVehicles[47] = AddStaticVehicleEx(596,631.2089,-610.3391,16.0564,359.2538,57,1,TIME_RESPAWN);
-SAPDVehicles[48] = AddStaticVehicleEx(596,634.9767,-610.3834,16.0564,358.8744,57,1,TIME_RESPAWN);
-SAPDVehicles[49] = AddStaticVehicleEx(523,627.3511,-610.7618,16.1863,357.9838,57,1,TIME_RESPAWN);
-SAPDVehicles[50] = AddStaticVehicleEx(599,613.5255,-601.5044,16.9491,269.6267,57,1,TIME_RESPAWN);
-SAPDVehicles[51] = AddStaticVehicleEx(599,613.0554,-597.0876,16.9540,269.1958,57,1,TIME_RESPAWN);
+//San Andreas Police Departament Vehiculos
+SAPDVehicles[0] = AddStaticVehicleEx(596,1601.9631,-1704.1110,5.6126,90.0000,0,1,TIME_RESPAWN); // Patrulla LS   	1
+SAPDVehicles[1] = AddStaticVehicleEx(596,1601.9631,-1700.1051,5.6345,90.0000,0,1,TIME_RESPAWN); // Patrulla LS   	2
+SAPDVehicles[2] = AddStaticVehicleEx(596,1601.9631,-1695.8656,5.6423,90.0000,0,1,TIME_RESPAWN); // Patrulla LS   	3
+SAPDVehicles[3] = AddStaticVehicleEx(596,1601.9631,-1691.9589,5.6561,90.0000,0,1,TIME_RESPAWN); // Patrulla LS   	4
+SAPDVehicles[4] = AddStaticVehicleEx(596,1601.9631,-1687.7056,5.6561,90.0000,0,1,TIME_RESPAWN); // Patrulla LS    	5
+SAPDVehicles[5] = AddStaticVehicleEx(596,1601.9631,-1684.0984,5.6561,90.0000,0,1,TIME_RESPAWN); // Patrulla LS    	6
+SAPDVehicles[6] = AddStaticVehicleEx(596,1595.5118,-1710.7695,5.6137,0.0000,0,1,TIME_RESPAWN); // Patrulla LS    	7
+SAPDVehicles[7] = AddStaticVehicleEx(596,1591.6061,-1710.7695,5.6265,0.0000,0,1,TIME_RESPAWN); // Patrulla LS    	8
+SAPDVehicles[8] = AddStaticVehicleEx(596,1587.4557,-1710.7695,5.6485,0.0000,0,1,TIME_RESPAWN); // Patrulla LS       9
+SAPDVehicles[9] = AddStaticVehicleEx(596,1583.2733,-1710.7695,5.6485,0.0000,0,1,TIME_RESPAWN); // Patrulla LS       10
+SAPDVehicles[10] = AddStaticVehicleEx(596,1578.4535,-1710.7695,5.6485,0.0000,0,1,TIME_RESPAWN); // Patrulla LS      11
+SAPDVehicles[11] = 	AddStaticVehicleEx(596,1574.4543,-1710.7695,5.6485,0.0000,0,1,TIME_RESPAWN); // Patrulla LS     12
+SAPDVehicles[12] = 	AddStaticVehicleEx(596,1570.3125,-1710.7695,5.6485,0.0000,0,1,TIME_RESPAWN); // Patrulla LS     13
+SAPDVehicles[13] = 	AddStaticVehicleEx(596,1566.3120,-1710.7695,5.6485,0.0000,0,1,TIME_RESPAWN); // Patrulla LS     14
+SAPDVehicles[14] = 	AddStaticVehicleEx(596,1562.8087,-1710.7695,5.6485,0.0000,0,1,TIME_RESPAWN); // Patrulla LS     15
+SAPDVehicles[15] = 	AddStaticVehicleEx(596,1559.0651,-1710.7695,5.6485,0.0000,0,1,TIME_RESPAWN); // Patrulla LS    	16
+SAPDVehicles[16] = 	AddStaticVehicleEx(427,1529.5735,-1687.9546,5.8685,270.0000,0,1,TIME_RESPAWN); // Enforcer    	1
+SAPDVehicles[17] = 	AddStaticVehicleEx(427,1529.5735,-1684.0770,5.8685,270.0000,0,1,TIME_RESPAWN); // Enforcer     2
+SAPDVehicles[18] = 	AddStaticVehicleEx(601,1526.6144,-1645.1586,5.6085,180.0000,0,1,TIME_RESPAWN); // SWAT tank 1
+SAPDVehicles[19] =  AddStaticVehicleEx(601,1530.8021,-1645.1586,5.6085,180.0000,0,1,TIME_RESPAWN); // SWAT tank 2
+SAPDVehicles[20] =	AddStaticVehicleEx(525,1538.9280,-1645.1586,5.6485,180.0000,246,246,TIME_RESPAWN); // Tow Truck 1
+SAPDVehicles[21] =	AddStaticVehicleEx(525,1534.6481,-1645.1586,5.6485,180.0000,246,246,TIME_RESPAWN); // Tow Truck 2
+SAPDVehicles[22] =	AddStaticVehicleEx(523,1585.0159,-1667.6650,5.3885,270.0000,0,1,TIME_RESPAWN); //Police Bike 1
+SAPDVehicles[23] =	AddStaticVehicleEx(523,1585.0159,-1671.7100,5.3885,270.0000,0,1,TIME_RESPAWN); //Police Bike 2
+SAPDVehicles[24] =	AddStaticVehicleEx(415,1545.7175,-1650.9535,5.5485,90.0000,1,1,TIME_RESPAWN); // Cheetah
+SAPDVehicles[25] =	AddStaticVehicleEx(421,1545.7175,-1654.9645,5.6885,90.0000,23,23,TIME_RESPAWN); // Washington
+SAPDVehicles[26] =	AddStaticVehicleEx(467,1545.7175,-1659.3126,5.6885,90.0000,18,1,TIME_RESPAWN); // Oceanic
+SAPDVehicles[27] =	AddStaticVehicleEx(533,1545.7175,-1663.4567,5.6885,90.0000,68,68,TIME_RESPAWN); // Feltzer
+SAPDVehicles[28] =	AddStaticVehicleEx(582,1545.7175,-1668.0370,5.8685,90.0000,1,191,TIME_RESPAWN); // News Van
+SAPDVehicles[29] =	AddStaticVehicleEx(582,1545.7175,-1671.8716,5.8685,90.0000,1,191,TIME_RESPAWN); // News Van 2
+SAPDVehicles[30] =	AddStaticVehicleEx(440,1545.7175,-1676.2034,5.9485,90.0000,140,0,TIME_RESPAWN); // Rumpo
+SAPDVehicles[31] =	AddStaticVehicleEx(498,1545.7175,-1680.3040,5.8485,90.0000,138,138,TIME_RESPAWN); // Boxville
+SAPDVehicles[32] =	AddStaticVehicleEx(566,1545.7175,-1684.4462,5.5485,90.0000,21,21,TIME_RESPAWN); // Tahoma
+SAPDVehicles[33] =	AddStaticVehicleEx(497,1564.9967,-1642.2595,28.5897,90.0000,53,1,TIME_RESPAWN); // Police Maverick  1
+SAPDVehicles[34] =  AddStaticVehicleEx(497,1565.0168,-1655.1016,28.5897,90.0000,53,1,TIME_RESPAWN); // Police Maverick  2
+
 // Transport LS
 TaxiTrans[0] = AddStaticVehicleEx(420,1777.3925,-1931.9706,13.1680,270.8230,6,6,TIME_RESPAWN); // 36
 TaxiTrans[1] = AddStaticVehicleEx(420,1777.6443,-1926.5598,13.1655,270.1909,6,6,TIME_RESPAWN); //37
@@ -37629,61 +37609,67 @@ if(Team_SAPD(playerid) || Team_FBI(playerid)){
 				{
                 	Lamp[vehicleid] = 1;
                 	SendClientMessageEx(playerid, -1, "Luces activadas correctamente.");
-					light[vehicleid] = CreateObject(18646,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 96.0);
-					AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
+					light[vehicleid] = CreateObject(19797,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+					AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
 					return 1;
             	}
-            	if(Offsets[i][getID] == 415 && GetVehicleModel(vehicleid) == 415){
+            	if(Offsets[i][getID] == 415 && GetVehicleModel(vehicleid) == 415){ //Cheetah
                 Lamp[vehicleid] = 1;
-				light[vehicleid] = CreateObject(18646,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 96.0);
+				light[vehicleid] = CreateObject(19797,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				return 1;
+            	}
+            	if(Offsets[i][getID] == 421 && GetVehicleModel(vehicleid) == 421){ //Washington
+                Lamp[vehicleid] = 1;
+				light[vehicleid] = CreateObject(19797,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				return 1;
+            	}
+            	if(Offsets[i][getID] == 533 && GetVehicleModel(vehicleid) == 533){ //Feltzer
+                Lamp[vehicleid] = 1;
+				light[vehicleid] = CreateObject(19797,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				return 1;
+            	}
+            	if(Offsets[i][getID] == 467 && GetVehicleModel(vehicleid) == 467){ //Oceanic
+                Lamp[vehicleid] = 1;
+				light[vehicleid] = CreateObject(19797,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				return 1;
+            	}
+            	if(Offsets[i][getID] == 525 && GetVehicleModel(vehicleid) == 525){ //Tow Truck
+                Lamp[vehicleid] = 1;
+				light[vehicleid] = CreateObject(19803,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
 				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
 				return 1;
             	}
-            	if(Offsets[i][getID] == 421 && GetVehicleModel(vehicleid) == 421){
+            	if(Offsets[i][getID] == 582 && GetVehicleModel(vehicleid) == 582){ //News Van
                 Lamp[vehicleid] = 1;
-				light[vehicleid] = CreateObject(18646,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 96.0);
-				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
+				light[vehicleid] = CreateObject(19797,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
 				return 1;
             	}
-            	if(Offsets[i][getID] == 426 && GetVehicleModel(vehicleid) == 426){
+            	if(Offsets[i][getID] == 440 && GetVehicleModel(vehicleid) == 440){ //Rumpo
                 Lamp[vehicleid] = 1;
-				light[vehicleid] = CreateObject(18646,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 96.0);
-				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
+				light[vehicleid] = CreateObject(19797,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
 				return 1;
             	}
-            	if(Offsets[i][getID] == 579 && GetVehicleModel(vehicleid) == 579){
+            	if(Offsets[i][getID] == 498 && GetVehicleModel(vehicleid) == 498){ //Boxville
                 Lamp[vehicleid] = 1;
-				light[vehicleid] = CreateObject(18646,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 96.0);
-				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
+				light[vehicleid] = CreateObject(19797,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
 				return 1;
             	}
-            	if(Offsets[i][getID] == 402 && GetVehicleModel(vehicleid) == 402){
+            	if(Offsets[i][getID] == 566 && GetVehicleModel(vehicleid) == 566){ //Tahoma
                 Lamp[vehicleid] = 1;
-				light[vehicleid] = CreateObject(18646,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 96.0);
-				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
-				return 1;
-            	}
-            	if(Offsets[i][getID] == 461 && GetVehicleModel(vehicleid) == 461){
-                Lamp[vehicleid] = 1;
-				light[vehicleid] = CreateObject(18646,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 96.0);
-				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
-				return 1;
-            	}
-            	if(Offsets[i][getID] == 521 && GetVehicleModel(vehicleid) == 521){
-                Lamp[vehicleid] = 1;
-				light[vehicleid] = CreateObject(18646,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 96.0);
-				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
-				return 1;
-            	}
-            	if(Offsets[i][getID] == 506 && GetVehicleModel(vehicleid) == 506){
-                Lamp[vehicleid] = 1;
-				light[vehicleid] = CreateObject(18646,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 96.0);
-				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 0.0);
+				light[vehicleid] = CreateObject(19797,Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
+				AttachObjectToVehicle(light[vehicleid], vehicleid, Offsets[i][vvvX], Offsets[i][vvvY], Offsets[i][vvvZ], 0.0, 0.0, 180);
 				return 1;
             	}
 			}
         	SendClientMessageEx(playerid, -1, "ERROR: Modelos compatibles:");
-        	return SendClientMessageEx(playerid, -1, "Sultan, Cheetah, Washington, Premier, Huntley, Buffalo, PCJ 600, FCR 900, Super Gt");
+        	return SendClientMessageEx(playerid, -1, "Vehículos de incógnito de FBI y SAPD.");
         }
 		else
 		{
