@@ -1467,7 +1467,9 @@ new courtbuttons[5], courtgates[2];
 new fen1,fen2,fen3,fen4,fen5,fen6, JDoor1, JDoor2, JDoor3, JDoor4, JDoor5, JDoor6;
 new LSPDDoor1, LSPDDoor1ButtonEx,LSPDDoor1ButtonInt, LSPDDoor2,LSPDDoor2ButtonEx,LSPDDoor2ButtonInt;
 //SAPD Portones
-new pdgate1,pdgate2, saem1,saem2;
+new pdgate1,pdgate2;
+//Guardia Nacional - Puertas
+new PGN1,PGN2,Hangar1A,Hangar1B,Hangar1C,Hangar1ButtonEx1,Hangar1ButtonIn1,Hangar1ButtonEx2,Hangar1ButtonIn2;
 //new pObject[MAX_PLAYERS];
 new Ipadon[MAX_PLAYERS];
 //GIFTS
@@ -4167,11 +4169,11 @@ function GateCloseCNN(){
    return 1;
 }
 function OpenDoorNG(){
-   MoveDynamicObject(saem1,135.12, 1941.56, 21.66,5.0); //Cerrada
+   MoveDynamicObject(PGN1,135.12, 1941.56, 21.66,5.0); //Cerrada
    return 1;
 }
 function OpenDoorNG2(){
-   MoveDynamicObject(saem2,286.01, 1821.35, 19.98,5.0); //Cerrada
+   MoveDynamicObject(PGN2,286.01, 1821.35, 19.98,5.0); //Cerrada
    return 1;
 }
 function GateCloseCNN1(){
@@ -7200,8 +7202,8 @@ NGLandVehicles[14] = AddStaticVehicleEx(470,183.7178, 1830.5930, 17.4236, 180.00
 NGLandVehicles[15] = AddStaticVehicleEx(470,174.5878, 1830.5930, 17.4236, 180.0000,102,102, TIME_RESPAWN); // Patriot 16
 NGLandVehicles[16] = AddStaticVehicleEx(433,148.6358, 1904.7776, 19.1320, 0.0000,102,102, TIME_RESPAWN); // Barracks 1
 NGLandVehicles[17] = AddStaticVehicleEx(433,143.9534, 1904.7776, 19.1320, 0.0000,102,102, TIME_RESPAWN); // Barracks 2
-NGLandVehicles[18] = AddStaticVehicleEx(433,143.0989, 1852.6052, 17.9962, 90.0000,102,102, TIME_RESPAWN); // Barracks 3
-NGLandVehicles[19] = AddStaticVehicleEx(433,143.0989, 1847.5886, 17.9962, 90.0000,102,102, TIME_RESPAWN); // Barracks 4
+NGLandVehicles[18] = AddStaticVehicleEx(433,144.7589, 1852.6052, 17.9962, 90.0000,102,102, TIME_RESPAWN); // Barracks 3
+NGLandVehicles[19] = AddStaticVehicleEx(433,144.7589, 1847.5886, 17.9962, 90.0000,102,102, TIME_RESPAWN); // Barracks 4
 NGLandVehicles[20] = AddStaticVehicleEx(432, 191.5715, 1931.0000, 17.5034, 180.0000,0,0, TIME_RESPAWN); // Tank 1
 NGLandVehicles[21] = AddStaticVehicleEx(432, 200.3389, 1931.0000, 17.5034, 180.0000,0,0, TIME_RESPAWN); // Tank 2
 NGLandVehicles[22] = AddStaticVehicleEx(432, 209.9309, 1931.0000, 17.5034, 180.0000,0,0, TIME_RESPAWN); // Tank 3
@@ -7604,8 +7606,8 @@ CreateDynamicObject(949,1426.48339844,-1780.31542969,-91.98339081,0.00000000,0.0
 CreateDynamicObject(1749,1436.92639160,-1767.83996582,-90.76416779,0.00000000,0.00000000,0.00000000); //object(med_tv_3) (1)
 
 // Guardia Nacional By Jayceon
-saem1 = CreateDynamicObject(19313, 135.12, 1941.56, 21.66,   0.00, 0.00, 0.00); // Cerrada
-saem2 = CreateDynamicObject(19313, 286.01, 1821.35, 19.98,   0.00, 0.00, 90.00); // Cerrada
+PGN1 = CreateDynamicObject(19313, 135.12, 1941.56, 21.66,   0.00, 0.00, 0.00); // Cerrada
+PGN2 = CreateDynamicObject(19313, 286.01, 1821.35, 19.98,   0.00, 0.00, 90.00); // Cerrada
 CreateDynamicObject(19312, 191.14, 1870.04, 21.48,   0.00, 0.00, 0.00);
 CreateDynamicObject(19907, 141.98, 1902.58, 17.64,   0.00, 0.00, 270.00);
 CreateDynamicObject(19909, 137.66, 1875.02, 16.72,   0.00, 0.00, 90.00);
@@ -9039,16 +9041,27 @@ CreateDynamicObject(19303, 320.90, 315.33, 999.40,   0.00, 0.00, -89.94);
 CreateDynamicObject(19304, 320.89, 312.22, 1001.25,   0.00, 0.00, 90.24);
 CreateDynamicObject(19304, 320.89, 316.23, 1001.25,   0.00, 0.00, 90.24);
 
-// SAPD NEW VERSION 2013
-//Doors
+// Mapeo de puertas
+//Puertas
 LSPDDoor1 = CreateDynamicObject(1536, 1468.57507, -1758.27209, 3284.30005,   0.00000, 0.00000, 180.00000);
 LSPDDoor2 = CreateDynamicObject(1536, 1481.38684, -1758.28503, 3284.30005,   0.00000, 0.00000, 180.00000);
+Hangar1A = CreateDynamicObject(19908, 138.37, 1852.83, 19.11,   0.00, 0.00, 0.00); // Cerrada
+Hangar1B = CreateDynamicObject(19908, 138.37, 1847.43, 19.11,   0.00, 0.00, 0.00); // Cerrada
+Hangar1C = CreateDynamicObject(11360, 149.26, 1840.09, 17.64,   90.00, 0.00, 270.00); //Cerrada
+
 //Buttons
 LSPDDoor1ButtonEx = CreateButton(1466.71057, -1758.25513, 3285.88208, 179.78889);
 LSPDDoor1ButtonInt = CreateButton(1466.77942, -1758.30713, 3285.88208, 0.31212);
 
 LSPDDoor2ButtonEx = CreateButton(1479.61255, -1758.30884, 3285.88208, 359.79349);
 LSPDDoor2ButtonInt = CreateButton(1479.56689, -1758.26489, 3285.88208, 179.78889);
+
+Hangar1ButtonEx1 = CreateButton(138.1547, 1843.9361, 18.0000, 270.0000);
+Hangar1ButtonIn1 = CreateButton(145.7800, 1840.2300, 18.0400, 180.0000);
+Hangar1ButtonEx2 = CreateButton(148.0000, 1840.0700, 18.0400, 0.0000);
+Hangar1ButtonIn2 = CreateButton(148.0000, 1840.2300, 18.0400, 180.0000);
+
+
 //SAPD TEST
 CreateDynamicObject(19379, 1469.39941, -1754.00000, 3284.19995,   0.00000, 90.00000, 90.00000);
 CreateDynamicObject(19379, 1479.00000, -1754.00000, 3284.19995,   0.00000, 90.00000, 90.00000);
@@ -12157,8 +12170,12 @@ SetPlayerToTeamColor(playerid);
 //LoadPlayerVehicles(playerid);
 return 1;
 }
+//Puertas con tarjeta (Button) CERRADAS
 function CloseLSPDDoor1() return MoveDynamicObject(LSPDDoor1,1468.57507, -1758.27209, 3284.30005,5);
 function CloseLSPDDoor2() return MoveDynamicObject(LSPDDoor2,1481.38684, -1758.28503, 3284.30005,5);
+function CloseHangar1A() return MoveDynamicObject(Hangar1A, 138.37, 1852.83, 19.11,5);
+function CloseHangar1B() return MoveDynamicObject(Hangar1B, 138.37, 1847.43, 19.11,5); 
+function CloseHangar1C() return MoveDynamicObject(Hangar1C, 149.26, 1840.09, 17.64,5);
 
 public OnPlayerPressButton(playerid, buttonid)
 {
@@ -12173,6 +12190,21 @@ public OnPlayerPressButton(playerid, buttonid)
 	    if(!IsACop(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
 	    MoveDynamicObject(LSPDDoor2,1482.88843, -1758.28772, 3284.30005,5);
 	    SetTimer("CloseLSPDDoor2", 5000, 0);
+	}
+	if(buttonid == Hangar1ButtonEx1 || buttonid == Hangar1ButtonIn1)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Hangar1A,138.37, 1857.37, 19.11,1); //Abierta
+	    MoveDynamicObject(Hangar1B,138.37, 1842.95, 19.11,1);
+		//PlayerPlaySound(playerid, 1165, 138.37, 1842.95, 19.11);
+	    SetTimer("CloseHangar1A", 60000, 0);
+	    SetTimer("CloseHangar1B", 60000, 0);
+	}
+	if(buttonid == Hangar1ButtonEx2 || buttonid == Hangar1ButtonIn2)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Hangar1C,146.32, 1840.09, 17.64,1); //Abierta
+	    SetTimer("CloseHangar1C", 5000, 0);
 	}
 	if(buttonid == JDoor1)
 	{
@@ -25499,16 +25531,24 @@ zcmd(apgarage, playerid, params[]){
       	}
       	else SendClientMessageEx(playerid, COLOR_GREY,"  No hay señal!");
 	}
-	else if(Team_NG(playerid)) // By CreadorRejas Grove4l
+	else if(Team_NG(playerid))
 	{
   		if (PlayerToPoint(30, playerid,120.92, 1941.56, 21.66)){ //Abierta
-  		    MoveDynamicObject(saem1,120.92, 1941.56, 21.66, 5.0); //Abierta
+  		    MoveDynamicObject(PGN1,120.92, 1941.56, 21.66, 5.0); //Abierta
        		SetTimer("OpenDoorNG", 7000, 0);
        		return 1;
        	}
   		if (PlayerToPoint(30, playerid,286.01, 1833.73, 19.98)){
-  		    MoveDynamicObject(saem2,286.01, 1833.73, 19.98, 5.0);
+  		    MoveDynamicObject(PGN2,286.01, 1833.73, 19.98, 5.0);
        		SetTimer("OpenDoorNG2", 7000, 0);
+       		return 1;
+       	}
+  		if (PlayerToPoint(30, playerid,138.37, 1857.37, 19.11)){
+  		    MoveDynamicObject(Hangar1A,138.37, 1857.37, 19.11, 5.0);
+       		return 1;
+       	}
+  		if (PlayerToPoint(30, playerid,138.37, 1842.95, 19.11)){
+  		    MoveDynamicObject(Hangar1B,138.37, 1842.95, 19.11, 5.0);
        		return 1;
        	}
       	else SendClientMessageEx(playerid, COLOR_GREY,"  No hay señal!");
