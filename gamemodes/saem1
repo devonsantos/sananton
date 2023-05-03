@@ -7603,9 +7603,17 @@ CreateDynamicObject(2636,1441.64038086,-1770.79077148,-91.98388672,0.00000000,0.
 CreateDynamicObject(949,1426.48339844,-1780.31542969,-91.98339081,0.00000000,0.00000000,0.00000000); //object(plant_pot_4) (6)
 CreateDynamicObject(1749,1436.92639160,-1767.83996582,-90.76416779,0.00000000,0.00000000,0.00000000); //object(med_tv_3) (1)
 
-// Guardia Nacional By Jayceon
+// Guardia Nacional by Jayceon
 saem1 = CreateDynamicObject(19313, 135.12, 1941.56, 21.66,   0.00, 0.00, 0.00); // Cerrada
 saem2 = CreateDynamicObject(19313, 286.01, 1821.35, 19.98,   0.00, 0.00, 90.00); // Cerrada
+RemoveBuildingForPlayer(playerid, 16590, 199.3438, 1943.7891, 18.2031, 0.25);
+RemoveBuildingForPlayer(playerid, 16619, 199.3359, 1943.8750, 18.2031, 0.25);
+RemoveBuildingForPlayer(playerid, 1697, 220.3828, 1835.3438, 23.2344, 0.25);
+RemoveBuildingForPlayer(playerid, 1697, 228.7969, 1835.3438, 23.2344, 0.25);
+RemoveBuildingForPlayer(playerid, 1697, 236.9922, 1835.3438, 23.2344, 0.25);
+RemoveBuildingForPlayer(playerid, 16094, 191.1406, 1870.0391, 21.4766, 0.25);
+RemoveBuildingForPlayer(playerid, 16203, 199.3438, 1943.7891, 18.2031, 0.25);
+RemoveBuildingForPlayer(playerid, 16323, 199.3359, 1943.8750, 18.2031, 0.25);
 CreateDynamicObject(19312, 191.14, 1870.04, 21.48,   0.00, 0.00, 0.00);
 CreateDynamicObject(19907, 141.98, 1902.58, 17.64,   0.00, 0.00, 270.00);
 CreateDynamicObject(19909, 137.66, 1875.02, 16.72,   0.00, 0.00, 90.00);
@@ -7618,7 +7626,6 @@ CreateDynamicObject(9241, 336.70, 1821.40, 18.29,   0.00, 0.00, 180.00);
 CreateDynamicObject(9241, 336.68, 1855.40, 18.29,   0.00, 0.00, 180.00);
 CreateDynamicObject(9241, 336.68, 1889.40, 18.29,   0.00, 0.00, 180.00);
 CreateDynamicObject(9241, 336.68, 1923.40, 18.29,   0.00, 0.00, 180.00);
-
 // Custom Int.
 CreateDynamicObject(16656, 323.34, 2349.19, 8907.42,   0.00, 0.00, 0.00);
 CreateDynamicObject(2929, 311.10, 2345.28, 8906.06,   0.00, 0.00, 90.00);
@@ -39746,15 +39753,15 @@ function MapsRemoveForPlayer(playerid)
 {
 	// SAPD COUNTY Interior 5 - Rejas Transparentes
 	RemoveBuildingForPlayer(playerid, 14883, 320.8672, 314.2109, 1000.1484, 0.25);
-	// Guardia Nacional by Jayceon
-    RemoveBuildingForPlayer(playerid, 16590, 199.3438, 1943.7891, 18.2031, 0.25);
-    RemoveBuildingForPlayer(playerid, 16619, 199.3359, 1943.8750, 18.2031, 0.25);
-    RemoveBuildingForPlayer(playerid, 1697, 220.3828, 1835.3438, 23.2344, 0.25);
-    RemoveBuildingForPlayer(playerid, 1697, 228.7969, 1835.3438, 23.2344, 0.25);
-    RemoveBuildingForPlayer(playerid, 1697, 236.9922, 1835.3438, 23.2344, 0.25);
-    RemoveBuildingForPlayer(playerid, 16094, 191.1406, 1870.0391, 21.4766, 0.25);
-    RemoveBuildingForPlayer(playerid, 16203, 199.3438, 1943.7891, 18.2031, 0.25);
-    RemoveBuildingForPlayer(playerid, 16323, 199.3359, 1943.8750, 18.2031, 0.25);
+	// SAEM
+	RemoveBuildingForPlayer(playerid, 1411, 347.1953, 1799.2656, 18.7578, 0.25);
+	RemoveBuildingForPlayer(playerid, 1411, 342.9375, 1796.2891, 18.7578, 0.25);
+	RemoveBuildingForPlayer(playerid, 16670, 330.7891, 1813.2188, 17.8281, 0.25);
+	RemoveBuildingForPlayer(playerid, 16095, 279.1328, 1829.7813, 16.6328, 0.25);
+	RemoveBuildingForPlayer(playerid, 16094, 191.1406, 1870.0391, 21.4766, 0.25);
+	RemoveBuildingForPlayer(playerid, 16671, 193.9531, 2051.7969, 20.1797, 0.25);
+	RemoveBuildingForPlayer(playerid, 16668, 357.9375, 2049.4219, 16.8438, 0.25);
+	RemoveBuildingForPlayer(playerid, 16669, 380.2578, 1914.9609, 17.4297, 0.25);
 	//New SAMD By Map Team ZC 2013
 	RemoveBuildingForPlayer(playerid, 1529, 1098.8125, -1292.5469, 17.1406, 0.25);
 	RemoveBuildingForPlayer(playerid, 5930, 1134.2500, -1338.0781, 23.1563, 0.25);
