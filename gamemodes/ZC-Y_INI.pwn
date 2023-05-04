@@ -40819,241 +40819,241 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		}
 	}
     if (newkeys & KEY_CROUCH)
-	 {
+ 	{
         if( Info[playerid][pJailed] > 0 ) return SendClientMessageEx(playerid, COLOR_WHITE, "[ERROR]: No puedes usar este comando.");
     	if(IsPlayerConnectedEx(playerid))
 		{
-	    for(new i = 0; i < sizeof(DDoorsInfo); i++)
+		    for(new i = 0; i < sizeof(DDoorsInfo); i++)
 			{
-        	if (IsPlayerInRangeOfPoint(playerid,3.0,DDoorsInfo[i][ddExteriorX], DDoorsInfo[i][ddExteriorY], DDoorsInfo[i][ddExteriorZ]) && Info[playerid][pVW] == DDoorsInfo[i][ddExteriorVW])
+	        	if (IsPlayerInRangeOfPoint(playerid,3.0,DDoorsInfo[i][ddExteriorX], DDoorsInfo[i][ddExteriorY], DDoorsInfo[i][ddExteriorZ]) && Info[playerid][pVW] == DDoorsInfo[i][ddExteriorVW])
+				{
+	            	if(DDoorsInfo[i][ddVIP] > 0 && Info[playerid][pVIP] < DDoorsInfo[i][ddVIP])
+					{
+	                	SendClientMessageEx(playerid, COLOR_GRAD2, "No puedes entrar necesitas ser un mayor nivel de VIP.");
+	                	return 1;
+	            	}
+	            	if(DDoorsInfo[i][ddFamily] > 0)
+					{
+	                	if(Info[playerid][pFMember] != DDoorsInfo[i][ddFamily]-1)
+						{
+	                    	SendClientMessageEx(playerid, COLOR_GRAD2, "No puedes entrar, sólo para miembros de la familia.");
+	    					return 1;
+	    				}
+	   	            }
+		            if(DDoorsInfo[i][ddFaction] > 0)
+					{
+						if(DDoorsInfo[i][ddFaction] >= 1 && DDoorsInfo[i][ddFaction] <= 3)
+						{
+							if(!IsACop(playerid)) return SendClientMessageEx(playerid, COLOR_GRAD2, "No puedes entrar, esta puerta está restringida. (Sólo Policías)");
+						}
+						else if(DDoorsInfo[i][ddFaction] < 32 && Info[playerid][pMember] != DDoorsInfo[i][ddFaction])
+						{
+							return	SendClientMessageEx(playerid, COLOR_GRAD2, "Sólo ingreso a miembros de la facción.");
+						}
+		            }
+		            if(DDoorsInfo[i][ddAdmin] > 0 && Info[playerid][pAdmin] < DDoorsInfo[i][ddAdmin]) return SendClientMessageEx(playerid, COLOR_GRAD2, "No puedes entrar, necesitas ser de más nivel administrativo.");
+
+					if(DDoorsInfo[i][ddWanted] > 0 && Info[playerid][pWantedLevel] != 0) return SendClientMessageEx(playerid, COLOR_GRAD2, "Esta puerta esta restringida a personas con nivel de búsqueda.");
+
+					if(DDoorsInfo[i][dLocked] == 1) return SendClientMessageEx(playerid, COLOR_GRAD2, "Esta puerta está bloqueada.");
+	        		SetPlayerInterior(playerid,DDoorsInfo[i][ddInteriorInt]);
+	        		Info[playerid][pInt] = DDoorsInfo[i][ddInteriorInt];
+	        		Info[playerid][pVW] = DDoorsInfo[i][ddInteriorVW];
+	        		SetPlayerVirtualWorld(playerid, DDoorsInfo[i][ddInteriorVW]);
+	        		if(DDoorsInfo[i][ddCustomInterior])
+					{
+	        		   LoadObjects(playerid);
+	        		}
+	        		if(DDoorsInfo[i][ddVehicleAble] > 0 && GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
+					{
+	        	    	SetVehiclePos(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddInteriorX],DDoorsInfo[i][ddInteriorY],DDoorsInfo[i][ddInteriorZ]);
+	        	    	SetVehicleZAngle(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddInteriorA]);
+	        	    	SetVehicleVirtualWorld(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddInteriorVW]);
+	        	    	LinkVehicleToInterior(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddInteriorInt]);
+	        		}
+	        		else
+					{
+	            		SetPlayerPos(playerid,DDoorsInfo[i][ddInteriorX],DDoorsInfo[i][ddInteriorY],DDoorsInfo[i][ddInteriorZ]);
+	            		SetPlayerFacingAngle(playerid,DDoorsInfo[i][ddInteriorA]);
+	            		SetCameraBehindPlayer(playerid);
+	        		}
+	        		if(DDoorsInfo[i][dMusic] == 0) return 1;
+	        		else
+	        		{
+	        		    switch(DDoorsInfo[i][dMusic])
+	        		    {
+	        		        case 1: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=56349", 1, 1, 1, 1, 0); // Reggeaton
+	                        case 2: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=860870", 1, 1, 1, 1, 0); // Electro
+	                        case 3: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=1377200", 1, 1, 1, 1, 0); // Techno
+	                        case 4: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=1281016", 1, 1, 1, 1, 0); // Hip hop
+	                        case 5: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=616366", 1, 1, 1, 1, 0); // Variada
+	                    }
+	                }
+					return 1;
+	    		}
+		    }
+			if (IsPlayerInRangeOfPoint(playerid,3,2281.1748,-1724.4528,13.2521)) //  GARAGE 1
 			{
-            	if(DDoorsInfo[i][ddVIP] > 0 && Info[playerid][pVIP] < DDoorsInfo[i][ddVIP])
-				{
-                	SendClientMessageEx(playerid, COLOR_GRAD2, "No puedes entrar necesitas ser un mayor nivel de VIP.");
-                	return 1;
-            	}
-            	if(DDoorsInfo[i][ddFamily] > 0)
-				{
-                	if(Info[playerid][pFMember] != DDoorsInfo[i][ddFamily]-1)
-					{
-                    	SendClientMessageEx(playerid, COLOR_GRAD2, "No puedes entrar, sólo para miembros de la familia.");
-    					return 1;
-    				}
-   	            }
-	            if(DDoorsInfo[i][ddFaction] > 0)
-				{
-					if(DDoorsInfo[i][ddFaction] >= 1 && DDoorsInfo[i][ddFaction] <= 3)
-					{
-						if(!IsACop(playerid)) return SendClientMessageEx(playerid, COLOR_GRAD2, "No puedes entrar, esta puerta está restringida. (Sólo Policías)");
-					}
-					else if(DDoorsInfo[i][ddFaction] < 32 && Info[playerid][pMember] != DDoorsInfo[i][ddFaction])
-					{
-						return	SendClientMessageEx(playerid, COLOR_GRAD2, "Sólo ingreso a miembros de la facción.");
-					}
+
+	        	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
+	            	SetVehiclePos(GetPlayerVehicleID(playerid),  2233.9280,-1758.3882,2031.3885);
+	            	SetVehicleZAngle(GetPlayerVehicleID(playerid),  11.4);
+	            	Streamer_Update(playerid);
 	            }
-	            if(DDoorsInfo[i][ddAdmin] > 0 && Info[playerid][pAdmin] < DDoorsInfo[i][ddAdmin]) return SendClientMessageEx(playerid, COLOR_GRAD2, "No puedes entrar, necesitas ser de más nivel administrativo.");
-
-				if(DDoorsInfo[i][ddWanted] > 0 && Info[playerid][pWantedLevel] != 0) return SendClientMessageEx(playerid, COLOR_GRAD2, "Esta puerta esta restringida a personas con nivel de búsqueda.");
-
-				if(DDoorsInfo[i][dLocked] == 1) return SendClientMessageEx(playerid, COLOR_GRAD2, "Esta puerta está bloqueada.");
-        		SetPlayerInterior(playerid,DDoorsInfo[i][ddInteriorInt]);
-        		Info[playerid][pInt] = DDoorsInfo[i][ddInteriorInt];
-        		Info[playerid][pVW] = DDoorsInfo[i][ddInteriorVW];
-        		SetPlayerVirtualWorld(playerid, DDoorsInfo[i][ddInteriorVW]);
-        		if(DDoorsInfo[i][ddCustomInterior])
-				{
-        		   LoadObjects(playerid);
-        		}
-        		if(DDoorsInfo[i][ddVehicleAble] > 0 && GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
-				{
-        	    	SetVehiclePos(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddInteriorX],DDoorsInfo[i][ddInteriorY],DDoorsInfo[i][ddInteriorZ]);
-        	    	SetVehicleZAngle(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddInteriorA]);
-        	    	SetVehicleVirtualWorld(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddInteriorVW]);
-        	    	LinkVehicleToInterior(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddInteriorInt]);
-        		}
-        		else
-				{
-            		SetPlayerPos(playerid,DDoorsInfo[i][ddInteriorX],DDoorsInfo[i][ddInteriorY],DDoorsInfo[i][ddInteriorZ]);
-            		SetPlayerFacingAngle(playerid,DDoorsInfo[i][ddInteriorA]);
-            		SetCameraBehindPlayer(playerid);
-        		}
-        		if(DDoorsInfo[i][dMusic] == 0) return 1;
-        		else
-        		{
-        		    switch(DDoorsInfo[i][dMusic])
-        		    {
-        		        case 1: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=56349", 1, 1, 1, 1, 0); // Reggeaton
-                        case 2: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=860870", 1, 1, 1, 1, 0); // Electro
-                        case 3: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=1377200", 1, 1, 1, 1, 0); // Techno
-                        case 4: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=1281016", 1, 1, 1, 1, 0); // Hip hop
-                        case 5: PlayAudioStreamForPlayer(playerid, "http://yp.shoutcast.com/sbin/tunein-station.pls?id=616366", 1, 1, 1, 1, 0); // Variada
-                    }
-                }
+	            else{
+					SetPlayerPos(playerid, 2235.1851,-1763.5916,2032.9728);
+					SetPlayerFacingAngle(playerid, 14.9);
+					SetCameraBehindPlayer(playerid);
+					LoadObjects(playerid);
+				}
 				return 1;
-    		}
+			}
+			if (IsPlayerInRangeOfPoint(playerid,3,1242.2382,-1732.4800,13.2911)) //  GARAGE 2
+			{
+
+	        	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
+	            	SetVehiclePos(GetPlayerVehicleID(playerid),  1134.0381,-1591.4459,6602.5879);
+	            	SetVehicleZAngle(GetPlayerVehicleID(playerid),  176.3030);
+	            	Streamer_Update(playerid);
+	            }
+	            else{
+					SetPlayerPos(playerid, 1134.0381,-1591.4459,6602.5879);
+					SetPlayerFacingAngle(playerid, 14.9);
+					SetCameraBehindPlayer(playerid);
+					LoadObjects(playerid);
+				}
+				return 1;
+			}
+			if (IsPlayerInRangeOfPoint(playerid,3,853.3862,-1387.1884,13.7470)) //  GARAGE VIP
+			{
+
+				if(Info[playerid][pVIP] == 0) return GameTextForPlayer(playerid, "~r~No eres VIP", 2000, 4);
+	        	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
+				{
+	            	SetVehiclePos(GetPlayerVehicleID(playerid),  855.6053,-1412.6117,4202.1577);
+	            	SetVehicleZAngle(GetPlayerVehicleID(playerid),  NORTE);
+	            	Streamer_Update(playerid);
+	            }
+	            else{
+					SetPlayerPos(playerid, 855.6053,-1412.6117,4202.1577);
+					SetPlayerFacingAngle(playerid, NORTE);
+					SetCameraBehindPlayer(playerid);
+					LoadObjects(playerid);
+				}
+				return 1;
+			}
+		    for(new i = 0; i < sizeof(HouseInfo); i++){
+	    		if (IsPlayerInRangeOfPoint(playerid,3,HouseInfo[i][hExteriorX], HouseInfo[i][hExteriorY], HouseInfo[i][hExteriorZ])){
+	        		if(Info[playerid][pPhousekey] == i || HouseInfo[i][hLock] == 0 || Info[playerid][pRenting] == i){
+				        LoadObjects(playerid);
+	            		SetPlayerInterior(playerid,HouseInfo[i][hHInteriorWorld]);
+	            		Info[playerid][pInt] = HouseInfo[i][hHInteriorWorld];
+	            		Info[playerid][pVW] = i+6000;
+	            		SetPlayerVirtualWorld(playerid, i+6000);
+	            		if(HouseInfo[i][hCustomInterior] == 1){
+	                		LoadObjects(playerid);
+	            		}
+	            		SetPlayerPos(playerid,HouseInfo[i][hInteriorX],HouseInfo[i][hInteriorY],HouseInfo[i][hInteriorZ]);
+	            		SetPlayerFacingAngle(playerid,HouseInfo[i][hInteriorA]);
+	            		SetCameraBehindPlayer(playerid);
+	            		GameTextForPlayer(playerid, "~w~Bienvenido", 5000, 1);
+						Streamer_UpdateEx(playerid, HouseInfo[i][hInteriorX],HouseInfo[i][hInteriorY],HouseInfo[i][hInteriorZ]);
+	        		}
+	        		else GameTextForPlayer(playerid, "~r~Cerrado", 5000, 1);
+	        		return 1;
+	        	}
+	    	}
+		}
+		if (newkeys & KEY_CROUCH)
+		if( Info[playerid][pJailed] > 0 ) return SendClientMessageEx(playerid, COLOR_GREY, "* No puedes usar este comando ahora.");
+	    if(GetPVarInt(playerid, "IsInArena") == 1) return SendClientMessageEx(playerid, COLOR_GREY, "* No puedes hacer esto en la arena!");
+	    if(Info[playerid][pEstado] != 0) return SendClientMessageEx(playerid, COLOR_GREY, "* No puedes hacer esto ahora.");
+		for(new i = 0; i <  sizeof(DDoorsInfo); i++)
+		{
+	    	if (IsPlayerInRangeOfPoint(playerid,3,DDoorsInfo[i][ddInteriorX], DDoorsInfo[i][ddInteriorY], DDoorsInfo[i][ddInteriorZ]) && Info[playerid][pVW] == DDoorsInfo[i][ddInteriorVW])
+			{
+	        	SetPlayerInterior(playerid,DDoorsInfo[i][ddExteriorInt]);
+	        	Info[playerid][pInt] = DDoorsInfo[i][ddExteriorInt];
+	        	SetPlayerVirtualWorld(playerid, DDoorsInfo[i][ddExteriorVW]);
+	        	Info[playerid][pVW] = DDoorsInfo[i][ddExteriorVW];
+	        	if(DDoorsInfo[i][ddCustomExterior])
+				{
+					LoadObjects(playerid);
+	        	}
+	        	if(DDoorsInfo[i][dMusic] != 0) StopAudioStreamForPlayer(playerid);
+	        	if(DDoorsInfo[i][ddVehicleAble] > 0 && GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
+				{
+	            	SetVehiclePos(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddExteriorX],DDoorsInfo[i][ddExteriorY],DDoorsInfo[i][ddExteriorZ]);
+	            	SetVehicleZAngle(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddExteriorA]);
+	            	SetVehicleVirtualWorld(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddExteriorVW]);
+	            	LinkVehicleToInterior(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddExteriorInt]);
+	        	}
+	        	else
+				{
+	            	SetPlayerPos(playerid,DDoorsInfo[i][ddExteriorX],DDoorsInfo[i][ddExteriorY],DDoorsInfo[i][ddExteriorZ]);
+	            	SetPlayerFacingAngle(playerid, DDoorsInfo[i][ddExteriorA]);
+	            	SetCameraBehindPlayer(playerid);
+	            	return 1;
+	        	}
+	    	}
+		}
+		if (IsPlayerInRangeOfPoint(playerid,8,2233.9280,-1758.3882,2031.3885)) //  GARAGE 1
+		{
+	       	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
+	           	SetVehiclePos(GetPlayerVehicleID(playerid),  2281.1748,-1724.4528,13.2521);
+	           	SetVehicleZAngle(GetPlayerVehicleID(playerid),  179.93);
+	           	Streamer_Update(playerid);
+	        }
+	        else{
+				SetPlayerPos(playerid, 2280.5620,-1722.8878,13.5469);
+				SetPlayerFacingAngle(playerid, 181);
+				SetCameraBehindPlayer(playerid);
+			}
+			return 1;
+		}
+		if (IsPlayerInRangeOfPoint(playerid,8,1140.7430,-1592.1893,6602.4922)) //  GARAGE 1
+		{
+	       	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
+	           	SetVehiclePos(GetPlayerVehicleID(playerid),  1242.2382,-1732.4800,13.2911);
+	           	SetVehicleZAngle(GetPlayerVehicleID(playerid),  359.47);
+	           	Streamer_Update(playerid);
+	        }
+	        else{
+				SetPlayerPos(playerid, 1241.9020,-1734.0985,13.5899);
+				SetPlayerFacingAngle(playerid, 354.9746);
+				SetCameraBehindPlayer(playerid);
+			}
+			return 1;
+		}
+		if (IsPlayerInRangeOfPoint(playerid,8,855.6053,-1412.6117,4202.1577)) //  GARAGE VIP
+		{
+	       	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
+	           	SetVehiclePos(GetPlayerVehicleID(playerid),  853.3862,-1387.1884,13.7470);
+	           	SetVehicleZAngle(GetPlayerVehicleID(playerid),  182.4513);
+	           	Streamer_Update(playerid);
+	        }
+	        else{
+				SetPlayerPos(playerid, 853.3862,-1387.1884,13.7470);
+				SetPlayerFacingAngle(playerid, 182.4513);
+				SetCameraBehindPlayer(playerid);
+			}
+			return 1;
+		}
+	    for(new i = 0; i <  sizeof(HouseInfo); i++)
+		{
+	        if (IsPlayerInRangeOfPoint(playerid,3,HouseInfo[i][hInteriorX], HouseInfo[i][hInteriorY], HouseInfo[i][hInteriorZ]) && Info[playerid][pVW] == i+6000)
+			{
+				SetPlayerInterior(playerid,0);
+	            Info[playerid][pInt] = 0;
+	            if(HouseInfo[i][hCustomExterior]){LoadObjects(i);}
+	            SetPlayerPos(playerid,HouseInfo[i][hExteriorX],HouseInfo[i][hExteriorY],HouseInfo[i][hExteriorZ]);
+	            SetPlayerFacingAngle(playerid, HouseInfo[i][hExteriorA]);
+	            SetCameraBehindPlayer(playerid);
+	            SetPlayerVirtualWorld(playerid, 0);
+	            Info[playerid][pVW] = 0;
+	            return Streamer_UpdateEx(playerid, HouseInfo[i][hExteriorX],HouseInfo[i][hExteriorY],HouseInfo[i][hExteriorZ]);
+	        }
 	    }
-		if (IsPlayerInRangeOfPoint(playerid,3,2281.1748,-1724.4528,13.2521)) //  GARAGE 1
-		{
-
-        	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
-            	SetVehiclePos(GetPlayerVehicleID(playerid),  2233.9280,-1758.3882,2031.3885);
-            	SetVehicleZAngle(GetPlayerVehicleID(playerid),  11.4);
-            	Streamer_Update(playerid);
-            }
-            else{
-				SetPlayerPos(playerid, 2235.1851,-1763.5916,2032.9728);
-				SetPlayerFacingAngle(playerid, 14.9);
-				SetCameraBehindPlayer(playerid);
-				LoadObjects(playerid);
-			}
-			return 1;
-		}
-		if (IsPlayerInRangeOfPoint(playerid,3,1242.2382,-1732.4800,13.2911)) //  GARAGE 2
-		{
-
-        	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
-            	SetVehiclePos(GetPlayerVehicleID(playerid),  1134.0381,-1591.4459,6602.5879);
-            	SetVehicleZAngle(GetPlayerVehicleID(playerid),  176.3030);
-            	Streamer_Update(playerid);
-            }
-            else{
-				SetPlayerPos(playerid, 1134.0381,-1591.4459,6602.5879);
-				SetPlayerFacingAngle(playerid, 14.9);
-				SetCameraBehindPlayer(playerid);
-				LoadObjects(playerid);
-			}
-			return 1;
-		}
-		if (IsPlayerInRangeOfPoint(playerid,3,853.3862,-1387.1884,13.7470)) //  GARAGE VIP
-		{
-
-			if(Info[playerid][pVIP] == 0) return GameTextForPlayer(playerid, "~r~No eres VIP", 2000, 4);
-        	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
-			{
-            	SetVehiclePos(GetPlayerVehicleID(playerid),  855.6053,-1412.6117,4202.1577);
-            	SetVehicleZAngle(GetPlayerVehicleID(playerid),  NORTE);
-            	Streamer_Update(playerid);
-            }
-            else{
-				SetPlayerPos(playerid, 855.6053,-1412.6117,4202.1577);
-				SetPlayerFacingAngle(playerid, NORTE);
-				SetCameraBehindPlayer(playerid);
-				LoadObjects(playerid);
-			}
-			return 1;
-		}
-	    for(new i = 0; i < sizeof(HouseInfo); i++){
-    		if (IsPlayerInRangeOfPoint(playerid,3,HouseInfo[i][hExteriorX], HouseInfo[i][hExteriorY], HouseInfo[i][hExteriorZ])){
-        		if(Info[playerid][pPhousekey] == i || HouseInfo[i][hLock] == 0 || Info[playerid][pRenting] == i){
-			        LoadObjects(playerid);
-            		SetPlayerInterior(playerid,HouseInfo[i][hHInteriorWorld]);
-            		Info[playerid][pInt] = HouseInfo[i][hHInteriorWorld];
-            		Info[playerid][pVW] = i+6000;
-            		SetPlayerVirtualWorld(playerid, i+6000);
-            		if(HouseInfo[i][hCustomInterior] == 1){
-                		LoadObjects(playerid);
-            		}
-            		SetPlayerPos(playerid,HouseInfo[i][hInteriorX],HouseInfo[i][hInteriorY],HouseInfo[i][hInteriorZ]);
-            		SetPlayerFacingAngle(playerid,HouseInfo[i][hInteriorA]);
-            		SetCameraBehindPlayer(playerid);
-            		GameTextForPlayer(playerid, "~w~Bienvenido", 5000, 1);
-					Streamer_UpdateEx(playerid, HouseInfo[i][hInteriorX],HouseInfo[i][hInteriorY],HouseInfo[i][hInteriorZ]);
-        		}
-        		else GameTextForPlayer(playerid, "~r~Cerrado", 5000, 1);
-        		return 1;
-        	}
-    	}
-	}
-	if (newkeys & KEY_CROUCH)
-	if( Info[playerid][pJailed] > 0 ) return SendClientMessageEx(playerid, COLOR_GREY, "* No puedes usar este comando ahora.");
-    if(GetPVarInt(playerid, "IsInArena") == 1) return SendClientMessageEx(playerid, COLOR_GREY, "* No puedes hacer esto en la arena!");
-    if(Info[playerid][pEstado] != 0) return SendClientMessageEx(playerid, COLOR_GREY, "* No puedes hacer esto ahora.");
-	for(new i = 0; i <  sizeof(DDoorsInfo); i++)
-	{
-    	if (IsPlayerInRangeOfPoint(playerid,3,DDoorsInfo[i][ddInteriorX], DDoorsInfo[i][ddInteriorY], DDoorsInfo[i][ddInteriorZ]) && Info[playerid][pVW] == DDoorsInfo[i][ddInteriorVW])
-		{
-        	SetPlayerInterior(playerid,DDoorsInfo[i][ddExteriorInt]);
-        	Info[playerid][pInt] = DDoorsInfo[i][ddExteriorInt];
-        	SetPlayerVirtualWorld(playerid, DDoorsInfo[i][ddExteriorVW]);
-        	Info[playerid][pVW] = DDoorsInfo[i][ddExteriorVW];
-        	if(DDoorsInfo[i][ddCustomExterior])
-			{
-				LoadObjects(playerid);
-        	}
-        	if(DDoorsInfo[i][dMusic] != 0) StopAudioStreamForPlayer(playerid);
-        	if(DDoorsInfo[i][ddVehicleAble] > 0 && GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
-			{
-            	SetVehiclePos(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddExteriorX],DDoorsInfo[i][ddExteriorY],DDoorsInfo[i][ddExteriorZ]);
-            	SetVehicleZAngle(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddExteriorA]);
-            	SetVehicleVirtualWorld(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddExteriorVW]);
-            	LinkVehicleToInterior(GetPlayerVehicleID(playerid), DDoorsInfo[i][ddExteriorInt]);
-        	}
-        	else
-			{
-            	SetPlayerPos(playerid,DDoorsInfo[i][ddExteriorX],DDoorsInfo[i][ddExteriorY],DDoorsInfo[i][ddExteriorZ]);
-            	SetPlayerFacingAngle(playerid, DDoorsInfo[i][ddExteriorA]);
-            	SetCameraBehindPlayer(playerid);
-            	return 1;
-        	}
-    	}
-	}
-	if (IsPlayerInRangeOfPoint(playerid,8,2233.9280,-1758.3882,2031.3885)) //  GARAGE 1
-	{
-       	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
-           	SetVehiclePos(GetPlayerVehicleID(playerid),  2281.1748,-1724.4528,13.2521);
-           	SetVehicleZAngle(GetPlayerVehicleID(playerid),  179.93);
-           	Streamer_Update(playerid);
-        }
-        else{
-			SetPlayerPos(playerid, 2280.5620,-1722.8878,13.5469);
-			SetPlayerFacingAngle(playerid, 181);
-			SetCameraBehindPlayer(playerid);
-		}
-		return 1;
-	}
-	if (IsPlayerInRangeOfPoint(playerid,8,1140.7430,-1592.1893,6602.4922)) //  GARAGE 1
-	{
-       	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
-           	SetVehiclePos(GetPlayerVehicleID(playerid),  1242.2382,-1732.4800,13.2911);
-           	SetVehicleZAngle(GetPlayerVehicleID(playerid),  359.47);
-           	Streamer_Update(playerid);
-        }
-        else{
-			SetPlayerPos(playerid, 1241.9020,-1734.0985,13.5899);
-			SetPlayerFacingAngle(playerid, 354.9746);
-			SetCameraBehindPlayer(playerid);
-		}
-		return 1;
-	}
-	if (IsPlayerInRangeOfPoint(playerid,8,855.6053,-1412.6117,4202.1577)) //  GARAGE VIP
-	{
-       	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
-           	SetVehiclePos(GetPlayerVehicleID(playerid),  853.3862,-1387.1884,13.7470);
-           	SetVehicleZAngle(GetPlayerVehicleID(playerid),  182.4513);
-           	Streamer_Update(playerid);
-        }
-        else{
-			SetPlayerPos(playerid, 853.3862,-1387.1884,13.7470);
-			SetPlayerFacingAngle(playerid, 182.4513);
-			SetCameraBehindPlayer(playerid);
-		}
-		return 1;
-	}
-    for(new i = 0; i <  sizeof(HouseInfo); i++)
-	{
-        if (IsPlayerInRangeOfPoint(playerid,3,HouseInfo[i][hInteriorX], HouseInfo[i][hInteriorY], HouseInfo[i][hInteriorZ]) && Info[playerid][pVW] == i+6000)
-		{
-			SetPlayerInterior(playerid,0);
-            Info[playerid][pInt] = 0;
-            if(HouseInfo[i][hCustomExterior]){LoadObjects(i);}
-            SetPlayerPos(playerid,HouseInfo[i][hExteriorX],HouseInfo[i][hExteriorY],HouseInfo[i][hExteriorZ]);
-            SetPlayerFacingAngle(playerid, HouseInfo[i][hExteriorA]);
-            SetCameraBehindPlayer(playerid);
-            SetPlayerVirtualWorld(playerid, 0);
-            Info[playerid][pVW] = 0;
-            return Streamer_UpdateEx(playerid, HouseInfo[i][hExteriorX],HouseInfo[i][hExteriorY],HouseInfo[i][hExteriorZ]);
-        }
-    }
 	}
 	return 1;
 }
