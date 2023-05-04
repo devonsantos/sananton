@@ -12280,6 +12280,11 @@ function CloseHangar4B() return MoveDynamicObject(Hangar4B, 286.51, 1984.85, 19.
 function CloseHangar5A() return MoveDynamicObject(Hangar5A, 286.51, 2028.56, 19.84,5);
 function CloseHangar5B() return MoveDynamicObject(Hangar5B, 286.51, 2018.97, 19.84,5);
 
+/*
+*	Estado de las puertas (false -> Cerradas | true -> Abiertas).
+* 	El número debe aumentarse en función de los botones que se vayan a crear
+*/
+new bool:doorStatus[10] = false;
 public OnPlayerPressButton(playerid, buttonid)
 {
 	if(buttonid == LSPDDoor1ButtonEx || buttonid == LSPDDoor1ButtonInt)
@@ -12291,14 +12296,22 @@ public OnPlayerPressButton(playerid, buttonid)
 	if(buttonid == LSPDDoor2ButtonEx || buttonid == LSPDDoor2ButtonInt)
 	{
 	    if(!IsACop(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
-	    MoveDynamicObject(LSPDDoor2,1482.88843, -1758.28772, 3284.30005,5);
+     	MoveDynamicObject(LSPDDoor2,1482.88843, -1758.28772, 3284.30005,5);
 	    SetTimer("CloseLSPDDoor2", 5000, 0);
 	}
 	if(buttonid == Hangar1ButtonEx1 || buttonid == Hangar1ButtonIn1)
 	{
 	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
-	    MoveDynamicObject(Hangar1A,138.37, 1857.37, 19.11,1); //Abierta
-	    MoveDynamicObject(Hangar1B,138.37, 1842.95, 19.11,1);
+	    if(doorStatus[0] == false){
+	     	MoveDynamicObject(Hangar1A,138.37, 1857.37, 19.11,1); //Abierta
+		    MoveDynamicObject(Hangar1B,138.37, 1842.95, 19.11,1);
+	        return doorStatus[0] = true;
+		}else{
+			SetTimer("CloseHangar1A", 10, 0);
+			SetTimer("CloseHangar1B", 10, 0);
+	        return doorStatus[0] = false;
+		}
+
 	}
  	if(buttonid == Hangar1ButtonEx1C || buttonid == Hangar1ButtonIn1C)
 	{
@@ -42953,7 +42966,7 @@ stock LoadPlayerVehicles(playerid)
 {
 new playername[MAX_PLAYER_NAME];
 GetPlayerName(playerid, playername, sizeof(playername));
-printf(" Loading %s's vehicles.", playername);
+//printf(" Loading %s's vehicles.", playername);
 for(new v = 0; v < MAX_PLAYERVEHICLES; v++)
 {
     if(PlayerVehicleInfo[playerid][v][pvImpounded] >= 2) PlayerVehicleInfo[playerid][v][pvImpounded] = 0;
