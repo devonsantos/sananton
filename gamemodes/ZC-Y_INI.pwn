@@ -290,7 +290,6 @@ native IsValidVehicle(vehicleid);
 #define 			TRAFICDRUGS 				(26)
 #define 			ADMUTE 						(27)
 #define 			DOORLOCK 					(28)
-#define 			CARSPAWN 					(29)
 #define  			FAMILY_SKIN                 (30)
 #define  			D_SPEEDCAMRANGE				(31)
 #define  			D_SPEEDCAMLIMIT				(32)
@@ -1271,7 +1270,6 @@ pvWeapons[3],
 pvImpounded,
 pvFuel,
 Float:pvHealth,
-pvSpawned,
 };
 new light[MAX_VEHICLES],
 Lamp[MAX_VEHICLES] = 0;
@@ -3801,7 +3799,6 @@ while(ex < MAX_PLAYERVEHICLES)
     PlayerVehicleInfo[playerid][ex][pvWeapons][1] = 0;
     PlayerVehicleInfo[playerid][ex][pvWeapons][2] = 0;
 	PlayerVehicleInfo[playerid][ex][pvFuel] = 1000;
-	PlayerVehicleInfo[playerid][ex][pvSpawned]= 0;
 	PlayerVehicleInfo[playerid][ex][pvHealth] = 1000.0;
 	PlayerVehicleInfo[playerid][ex][pvStereo] = 0;
 	//format(PlayerVehicleInfo[playerid][ex][pvNumberPlate], 32, "ZCRP {FF0000}FTW"); // Numeric attempt for "NGG FTW" with extra spaces.
@@ -12244,7 +12241,7 @@ if(Info[playerid][pJob2] != 0 && Info[playerid][pVIP] == 0){
 SetPlayerFightingStyle (playerid, Info[playerid][pFStyle]);
 WeedLogin(playerid);
 SetPlayerToTeamColor(playerid);
-//LoadPlayerVehicles(playerid);
+LoadPlayerVehicles(playerid);
 return 1;
 }
 //Puertas con tarjeta (Button) CERRADAS
@@ -18207,60 +18204,6 @@ case	NGMENUWEP:
     	}
 	}
 	case    DIALOG_BANKME: if(response) ShowPlayerDialog(playerid, DIALOG_BANKM, DIALOG_STYLE_LIST,""COL_GENERAL"Banco - "COL_WHITE"Balance", "* Retirar fondos\n* Depositar fondos\n* Estado\n* También "COL_YELLOW"/fbanco","Ok","Salir");
-	case 	CARSPAWN:
-	{
-    	if (response == 1)
-    	{
-    		if(PlayerVehicleInfo[playerid][listitem][pvImpounded] == 1) return SendClientMessageEx(playerid,COLOR_WHITE,"El auto que intenta spawnear está embargado.");
-	    	if(PlayerVehicleInfo[playerid][listitem][pvImpounded] >= 2) PlayerVehicleInfo[playerid][listitem][pvImpounded] = 0;
-        	if(PlayerVehicleInfo[playerid][listitem][pvModelId] != 0 && PlayerVehicleInfo[playerid][listitem][pvImpounded] == 0 && PlayerVehicleInfo[playerid][listitem][pvSpawned]== 0)
-        	{
-        	    if(carsforplayer[playerid] == 2) return SendClientMessageEx(playerid,COLOR_WHITE,"* Sólo puedes tener 2 coches spawneados y 6 guardados.");
-            	PlayerCars++;
-            	carsforplayer[playerid]++;
-				new carcreated = CreateVehicle(PlayerVehicleInfo[playerid][listitem][pvModelId], PlayerVehicleInfo[playerid][listitem][pvPosX], PlayerVehicleInfo[playerid][listitem][pvPosY], PlayerVehicleInfo[playerid][listitem][pvPosZ], PlayerVehicleInfo[playerid][listitem][pvPosAngle],PlayerVehicleInfo[playerid][listitem][pvColor1], PlayerVehicleInfo[playerid][listitem][pvColor2], -1);
-				PlayerVehicleInfo[playerid][listitem][pvId] = carcreated;
-				VehicleFuel[carcreated] = PlayerVehicleInfo[playerid][listitem][pvFuel];
-				SetVehicleHealth(carcreated, PlayerVehicleInfo[playerid][listitem][pvHealth]);
-				SetVehicleVirtualWorld(carcreated, PlayerVehicleInfo[playerid][listitem][pvVW]);
-				PlayerVehicleInfo[playerid][listitem][pvSpawned] = 1;
-				SendClientMessageEx(playerid,COLOR_WHITE,"Vehiculo spawneado correctamente, en la última posición que lo estacionaste. (/gps)");
-				if(PlayerVehicleInfo[playerid][listitem][pvLocked] == 1)
-				LockPlayerVehicle(playerid, PlayerVehicleInfo[playerid][listitem][pvId], PlayerVehicleInfo[playerid][listitem][pvLock]);
-                LoadPlayerVehicleMods(playerid, listitem);
-				return 1;
-			}
-        	else if(PlayerVehicleInfo[playerid][listitem][pvSpawned] == 1)
-        	{
-			    new playername[MAX_PLAYER_NAME];
-				GetPlayerName(playerid, playername, sizeof(playername));
-				//printf(" Unloading %s's vehicles.", playername);
-     			new Float:health;
-        		GetVehicleHealth(PlayerVehicleInfo[playerid][listitem][pvId], health);
-        		if(health < 500) return SendClientMessageEx(playerid, COLOR_GREY, " El vehiculo está muy dañado para ser guardado.");
-                if(IsVehicleBusy(PlayerVehicleInfo[playerid][listitem][pvId])) return SendClientMessageEx(playerid, COLOR_GREY, " El vehiculo está ocupado por otra persona y no puede ser guardado.");
-				if(PlayerVehicleInfo[playerid][listitem][pvImpounded] >= 2) PlayerVehicleInfo[playerid][listitem][pvImpounded] = 0;
-				if(PlayerVehicleInfo[playerid][listitem][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][listitem][pvImpounded] == 0 && PlayerVehicleInfo[playerid][listitem][pvSpawned]== 1)
-				{
-	            	PlayerCars--;
-	            	carsforplayer[playerid]--;
-        			if(LockStatus[PlayerVehicleInfo[playerid][listitem][pvId]] != 0) LockStatus[PlayerVehicleInfo[playerid][listitem][pvId]] = 0;
-       		 		UpdatePlayerVehicleMods(playerid, listitem);
-					DestroyVehicle(PlayerVehicleInfo[playerid][listitem][pvId]);
-					VehicleFuel[PlayerVehicleInfo[playerid][listitem][pvId]] = 500;
-					PlayerVehicleInfo[playerid][listitem][pvId] = INVALID_PLAYER_VEHICLE_ID;
-					PlayerVehicleInfo[playerid][listitem][pvSpawned] = 0;
-					SendClientMessageEx(playerid,COLOR_WHITE,"Vehiculo fue guardado correctamente.");
-					if(PlayerVehicleInfo[playerid][listitem][pvAllowedPlayerId] != INVALID_PLAYER_ID)
-    				{
-    	    			Info[PlayerVehicleInfo[playerid][listitem][pvAllowedPlayerId]][pVehicleKeys] = INVALID_PLAYER_VEHICLE_ID;
-    	    			Info[PlayerVehicleInfo[playerid][listitem][pvAllowedPlayerId]][pVehicleKeysFrom] = INVALID_PLAYER_ID;
-    					PlayerVehicleInfo[playerid][listitem][pvAllowedPlayerId] = INVALID_PLAYER_ID;
-    				}
-    			}
-            }
-		}
-    }
 	case    DIALOG_FAMILIA:
 	{
 	    if(response)
@@ -20003,14 +19946,6 @@ case	NGMENUWEP:
 return 1;
 }
 
-IsVehicleBusy(vehicleid) // The_Chaoz ¿?¿?¿
-{
-	foreach(Player, i)
-		if(IsPlayerConnectedEx(i) && IsPlayerInVehicle(i, vehicleid))
-			return 1;
-	return 0;
-}
-
 function BroadCast(color, string[])
 {
 foreach(Player, i)
@@ -21172,7 +21107,6 @@ CMD:aceptar(playerid, params[])
                         	PlayerVehicleInfo[playerid][playervehicleid][pvAllowedPlayerId] = PlayerVehicleInfo[VehicleOffer[playerid]][VehicleId[playerid]][pvAllowedPlayerId];
                         	PlayerVehicleInfo[playerid][playervehicleid][pvPark] = PlayerVehicleInfo[VehicleOffer[playerid]][VehicleId[playerid]][pvPark];
                         	PlayerVehicleInfo[playerid][playervehicleid][pvPrice] = VehiclePrice[playerid];
-                        	PlayerVehicleInfo[playerid][playervehicleid][pvSpawned] = 1;
                         	carsforplayer[playerid]++;
                         	for(new m = 0; m < MAX_MODS; m++){
                         	    PlayerVehicleInfo[playerid][playervehicleid][pvMods][m] = PlayerVehicleInfo[VehicleOffer[playerid]][VehicleId[playerid]][pvMods][m];
@@ -21195,7 +21129,6 @@ CMD:aceptar(playerid, params[])
             	            PlayerVehicleInfo[VehicleOffer[playerid]][VehicleId[playerid]][pvAllowedPlayerId] = INVALID_PLAYER_ID;
             	            PlayerVehicleInfo[VehicleOffer[playerid]][VehicleId[playerid]][pvPark] = 0;
             	            PlayerVehicleInfo[VehicleOffer[playerid]][VehicleId[playerid]][pvPrice] = 0;
-            	            PlayerVehicleInfo[VehicleOffer[playerid]][VehicleId[playerid]][pvSpawned] = 0;
             	            carsforplayer[VehicleOffer[playerid]]++;
             	            for(new m = 0; m < MAX_MODS; m++) {
             	                PlayerVehicleInfo[VehicleOffer[playerid]][VehicleId[playerid]][pvMods][m] = 0;
@@ -28412,21 +28345,16 @@ CMD:checkllaves(playerid, params[])
 if(Info[playerid][pAdmin] >= 2)
 {
     if(!AdminOnDuty(playerid) && Info[playerid][pAdmin] < 5) return SendClientMessageEx(playerid, COLOR_GREY, NODUTY);
-    new vstring[1024],giveplayerid,stext[11];
+    new vstring[1024],giveplayerid;
     if(sscanf(params, "d", giveplayerid)) return SendClientMessageEx(playerid, COLOR_GREY, "Usa: /checkllaves [Jugador]");
 	if(IsPlayerConnectedEx(giveplayerid))
 	{
 		for(new i; i < MAX_PLAYERVEHICLES; i++)
 		{
-    		switch(PlayerVehicleInfo[giveplayerid][i][pvSpawned])
-    		{
-        		case 0: stext = "Despawned";
-        		case 1: stext = "Spawned";
-    		}
 			if(PlayerVehicleInfo[giveplayerid][i][pvModelId] != 0)
-				format(vstring, sizeof(vstring), "%s\n%s - (%s)", vstring, VehicleName[PlayerVehicleInfo[giveplayerid][i][pvModelId] - 400], stext);
+				format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[PlayerVehicleInfo[giveplayerid][i][pvModelId] - 400]);
 			else if(PlayerVehicleInfo[giveplayerid][i][pvImpounded] == 1)
-				format(vstring, sizeof(vstring), "%s\n%s (Embargado) (%s)", vstring, VehicleName[PlayerVehicleInfo[giveplayerid][i][pvModelId] - 400], stext);
+				format(vstring, sizeof(vstring), "%s\n%s (Embargado)", vstring, VehicleName[PlayerVehicleInfo[giveplayerid][i][pvModelId] - 400]);
 			else
 				format(vstring, sizeof(vstring), "%s\nVacío", vstring);
 		}
@@ -36396,24 +36324,16 @@ CMD:ddpass(playerid, params[])
 
 CMD:llaves(playerid, params[])
 {
-	new vstring[512], stext[11];
+	new vstring[512];
 	for(new i; i < MAX_PLAYERVEHICLES; i++)
 	{
-	    switch(PlayerVehicleInfo[playerid][i][pvSpawned])
-	    {
-	        case 0: stext = "stored";
-	        case 1: stext = "spawned";
-	    }
 		if(PlayerVehicleInfo[playerid][i][pvModelId] != 0)
-			format(vstring, sizeof(vstring), "%s\n%s - (%s)", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400], stext);
+			format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
 
 		else if(PlayerVehicleInfo[playerid][i][pvImpounded] == 1)
-			format(vstring, sizeof(vstring), "%s\n%s (Embargado) (%s)", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400], stext);
-
-		else
-			format(vstring, sizeof(vstring), "%s\nVacío", vstring);
+			format(vstring, sizeof(vstring), "%s\n%s (Embargado)", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
 	}
-	ShowPlayerDialog(playerid, CARSPAWN, DIALOG_STYLE_LIST, "Tus Coches:", vstring, "(De)Spawn", "Salir");
+	ShowPlayerDialog(playerid, 0, DIALOG_STYLE_MSGBOX, "Tus Coches:", vstring, "Ok", "");
 	return 1;
 }
 
@@ -42981,7 +42901,6 @@ if(PlayerVehicleInfo[playerid][playervehicleid][pvId] == INVALID_PLAYER_VEHICLE_
 	PlayerVehicleInfo[playerid][playervehicleid][pvImpounded] = 0;
 	PlayerVehicleInfo[playerid][playervehicleid][pvHealth] = 1000.0;
 	PlayerVehicleInfo[playerid][playervehicleid][pvStereo] = 0;
-	PlayerVehicleInfo[playerid][playervehicleid][pvSpawned] = 1;
 	for(new m = 0; m < MAX_MODS; m++)
     {
     	PlayerVehicleInfo[playerid][playervehicleid][pvMods][m] = 0;
@@ -43016,7 +42935,6 @@ if(PlayerVehicleInfo[playerid][playervehicleid][pvModelId])
 	PlayerVehicleInfo[playerid][playervehicleid][pvLock] = 0;
 	PlayerVehicleInfo[playerid][playervehicleid][pvImpounded] = 0;
 	PlayerVehicleInfo[playerid][playervehicleid][pvHealth] = 1000.0;
-	PlayerVehicleInfo[playerid][playervehicleid][pvSpawned] = 0;
 	PlayerVehicleInfo[playerid][playervehicleid][pvStereo] = 0;
 	VehicleFuel[PlayerVehicleInfo[playerid][playervehicleid][pvId]] = 500;
 	VehicleFuel[playervehicleid] = 500;
@@ -43035,7 +42953,7 @@ stock LoadPlayerVehicles(playerid)
 {
 new playername[MAX_PLAYER_NAME];
 GetPlayerName(playerid, playername, sizeof(playername));
-//printf(" Loading %s's vehicles.", playername);
+printf(" Loading %s's vehicles.", playername);
 for(new v = 0; v < MAX_PLAYERVEHICLES; v++)
 {
     if(PlayerVehicleInfo[playerid][v][pvImpounded] >= 2) PlayerVehicleInfo[playerid][v][pvImpounded] = 0;
@@ -43177,7 +43095,7 @@ if(PlayerVehicleInfo[playerid][playervehicleid][pvImpounded] == 0) {
 
 stock LoadPlayerVehicleMods(playerid, playervehicleid)
 {
-if(PlayerVehicleInfo[playerid][playervehicleid][pvImpounded] == 0 && PlayerVehicleInfo[playerid][playervehicleid][pvSpawned]== 1)
+if(PlayerVehicleInfo[playerid][playervehicleid][pvImpounded] == 0)
 {
 	//printf(" Cargando mods del jugador ID #%d.", playerid);
 	new paintjob = PlayerVehicleInfo[playerid][playervehicleid][pvPaintJob];
@@ -43230,7 +43148,7 @@ function GetPlayerVehicleCount(playerid)
 	new cars = 0;
 	for(new i = 0; i < MAX_PLAYERVEHICLES; i++){
 	    if(PlayerVehicleInfo[playerid][i][pvModelId]){
-	        if(PlayerVehicleInfo[playerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][i][pvImpounded] == 0 && PlayerVehicleInfo[playerid][i][pvSpawned] == 1){
+	        if(PlayerVehicleInfo[playerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][i][pvImpounded] == 0){
 				if(CheckPlayerVehicleForDesync(playerid, PlayerVehicleInfo[playerid][i][pvId])) return 0;
 				cars++;
 			}
