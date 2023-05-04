@@ -1469,7 +1469,14 @@ new LSPDDoor1, LSPDDoor1ButtonEx,LSPDDoor1ButtonInt, LSPDDoor2,LSPDDoor2ButtonEx
 //SAPD Portones
 new pdgate1,pdgate2;
 //Guardia Nacional - Puertas
-new PGN1,PGN2,Hangar1A,Hangar1B,Hangar1C,Hangar1ButtonEx1,Hangar1ButtonIn1,Hangar1ButtonEx2,Hangar1ButtonIn2;
+new PGN1,PGN2,Hangar1A,Hangar1B,Hangar1C,Hangar1ButtonEx1,Hangar1ButtonIn1,Hangar1ButtonEx1C,Hangar1ButtonIn1C,Hangar1ButtonEx2,Hangar1ButtonIn2;
+new Hangar2A,Hangar2B,Hangar2C,Hangar2ButtonEx1,Hangar2ButtonIn1,Hangar2ButtonEx1C,Hangar2ButtonIn1C,Hangar2ButtonEx2,Hangar2ButtonIn2;
+new Cocheras1A,Cocheras1B,Cocheras1C,Cocheras1D,Cocheras1ButtonEx,Cocheras1ButtonIn,Cocheras1ButtonExC,Cocheras1ButtonInC;
+new Cocheras2A,Cocheras2B,Cocheras2C,Cocheras2D,Cocheras2ButtonEx,Cocheras2ButtonIn,Cocheras2ButtonExC,Cocheras2ButtonInC;
+new Cocheras3A,Cocheras3B,Cocheras3C,Cocheras3D,Cocheras3ButtonEx,Cocheras3ButtonIn,Cocheras3ButtonExC,Cocheras3ButtonInC;
+new Hangar3A,Hangar3B,Hangar3ButtonEx,Hangar3ButtonIn,Hangar3ButtonExC,Hangar3ButtonInC;
+new Hangar4A,Hangar4B,Hangar4ButtonEx,Hangar4ButtonIn,Hangar4ButtonExC,Hangar4ButtonInC;
+new Hangar5A,Hangar5B,Hangar5ButtonEx,Hangar5ButtonIn,Hangar5ButtonExC,Hangar5ButtonInC;
 //new pObject[MAX_PLAYERS];
 new Ipadon[MAX_PLAYERS];
 //GIFTS
@@ -7612,14 +7619,17 @@ CreateDynamicObject(19312, 191.14, 1870.04, 21.48,   0.00, 0.00, 0.00);
 CreateDynamicObject(19907, 141.98, 1902.58, 17.64,   0.00, 0.00, 270.00);
 CreateDynamicObject(19909, 137.66, 1875.02, 16.72,   0.00, 0.00, 90.00);
 CreateDynamicObject(19907, 146.82, 1845.97, 16.52,   0.00, 0.00, 0.00);
-CreateDynamicObject(19905, 188.18, 1835.03, 16.19,   0.00, 0.00, 0.00);
+CreateDynamicObject(19905, 188.20, 1835.00, 16.49,   0.00, 0.00, 0.00);
 CreateDynamicObject(19905, 230.32, 1835.00, 16.49,   0.00, 0.00, 0.00);
-CreateDynamicObject(19905, 205.02, 1931.42, 16.50,   0.00, 0.00, 0.00);
-CreateDynamicObject(11692, 199.3438, 1943.7891, 18.2031,   0.00, 0.00, 0.00);
+CreateDynamicObject(19905, 205.02, 1931.42, 16.48,   0.00, 0.00, 0.00);
+CreateDynamicObject(11692, 199.3438, 1943.7891, 18.2031, 0.00, 0.00, 0.00);
 CreateDynamicObject(9241, 336.70, 1821.40, 18.29,   0.00, 0.00, 180.00);
 CreateDynamicObject(9241, 336.68, 1855.40, 18.29,   0.00, 0.00, 180.00);
 CreateDynamicObject(9241, 336.68, 1889.40, 18.29,   0.00, 0.00, 180.00);
 CreateDynamicObject(9241, 336.68, 1923.40, 18.29,   0.00, 0.00, 180.00);
+CreateDynamicObject(19447, 96.82, 1920.65, 16.49,   90.00, 0.00, 0.00);
+CreateDynamicObject(11714, 96.71, 1920.64, 18.41,   0.00, 0.00, 0.00);
+CreateDynamicObject(11714, 96.91, 1920.64, 18.41,   0.00, 0.00, 0.00);
 
 // Custom Int.
 CreateDynamicObject(16656, 323.34, 2349.19, 8907.42,   0.00, 0.00, 0.00);
@@ -9045,9 +9055,37 @@ CreateDynamicObject(19304, 320.89, 316.23, 1001.25,   0.00, 0.00, 90.24);
 //Puertas
 LSPDDoor1 = CreateDynamicObject(1536, 1468.57507, -1758.27209, 3284.30005,   0.00000, 0.00000, 180.00000);
 LSPDDoor2 = CreateDynamicObject(1536, 1481.38684, -1758.28503, 3284.30005,   0.00000, 0.00000, 180.00000);
+
 Hangar1A = CreateDynamicObject(19908, 138.37, 1852.83, 19.11,   0.00, 0.00, 0.00); // Cerrada
 Hangar1B = CreateDynamicObject(19908, 138.37, 1847.43, 19.11,   0.00, 0.00, 0.00); // Cerrada
 Hangar1C = CreateDynamicObject(11360, 149.26, 1840.09, 17.64,   90.00, 0.00, 270.00); //Cerrada
+Hangar2A = CreateDynamicObject(19908, 143.51, 1911.03, 20.25,   0.00, 0.00, 90.00); //Cerrada
+Hangar2B = CreateDynamicObject(19908, 148.92, 1911.03, 20.25,   0.00, 0.00, 90.00); //Cerrada
+Hangar2C = CreateDynamicObject(11360, 136.10, 1900.15, 18.50,   90.00, 0.00, 180.00); //Cerrada
+
+Cocheras1A = CreateDynamicObject(19906, 209.63, 1923.42, 19.91,   0.00, 0.00, 0.00); //Cerrada
+Cocheras1B = CreateDynamicObject(19906, 218.64, 1923.42, 19.91,   0.00, 0.00, 0.00); //Cerrada
+Cocheras1C = CreateDynamicObject(19906, 200.63, 1923.42, 19.91,   0.00, 0.00, 0.00); //Cerrada
+Cocheras1D = CreateDynamicObject(19906, 191.63, 1923.42, 19.91,   0.00, 0.00, 0.00); //Cerrada
+
+Cocheras2A = CreateDynamicObject(19906, 174.80, 1827.01, 19.91,   0.00, 0.00, 0.00); //Cerrada
+Cocheras2B = CreateDynamicObject(19906, 183.80, 1827.01, 19.91,   0.00, 0.00, 0.00); //Cerrada
+Cocheras2C = CreateDynamicObject(19906, 192.82, 1827.01, 19.91,   0.00, 0.00, 0.00); //Cerrada
+Cocheras2D = CreateDynamicObject(19906, 201.80, 1827.01, 19.91,   0.00, 0.00, 0.00); //Cerrada
+
+Cocheras3A = CreateDynamicObject(19906, 216.93, 1827.01, 19.91,   0.00, 0.00, 0.00); //Cerrada
+Cocheras3B = CreateDynamicObject(19906, 225.93, 1827.01, 19.91,   0.00, 0.00, 0.00); //Cerrada
+Cocheras3C = CreateDynamicObject(19906, 234.90, 1827.01, 19.91,   0.00, 0.00, 0.00); //Cerrada
+Cocheras3D = CreateDynamicObject(19906, 243.93, 1827.01, 19.91,   0.00, 0.00, 0.00); //Cerrada
+
+Hangar3A = CreateDynamicObject(19911, 286.51, 1950.98, 19.84,   0.00, 0.00, 0.00); // Cerrada
+Hangar3B = CreateDynamicObject(19911, 286.51, 1960.62, 19.84,   0.00, 0.00, 0.00); // Cerrada
+
+Hangar4A = CreateDynamicObject(19911, 286.51, 1994.48, 19.84,   0.00, 0.00, 0.00); // Cerrada
+Hangar4B = CreateDynamicObject(19911, 286.51, 1984.85, 19.84,   0.00, 0.00, 0.00); // Cerrada
+
+Hangar5A = CreateDynamicObject(19911, 286.51, 2028.56, 19.84,   0.00, 0.00, 0.00); // Cerrada
+Hangar5B = CreateDynamicObject(19911, 286.51, 2018.97, 19.84,   0.00, 0.00, 0.00); // Cerrada
 
 //Buttons
 LSPDDoor1ButtonEx = CreateButton(1466.71057, -1758.25513, 3285.88208, 179.78889);
@@ -9058,8 +9096,47 @@ LSPDDoor2ButtonInt = CreateButton(1479.56689, -1758.26489, 3285.88208, 179.78889
 
 Hangar1ButtonEx1 = CreateButton(138.1547, 1843.9361, 18.0000, 270.0000);
 Hangar1ButtonIn1 = CreateButton(145.7800, 1840.2300, 18.0400, 180.0000);
-Hangar1ButtonEx2 = CreateButton(148.0000, 1840.0700, 18.0400, 0.0000);
-Hangar1ButtonIn2 = CreateButton(148.0000, 1840.2300, 18.0400, 180.0000);
+Hangar1ButtonEx1C = CreateButton(138.1547, 1843.4500, 18.0000, 270.0000);
+Hangar1ButtonIn1C = CreateButton(145.2000, 1840.2300, 18.0400, 180.0000);
+Hangar1ButtonEx2 = CreateButton(151.7281, 1840.0699, 18.0400, 0.0000);
+Hangar1ButtonIn2 = CreateButton(151.7281, 1840.2300, 18.0400, 180.0000);
+
+Hangar2ButtonEx1 = CreateButton(139.8000, 1911.2600, 19.1500, 180.0000);
+Hangar2ButtonIn1 = CreateButton(136.2500, 1904.3100, 19.1500, 90.0000);
+Hangar2ButtonEx1C = CreateButton(139.3800, 1911.2600, 19.1500, 180.0000);
+Hangar2ButtonIn1C = CreateButton(136.2500, 1904.7700, 19.1500, 90.0000);
+Hangar2ButtonEx2 = CreateButton(136.2400, 1897.6700, 19.1500, 90.0000);
+Hangar2ButtonIn2 = CreateButton(136.0800, 1897.6700, 19.1500, 270.0000);
+
+Cocheras1ButtonEx = CreateButton(204.7101, 1923.28, 18.22, 0.00);
+Cocheras1ButtonIn = CreateButton(204.7101, 1923.76, 18.32, 180.00);
+Cocheras1ButtonExC = CreateButton(205.5501, 1923.28, 18.22, 0.00);
+Cocheras1ButtonInC = CreateButton(205.5501, 1923.76, 18.32, 180.00);
+
+Cocheras2ButtonEx = CreateButton(187.9383, 1826.8744, 18.1660, 0.00);
+Cocheras2ButtonIn = CreateButton(187.9383, 1827.3144, 18.2560, 180.00);
+Cocheras2ButtonExC = CreateButton(188.4983, 1826.8744, 18.1660, 0.00);
+Cocheras2ButtonInC = CreateButton(188.4983, 1827.3145, 18.2560, 180.00);
+
+Cocheras3ButtonEx = CreateButton(230.0843, 1826.8744, 18.1660, 0.00);
+Cocheras3ButtonIn = CreateButton(230.0843, 1827.3144, 18.2460, 180.00);
+Cocheras3ButtonExC = CreateButton(230.7043, 1826.8744, 18.1660, 0.00);
+Cocheras3ButtonInC = CreateButton(230.7043, 1827.3145, 18.2460, 180.00);
+
+Hangar3ButtonEx = CreateButton(286.6147, 1944.3885, 18.0086, 90.00);
+Hangar3ButtonIn = CreateButton(286.5947, 1944.9485, 18.0086, 270.00);
+Hangar3ButtonExC = CreateButton(286.6147, 1944.9485, 18.0086, 90.00);
+Hangar3ButtonInC = CreateButton(286.5947, 1944.3885, 18.0086, 270.00);
+
+Hangar4ButtonEx = CreateButton(286.6147, 1978.6638, 18.0086, 90.00);
+Hangar4ButtonIn = CreateButton(286.5947, 1979.2000, 18.0086, 270.00);
+Hangar4ButtonExC = CreateButton(286.6147, 1979.2000, 18.0086, 90.00);
+Hangar4ButtonInC = CreateButton(286.5947, 1978.6638, 18.0086, 270.00);
+
+Hangar5ButtonEx = CreateButton(286.6147, 2013.1563, 18.0086, 90.00);
+Hangar5ButtonIn = CreateButton(286.5947, 2013.1563, 18.0086, 270.00);
+Hangar5ButtonExC = CreateButton(286.6147, 2012.6163, 18.0086, 90.00);
+Hangar5ButtonInC = CreateButton(286.5947, 2012.6163, 18.0086, 270.00);
 
 
 //SAPD TEST
@@ -12173,9 +12250,38 @@ return 1;
 //Puertas con tarjeta (Button) CERRADAS
 function CloseLSPDDoor1() return MoveDynamicObject(LSPDDoor1,1468.57507, -1758.27209, 3284.30005,5);
 function CloseLSPDDoor2() return MoveDynamicObject(LSPDDoor2,1481.38684, -1758.28503, 3284.30005,5);
+
 function CloseHangar1A() return MoveDynamicObject(Hangar1A, 138.37, 1852.83, 19.11,5);
 function CloseHangar1B() return MoveDynamicObject(Hangar1B, 138.37, 1847.43, 19.11,5); 
 function CloseHangar1C() return MoveDynamicObject(Hangar1C, 149.26, 1840.09, 17.64,5);
+
+function CloseHangar2A() return MoveDynamicObject(Hangar2A, 143.51, 1911.03, 20.25,5);
+function CloseHangar2B() return MoveDynamicObject(Hangar2B, 148.92, 1911.03, 20.25,5);
+function CloseHangar2C() return MoveDynamicObject(Hangar2C, 136.10, 1900.15, 18.50,5);
+
+function CloseCocheras1A() return MoveDynamicObject(Cocheras1A, 209.63, 1923.42, 19.91,5);
+function CloseCocheras1B() return MoveDynamicObject(Cocheras1B, 218.64, 1923.42, 19.91,5);
+function CloseCocheras1C() return MoveDynamicObject(Cocheras1C, 200.63, 1923.42, 19.91,5);
+function CloseCocheras1D() return MoveDynamicObject(Cocheras1D, 191.63, 1923.42, 19.91,5);
+
+function CloseCocheras2A() return MoveDynamicObject(Cocheras2A, 174.80, 1827.01, 19.91,5);
+function CloseCocheras2B() return MoveDynamicObject(Cocheras2B, 183.80, 1827.01, 19.91,5);
+function CloseCocheras2C() return MoveDynamicObject(Cocheras2C, 192.82, 1827.01, 19.91,5);
+function CloseCocheras2D() return MoveDynamicObject(Cocheras2D, 201.80, 1827.01, 19.91,5);
+
+function CloseCocheras3A() return MoveDynamicObject(Cocheras3A, 216.93, 1827.01, 19.91,5);
+function CloseCocheras3B() return MoveDynamicObject(Cocheras3B, 225.93, 1827.01, 19.91,5);
+function CloseCocheras3C() return MoveDynamicObject(Cocheras3C, 234.90, 1827.01, 19.91,5);
+function CloseCocheras3D() return MoveDynamicObject(Cocheras3D, 243.93, 1827.01, 19.91,5);
+
+function CloseHangar3A() return MoveDynamicObject(Hangar3A, 286.51, 1950.98, 19.84,5);
+function CloseHangar3B() return MoveDynamicObject(Hangar3B, 286.51, 1960.62, 19.84,5);
+
+function CloseHangar4A() return MoveDynamicObject(Hangar4A, 286.51, 1994.48, 19.84,5);
+function CloseHangar4B() return MoveDynamicObject(Hangar4B, 286.51, 1984.85, 19.84,5);
+
+function CloseHangar5A() return MoveDynamicObject(Hangar5A, 286.51, 2028.56, 19.84,5);
+function CloseHangar5B() return MoveDynamicObject(Hangar5B, 286.51, 2018.97, 19.84,5);
 
 public OnPlayerPressButton(playerid, buttonid)
 {
@@ -12196,15 +12302,120 @@ public OnPlayerPressButton(playerid, buttonid)
 	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
 	    MoveDynamicObject(Hangar1A,138.37, 1857.37, 19.11,1); //Abierta
 	    MoveDynamicObject(Hangar1B,138.37, 1842.95, 19.11,1);
-		//PlayerPlaySound(playerid, 1165, 138.37, 1842.95, 19.11);
-	    SetTimer("CloseHangar1A", 60000, 0);
-	    SetTimer("CloseHangar1B", 60000, 0);
+	}
+ 	if(buttonid == Hangar1ButtonEx1C || buttonid == Hangar1ButtonIn1C)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    SetTimer("CloseHangar1A", 10, 0);
+	    SetTimer("CloseHangar1B", 10, 0);
 	}
 	if(buttonid == Hangar1ButtonEx2 || buttonid == Hangar1ButtonIn2)
 	{
 	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
 	    MoveDynamicObject(Hangar1C,146.32, 1840.09, 17.64,1); //Abierta
 	    SetTimer("CloseHangar1C", 5000, 0);
+	}
+ 	if(buttonid == Hangar2ButtonEx1 || buttonid == Hangar2ButtonIn1)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Hangar2A,138.95, 1911.03, 20.25,1); //Abierta
+	    MoveDynamicObject(Hangar2B,153.36, 1911.03, 20.25,1);
+	}
+	if(buttonid == Hangar2ButtonEx1C || buttonid == Hangar2ButtonIn1C)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    SetTimer("CloseHangar2A", 10, 0);
+	    SetTimer("CloseHangar2B", 10, 0);
+	}
+	if(buttonid == Hangar2ButtonEx2 || buttonid == Hangar2ButtonIn2)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Hangar2C,136.10, 1903.00, 18.50,1); //Abierta
+	    SetTimer("CloseHangar2C", 5000, 0);
+	}
+	if(buttonid == Cocheras1ButtonEx || buttonid == Cocheras1ButtonIn)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Cocheras1A,209.63, 1923.42, 16.7185,1); //Abierta
+	    MoveDynamicObject(Cocheras1B,218.64, 1923.42, 16.7185,1); //Abierta
+	    MoveDynamicObject(Cocheras1C,200.63, 1923.42, 16.7185,1); //Abierta
+	    MoveDynamicObject(Cocheras1D,191.63, 1923.42, 16.7185,1); //Abierta
+	}
+	if(buttonid == Cocheras1ButtonExC || buttonid == Cocheras1ButtonInC)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    SetTimer("CloseCocheras1A", 10, 0);
+	    SetTimer("CloseCocheras1B", 10, 0);
+	    SetTimer("CloseCocheras1C", 10, 0);
+	    SetTimer("CloseCocheras1D", 10, 0);
+	}
+	if(buttonid == Cocheras2ButtonEx || buttonid == Cocheras2ButtonIn)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Cocheras2A,174.80, 1827.01, 16.7318,1); //Abierta
+	    MoveDynamicObject(Cocheras2B,183.80, 1827.01, 16.7318,1); //Abierta
+	    MoveDynamicObject(Cocheras2C,192.82, 1827.01, 16.7318,1); //Abierta
+	    MoveDynamicObject(Cocheras2D,201.80, 1827.01, 16.7318,1); //Abierta
+	}
+	if(buttonid == Cocheras2ButtonExC || buttonid == Cocheras2ButtonInC)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    SetTimer("CloseCocheras2A", 10, 0);
+	    SetTimer("CloseCocheras2B", 10, 0);
+	    SetTimer("CloseCocheras2C", 10, 0);
+	    SetTimer("CloseCocheras2D", 10, 0);
+	}
+ 	if(buttonid == Cocheras3ButtonEx || buttonid == Cocheras3ButtonIn)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Cocheras3A,216.93, 1827.01, 16.7318,1); //Abierta
+	    MoveDynamicObject(Cocheras3B,225.93, 1827.01, 16.7318,1); //Abierta
+	    MoveDynamicObject(Cocheras3C,234.90, 1827.01, 16.7318,1); //Abierta
+	    MoveDynamicObject(Cocheras3D,243.93, 1827.01, 16.7318,1); //Abierta
+	}
+	if(buttonid == Cocheras3ButtonExC || buttonid == Cocheras3ButtonInC)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    SetTimer("CloseCocheras3A", 10, 0);
+	    SetTimer("CloseCocheras3B", 10, 0);
+	    SetTimer("CloseCocheras3C", 10, 0);
+	    SetTimer("CloseCocheras3D", 10, 0);
+	}
+	if(buttonid == Hangar3ButtonEx || buttonid == Hangar3ButtonIn)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Hangar3A,286.51, 1950.98, 13.4924,1); //Abierta
+	    MoveDynamicObject(Hangar3B,286.51, 1960.62, 13.4924,1); //Abierta
+	}
+	if(buttonid == Hangar3ButtonExC || buttonid == Hangar3ButtonInC)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    SetTimer("CloseHangar3A", 10, 0);
+	    SetTimer("CloseHangar3B", 10, 0);
+	}
+ 	if(buttonid == Hangar4ButtonEx || buttonid == Hangar4ButtonIn)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Hangar4A,286.51, 1994.48, 13.4924,1); //Abierta
+	    MoveDynamicObject(Hangar4B,286.51, 1984.85, 13.4924,1); //Abierta
+	}
+	if(buttonid == Hangar4ButtonExC || buttonid == Hangar4ButtonInC)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    SetTimer("CloseHangar4A", 10, 0);
+	    SetTimer("CloseHangar4B", 10, 0);
+	}
+  	if(buttonid == Hangar5ButtonEx || buttonid == Hangar5ButtonIn)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(Hangar5A,286.51, 2028.56, 13.4924,1); //Abierta
+	    MoveDynamicObject(Hangar5B,286.51, 2018.97, 13.4924,1); //Abierta
+	}
+	if(buttonid == Hangar5ButtonExC || buttonid == Hangar5ButtonInC)
+	{
+	    if(!Team_NG(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    SetTimer("CloseHangar5A", 10, 0);
+	    SetTimer("CloseHangar5B", 10, 0);
 	}
 	if(buttonid == JDoor1)
 	{
@@ -25541,14 +25752,6 @@ zcmd(apgarage, playerid, params[]){
   		if (PlayerToPoint(30, playerid,286.01, 1833.73, 19.98)){
   		    MoveDynamicObject(PGN2,286.01, 1833.73, 19.98, 5.0);
        		SetTimer("OpenDoorNG2", 7000, 0);
-       		return 1;
-       	}
-  		if (PlayerToPoint(30, playerid,138.37, 1857.37, 19.11)){
-  		    MoveDynamicObject(Hangar1A,138.37, 1857.37, 19.11, 5.0);
-       		return 1;
-       	}
-  		if (PlayerToPoint(30, playerid,138.37, 1842.95, 19.11)){
-  		    MoveDynamicObject(Hangar1B,138.37, 1842.95, 19.11, 5.0);
        		return 1;
        	}
       	else SendClientMessageEx(playerid, COLOR_GREY,"  No hay señal!");
