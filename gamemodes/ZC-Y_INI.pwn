@@ -337,7 +337,7 @@ native IsValidVehicle(vehicleid);
 #define 			DIALOG_LICENSE_BUY 			(80)
 #define 			JOBFINDMENU 				(81)
 #define 			DIALOG_NAMECHANGE 			(82)
-#define 			DIALOG_HITMAN 				(83)
+#define 			DIALOG_SASPA 				(83)
 #define 			FDUTYMENU 					(84)
 #define 			FDUTYMENU2 					(85)
 #define 			FDUTYMENU3 					(86)
@@ -1478,6 +1478,13 @@ new Hangar5A,Hangar5B,Hangar5ButtonEx,Hangar5ButtonIn;
 new BunkerPrincipal,BunkerPrincipalEx,BunkerPrincipalIn;
 new BunkerArmeria1,BunkerArmeria2,BunkerArmeria1Ex,BunkerArmeria1In,BunkerArmeria2Ex,BunkerArmeria2In;
 new BunkerReunion,BunkerReunionEx,BunkerReunionIn;
+//San Andreas State Prison Authority - Puertas
+new CarcelPrincipal,VisitaCivil,CarcelPasillo1,CarcelStaff1,CarcelStaff2,CarcelVestuarios,VisitaInternos,CarcelPasillo2;
+new CarcelAscensor1,CarcelAscensor2,CarcelPasillo3,CarcelRegistro;
+new CarcelPrincipalEx,CarcelPrincipalIn,CarcelPrincipalIn2,VisitaCivilEx,CarcelPasillo1Ex,CarcelPasillo1In,CarcelPasillo1In2;
+new CarcelStaff1Ex,CarcelStaff1In,CarcelStaff2Ex,CarcelStaff2In,CarcelVestuariosEx,CarcelVestuariosIn,VisitaInternosEx;
+new CarcelPasillo2Ex,CarcelPasillo2In,CarcelAscensorEx,CarcelAscensorIn,CarcelPasillo3Ex,CarcelPasillo3In;
+new CarcelRegistroEx,CarcelRegistroIn;
 //new pObject[MAX_PLAYERS];
 new Ipadon[MAX_PLAYERS];
 //GIFTS
@@ -2540,7 +2547,7 @@ if(IsPlayerConnectedEx(playerid))
 return 0;
 }
 
-Hitman(playerid)
+SASPA(playerid)
 {
 if(IsPlayerConnectedEx(playerid))
 {
@@ -4635,7 +4642,7 @@ if(Info[playerid][pHead] >= 1)
 			//Info[killerid][pTaxDeuda] += takemoney;
 			GivePlayerCash(killerid, takemoney);
 			GivePlayerCash(playerid, -takemoney);
-			format(szMessage,128,"Hitman %s ha cumplido con el contrato de %s y recaudó $%d.",asesino,nombre,Info[playerid][pHead] / 4 * 2);
+			format(szMessage,128,"SASPA %s ha cumplido con el contrato de %s y recaudó $%d.",asesino,nombre,Info[playerid][pHead] / 4 * 2);
 			SendFamilyMessage(17, COLOR_YELLOW, szMessage);
 			format(szMessage,128,"Has sido gravemente herido por un asesino a sueldo y pérdiste $%d.",takemoney);
 			SendClientMessageEx(playerid, COLOR_YELLOW, szMessage);
@@ -4659,7 +4666,7 @@ if(IsPlayerConnectedEx(killerid))
 
 		new takemoney = Info[playerid][pHead] / 4 * 2;
 		GivePlayerCash(killerid, takemoney);
-		format(szMessage,128,"Hitman %s ha fallado el contrato de %s y perdió $%d.",nombre,asesino,Info[killerid][pHead] / 4 * 2);
+		format(szMessage,128,"SASPA %s ha fallado el contrato de %s y perdió $%d.",nombre,asesino,Info[killerid][pHead] / 4 * 2);
 		SendFamilyMessage(17, COLOR_YELLOW, szMessage);
 		GivePlayerCash(playerid, -takemoney);
 	   	format(szMessage,128,"Has matado a un asesino a sueldo y ganaste $%d, fuiste removido de la lista.",Info[killerid][pHead] / 4 * 2);
@@ -5748,16 +5755,16 @@ switch (Info[targetid][pMember]) // employer/rank/division data is pulled from h
 	}
 	case 8:
 	{
-	    employer = "Agencia Hitman";
+	    employer = "San Andreas State Prison Authority";
 	    switch(Info[targetid][pRank])
 	    {
-			case 1: rank = "Novato";
-			case 2: rank = "Asesino";
-			case 3: rank = "Sicario";
-			case 4: rank = "Agente Especial";
-			case 5: rank = "Vice Director";
+			case 1: rank = "Cadete";
+			case 2: rank = "Guardia de Seguridad";
+			case 3: rank = "Técnico de Seguridad";
+			case 4: rank = "Jefe de Seguridad";
+			case 5: rank = "Secretario";
 			case 6: rank = "Director";
-			default: rank = "Novato";
+			default: rank = "Cadete";
 		}
 		division = "Ninguna";
 	}
@@ -7633,6 +7640,321 @@ CreateDynamicObject(11714, 96.91, 1920.64, 18.41,   0.00, 0.00, 0.00);
 CreateDynamicObject(19968, 205.27, 1900.99, 15.38,   0.00, 0.00, 180.00);
 CreateDynamicObject(19968, 205.26, 1901.03, 15.38,   0.00, 0.00, 0.00);
 
+//Twin Towers Prison (Planta Baja) By Jayceon
+CreateDynamicObject(19364, 1796.12, -1578.54, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1794.87, -1581.15, 14.73,   0.00, 0.00, 130.00);
+CreateDynamicObject(19364, 1792.47, -1582.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1792.47, -1574.59, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1795.17, -1575.84, 14.73,   0.00, 0.00, 220.00);
+CreateDynamicObject(19364, 1789.26, -1574.58, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1789.26, -1582.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1786.05, -1574.58, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1786.05, -1582.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19393, 1784.53, -1576.17, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19437, 1785.35, -1578.51, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19437, 1784.47, -1577.80, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19437, 1784.47, -1579.23, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19437, 1783.58, -1578.51, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19375, 1792.08, -1577.82, 12.89,   0.00, 90.00, 0.00);
+CreateDynamicObject(19375, 1781.58, -1577.82, 12.89,   0.00, 90.00, 0.00);
+CreateDynamicObject(19364, 1784.53, -1580.87, 17.67,   0.00, 180.00, 0.00);
+CreateDynamicObject(1649, 1784.54, -1580.75, 15.68,   0.00, 0.00, 90.00);
+CreateDynamicObject(2424, 1784.37, -1579.76, 12.95,   0.00, 0.00, 90.00);
+CreateDynamicObject(2424, 1784.37, -1580.69, 12.95,   0.00, 0.00, 90.00);
+CreateDynamicObject(2424, 1784.37, -1581.62, 12.95,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1782.84, -1582.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19393, 1782.84, -1574.58, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1782.84, -1578.81, 17.67,   0.00, 180.00, 90.00);
+CreateDynamicObject(19393, 1781.30, -1581.22, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(2424, 1781.86, -1578.96, 12.95,   0.00, 0.00, 180.00);
+CreateDynamicObject(2424, 1782.78, -1578.96, 12.95,   0.00, 0.00, 180.00);
+CreateDynamicObject(2424, 1783.71, -1578.96, 12.95,   0.00, 0.00, 180.00);
+CreateDynamicObject(19393, 1779.63, -1578.81, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(1649, 1784.54, -1580.75, 15.68,   0.00, 0.00, 270.00);
+CreateDynamicObject(1649, 1783.08, -1578.82, 15.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(1649, 1783.08, -1578.82, 15.68,   0.00, 0.00, 0.00);
+CreateDynamicObject(19393, 1778.11, -1580.50, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1779.63, -1582.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19456, 1778.11, -1573.92, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1781.32, -1572.89, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1784.53, -1572.89, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1781.32, -1569.68, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1784.53, -1569.68, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1781.30, -1578.01, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19304, 1781.34, -1576.40, 16.02,   0.00, 0.00, 90.00);
+CreateDynamicObject(19375, 1771.08, -1577.82, 12.89,   0.00, 90.00, 0.00);
+CreateDynamicObject(19375, 1771.08, -1568.19, 12.89,   0.00, 90.00, 0.00);
+CreateDynamicObject(19375, 1781.58, -1568.19, 12.89,   0.00, 90.00, 0.00);
+CreateDynamicObject(19364, 1784.78, -1568.14, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19304, 1783.16, -1568.09, 16.02,   0.00, 0.00, 0.00);
+CreateDynamicObject(2894, 1782.44, -1579.07, 14.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(2894, 1784.26, -1580.83, 14.00,   0.00, 0.00, 270.00);
+CreateDynamicObject(2342, 1783.17, -1579.03, 14.12,   0.00, 0.00, 149.58);
+CreateDynamicObject(2270, 1782.71, -1581.60, 15.02,   0.00, 0.00, 180.00);
+CreateDynamicObject(1892, 1784.84, -1576.66, 12.96,   0.00, 0.00, 90.00);
+CreateDynamicObject(2161, 1781.21, -1579.48, 12.96,   0.00, 0.00, 270.00);
+CreateDynamicObject(1671, 1782.34, -1579.71, 13.40,   0.00, 0.00, 156.18);
+CreateDynamicObject(1671, 1783.16, -1580.80, 13.40,   0.00, 0.00, 90.00);
+CreateDynamicObject(2424, 1781.87, -1570.76, 12.95,   0.00, 0.00, 0.00);
+CreateDynamicObject(2424, 1782.80, -1570.76, 12.95,   0.00, 0.00, 0.00);
+CreateDynamicObject(2424, 1783.72, -1570.76, 12.95,   0.00, 0.00, 0.00);
+CreateDynamicObject(2424, 1784.64, -1570.76, 12.95,   0.00, 0.00, 0.00);
+CreateDynamicObject(2424, 1781.87, -1571.71, 12.95,   0.00, 0.00, 180.00);
+CreateDynamicObject(2424, 1782.80, -1571.71, 12.95,   0.00, 0.00, 180.00);
+CreateDynamicObject(2424, 1783.72, -1571.71, 12.95,   0.00, 0.00, 180.00);
+CreateDynamicObject(2424, 1784.64, -1571.71, 12.95,   0.00, 0.00, 180.00);
+CreateDynamicObject(1649, 1783.51, -1571.23, 15.68,   0.00, 0.00, 0.00);
+CreateDynamicObject(1649, 1783.51, -1571.23, 15.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(2309, 1783.05, -1573.21, 12.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(2309, 1783.05, -1569.30, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(1703, 1790.23, -1581.59, 12.97,   0.00, 0.00, 180.00);
+CreateDynamicObject(2267, 1789.27, -1582.07, 14.89,   0.00, 0.00, 180.00);
+CreateDynamicObject(2961, 1778.22, -1575.56, 14.48,   0.00, 0.00, 90.00);
+CreateDynamicObject(2961, 1781.43, -1579.48, 14.48,   0.00, 0.00, 90.00);
+CreateDynamicObject(19826, 1781.39, -1579.60, 13.94,   0.00, 0.00, 90.00);
+CreateDynamicObject(18641, 1781.82, -1579.14, 14.04,   0.00, 90.00, 148.50);
+CreateDynamicObject(19942, 1782.03, -1579.08, 14.04,   270.00, 90.00, 80.88);
+CreateDynamicObject(19807, 1784.27, -1581.77, 14.06,   0.00, 0.00, 230.88);
+CreateDynamicObject(1665, 1784.32, -1579.83, 14.02,   0.00, 0.00, 230.88);
+CreateDynamicObject(11728, 1783.28, -1571.23, 14.26,   0.00, 0.00, 0.00);
+CreateDynamicObject(11728, 1783.28, -1571.25, 14.26,   0.00, 0.00, 180.00);
+CreateDynamicObject(2690, 1781.11, -1577.51, 14.23,   0.00, 0.00, 270.00);
+CreateDynamicObject(1808, 1792.43, -1581.92, 12.97,   0.00, 0.00, 180.00);
+CreateDynamicObject(19172, 1789.30, -1574.69, 15.05,   0.00, 0.00, 0.00);
+CreateDynamicObject(11713, 1792.09, -1574.72, 14.39,   0.00, 0.00, 270.00);
+CreateDynamicObject(19814, 1791.27, -1574.70, 13.64,   0.00, 0.00, 0.00);
+CreateDynamicObject(1703, 1788.26, -1575.33, 12.97,   0.00, 0.00, 0.00);
+CreateDynamicObject(19859, 1796.03, -1580.03, 14.23,   0.00, 0.00, 90.00);
+CreateDynamicObject(19859, 1796.03, -1577.04, 14.23,   0.00, 0.00, 270.00);
+CreateDynamicObject(19859, 1797.37, -1580.48, 14.35,   0.00, 0.00, 100.00);
+CreateDynamicObject(19859, 1796.85, -1577.53, 14.35,   0.00, 0.00, 280.00);
+CreateDynamicObject(19364, 1776.42, -1582.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1773.21, -1582.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19410, 1776.42, -1575.78, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1771.69, -1580.50, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1771.69, -1577.30, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19393, 1773.21, -1575.78, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1771.69, -1574.12, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1773.22, -1572.43, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1776.42, -1572.43, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19304, 1776.42, -1575.79, 15.15,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 1778.00, -1574.79, 14.88,   0.00, 0.00, 270.00);
+CreateDynamicObject(2509, 1778.00, -1573.48, 14.88,   0.00, 0.00, 270.00);
+CreateDynamicObject(2509, 1777.08, -1572.57, 14.88,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 1775.77, -1572.57, 14.88,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 1774.46, -1572.57, 14.88,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 1773.14, -1572.57, 14.88,   0.00, 0.00, 0.00);
+CreateDynamicObject(2167, 1771.81, -1573.23, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(2165, 1777.01, -1575.20, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(2163, 1771.81, -1575.00, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(349, 1778.01, -1573.77, 15.60,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1575.03, 15.60,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1575.03, 15.40,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1575.03, 15.20,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1575.03, 15.00,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1575.03, 14.80,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1575.03, 14.60,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1575.03, 14.40,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1575.03, 14.20,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1575.03, 14.00,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1573.77, 15.40,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1573.77, 15.20,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1573.77, 14.98,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1573.77, 14.80,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1573.77, 14.60,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1573.77, 14.40,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1573.77, 14.20,   0.00, 9.00, 98.00);
+CreateDynamicObject(349, 1778.01, -1573.77, 14.00,   0.00, 9.00, 98.00);
+CreateDynamicObject(358, 1777.33, -1572.56, 14.00,   0.00, 6.00, 188.00);
+CreateDynamicObject(358, 1777.33, -1572.56, 14.20,   0.00, 6.00, 188.00);
+CreateDynamicObject(358, 1777.33, -1572.56, 14.40,   0.00, 6.00, 188.00);
+CreateDynamicObject(358, 1777.33, -1572.56, 14.60,   0.00, 6.00, 188.00);
+CreateDynamicObject(358, 1777.33, -1572.56, 14.80,   0.00, 6.00, 188.00);
+CreateDynamicObject(358, 1777.33, -1572.56, 15.00,   0.00, 6.00, 188.00);
+CreateDynamicObject(358, 1777.33, -1572.56, 15.20,   0.00, 6.00, 188.00);
+CreateDynamicObject(358, 1777.33, -1572.56, 15.40,   0.00, 6.00, 188.00);
+CreateDynamicObject(358, 1777.33, -1572.56, 15.60,   0.00, 6.00, 188.00);
+CreateDynamicObject(349, 1776.03, -1572.56, 15.60,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1776.03, -1572.56, 15.40,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1776.03, -1572.56, 15.20,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1776.03, -1572.56, 15.00,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1776.03, -1572.56, 14.80,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1774.77, -1572.56, 15.60,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1774.77, -1572.56, 15.40,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1774.77, -1572.56, 15.20,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1774.77, -1572.56, 15.00,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1774.77, -1572.56, 14.80,   0.00, 9.00, 188.00);
+CreateDynamicObject(334, 1776.47, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1776.27, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1776.07, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1775.87, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1775.67, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1775.47, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1775.27, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1775.07, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1774.87, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1774.67, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1774.47, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1774.27, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(334, 1774.07, -1572.57, 14.20,   0.00, 4.00, 180.00);
+CreateDynamicObject(349, 1773.46, -1572.56, 15.60,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1773.46, -1572.56, 15.40,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1773.46, -1572.56, 15.20,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1773.46, -1572.56, 15.00,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1773.46, -1572.56, 14.80,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1773.46, -1572.56, 14.60,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1773.46, -1572.56, 14.40,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1773.46, -1572.56, 14.20,   0.00, 9.00, 188.00);
+CreateDynamicObject(349, 1773.46, -1572.56, 14.00,   0.00, 9.00, 188.00);
+CreateDynamicObject(19418, 1772.14, -1573.80, 13.92,   90.00, 0.00, 16.50);
+CreateDynamicObject(19418, 1772.09, -1573.91, 13.92,   90.00, 0.00, -10.08);
+CreateDynamicObject(19418, 1771.96, -1573.82, 13.92,   93.18, 47.28, -10.08);
+CreateDynamicObject(2010, 1793.39, -1581.71, 12.98,   0.00, 0.00, -26.40);
+CreateDynamicObject(2010, 1793.39, -1575.03, 12.98,   0.00, 0.00, -42.42);
+CreateDynamicObject(18637, 1775.92, -1572.74, 13.58,   100.00, 0.00, 180.00);
+CreateDynamicObject(18637, 1774.95, -1572.65, 13.40,   0.00, 110.00, 90.00);
+CreateDynamicObject(18637, 1776.44, -1572.74, 13.58,   100.00, 0.00, 180.00);
+CreateDynamicObject(18637, 1776.96, -1572.74, 13.58,   100.00, 0.00, 180.00);
+CreateDynamicObject(18637, 1777.48, -1572.74, 13.58,   100.00, 0.00, 180.00);
+CreateDynamicObject(2359, 1773.25, -1572.82, 13.20,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 1772.03, -1574.34, 14.02,   0.00, 0.00, 90.00);
+CreateDynamicObject(2358, 1772.03, -1574.34, 14.26,   0.00, 0.00, 90.00);
+CreateDynamicObject(343, 1772.82, -1572.90, 13.10,   180.00, 90.00, 90.00);
+CreateDynamicObject(343, 1772.90, -1572.90, 13.10,   180.00, 90.00, 90.00);
+CreateDynamicObject(343, 1772.98, -1572.90, 13.10,   180.00, 90.00, 90.00);
+CreateDynamicObject(343, 1773.06, -1572.90, 13.10,   180.00, 90.00, 90.00);
+CreateDynamicObject(343, 1773.14, -1572.90, 13.10,   180.00, 90.00, 90.00);
+CreateDynamicObject(343, 1773.22, -1572.90, 13.10,   180.00, 90.00, 90.00);
+CreateDynamicObject(343, 1773.30, -1572.90, 13.10,   180.00, 90.00, 90.00);
+CreateDynamicObject(343, 1771.93, -1574.86, 13.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(343, 1771.92, -1574.97, 13.98,   0.00, 0.00, 9.00);
+CreateDynamicObject(343, 1772.06, -1574.76, 13.98,   0.00, 0.00, 210.00);
+CreateDynamicObject(365, 1772.05, -1575.06, 14.06,   0.00, -8.00, -115.26);
+CreateDynamicObject(365, 1772.05, -1575.06, 14.06,   0.00, -4.00, -213.96);
+CreateDynamicObject(365, 1772.03, -1575.00, 14.06,   0.00, -8.00, -433.25);
+CreateDynamicObject(365, 1772.15, -1575.16, 13.98,   0.00, 85.00, 90.00);
+CreateDynamicObject(11729, 1777.75, -1576.22, 12.98,   0.00, 0.00, 270.00);
+CreateDynamicObject(11729, 1777.75, -1576.88, 12.98,   0.00, 0.00, 270.00);
+CreateDynamicObject(11729, 1777.75, -1577.54, 12.98,   0.00, 0.00, 270.00);
+CreateDynamicObject(11730, 1777.75, -1578.20, 12.98,   0.00, 0.00, 270.00);
+CreateDynamicObject(11729, 1777.75, -1578.86, 12.98,   0.00, 0.00, 270.00);
+CreateDynamicObject(11729, 1777.68, -1581.82, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 1777.02, -1581.82, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 1776.36, -1581.82, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 1775.70, -1581.82, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 1775.04, -1581.82, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 1774.38, -1581.82, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 1773.72, -1581.82, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 1773.06, -1581.82, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 1772.40, -1581.82, 12.98,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 1772.03, -1576.21, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1772.03, -1576.87, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1772.03, -1577.53, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1772.03, -1578.19, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1772.03, -1578.85, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1772.03, -1579.51, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1772.03, -1580.17, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1772.03, -1580.83, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1775.01, -1576.21, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1775.01, -1576.87, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1775.01, -1577.53, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1775.01, -1578.19, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1775.01, -1578.85, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 1775.01, -1579.51, 12.98,   0.00, 0.00, 90.00);
+CreateDynamicObject(2611, 1774.71, -1577.88, 14.24,   0.00, 0.00, 270.00);
+CreateDynamicObject(2271, 1779.65, -1581.60, 14.40,   0.00, 0.00, 180.00);
+CreateDynamicObject(1495, 1772.44, -1575.79, 12.96,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1785.01, -1566.46, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19304, 1778.15, -1567.36, 16.06,   0.00, 0.00, 90.00);
+CreateDynamicObject(19375, 1771.08, -1558.56, 12.89,   0.00, 90.00, 0.00);
+CreateDynamicObject(18755, 1768.22, -1571.15, 14.92,   0.00, 0.00, 270.00);
+CreateDynamicObject(19364, 1776.42, -1569.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1773.22, -1569.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19437, 1770.81, -1569.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19437, 1765.51, -1569.19, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1777.41, -1565.52, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1774.21, -1565.52, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1780.62, -1565.52, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1783.83, -1565.52, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1765.81, -1567.49, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1765.81, -1564.28, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19304, 1767.66, -1565.52, 16.06,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1771.00, -1565.52, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1765.81, -1561.07, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1765.81, -1557.86, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1765.81, -1554.67, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19356, 1767.60, -1552.15, 12.89,   0.00, 90.00, 0.00);
+CreateDynamicObject(19356, 1771.09, -1552.15, 12.89,   0.00, 90.00, 0.00);
+CreateDynamicObject(19356, 1774.58, -1552.15, 12.89,   0.00, 90.00, 0.00);
+CreateDynamicObject(19364, 1765.81, -1551.46, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1767.51, -1550.62, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19410, 1770.71, -1550.62, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1773.92, -1550.62, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1775.44, -1552.30, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1769.48, -1552.30, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19304, 1769.48, -1558.88, 16.06,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1769.48, -1555.52, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1769.48, -1562.22, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19437, 1769.48, -1564.63, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19302, 1770.71, -1550.61, 14.37,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1775.44, -1555.51, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1775.44, -1558.72, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(19364, 1771.17, -1560.70, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1774.38, -1560.70, 14.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(19364, 1775.45, -1561.93, 14.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(2308, 1774.89, -1559.12, 12.97,   0.00, 0.00, 180.00);
+CreateDynamicObject(2309, 1774.05, -1559.71, 12.97,   0.00, 0.00, 180.00);
+CreateDynamicObject(19979, 1773.97, -1553.36, 14.63,   0.00, 180.00, 180.00);
+CreateDynamicObject(19810, 1778.51, -1578.72, 15.01,   0.00, 0.00, 0.00);
+CreateDynamicObject(19623, 1773.97, -1553.34, 14.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(2186, 1774.86, -1557.26, 12.98,   0.00, 0.00, 270.00);
+CreateDynamicObject(2165, 1772.21, -1551.22, 12.98,   0.00, 0.00, 270.00);
+CreateDynamicObject(2167, 1769.61, -1553.37, 12.97,   0.00, 0.00, 90.00);
+CreateDynamicObject(2167, 1769.61, -1554.29, 12.97,   0.00, 0.00, 90.00);
+CreateDynamicObject(2167, 1769.61, -1552.47, 12.97,   0.00, 0.00, 90.00);
+CreateDynamicObject(2167, 1769.61, -1551.55, 12.97,   0.00, 0.00, 90.00);
+CreateDynamicObject(1663, 1770.94, -1552.02, 13.43,   0.00, 0.00, 90.00);
+CreateDynamicObject(19814, 1771.00, -1550.74, 13.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(19807, 1772.05, -1552.48, 13.84,   0.00, 0.00, -111.36);
+CreateDynamicObject(19807, 1772.05, -1552.48, 13.84,   0.00, 0.00, -111.36);
+CreateDynamicObject(1886, 1766.19, -1551.15, 16.68,   12.36, -1.62, 37.56);
+CreateDynamicObject(1886, 1769.43, -1566.07, 16.68,   12.36, -1.62, -6.90);
+CreateDynamicObject(1886, 1784.35, -1565.90, 16.68,   12.36, -1.62, -59.70);
+CreateDynamicObject(1886, 1784.05, -1568.69, 16.68,   28.80, -0.12, -35.58);
+CreateDynamicObject(1886, 1778.55, -1578.26, 16.68,   11.16, -2.46, -211.08);
+CreateDynamicObject(1886, 1784.89, -1581.78, 16.68,   11.16, -2.46, -211.08);
+CreateDynamicObject(1886, 1777.72, -1581.70, 16.68,   11.16, -2.46, -154.50);
+CreateDynamicObject(2611, 1775.30, -1559.58, 14.68,   0.00, 0.00, 270.00);
+CreateDynamicObject(2167, 1772.85, -1560.59, 12.97,   0.00, 0.00, 180.00);
+CreateDynamicObject(2167, 1771.93, -1560.59, 12.97,   0.00, 0.00, 180.00);
+CreateDynamicObject(2167, 1771.01, -1560.59, 12.97,   0.00, 0.00, 180.00);
+CreateDynamicObject(19805, 1773.97, -1550.70, 14.58,   0.00, 0.00, 0.00);
+CreateDynamicObject(19302, 1769.48, -1558.01, 14.20,   0.00, 0.00, 270.00);
+CreateDynamicObject(19302, 1766.77, -1565.52, 14.20,   0.00, 0.00, 0.00);
+CreateDynamicObject(19302, 1778.15, -1568.23, 14.20,   0.00, 0.00, 90.00);
+CreateDynamicObject(2387, 1770.06, -1555.53, 12.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(19859, 1766.16, -1550.70, 14.23,   0.00, 0.00, 0.00);
+CreateDynamicObject(19859, 1769.16, -1550.70, 14.23,   0.00, 0.00, 180.00);
+CreateDynamicObject(19377, 1771.08, -1558.56, 16.56,   0.00, 90.00, 0.00);
+CreateDynamicObject(19362, 1767.60, -1552.15, 16.56,   0.00, 90.00, 0.00);
+CreateDynamicObject(19362, 1771.09, -1552.15, 16.56,   0.00, 90.00, 0.00);
+CreateDynamicObject(19362, 1774.58, -1552.15, 16.56,   0.00, 90.00, 0.00);
+CreateDynamicObject(19377, 1771.08, -1577.82, 16.56,   0.00, 90.00, 0.00);
+CreateDynamicObject(19377, 1781.58, -1568.19, 16.56,   0.00, 90.00, 0.00);
+CreateDynamicObject(19377, 1781.58, -1577.82, 16.56,   0.00, 90.00, 0.00);
+CreateDynamicObject(19377, 1792.08, -1577.82, 16.56,   0.00, 90.00, 0.00);
+CreateDynamicObject(19377, 1771.08, -1568.19, 16.56,   0.00, 90.00, 0.00);
+CreateDynamicObject(11713, 1778.22, -1575.06, 14.48,   0.00, 0.00, 0.00);
+CreateDynamicObject(2690, 1782.08, -1565.69, 14.72,   0.00, 0.00, 0.00);
+CreateDynamicObject(2961, 1781.72, -1565.65, 14.72,   0.00, 0.00, 0.00);
+CreateDynamicObject(11713, 1773.80, -1569.07, 14.48,   0.00, 0.00, 90.00);
+CreateDynamicObject(11713, 1765.92, -1561.52, 14.48,   0.00, 0.00, 0.00);
+CreateDynamicObject(11713, 1775.30, -1555.62, 14.48,   0.00, 0.00, 180.00);
+CreateDynamicObject(2961, 1775.31, -1556.33, 14.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 1777.80, -1578.74, 15.15,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 1777.80, -1578.74, 15.37,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 1777.80, -1578.74, 15.59,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 1777.80, -1578.00, 15.15,   0.00, 0.00, 270.00);
 
 // Custom Int.
 CreateDynamicObject(16656, 323.34, 2349.19, 8907.42,   0.00, 0.00, 0.00);
@@ -9055,10 +9377,12 @@ CreateDynamicObject(19304, 320.89, 312.22, 1001.25,   0.00, 0.00, 90.24);
 CreateDynamicObject(19304, 320.89, 316.23, 1001.25,   0.00, 0.00, 90.24);
 
 // Mapeo de puertas
-//Puertas
+
+//Puertas - LSPD
 LSPDDoor1 = CreateDynamicObject(1536, 1468.57507, -1758.27209, 3284.30005,   0.00000, 0.00000, 180.00000);
 LSPDDoor2 = CreateDynamicObject(1536, 1481.38684, -1758.28503, 3284.30005,   0.00000, 0.00000, 180.00000);
 
+//Puertas - Guardia Nacional
 Hangar1A = CreateDynamicObject(19908, 138.37, 1852.83, 19.11,   0.00, 0.00, 0.00); // Cerrada
 Hangar1B = CreateDynamicObject(19908, 138.37, 1847.43, 19.11,   0.00, 0.00, 0.00); // Cerrada
 Hangar1C = CreateDynamicObject(6400, 149.26, 1840.09, 17.64,   90.00, 0.00, 270.00); //Cerrada
@@ -9095,13 +9419,28 @@ BunkerArmeria1 = CreateDynamicObject(2928, 247.78, 1806.11, 7.81,   0.00, 0.00, 
 BunkerArmeria2 = CreateDynamicObject(2928, 238.40, 1803.39, 7.65,   0.00, 0.00, 90.00); // Cerrada
 BunkerReunion = CreateDynamicObject(2928, 233.34, 1822.75, 7.65,   0.00, 0.00, 90.00); // Cerrada
 
-//Buttons
+//Puertas - San Andreas State Prison Authority
+CarcelPrincipal = CreateDynamicObject(1495, 1784.5500, -1576.91, 12.97,   0.00, 0.00, 90.00); // Cerrada
+VisitaCivil = CreateDynamicObject(1495, 1783.5857, -1574.5656, 12.9700,   0.00, 0.00, 180.00); // Cerrada
+CarcelPasillo1 = CreateDynamicObject(19302, 1781.4200, -1575.5500, 14.1900,   0.00, 0.00, 90.00); //Cerrada
+CarcelStaff1 = CreateDynamicObject(1495, 1778.8605, -1578.8275, 12.9700,   0.00, 0.00, 0.00); //Cerrada
+CarcelStaff2 = CreateDynamicObject(1495, 1781.3146, -1581.9550, 12.9700,   0.00, 0.00, 90.00); //Cerrada
+CarcelVestuarios = CreateDynamicObject(1495, 1778.1250, -1581.2371, 12.9700,   0.00, 0.00, 90.00); //Cerrada
+VisitaInternos = CreateDynamicObject(19302, 1782.2900, -1568.0200, 14.1900,   0.00, 0.00, 0.00); //Cerrada
+CarcelPasillo2 = CreateDynamicObject(19302, 1778.2000, -1566.4900, 14.2000,   0.00, 0.00, 90.00); //Cerrada
+CarcelAscensor1 = CreateDynamicObject(18757, 1768.2200, -1571.1500, 14.9200,   0.00, 0.00, 270.00); //Cerrada
+CarcelAscensor2 = CreateDynamicObject(18756, 1768.2200, -1571.1500, 14.9200,   0.00, 0.00, 270.00); //Cerrada
+CarcelPasillo3 = CreateDynamicObject(19302, 1768.5100, -1565.5800, 14.2000,   0.00, 0.00, 0.00); //Cerrada
+CarcelRegistro = CreateDynamicObject(19302, 1769.5300, -1559.7300, 14.2000,   0.00, 0.00, 270.00); //Cerrada
+
+//Buttons -LSPD
 LSPDDoor1ButtonEx = CreateButton(1466.71057, -1758.25513, 3285.88208, 179.78889);
 LSPDDoor1ButtonInt = CreateButton(1466.77942, -1758.30713, 3285.88208, 0.31212);
 
 LSPDDoor2ButtonEx = CreateButton(1479.61255, -1758.30884, 3285.88208, 359.79349);
 LSPDDoor2ButtonInt = CreateButton(1479.56689, -1758.26489, 3285.88208, 179.78889);
 
+//Buttons - Guardia Nacional
 Hangar1ButtonEx1 = CreateButton(138.1547, 1843.9361, 18.0000, 270.0000);
 Hangar1ButtonIn1 = CreateButton(145.7800, 1840.2300, 18.0400, 180.0000);
 Hangar1ButtonEx2 = CreateButton(151.7281, 1840.0699, 18.0400, 0.0000);
@@ -9139,8 +9478,29 @@ BunkerArmeria2In = CreateButton(238.26, 1805.00, 7.79, 270.00);
 BunkerReunionEx = CreateButton(233.83, 1821.22, 7.89, 90.00);
 BunkerReunionIn = CreateButton(233.05, 1821.22, 7.89, 270.00);
 
-
-
+//Buttons - San Andreas State Prison Authority (Twin Towers)
+CarcelPrincipalEx = CreateButton(1784.60, -1574.97, 14.55, 90.00);
+CarcelPrincipalIn = CreateButton(1784.46, -1577.33, 14.55, 270.00);
+CarcelPrincipalIn2 = CreateButton(1783.34, -1582.10, 14.55, 180.00);
+VisitaCivilEx = CreateButton(1782.06, -1582.10, 14.55, 180.00);
+CarcelPasillo1Ex = CreateButton(1781.84, -1574.65, 14.55, 0.00);
+CarcelPasillo1In = CreateButton(1781.23, -1576.71, 14.55, 270.00);
+CarcelPasillo1In2 = CreateButton(1782.70, -1582.10, 14.55, 180.00);
+CarcelStaff1Ex = CreateButton(1778.52, -1578.73, 14.55, 180.00);
+CarcelStaff1In = CreateButton(1778.52, -1578.89, 14.55, 0.00);
+CarcelStaff2Ex = CreateButton(1780.73, -1582.12, 14.55, 180.00);
+CarcelStaff2In = CreateButton(1781.37, -1580.05, 14.55, 90.00);
+CarcelVestuariosEx = CreateButton(1778.19, -1579.45, 14.55, 90.00);
+CarcelVestuariosIn = CreateButton(1778.05, -1579.45, 14.55, 270.00);
+VisitaInternos = CreateButton(1781.24, -1568.48, 14.55, 270.00);
+CarcelPasillo2Ex = CreateButton(1778.81, -1565.60, 14.55, 0.00);
+CarcelPasillo2In = CreateButton(1777.19, -1565.60, 14.55, 0.00);
+CarcelAscensorEx = CreateButton(1770.60, -1569.11, 14.55, 180.00);
+CarcelAscensorIn = CreateButton(1770.41, -1570.02, 14.55, 270.00);
+CarcelPasillo3Ex = CreateButton(1769.86, -1565.60, 14.55, 0.00);
+CarcelPasillo3In = CreateButton(1769.39, -1564.85, 14.55, 270.00);
+CarcelRegistroEx = CreateButton(1769.2913, -1561.0223, 14.3328, 270.00);
+CarcelRegistroIn = CreateButton(1770.09, -1560.61, 14.55, 180.00);
 
 //LSPD TEST
 CreateDynamicObject(19379, 1469.39941, -1754.00000, 3284.19995,   0.00000, 90.00000, 90.00000);
@@ -12291,6 +12651,18 @@ function CloseBunkerArmeria1() return MoveDynamicObject(BunkerArmeria1, 247.78, 
 function CloseBunkerArmeria2() return MoveDynamicObject(BunkerArmeria2, 238.40, 1803.39, 7.65,1);
 function CloseBunkerReunion() return MoveDynamicObject(BunkerReunion, 233.34, 1822.75, 7.65,1);
 
+function CloseCarcelPrincipal() return MoveDynamicObject(CarcelPrincipal, 1784.5500, -1576.91, 12.97,1);
+function CloseVisitaCivil() return MoveDynamicObject(VisitaCivil, 1783.5857, -1574.5656, 12.9700,1);
+function CloseCarcelPasillo1() return MoveDynamicObject(CarcelPasillo1, 1781.4200, -1575.5500, 14.1900,1);
+function CloseCarcelStaff1() return MoveDynamicObject(CarcelStaff1, 1778.8605, -1578.8275, 12.9700,1);
+function CloseCarcelStaff2() return MoveDynamicObject(CarcelStaff2, 1781.3146, -1581.9550, 12.9700,1);
+function CloseCarcelVestuarios() return MoveDynamicObject(CarcelVestuarios, 1778.1250, -1581.2371, 12.9700,1);
+function CloseVisitaInternos() return MoveDynamicObject(VisitaInternos, 1782.2900, -1568.0200, 14.1900,1);
+function CloseCarcelPasillo2() return MoveDynamicObject(CarcelPasillo2, 1778.2000, -1566.4900, 14.2000,1);
+function CloseCarcelAscensor1() return MoveDynamicObject(CarcelAscensor1, 1768.2200, -1571.1500, 14.9200,1);
+function CloseCarcelAscensor2() return MoveDynamicObject(CarcelAscensor2, 1768.2200, -1571.1500, 14.9200,1);
+function CloseCarcelPasillo3() return MoveDynamicObject(CarcelPasillo3, 1768.5100, -1565.5800, 14.2000,1);
+function CloseCarcelRegistro() return MoveDynamicObject(CarcelRegistro, 1769.5300, -1559.7300, 14.2000,1);
 /*
 *	Estado de las puertas (false -> Cerradas | true -> Abiertas).
 * 	El número debe aumentarse en función de los botones que se vayan a crear
@@ -12493,6 +12865,104 @@ public OnPlayerPressButton(playerid, buttonid)
 	        return doorStatus[11] = false;
 		}
 
+	}
+	if(buttonid == CarcelPasillo1Ex || buttonid == CarcelPasillo1In || buttonid == CarcelPasillo1In2)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    if(doorStatus[12] == false){
+	        MoveDynamicObject(CarcelPasillo1,1781.4200, -1577.2700, 14.1900,1); //Abierta
+	        return doorStatus[12] = true;
+		}else{
+			CloseCarcelPasillo1();
+	        return doorStatus[12] = false;
+		}
+
+	}
+	if(buttonid == CarcelPasillo2Ex || buttonid == CarcelPasillo2In)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    if(doorStatus[13] == false){
+	        MoveDynamicObject(CarcelPasillo2,1778.2000, -1568.2300, 14.2000,1); //Abierta
+	        return doorStatus[13] = true;
+		}else{
+			CloseCarcelPasillo2();
+	        return doorStatus[13] = false;
+		}
+
+	}
+	if(buttonid == VisitaInternosEx)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    if(doorStatus[14] == false){
+	        MoveDynamicObject(VisitaInternos,1784.0500, -1568.0200, 14.1900,1); //Abierta
+	        return doorStatus[14] = true;
+		}else{
+			CloseVisitaInternos();
+	        return doorStatus[14] = false;
+		}
+
+	}
+	if(buttonid == CarcelPasillo3Ex || buttonid == CarcelPasillo3In)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    if(doorStatus[15] == false){
+	        MoveDynamicObject(CarcelPasillo3,1766.7700, -1565.5800, 14.2000,1); //Abierta
+	        return doorStatus[15] = true;
+		}else{
+			CloseVisitaInternos();
+	        return doorStatus[15] = false;
+		}
+
+	}
+	if(buttonid == CarcelRegistroIn || buttonid == CarcelRegistroEx)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    if(doorStatus[16] == false){
+	        MoveDynamicObject(CarcelRegistro,1769.5300, -1558.0100, 14.2000,1); //Abierta
+	        return doorStatus[16] = true;
+		}else{
+			CloseCarcelRegistro();
+	        return doorStatus[16] = false;
+		}
+
+	}
+	if(buttonid == CarcelAscensorEx || buttonid == CarcelAscensorIn)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(CarcelAscensor1,1769.9399, -1571.1500, 14.9200,1);
+	    MoveDynamicObject(CarcelAscensor2,1766.4800, -1571.1500, 14.9200,1);
+	    SetTimer("CloseCarcelAscensor1", 5000, 0);
+	    SetTimer("CloseCarcelAscensor2", 5000, 0);
+	}
+	if(buttonid == VisitaCivilEx)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(VisitaCivil,1784.9057, -1574.5656, 12.9700,1);
+	    SetTimer("CloseVisitaCivil", 5000, 0);
+	}
+	if(buttonid == CarcelPrincipalEx || buttonid == CarcelPrincipalIn || buttonid == CarcelPrincipalIn2)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(CarcelPrincipal,1784.5500, -1578.2300, 12.97,1);
+	    SetTimer("CloseCarcelPrincipal", 5000, 0);
+	}
+	if(buttonid == CarcelStaff1Ex || buttonid == CarcelStaff1In)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(CarcelStaff1,1777.5205, -1578.8275, 12.9700,1);
+	    SetTimer("CloseCarcelStaff1", 5000, 0);
+	}
+	if(buttonid == CarcelStaff2Ex || buttonid == CarcelStaff2In)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(CarcelStaff2,1781.3146, -1583.2950, 12.9700,1);
+	    SetTimer("CloseCarcelStaff2", 5000, 0);
+	}
+	if(buttonid == CarcelVestuariosEx || buttonid == CarcelVestuariosIn)
+	{
+	    if(!SASPA(playerid)) return SendClientMessageEx(playerid,COLOR_GREY,"* Acceso Denegado.");
+	    MoveDynamicObject(CarcelVestuarios,1778.1250, -1582.5771, 12.9700,1);
+	    SetTimer("CloseCarcelVestuarios", 5000, 0);
 	}
 	if(buttonid == JDoor1)
 	{
@@ -14038,7 +14508,7 @@ case	DIALOG_NAMECHANGE:
 	            SetPVarInt(playerid, "RequestingNameChange", 1);
 	            format(szMessage, sizeof(szMessage), "Has solicitado un cambio de nombre libre, espera que los administradores generales lo aprueben.", inputtext);
 	            SendClientMessageEx(playerid,COLOR_YELLOW,szMessage);
-	            format( szMessage, sizeof( szMessage ), "AdmWarning: %s (HITMAN) (ID %d) solicitó un cambio de nombre libre a %s - /aname %d o /dname %d", GetPlayerNameEx(playerid), playerid, inputtext, playerid, playerid);
+	            format( szMessage, sizeof( szMessage ), "AdmWarning: %s (SASPA) (ID %d) solicitó un cambio de nombre libre a %s - /aname %d o /dname %d", GetPlayerNameEx(playerid), playerid, inputtext, playerid, playerid);
 	            ABroadCast( COLOR_GENERAL, szMessage, 2 );
 	        }
 	        default: return SendClientMessageEx(playerid, COLOR_GREY, "* No puedes hacer esto.");
@@ -15781,7 +16251,7 @@ case	NGMENUWEP:
 			SendClientMessageEx(playerid, COLOR_GENERAL, "Has cancelado la carga de los camiones, usa /cargarcamion para intentarlo de nuevo.");
 		}
 	}
-	case DIALOG_HITMAN:
+	case DIALOG_SASPA:
 	{
     	if(response == 1)
     	{
@@ -15800,7 +16270,7 @@ case	NGMENUWEP:
            	    	GivePlayerValidWeapon(playerid, 34);
            	    	GivePlayerCash(playerid, -60);
             	}
-            	case 2: ShowPlayerDialog(playerid, DIALOG_HIT, DIALOG_STYLE_INPUT, "> Disfraz <", "{78F700}Escribe el ID del que desees\n{FFFFFF}Skin's libres para Hitman's.\nTIP <1 - 299>\n", "Ok", "Salir");
+            	case 2: ShowPlayerDialog(playerid, DIALOG_HIT, DIALOG_STYLE_INPUT, "> Disfraz <", "{78F700}Escribe el ID del que desees\n{FFFFFF}Skin's libres para SASPA's.\nTIP <1 - 299>\n", "Ok", "Salir");
 				case 3:
 				{
 				    SendClientMessageEx(playerid, COLOR_WHITE, "Adquiriste una máscara, usa: /mascara");
@@ -15811,7 +16281,7 @@ case	NGMENUWEP:
 				   	SendClientMessageEx(playerid, COLOR_WHITE, "Adquiriste un kit de secuestro");
 					Rope[playerid] = 1;
 				}
-				case 5: ShowPlayerDialog(playerid, DIALOG_NAMECHANGE, DIALOG_STYLE_INPUT, "Cambiar Nombre","Por favor ingresa el nuevo nombre!\n\nNota: Lo cambios de nombre son libres para Hitman y FBI.", "Cambiar", "Cancelar" );
+				case 5: ShowPlayerDialog(playerid, DIALOG_NAMECHANGE, DIALOG_STYLE_INPUT, "Cambiar Nombre","Por favor ingresa el nuevo nombre!\n\nNota: Lo cambios de nombre son libres para SASPA y FBI.", "Cambiar", "Cancelar" );
 			}
 		}
 	}
@@ -19956,9 +20426,9 @@ case	NGMENUWEP:
 		 	   		SendClientMessageEx(playerid, COLOR_GENERAL, "Taller de Mecánicos");
          	   		SendClientMessageEx(playerid, COLOR_WHITE, "/menu /mduty /nos /hyd /venderspray /remolcar /reparar /recargar");
 				}
-				else if(Hitman(playerid))
+				else if(SASPA(playerid))
 				{
-		    		SendClientMessageEx(playerid, COLOR_GENERAL, "Hitman Agency");
+		    		SendClientMessageEx(playerid, COLOR_GENERAL, "San Andreas State Prison Authority");
             		SendClientMessageEx(playerid, COLOR_WHITE, "/mihq /buscar /acontrato /darhit /hrangos /borrarhit /equipo /apgarage /hits");
             		SendClientMessageEx(playerid, COLOR_WHITE, "Nota: Se les ruega usar nombres en clave en el teamspeak3 como: AG15 - Agente 15, etc.");
 				}
@@ -22068,7 +22538,7 @@ CMD:contrato(playerid, params[])
 	}
 	if (IsPlayerConnectedEx(giveplayerid))
 	{
-		if(Hitman(giveplayerid)){SendClientMessageEx( playerid, COLOR_GREY, "No se puede poner un contrato a un Hitman." );}
+		if(SASPA(giveplayerid)){SendClientMessageEx( playerid, COLOR_GREY, "No se puede poner un contrato a un SASPA." );}
 		else
 		{
 			if(giveplayerid != INVALID_PLAYER_ID)
@@ -22144,11 +22614,11 @@ zcmd(acontrato, playerid, params[])
 CMD:hrangos(playerid, params[])
 {
     #pragma unused params
-	if (!Hitman(playerid)) return SendClientMessageEx(playerid, COLOR_GREY, "No eres de la agencia Hitman!");
+	if (!SASPA(playerid)) return SendClientMessageEx(playerid, COLOR_GREY, "No eres de la agencia Hitman!");
 	SendClientMessageEx(playerid, COLOR_WHITE, "|__________________ Rangos __________________|");
 	foreach(Player, i)
 	{
-		if(Hitman(i))
+		if(SASPA(i))
 		{
 			if( GoChase[playerid] == 999 )
 			{
@@ -22204,7 +22674,7 @@ CMD:hrangos(playerid, params[])
 }*/
 CMD:darhit(playerid, params[])
 {
-	if(Hitman(playerid))
+	if(SASPA(playerid))
 	{
 		if(Info[playerid][pRank] < 4) return SendClientMessageEx(playerid, COLOR_GREY, "   Sólo rangos 4 y superiores pueden asignar contactos a la gente!");
 		new giveplayerid, targetid;
@@ -22232,7 +22702,7 @@ CMD:darhit(playerid, params[])
 }
 CMD:borrarhit(playerid, params[])
 {
-	if( Info[playerid][pAdmin] >= 4 || Hitman(playerid) && Info[playerid][pRank] >= 5)
+	if( Info[playerid][pAdmin] >= 4 || SASPA(playerid) && Info[playerid][pRank] >= 5)
 	{
 		new giveplayerid;
 		if(sscanf(params, "d", giveplayerid)) return SendClientMessageEx(playerid, COLOR_WHITE, "USA: /deletehit [playerid]");
@@ -22284,7 +22754,7 @@ CMD:ip(playerid, params[]){
 }
 zcmd(amascara, playerid, params[]){
     if(Info[playerid][pMask] == 1) return SendClientMessageEx(playerid, COLOR_GRAD2, " Ya tienes una máscara.");
-    if(Hitman(playerid)){
+    if(SASPA(playerid)){
     	if(PlayerToPoint(5, playerid, 1107,-323,68.66)){
         	SendClientMessageEx(playerid, COLOR_GENERAL, "Cogiste una máscara, "COL_WHITE"/mascara "COL_GENERAL"para ponertela.");
         	Info[playerid][pMask] = 1;
@@ -23153,9 +23623,9 @@ zcmd(contratar, playerid, params[]){
 					    case 3: 	ReqF_Name[giveplayerid] = "Guardia Nacional";
 					    case 4: 	ReqF_Name[giveplayerid] = "San Andreas Medical Department";
 					    case 5:     ReqF_Name[giveplayerid] = "SA News";
-					    case 6: 	ReqF_Name[giveplayerid] = "Mecanicos 24/7";
+					    case 6: 	ReqF_Name[giveplayerid] = "LS Car Point";
 					    case 7: 	ReqF_Name[giveplayerid] = "Gobierno SA";
-					    case 8: 	ReqF_Name[giveplayerid] = "Hitman";
+					    case 8: 	ReqF_Name[giveplayerid] = "SA State Prison Authority";
 					    case 9: 	ReqF_Name[giveplayerid] = "Banco central de LS";
 					}
                     ReqF_Faction[giveplayerid] = Info[playerid][pLeader];
@@ -23251,12 +23721,12 @@ zcmd(equipo, playerid, params[])
 	        ShowPlayerDialog(playerid,EQUIPO_GOB,DIALOG_STYLE_LIST,">> Gobierno <<",gob,"Equipar","Cancelar");
 	    }
 	}
-    if(Hitman(playerid))
+    if(SASPA(playerid))
 	{
 		if(GetPlayerVirtualWorld(playerid) == 5000)
 		{
         	new hit[] = "Cuchillo + Pistola SD\nSniper\nDisfraz\nMáscara\nKit de Secuestro\nCambiar Nombre";
-        	ShowPlayerDialog(playerid,DIALOG_HITMAN,DIALOG_STYLE_LIST,"Armeria y Disfraces",hit,"Equipar","Cancelar");
+        	ShowPlayerDialog(playerid,DIALOG_SASPA,DIALOG_STYLE_LIST,"Armeria y Disfraces",hit,"Equipar","Cancelar");
 		}
 	}
 	else if(Team_SAMD(playerid))
@@ -23707,7 +24177,7 @@ zcmd(subirnivel, playerid, params[])
 }
 zcmd(hits, playerid, params[])
 {
-    if(Hitman(playerid)) SearchingHit(playerid);
+    if(SASPA(playerid)) SearchingHit(playerid);
 	else SendClientMessageEx(playerid, COLOR_GREY, "* No puedes usar este comando.");
     return 1;
 }
@@ -24500,9 +24970,9 @@ zcmd(makeleader, playerid, params[])
 	            case 3: ftext = "Guardia Nacional";
 	            case 4: ftext = "San Andreas Medical Deparment";
 	            case 5: ftext = "SA News";
-	            case 6: ftext = "Mecanicos 24/7";
+	            case 6: ftext = "LS Car Point";
 	            case 7: ftext = "Gobierno";
-                case 8: ftext = "Hitman";
+                case 8: ftext = "SA State Prison Authority";
                 case 9: ftext = "Banco de Los Santos";
 	        }
 	        pTazer[params[0]] = 0; 					Info[params[0]][pLeader] = params[1];
@@ -25105,8 +25575,8 @@ zcmd(facciones, playerid, params[])
 	{
 		SendClientMessageEx(playerid, COLOR_GRAD2, "= ID'S de Facciones =");
 		SendClientMessageEx(playerid, -1, "1. LSPD - 2. FBI - 3. Guardia Nacional");
-		SendClientMessageEx(playerid, -1, "4. SAMD - 5. SA News - 6. Car Point");
-		SendClientMessageEx(playerid, -1, "7. Gobierno - 8. Hitman - 9. Banco Central");
+		SendClientMessageEx(playerid, -1, "4. SAMD - 5. SA News - 6. LS Car Point");
+		SendClientMessageEx(playerid, -1, "7. Gobierno - 8. SASPA - 9. Banco Central");
 	}
 	else NoAutorizado
 	return 1;
@@ -28672,7 +29142,7 @@ if(Team_Mecanicos(playerid))
     }
 }
 else {
-    SendClientMessageEx(playerid, COLOR_WHITE, "No eres un mecanicos!" );
+    SendClientMessageEx(playerid, COLOR_WHITE, "No eres mecánico!" );
 }
 return 1;
 }
@@ -37638,7 +38108,7 @@ return 1;
 */
 CMD:buscar(playerid, params[]){
 new string[128];
-if(!Hitman(playerid)) return SendClientMessageEx(playerid, COLOR_GREY, "No eres un hitman.");
+if(!SASPA(playerid)) return SendClientMessageEx(playerid, COLOR_GREY, "No eres un hitman.");
 if(UsedFind[playerid]){
 	format(string, sizeof(string), "Tienes que esperar %d segundos para buscar de nuevo.", UsedFind[playerid]);
 	return SendClientMessageEx(playerid, COLOR_GREY, string);
