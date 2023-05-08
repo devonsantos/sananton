@@ -25905,41 +25905,41 @@ CMD:ahelp(playerid, params[])
 	 	SendClientMessageEx(playerid, COLOR_WHITE, "/ar (AReporte) /rr (RReporte) /nao (RevReporte) /darrol /leveluno /togmods /revive");
 	 	
 	}
-	else if(Info[playerid][pAdmin] >= 2)
+	if(Info[playerid][pAdmin] >= 2)
 	{
 	    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {01A9DB}Administrador");
 		SendClientMessageEx(playerid, COLOR_WHITE, "/weaponr /bigears /slap /setskin /jail(cuenta) /liberar /jetpack /irapunto /enmascarados /dudamute");
         SendClientMessageEx(playerid, COLOR_WHITE, "/togac /silenciar /alimpiar /sethp /setarmor /banear /admute (unmute) /checkllaves");
 		SendClientMessageEx(playerid, COLOR_WHITE, "/fixvid /fixveh /fly /setint /setvw /checkwep /kick /disarm /rtcar /recargarcochesd /fullhunger");
 	}
-	else if(Info[playerid][pAdmin] >= 3)
+	if(Info[playerid][pAdmin] >= 3)
 	{
 		SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {0040FF}Administrador lider");
  		SendClientMessageEx(playerid, COLOR_WHITE, "/rtcar /iracochede /respawncars  /warn /rto(reset) /wepreset /recargarcochesd /racall /banip /entercar");
  		SendClientMessageEx(playerid, COLOR_WHITE, "/getcar /gotocar /mark (gotomark) /ao /reportes /god /unlockveh /vehslap /setcarvw /fixvehall /obanear");
  		SendClientMessageEx(playerid, COLOR_WHITE, "/fixvehall /forcedied /adarfichas /minombre /gotoco /ncambios /aname /dname");
 	}
-	else if(Info[playerid][pAdmin] >= 4)
+	if(Info[playerid][pAdmin] >= 4)
 	{
 	    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {0B614B}Administrador General");
 		SendClientMessageEx(playerid, COLOR_WHITE, "/unban /money /famchat /mole /pstat /listatoys /setadminname ");
 		SendClientMessageEx(playerid, COLOR_WHITE, "/unbanip /facchat /cnnn /facmotd /fammotd /givegun /makeleader /adminfam");
 		SendClientMessageEx(playerid, COLOR_WHITE, "/goinhouse /gotohouse /editar /hacermod /destruircar /darestilopelea");
 	}
-	else if(Info[playerid][pAdmin] >= 5)
+	if(Info[playerid][pAdmin] >= 5)
 	{
 	    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {688A08}Administrador Director");
  		SendClientMessageEx(playerid, COLOR_WHITE, "/limpiarreportes /loteria /obanear /deletecp /forcep /makebanap /makefmod /makefammod ");
  		SendClientMessageEx(playerid, COLOR_WHITE, "/ocambiarpassde /togpm /bloqbug (unbloq) /setadminlvl /kickstaff /cleanvarstaff /amotd");
  		SendClientMessageEx(playerid, COLOR_WHITE, "/avecasa /mmotd /hacerlidermod /kickmod /setmoney /tod /weatherall /adminnegocio");
 	}
-	else if(Info[playerid][pAdmin] >= 6)
+	if(Info[playerid][pAdmin] >= 6)
 	{
 		SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {DBA901}Executive Admin");
 	    SendClientMessageEx(playerid, COLOR_WHITE, "/update /crearregalo(OFF) /motd /nonewbie (desactiva canal dudas)");
 		SendClientMessageEx(playerid, COLOR_WHITE, "/mps /admins /kickstaff /adminpuntos /ddedit /admincasa /darobjeto");
 	}
-    else if(Info[playerid][pAdmin] >= 7)
+    if(Info[playerid][pAdmin] >= 7)
     {
 	    SendClientMessageEx(playerid, COLOR_WHITE, "Comandos - {FF0000}Server Admin");
  		SendClientMessageEx(playerid, COLOR_WHITE, "/adminshop /noac /crearsalecar /borrarsalecar /editarcamara /crear(borrar)camara");
