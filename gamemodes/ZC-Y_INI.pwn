@@ -1468,7 +1468,8 @@ new LSPDDoor1, LSPDDoor1ButtonEx,LSPDDoor1ButtonInt, LSPDDoor2,LSPDDoor2ButtonEx
 
 //LSPD Portones
 new pdgate1,pdgate2;
-
+//SASPA Portones
+new CarcelEste1Ex,CarcelEste2Ex,CarcelSur1Ex,CarcelSur2Ex;
 //Guardia Nacional - Puertas
 new PGN1,PGN2,Hangar1A,Hangar1B,Hangar1Button;
 new Hangar2A,Hangar2B,Hangar2Button;
@@ -4200,6 +4201,16 @@ function OpenDoorNG(){
 }
 function OpenDoorNG2(){
    MoveDynamicObject(PGN2,286.01, 1821.35, 19.98,5.0); //Cerrada
+   return 1;
+}
+function CloseCarcelEsteEx(){
+   MoveDynamicObject(CarcelEste1Ex,1822.57, -1540.98, 14.29, 10.0, 0.18, 0.18, -195.24); //Cerrada
+   MoveDynamicObject(CarcelEste2Ex,1824.35, -1534.73, 14.29, 10.0, 0.18, 0.18, -16.38); //Cerrada
+   return 1;
+}
+function CloseCarcelSurEx(){
+   MoveDynamicObject(CarcelSur1Ex,1752.02, -1591.18, 14.28, 10.0, 0.00, 0.00, 77.34); //Cerrada
+   MoveDynamicObject(CarcelSur2Ex,1756.93, -1592.28, 14.28, 10.0, 0.00, 0.00, 257.34); //Cerrada
    return 1;
 }
 function GateCloseSANews1(){
@@ -8117,6 +8128,37 @@ CreateDynamicObject(2358, 1777.80, -1578.74, 15.37,   0.00, 0.00, 270.00);
 CreateDynamicObject(2358, 1777.80, -1578.74, 15.59,   0.00, 0.00, 270.00);
 CreateDynamicObject(2358, 1777.80, -1578.00, 15.15,   0.00, 0.00, 270.00);
 
+//Twin Towers Prison (Exterior) By Jayceon
+CreateObject(19794, 1787.13, -1565.68, 11.97,   0.00, 0.00, 0.00);
+CreateDynamicObject(4099, 1785.17, -1553.88, 10.48,   0.00, 0.00, 98.94);
+CreateDynamicObject(4099, 1781.18, -1558.13, 10.48,   0.00, 0.00, 90.30);
+CreateDynamicObject(19868, 1778.50, -1530.38, 14.72,   0.00, 0.00, -2.40);
+CreateDynamicObject(19868, 1773.22, -1530.13, 14.72,   0.00, 0.00, -3.12);
+CreateDynamicObject(19868, 1767.96, -1529.92, 14.72,   0.00, 0.00, -1.44);
+CreateDynamicObject(19868, 1762.69, -1529.90, 14.72,   0.00, 0.00, 0.30);
+CreateDynamicObject(19868, 1757.44, -1530.19, 14.72,   0.00, 0.00, 7.26);
+CreateDynamicObject(19868, 1752.25, -1530.95, 14.72,   0.00, 0.00, 8.94);
+CreateDynamicObject(19868, 1781.10, -1533.49, 14.64,   0.00, 0.00, -92.58);
+CreateDynamicObject(19868, 1749.65, -1533.96, 14.72,   0.00, 0.00, 90.00);
+CreateDynamicObject(19868, 1749.65, -1539.24, 14.72,   0.00, 0.00, 90.00);
+CreateDynamicObject(19868, 1749.66, -1544.52, 14.72,   0.00, 0.00, 90.00);
+CreateDynamicObject(19868, 1749.67, -1549.77, 14.72,   0.00, 0.00, 90.00);
+CreateDynamicObject(19868, 1749.67, -1555.04, 14.72,   0.00, 0.00, 90.00);
+CreateDynamicObject(19868, 1749.68, -1560.30, 14.72,   0.00, 0.00, 90.00);
+CreateDynamicObject(19868, 1752.44, -1561.43, 14.72,   0.00, 0.00, 179.64);
+CreateDynamicObject(19868, 1757.74, -1561.51, 14.72,   0.00, 0.00, 178.80);
+CreateDynamicObject(4100, 1781.00, -1535.52, 8.92,   40.00, -90.00, 87.00);
+CreateDynamicObject(4100, 1781.15, -1532.67, 8.92,   40.00, -90.00, 87.00);
+CreateDynamicObject(983, 1772.46, -1543.63, 22.19,   0.00, 180.00, -49.00);
+CreateDynamicObject(983, 1767.61, -1547.85, 22.18,   0.00, 180.00, -49.00);
+CreateDynamicObject(1569, 1774.92, -1545.63, 8.91,   0.00, 0.00, 41.00);
+CreateDynamicObject(1569, 1777.18, -1543.66, 8.91,   0.00, 0.00, 221.00);
+CreateDynamicObject(1216, 1753.32, -1531.33, 9.12,   0.00, 0.00, 0.00);
+CreateDynamicObject(3819, 1764.15, -1532.43, 9.34,   0.00, 0.00, 90.00);
+CreateDynamicObject(3819, 1752.15, -1545.68, 9.34,   0.00, 0.00, 180.00);
+CreateDynamicObject(1216, 1750.08, -1534.95, 9.12,   0.00, 0.00, 90.00);
+
+
 // Custom Int.
 CreateDynamicObject(16656, 323.34, 2349.19, 8907.42,   0.00, 0.00, 0.00);
 CreateDynamicObject(2929, 311.10, 2345.28, 8906.06,   0.00, 0.00, 90.00);
@@ -9542,6 +9584,11 @@ CreateDynamicObject(19304, 320.89, 316.23, 1001.25,   0.00, 0.00, 90.24);
 //Puertas - LSPD
 LSPDDoor1 = CreateDynamicObject(1536, 1468.57507, -1758.27209, 3284.30005,   0.00000, 0.00000, 180.00000);
 LSPDDoor2 = CreateDynamicObject(1536, 1481.38684, -1758.28503, 3284.30005,   0.00000, 0.00000, 180.00000);
+//Puertas - Twin Towers Prison
+CarcelEste1Ex = CreateDynamicObject(19795, 1822.57, -1540.98, 14.29,   0.18, 0.18, -195.24);
+CarcelEste2Ex = CreateDynamicObject(19795, 1824.35, -1534.73, 14.29,   0.18, 0.18, -16.38);
+CarcelSur1Ex = CreateDynamicObject(19796, 1752.02, -1591.18, 14.28,   0.00, 0.00, 77.34);
+CarcelSur2Ex = CreateDynamicObject(19796, 1756.93, -1592.28, 14.28,   0.00, 0.00, 257.34);
 
 //Puertas - Guardia Nacional
 PGN1 = CreateDynamicObject(19313, 135.12, 1941.56, 21.66,   0.00, 0.00, 0.00); // Cerrada
@@ -22426,7 +22473,7 @@ zcmd(entrar, playerid, params[])
 	{
 	    for(new i = 0; i < sizeof(DDoorsInfo); i++)
 		{
-        	if (IsPlayerInRangeOfPoint(playerid,3.0,DDoorsInfo[i][ddExteriorX], DDoorsInfo[i][ddExteriorY], DDoorsInfo[i][ddExteriorZ]) && Info[playerid][pVW] == DDoorsInfo[i][ddExteriorVW])
+        	if (IsPlayerInRangeOfPoint(playerid,1.0,DDoorsInfo[i][ddExteriorX], DDoorsInfo[i][ddExteriorY], DDoorsInfo[i][ddExteriorZ]) && Info[playerid][pVW] == DDoorsInfo[i][ddExteriorVW])
 			{
             	if(DDoorsInfo[i][ddVIP] > 0 && Info[playerid][pVIP] < DDoorsInfo[i][ddVIP])
 				{
@@ -26387,6 +26434,22 @@ zcmd(apgarage, playerid, params[]){
   		if (PlayerToPoint(30, playerid,286.01, 1833.73, 19.98)){
   		    MoveDynamicObject(PGN2,286.01, 1833.73, 19.98, 5.0);
        		SetTimer("OpenDoorNG2", 7000, 0);
+       		return 1;
+       	}
+      	else SendClientMessageEx(playerid, COLOR_GREY,"  No hay señal!");
+	}
+    else if(SASPA(playerid))
+	{
+  		if (PlayerToPoint(30, playerid,1822.57, -1540.98, 14.29)){ //Abierta
+  		    MoveDynamicObject(CarcelEste1Ex,1822.57, -1540.98, 14.29, 0.10, 0.18, 0.18, -280.68); //Abierta
+  		    MoveDynamicObject(CarcelEste2Ex,1824.35, -1534.73, 14.29, 0.10, 0.18, 0.18, 81.00);
+       		SetTimer("CloseCarcelEsteEx", 7000, 0);
+       		return 1;
+       	}
+  		if (PlayerToPoint(30, playerid,1752.02, -1591.18, 14.28)){ //Abierta
+  		    MoveDynamicObject(CarcelSur1Ex,1752.02, -1591.18, 14.28, 0.10, 0.00, 0.00, -25.86); //Abierta
+  		    MoveDynamicObject(CarcelSur2Ex,1756.93, -1592.28, 14.28, 0.10, 0.00, 0.00, 358.14);
+       		SetTimer("CloseCarcelSurEx", 7000, 0);
        		return 1;
        	}
       	else SendClientMessageEx(playerid, COLOR_GREY,"  No hay señal!");
@@ -31725,7 +31788,40 @@ switch(rate)
 }
 return 1;
 }
-
+CMD:defensa(playerid, params[])
+{
+if(SASPA(playerid))
+{
+	new string[128];
+	if(Info[playerid][pConnectTime] < 2 || Info[playerid][pWRestricted] > 0) return SendClientMessageEx(playerid, COLOR_GRAD2, "No puedes usar este comando, tienes restricción de armas!");
+	if(IsPlayerInAnyVehicle(playerid)) return SendClientMessageEx(playerid, COLOR_GREY, "No puedes hacer esto en un vehiculo.");
+	if(GetPVarInt( playerid, "EventToken") != 0) return SendClientMessageEx(playerid, COLOR_GREY, "No puedes usar este comando en un evento.");
+	if(GetPVarInt(playerid, "IsInArena") == 1) return SendClientMessageEx(playerid, COLOR_WHITE, "No puedes usar este comando en la Arena!");
+	if(PlayerCuffedTime[playerid] > 0) return SendClientMessageEx(playerid, COLOR_GREY, "No puedes hacer esto ahora.");
+	if(GetPVarInt(playerid, "Injured") == 1) return SendClientMessageEx(playerid, COLOR_GREY, "No puedes hacer esto ahora.");
+	if(Info[playerid][pJailed] > 0) return SendClientMessageEx(playerid, COLOR_WHITE, "No puedes hacer esto en prisión.");
+	if(Info[playerid][pEstado] != 0) return SendClientMessageEx(playerid, COLOR_WHITE, "No puedes hacer esto mientras estás aturdido o arrestado.");
+	if(pTazer[playerid] == 0)
+	{
+	    pTazer[playerid] = 1;
+		pTazerReplace[playerid] = Info[playerid][pWeapons][2];
+		if(Info[playerid][pWeapons][2] != 0) RemovePlayerWeapon(playerid, Info[playerid][pWeapons][2]);
+		format(string, sizeof(string), "* %s saca y enciende su defensa eléctrica.", GetPlayerNameEx(playerid));
+		ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+		GivePlayerValidWeapon(playerid, 3);
+	}
+	else
+	{
+	    pTazer[playerid] = 0;
+		RemovePlayerWeapon(playerid, 3);
+		GivePlayerValidWeapon(playerid, pTazerReplace[playerid]);
+		format(string, sizeof(string), "* %s apaga y guarda su defensa eléctrica..", GetPlayerNameEx(playerid));
+		ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+	}
+}
+else SendClientMessageEx(playerid, COLOR_GREY, "* No tienes un tazer para hacer esto.");
+return 1;
+}
 CMD:tazer(playerid, params[])
 {
 if(IsACop(playerid))
@@ -40647,6 +40743,9 @@ function MapsRemoveForPlayer(playerid)
 {
 	// LSPD COUNTY Interior 5 - Rejas Transparentes
 	RemoveBuildingForPlayer(playerid, 14883, 320.8672, 314.2109, 1000.1484, 0.25);
+	// Twin Towers Prison By Jayceon
+	RemoveBuildingForPlayer(playerid, 4080, 1787.1328, -1565.6797, 11.9688, 0.25);
+    RemoveBuildingForPlayer(playerid, 4000, 1787.1328, -1565.6797, 11.9688, 0.25);
 	// Guardia Nacional by Jayceon
     RemoveBuildingForPlayer(playerid, 16590, 199.3438, 1943.7891, 18.2031, 0.25);
     RemoveBuildingForPlayer(playerid, 16619, 199.3359, 1943.8750, 18.2031, 0.25);
@@ -41310,7 +41409,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	{
 		for(new x = 0; x < MAX_BUSINESS; x++)
 		{
-			if(IsPlayerInRangeOfPoint(playerid, 2.0, businessVariables[x][bExteriorPos][0], businessVariables[x][bExteriorPos][1], businessVariables[x][bExteriorPos][2]))
+			if(IsPlayerInRangeOfPoint(playerid, 0.20, businessVariables[x][bExteriorPos][0], businessVariables[x][bExteriorPos][1], businessVariables[x][bExteriorPos][2]))
 			{
 				if(businessVariables[x][bLocked] == 1) return SendClientMessage(playerid, COLOR_GREY, "Este local esta cerrado.");
 				businessTypeMessages(x, playerid);
@@ -41320,7 +41419,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 				LoadObjects(playerid);
 				return 1;
 			}
-			if(IsPlayerInRangeOfPoint(playerid, 2.0, businessVariables[x][bInteriorPos][0], businessVariables[x][bInteriorPos][1], businessVariables[x][bInteriorPos][2]) && GetPlayerVirtualWorld(playerid) == BUSINESS_VIRTUAL_WORLD+x)
+			if(IsPlayerInRangeOfPoint(playerid, 0.20, businessVariables[x][bInteriorPos][0], businessVariables[x][bInteriorPos][1], businessVariables[x][bInteriorPos][2]) && GetPlayerVirtualWorld(playerid) == BUSINESS_VIRTUAL_WORLD+x)
 			{
 				SetPlayerPos(playerid, businessVariables[x][bExteriorPos][0], businessVariables[x][bExteriorPos][1], businessVariables[x][bExteriorPos][2]);
 				SetPlayerInterior(playerid, 0);
@@ -41539,7 +41638,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		{
 		    for(new i = 0; i < sizeof(DDoorsInfo); i++)
 			{
-	        	if (IsPlayerInRangeOfPoint(playerid,3.0,DDoorsInfo[i][ddExteriorX], DDoorsInfo[i][ddExteriorY], DDoorsInfo[i][ddExteriorZ]) && Info[playerid][pVW] == DDoorsInfo[i][ddExteriorVW])
+	        	if (IsPlayerInRangeOfPoint(playerid,1.0,DDoorsInfo[i][ddExteriorX], DDoorsInfo[i][ddExteriorY], DDoorsInfo[i][ddExteriorZ]) && Info[playerid][pVW] == DDoorsInfo[i][ddExteriorVW])
 				{
 	            	if(DDoorsInfo[i][ddVIP] > 0 && Info[playerid][pVIP] < DDoorsInfo[i][ddVIP])
 					{
