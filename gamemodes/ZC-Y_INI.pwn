@@ -25846,7 +25846,7 @@ zcmd(setskin, playerid, params[])
 	{
 	    if(IsPlayerConnectedEx(giveplayerid))
 		{
-		    if(skin > 299 || skin < 0) return SendClientMessageEx(playerid, COLOR_GREY, "* Skin ID incorrecto (0-299)");
+		    if(skin > 311 || skin < 0) return SendClientMessageEx(playerid, COLOR_GREY, "* Skin ID incorrecto (0-299)");
 		    Info[giveplayerid][pChar] = skin;
 		    SetPlayerSkin(giveplayerid, Info[giveplayerid][pChar]);
 		    format(szMessage, sizeof(szMessage), "AdmCmdExe: %s te cambió el skin, ID SKIN: %d.", GetPlayerNameEx(playerid), skin);
@@ -34370,7 +34370,7 @@ if(Team_FBI(playerid))	{
 return 1;
 }
 
-CMD:LSPD(playerid, params[]){
+CMD:lspd(playerid, params[]){
 if(Team_LSPD(playerid))	{
 	if(PlayerToPoint(5, playerid, 1457.2192,-1761.9324,3285.2859) || PlayerToPoint(5, playerid,327.2326,307.2340,999.1484) ){
 		ShowPlayerDialog(playerid, DUTYMENU, DIALOG_STYLE_LIST, "LSPD Menu","Duty\nEquipo\nSWAT\nUniformes\nEncubierto", "Ok", "Cancelar");
