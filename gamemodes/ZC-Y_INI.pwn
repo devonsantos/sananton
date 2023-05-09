@@ -4742,6 +4742,21 @@ return 1;
 
 public OnVehicleDeath(vehicleid)
 {
+// Sistema destruir vehículos
+/*new string[64];
+format(string, sizeof(string), "Vehicle %i was destroyed.", vehicleid);
+SendClientMessageToAll(0xFFFFFFFF, string);
+
+for(new i = 0; i < MAX_PLAYERS; i++)
+{
+	for(new v = 0; v < MAX_PLAYERVEHICLES; v++)
+	{
+	    if (PlayerVehicleInfo[i][v][pvId] == vehicleid)
+	    {
+	        SendClientMessageEx(i, -1, "AVISO: Tu vehículo ha sido destruido y no volverá jamás.");
+		}
+	}
+}*/
 if(Lamp[vehicleid] == 1)
 {
 	DestroyObject(light[vehicleid]);
@@ -26585,11 +26600,34 @@ zcmd(puente, playerid, params[]){
     if(Ganzuas[playerid] == 0) return SendClientMessageEx(playerid, COLOR_GREY, "No tienes ganzúas!");
     if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return SendClientMessageEx(playerid, COLOR_GREY, "No eres el conductor.");
     if(IsPlayerInAnyVehicle(playerid)){
-	    new string[128], vehicleid;
+	    new string[128];
     	format(string, sizeof(string), "* %s utiliza unas ganzúas y cruza los cables.", GetPlayerNameEx(playerid));
 		ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-		SetTimerEx("SetVehicleEngine", 2500, 0, "dd",  vehicleid, playerid);
+    	//SetTimerEx("SetVehicleEngine", 1000, 0, "dd",  vehicleid, playerid);
 		GameTextForPlayer(playerid, "~p~haciendo puente.",2500,3);
+  		new vehicleid = GetPlayerVehicleID(playerid);
+		new engine,lights,alarm,doors,bonnet,boot,objective;
+		GetVehicleParamsEx(vehicleid,engine,lights,alarm,doors,bonnet,boot,objective);
+		if(engine == VEHICLE_PARAMS_ON)
+		{
+	    	format(string, sizeof(string), "* %s desconecta el cableado del vehículo y apaga el motor.", GetPlayerNameEx(playerid));
+			ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+			SetVehicleParamsEx(vehicleid,VEHICLE_PARAMS_OFF,lights,alarm,doors,bonnet,boot,objective);
+			SendClientMessageEx(playerid, COLOR_WHITE, "Motor apagado.");
+			arr_Engine{vehicleid} = 0;
+		}
+		else if(engine == VEHICLE_PARAMS_OFF || engine == VEHICLE_PARAMS_UNSET)
+		{
+			new Float: f_vHealth;
+			GetVehicleHealth(vehicleid, f_vHealth);
+			if(f_vHealth < 350.0) return SendClientMessageEx(playerid, COLOR_RED, "El coche no prenderá, el motor se ha quemado! (/servicios)");
+		    if(VehicleFuel[vehicleid] <= 0) return SendClientMessageEx(playerid, COLOR_RED, "El coche no prenderá, no hay gasolina en el tanque! (/servicios)");
+     		format(string, sizeof(string), "* %s logra arrancar el motor del vehículo.", GetPlayerNameEx(playerid));
+			ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+			SetVehicleParamsEx(vehicleid,VEHICLE_PARAMS_ON,lights,alarm,doors,bonnet,boot,objective);
+			SendClientMessageEx(playerid, COLOR_WHITE, "El motor del vehículo ha arrancado, escribe /v motor o pulsa la tecla NUM2 para apagarlo. También puedes usar /puente de nuevo.");
+			arr_Engine{vehicleid} = 1;
+		}
 	}
 	else SendClientMessageEx(playerid, COLOR_GRAD2, "No estás en un vehículo!");
 	return 1;
@@ -28269,7 +28307,6 @@ if(strcmp(params, "motor", true) == 0 && IsPlayerInAnyVehicle(playerid) && GetPl
 			}
 		}
 		SendClientMessageEx(playerid, COLOR_WHITE, "Arrancando el motor del vehículo...");
-		PlayerPlaySound(playerid, 1022, 0.0, 0.0, 0.0);
 		SetTimerEx("SetVehicleEngine", 1000, 0, "dd",  vehicleid, playerid);
 	}
 }
@@ -44109,7 +44146,7 @@ stock doesVehicleExist(vehicleid)
 
 stock IsValidSkin(skinid)
 {
-	if(skinid < 0 || skinid > 299) return false;
+	if(skinid < 0 || skinid > 311) return false;
 	return true;
 }
 
