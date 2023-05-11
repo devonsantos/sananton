@@ -338,9 +338,9 @@ native IsValidVehicle(vehicleid);
 #define 			JOBFINDMENU 				(81)
 #define 			DIALOG_NAMECHANGE 			(82)
 #define 			DIALOG_SASPA 				(83)
-#define 			FDUTYMENU 					(84)
-#define 			FDUTYMENU2 					(85)
-#define 			FDUTYMENU3 					(86)
+#define 			FBITAQUILLA					(84)
+#define 			FBITAQUILLA2 				(85)
+#define 			FBITAQUILLA3 				(86)
 #define 			DUTYMENU 					(87)
 #define 			WELCOME 					(88)
 #define 			REG_AGE 					(89)
@@ -404,7 +404,7 @@ native IsValidVehicle(vehicleid);
 #define 			NGMENU          			(148)
 #define 			NGMENUWEP       			(149)
 #define 			NGMENUSKIN      			(150)
-#define 			FDUTYMENU4 					(151)
+#define 			FBITAQUILLA4 				(151)
 #define 			DIALOG_SHOPFISH 			(152)
 #define             MERCADONEGRO                (153)
 #define             DIALOG_NOLOGIN              (154)
@@ -9594,6 +9594,497 @@ CreateDynamicObject(19303, 320.90, 315.33, 999.40,   0.00, 0.00, -89.94);
 CreateDynamicObject(19304, 320.89, 312.22, 1001.25,   0.00, 0.00, 90.24);
 CreateDynamicObject(19304, 320.89, 316.23, 1001.25,   0.00, 0.00, 90.24);
 
+//LSPD Interior by Jayceon
+CreateDynamicObject(2567, 1295.88, -978.99, 33.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(3267, 1286.50, -982.45, 31.15,   0.00, 0.00, 330.22);
+CreateDynamicObject(1654, 1293.12, -989.32, 32.79,   -33.00, -90.00, 258.00);
+CreateDynamicObject(939, 1295.92, -981.21, 34.14,   0.00, 0.00, 0.00);
+CreateDynamicObject(8229, 1290.60, -966.27, 35.60,   0.00, 0.00, 181.35);
+CreateDynamicObject(16637, 1289.96, -1005.97, 33.86,   0.00, 0.00, 90.00);
+CreateDynamicObject(16637, 1285.25, -1005.90, 31.00,   0.00, 0.00, 90.00);
+CreateDynamicObject(16637, 1290.58, -1005.96, 31.00,   0.00, 0.00, 90.00);
+CreateDynamicObject(2637, 2526.59, -1667.51, 14.57,   0.00, 0.00, 0.00);
+CreateDynamicObject(2637, 2528.70, -1667.50, 14.57,   0.00, 0.00, 0.00);
+CreateDynamicObject(3657, 2534.00, -1665.28, 14.68,   0.00, 0.00, 268.69);
+CreateDynamicObject(2310, 2529.22, -1666.00, 14.67,   0.00, 0.00, 87.34);
+CreateDynamicObject(2310, 2527.71, -1665.95, 14.67,   0.00, 0.00, 87.34);
+CreateDynamicObject(2310, 2526.21, -1665.93, 14.66,   0.00, 0.00, 87.34);
+CreateDynamicObject(2310, 2526.83, -1669.12, 14.67,   0.00, 0.00, 269.96);
+CreateDynamicObject(2310, 2528.42, -1669.18, 14.67,   0.00, 0.00, 269.96);
+CreateDynamicObject(2837, 2528.88, -1667.26, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(2837, 2528.03, -1667.75, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(2647, 2529.24, -1667.85, 15.14,   0.00, 0.00, 0.00);
+CreateDynamicObject(1487, 2527.20, -1667.16, 15.18,   0.00, 0.00, 0.00);
+CreateDynamicObject(1543, 2527.21, -1667.75, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(1544, 2527.03, -1667.45, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(1543, 2526.65, -1667.16, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(1543, 2526.51, -1667.73, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(1728, 2532.29, -1670.72, 14.17,   0.00, 0.00, 181.35);
+CreateDynamicObject(1728, 2529.55, -1670.77, 14.17,   0.00, 0.00, 181.35);
+CreateDynamicObject(3461, 1291.26, -996.46, 35.00,   90.00, 0.00, 178.00);
+CreateDynamicObject(1550, 1293.29, -992.42, 32.09,   0.00, 0.00, 0.00);
+CreateDynamicObject(2062, 1287.10, -985.74, 32.28,   0.00, 0.00, 0.00);
+CreateDynamicObject(2062, 1286.83, -984.93, 32.26,   0.00, 0.00, 0.00);
+CreateDynamicObject(1499, 1287.17, -1006.00, 29.84,   0.00, 0.00, 0.00);
+CreateDynamicObject(2637, 2526.59, -1667.51, 14.57,   0.00, 0.00, 0.00);
+CreateDynamicObject(2637, 2528.70, -1667.50, 14.57,   0.00, 0.00, 0.00);
+CreateDynamicObject(3657, 2534.00, -1665.28, 14.68,   0.00, 0.00, 268.69);
+CreateDynamicObject(2310, 2529.22, -1666.00, 14.67,   0.00, 0.00, 87.34);
+CreateDynamicObject(2310, 2527.71, -1665.95, 14.67,   0.00, 0.00, 87.34);
+CreateDynamicObject(2310, 2526.21, -1665.93, 14.66,   0.00, 0.00, 87.34);
+CreateDynamicObject(2310, 2526.83, -1669.12, 14.67,   0.00, 0.00, 269.96);
+CreateDynamicObject(2310, 2528.42, -1669.18, 14.67,   0.00, 0.00, 269.96);
+CreateDynamicObject(2837, 2528.88, -1667.26, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(2837, 2528.03, -1667.75, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(2647, 2529.24, -1667.85, 15.14,   0.00, 0.00, 0.00);
+CreateDynamicObject(1487, 2527.20, -1667.16, 15.18,   0.00, 0.00, 0.00);
+CreateDynamicObject(1543, 2527.21, -1667.75, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(1544, 2527.03, -1667.45, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(1543, 2526.65, -1667.16, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(1543, 2526.51, -1667.73, 14.98,   0.00, 0.00, 0.00);
+CreateDynamicObject(1728, 2532.29, -1670.72, 14.17,   0.00, 0.00, 181.35);
+CreateDynamicObject(1728, 2529.55, -1670.77, 14.17,   0.00, 0.00, 181.35);
+CreateDynamicObject(1575, 1293.73, -989.01, 32.70,   0.00, 0.00, 0.00);
+CreateDynamicObject(2057, 1293.92, -988.26, 31.90,   0.00, 0.00, 0.00);
+CreateDynamicObject(3066, 1297.41, -987.57, 32.68,   0.00, 0.00, 0.00);
+CreateDynamicObject(2041, 1285.44, -993.31, 32.96,   0.00, 0.00, 0.00);
+CreateDynamicObject(1431, 1293.44, -989.32, 32.20,   0.00, 0.00, 40.00);
+CreateDynamicObject(3013, 1290.45, -981.82, 32.14,   0.00, 0.00, 55.00);
+CreateDynamicObject(16637, 1286.50, -1005.92, 33.86,   0.00, 0.00, 90.00);
+CreateDynamicObject(939, 1290.75, -981.21, 34.14,   0.00, 0.00, 0.00);
+CreateDynamicObject(1575, 1293.44, -989.41, 32.70,   0.00, 0.00, -69.00);
+CreateDynamicObject(1575, 1292.83, -989.93, 32.16,   0.00, 0.00, -40.00);
+CreateDynamicObject(1575, 1293.41, -989.63, 32.78,   0.00, -25.00, 18.00);
+CreateDynamicObject(1431, 1292.65, -993.51, 32.20,   0.00, 0.00, 84.00);
+CreateDynamicObject(1654, 1292.72, -993.05, 32.79,   -33.00, -90.00, 185.00);
+CreateDynamicObject(1654, 1292.75, -993.34, 32.79,   -33.00, -90.00, -55.00);
+CreateDynamicObject(1550, 1292.94, -992.29, 32.09,   0.00, 0.00, 0.00);
+CreateDynamicObject(1550, 1293.22, -992.15, 32.09,   0.00, 0.00, 0.00);
+CreateDynamicObject(1575, 1292.60, -993.82, 32.70,   0.00, 0.00, -69.00);
+CreateDynamicObject(1431, 1285.26, -993.06, 32.20,   0.00, 0.00, 90.00);
+CreateDynamicObject(2041, 1285.33, -992.60, 32.96,   0.00, 0.00, -120.00);
+CreateDynamicObject(2041, 1285.38, -992.11, 32.40,   0.00, 0.00, 69.00);
+CreateDynamicObject(3013, 1292.91, -981.98, 32.14,   0.00, 0.00, -55.00);
+CreateDynamicObject(2567, 1286.06, -988.79, 33.62,   0.00, 0.00, 90.00);
+CreateDynamicObject(2062, 1287.50, -984.53, 32.06,   0.00, 90.00, 309.00);
+CreateDynamicObject(1616, 240.28, 107.49, 1010.30,   0.00, 0.00, 270.00);
+CreateDynamicObject(1491, 222.18, 119.46, 1009.22,   0.00, 0.00, 0.00);
+CreateDynamicObject(1491, 258.55, 117.68, 1007.82,   0.00, 0.00, 0.00);
+CreateDynamicObject(1491, 260.74, 117.68, 1007.82,   0.00, 0.00, 0.00);
+CreateDynamicObject(1491, 225.06, 115.95, 1002.23,   0.00, 0.00, 0.00);
+CreateDynamicObject(1491, 233.11, 119.25, 1002.23,   0.00, 0.00, 0.00);
+CreateDynamicObject(1491, 236.81, 119.25, 1002.23,   0.00, 0.00, 0.00);
+CreateDynamicObject(3051, 275.77, 122.66, 1004.98,   0.00, 0.00, 46.00);
+CreateDynamicObject(3051, 275.75, 121.50, 1004.98,   0.00, 0.00, 45.00);
+CreateDynamicObject(1485, 237.03, 110.67, 1010.21,   50.00, 10.00, 2.00);
+CreateDynamicObject(1510, 237.21, 110.63, 1010.16,   0.00, 0.00, 0.00);
+CreateDynamicObject(2196, 237.22, 109.88, 1010.14,   0.00, 0.00, 29.77);
+CreateDynamicObject(2356, 265.71, 108.44, 1003.56,   0.00, 0.00, 294.50);
+CreateDynamicObject(1886, 267.74, 107.50, 1007.40,   20.00, 0.00, 235.00);
+CreateDynamicObject(2180, 260.97, 107.56, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(1788, 261.46, 107.37, 1004.49,   0.00, 0.00, 180.00);
+CreateDynamicObject(1840, 260.70, 107.35, 1004.42,   0.00, 0.00, 240.43);
+CreateDynamicObject(1840, 262.21, 107.34, 1004.42,   0.00, 0.00, -63.06);
+CreateDynamicObject(2356, 261.41, 108.09, 1003.62,   0.00, 0.00, -184.57);
+CreateDynamicObject(2101, 261.44, 107.30, 1004.57,   0.00, 0.00, 180.00);
+CreateDynamicObject(2611, 263.72, 112.34, 1005.33,   0.00, 0.00, 0.00);
+CreateDynamicObject(1703, 243.10, 107.60, 1002.22,   0.00, 0.00, 180.00);
+CreateDynamicObject(3934, 1565.95, -1701.00, 27.40,   0.00, 0.00, 0.00);
+CreateDynamicObject(3934, 1565.95, -1646.03, 27.40,   0.00, 0.00, 0.00);
+CreateDynamicObject(2953, 235.65, 106.90, 1009.84,   0.00, 0.00, 143.46);
+CreateDynamicObject(2165, 214.30, 118.90, 998.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(2724, 214.90, 117.50, 998.60,   0.00, 0.00, 179.75);
+CreateDynamicObject(1721, 213.80, 121.30, 998.00,   0.00, 0.00, 270.00);
+CreateDynamicObject(1721, 213.80, 122.00, 998.00,   0.00, 0.00, 270.00);
+CreateDynamicObject(1721, 213.80, 122.70, 998.00,   0.00, 0.00, 270.00);
+CreateDynamicObject(1721, 213.80, 123.50, 998.00,   0.00, 0.00, 270.00);
+CreateDynamicObject(15038, 219.00, 124.10, 998.60,   0.00, 0.00, 0.00);
+CreateDynamicObject(15038, 214.20, 126.50, 998.60,   0.00, 0.00, 0.00);
+CreateDynamicObject(3089, 1564.10, -1667.30, 28.70,   0.00, 0.00, 0.00);
+CreateDynamicObject(19301, 246.23, 117.80, 1005.61,   0.00, 0.00, 180.00);
+CreateDynamicObject(1722, 260.86, 107.61, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 260.86, 108.22, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 260.86, 108.84, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 260.86, 109.46, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 260.86, 110.09, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 260.86, 110.71, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 260.86, 111.35, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 259.03, 111.33, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 259.03, 110.71, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 259.03, 110.09, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 259.03, 109.46, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 259.03, 108.84, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 259.03, 108.22, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(1722, 259.03, 107.61, 1007.81,   0.00, 0.00, 270.00);
+CreateDynamicObject(19893, 237.33, 110.04, 1010.14,   0.00, 0.00, 90.02);
+CreateDynamicObject(19999, 238.69, 110.06, 1009.21,   0.00, 0.00, 270.00);
+CreateDynamicObject(19942, 237.52, 109.62, 1010.23,   0.02, 0.00, 138.78);
+CreateDynamicObject(19807, 237.33, 111.01, 1010.18,   0.00, 0.00, 66.66);
+CreateDynamicObject(11729, 278.00, 112.14, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 278.57, 111.56, 1003.62,   0.00, 0.00, 270.00);
+CreateDynamicObject(11729, 277.34, 112.14, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 276.68, 112.14, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 276.02, 112.14, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 275.36, 112.14, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 274.70, 112.14, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 274.04, 112.14, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 273.38, 112.13, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 272.74, 112.14, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 278.57, 110.90, 1003.62,   0.00, 0.00, 270.00);
+CreateDynamicObject(11730, 278.57, 110.24, 1003.62,   0.00, 0.00, 270.00);
+CreateDynamicObject(11730, 278.57, 109.58, 1003.62,   0.00, 0.00, 270.00);
+CreateDynamicObject(11729, 278.57, 108.94, 1003.62,   0.00, 0.00, 270.00);
+CreateDynamicObject(11729, 278.57, 108.28, 1003.62,   0.00, 0.00, 270.00);
+CreateDynamicObject(11729, 278.57, 107.62, 1003.62,   0.00, 0.00, 270.00);
+CreateDynamicObject(11729, 277.97, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 277.31, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 276.65, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11730, 275.99, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 275.32, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 274.65, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 273.99, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 273.33, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11730, 272.67, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 272.01, 107.34, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 272.07, 112.14, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 272.07, 110.04, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 272.07, 109.54, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 272.74, 110.04, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 274.02, 110.03, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11730, 273.36, 110.04, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 274.68, 110.03, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 275.34, 110.03, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 276.00, 110.03, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 276.67, 110.03, 1003.62,   0.00, 0.00, 180.00);
+CreateDynamicObject(11729, 272.73, 109.54, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 273.39, 109.54, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 274.05, 109.54, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 274.71, 109.54, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 275.37, 109.54, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 276.03, 109.54, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 276.67, 109.54, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(11729, 268.78, 112.03, 1003.62,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 268.78, 111.37, 1003.62,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 268.78, 110.71, 1003.62,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 268.78, 110.05, 1003.62,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 268.78, 109.39, 1003.62,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 268.78, 108.73, 1003.62,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 268.78, 108.07, 1003.62,   0.00, 0.00, 90.00);
+CreateDynamicObject(11729, 268.78, 107.39, 1003.62,   0.00, 0.00, 90.00);
+CreateDynamicObject(18636, 271.85, 110.26, 1005.70,   0.00, 0.00, -230.94);
+CreateDynamicObject(11745, 272.44, 109.84, 1005.82,   0.00, 0.00, -255.72);
+CreateDynamicObject(18636, 278.53, 110.39, 1005.70,   0.00, 0.00, -144.00);
+CreateDynamicObject(19141, 278.46, 110.10, 1005.74,   320.00, 270.00, 44.34);
+CreateDynamicObject(19141, 271.82, 107.48, 1005.74,   320.00, 270.00, 44.34);
+CreateDynamicObject(19141, 272.10, 107.49, 1005.74,   320.00, 270.00, -83.94);
+CreateDynamicObject(19141, 268.85, 108.77, 1005.74,   320.00, 270.00, -87.42);
+CreateDynamicObject(19200, 268.88, 109.47, 1005.74,   340.00, 270.00, -119.16);
+CreateDynamicObject(19200, 268.92, 109.29, 1005.74,   340.00, 270.00, -61.44);
+CreateDynamicObject(19200, 268.85, 110.72, 1005.74,   340.00, 270.00, -57.72);
+CreateDynamicObject(19200, 272.00, 112.02, 1005.74,   340.00, 270.00, -227.58);
+CreateDynamicObject(2200, 268.00, 111.91, 1003.61,   0.00, 0.00, 270.00);
+CreateDynamicObject(2200, 260.95, 112.23, 1003.61,   0.00, 0.00, 0.00);
+CreateDynamicObject(941, 265.82, 120.16, 1004.09,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 263.74, 117.53, 1005.58,   0.00, 0.00, 90.00);
+CreateDynamicObject(356, 263.80, 117.32, 1005.43,   0.00, 0.00, 95.00);
+CreateDynamicObject(358, 270.38, 120.32, 1005.37,   0.00, 5.00, 275.00);
+CreateDynamicObject(349, 264.23, 120.66, 1005.13,   0.00, 9.00, 7.00);
+CreateDynamicObject(348, 265.41, 120.66, 1005.13,   0.00, 0.00, 5.00);
+CreateDynamicObject(2040, 265.12, 119.87, 1003.72,   0.00, 0.00, 0.00);
+CreateDynamicObject(3015, 267.54, 119.74, 1003.81,   0.00, 0.00, 0.00);
+CreateDynamicObject(343, 265.83, 120.14, 1004.69,   90.00, 5.00, 187.00);
+CreateDynamicObject(2043, 266.26, 116.79, 1004.53,   0.00, 0.00, 156.48);
+CreateDynamicObject(18637, 263.74, 119.06, 1004.19,   80.00, 0.00, 90.00);
+CreateDynamicObject(18637, 268.20, 111.54, 1006.10,   80.00, 0.00, 270.00);
+CreateDynamicObject(18637, 268.20, 111.01, 1006.10,   80.00, 0.00, 270.00);
+CreateDynamicObject(18637, 267.67, 111.96, 1005.46,   0.00, 350.00, 0.00);
+CreateDynamicObject(2358, 264.54, 119.83, 1003.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(334, 270.39, 120.21, 1005.25,   0.00, 95.00, 270.00);
+CreateDynamicObject(1649, 241.99, 119.71, 1005.53,   0.00, 0.00, 0.00);
+CreateDynamicObject(1649, 246.41, 119.71, 1005.53,   0.00, 0.00, 0.00);
+CreateDynamicObject(1649, 250.84, 119.71, 1005.53,   0.00, 0.00, 0.00);
+CreateDynamicObject(1649, 241.99, 119.71, 1005.53,   0.00, 0.00, 180.00);
+CreateDynamicObject(1649, 246.41, 119.71, 1005.53,   0.00, 0.00, 180.00);
+CreateDynamicObject(1649, 250.84, 119.71, 1005.53,   0.00, 0.00, 180.00);
+CreateDynamicObject(1649, 253.18, 116.98, 1005.37,   0.00, 0.00, 90.00);
+CreateDynamicObject(1649, 253.18, 116.98, 1005.37,   0.00, 0.00, 270.00);
+CreateDynamicObject(1649, 239.59, 112.81, 1005.35,   0.00, 0.00, 90.00);
+CreateDynamicObject(1649, 239.59, 112.81, 1005.35,   0.00, 0.00, 270.00);
+CreateDynamicObject(4100, 246.24, 119.69, 1005.06,   0.00, 180.00, 39.90);
+CreateDynamicObject(2482, 263.35, 107.18, 1003.59,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.58, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19610, 261.45, 107.75, 1004.54,   120.00, 0.00, 180.00);
+CreateDynamicObject(2596, 267.91, 109.68, 1005.27,   0.00, 0.00, 270.00);
+CreateDynamicObject(2008, 266.15, 109.34, 1003.60,   0.00, 0.00, 270.00);
+CreateDynamicObject(19942, 262.19, 107.71, 1004.45,   270.00, 90.00, -19.50);
+CreateDynamicObject(1510, 266.21, 109.12, 1004.42,   0.00, 0.00, 0.00);
+CreateDynamicObject(19625, 266.22, 109.07, 1004.46,   25.98, 70.50, 171.96);
+CreateDynamicObject(1510, 261.45, 107.69, 1004.44,   0.00, 180.00, 0.00);
+CreateDynamicObject(19942, 262.79, 107.49, 1004.67,   270.00, 90.00, -113.94);
+CreateDynamicObject(2612, 260.55, 109.97, 1005.45,   0.00, 0.00, 90.00);
+CreateDynamicObject(2961, 264.32, 116.03, 1005.07,   0.00, 0.00, 180.00);
+CreateDynamicObject(2961, 263.31, 112.72, 1005.07,   0.00, 0.00, 180.00);
+CreateDynamicObject(11713, 262.48, 112.68, 1005.26,   0.00, 0.00, 90.00);
+CreateDynamicObject(2961, 266.64, 107.13, 1005.07,   0.00, 0.00, 180.00);
+CreateDynamicObject(19422, 261.15, 107.58, 1004.43,   -5.10, -2.22, 34.14);
+CreateDynamicObject(19835, 260.96, 107.52, 1004.50,   0.00, 0.00, 0.00);
+CreateDynamicObject(19896, 266.03, 109.32, 1004.42,   0.00, 0.00, 72.12);
+CreateDynamicObject(2206, 237.16, 109.11, 1009.20,   0.00, 0.00, 90.00);
+CreateDynamicObject(11691, 229.29, 124.65, 1009.20,   0.00, 0.00, 0.00);
+CreateDynamicObject(2073, 229.23, 124.69, 1012.02,   0.00, 0.00, 0.00);
+CreateDynamicObject(2309, 229.27, 126.53, 1009.23,   0.00, 0.00, 180.00);
+CreateDynamicObject(2309, 230.01, 122.77, 1009.23,   0.00, 0.00, 0.00);
+CreateDynamicObject(2309, 228.63, 122.77, 1009.23,   0.00, 0.00, 0.00);
+CreateDynamicObject(1510, 230.31, 124.19, 1010.02,   0.00, 0.00, 0.00);
+CreateDynamicObject(19625, 230.35, 124.15, 1010.07,   50.00, 10.00, -156.22);
+CreateDynamicObject(1958, 228.44, 124.35, 1009.99,   0.00, 0.00, 180.00);
+CreateDynamicObject(19302, 253.15, 117.41, 1004.56,   0.00, 270.00, 90.00);
+CreateDynamicObject(19302, 253.21, 117.41, 1004.56,   0.00, 270.00, 90.00);
+CreateDynamicObject(19302, 239.61, 112.87, 1004.56,   0.00, 270.00, 90.00);
+CreateDynamicObject(19302, 239.55, 112.87, 1004.56,   0.00, 270.00, 90.00);
+CreateDynamicObject(1649, 232.90, 122.78, 1011.85,   0.00, 90.00, 90.00);
+CreateDynamicObject(1649, 232.90, 126.05, 1011.85,   0.00, 90.00, 90.00);
+CreateDynamicObject(1649, 232.90, 126.05, 1011.85,   0.00, 90.00, 270.00);
+CreateDynamicObject(1649, 232.90, 122.78, 1011.85,   0.00, 90.00, 270.00);
+CreateDynamicObject(8169, 232.90, 124.63, 1011.67,   -90.00, 15.00, 105.00);
+CreateDynamicObject(1649, 232.86, 122.78, 1011.85,   0.00, 90.00, 270.00);
+CreateDynamicObject(1649, 232.86, 126.05, 1011.85,   0.00, 90.00, 270.00);
+CreateDynamicObject(19302, 265.85, 115.85, 1005.82,   0.00, 270.00, 0.00);
+CreateDynamicObject(2008, 266.41, 116.89, 1003.61,   0.00, 0.00, 180.00);
+CreateDynamicObject(2445, 266.45, 116.04, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(2445, 265.46, 116.04, 1003.62,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 263.74, 118.85, 1005.58,   0.00, 0.00, 90.00);
+CreateDynamicObject(2509, 263.74, 120.16, 1005.58,   0.00, 0.00, 90.00);
+CreateDynamicObject(2509, 264.47, 120.73, 1005.58,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 265.79, 120.73, 1005.58,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 270.46, 120.07, 1005.58,   0.00, 0.00, 270.00);
+CreateDynamicObject(2509, 270.46, 118.75, 1005.58,   0.00, 0.00, 270.00);
+CreateDynamicObject(2509, 270.46, 117.44, 1005.58,   0.00, 0.00, 270.00);
+CreateDynamicObject(356, 263.80, 117.32, 1005.73,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 117.32, 1006.03,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 117.32, 1006.33,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 117.32, 1005.13,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 117.32, 1004.83,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.78, 118.67, 1006.33,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 118.67, 1006.03,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 118.67, 1005.73,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 118.67, 1005.43,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 118.67, 1005.13,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.78, 118.67, 1004.83,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.78, 119.93, 1004.83,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 119.93, 1005.13,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 119.93, 1005.43,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 119.93, 1005.73,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.80, 119.93, 1006.03,   0.00, 0.00, 95.00);
+CreateDynamicObject(356, 263.78, 119.93, 1006.33,   0.00, 0.00, 95.00);
+CreateDynamicObject(2509, 267.10, 120.73, 1005.58,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 268.42, 120.73, 1005.58,   0.00, 0.00, 0.00);
+CreateDynamicObject(2509, 269.74, 120.73, 1005.58,   0.00, 0.00, 0.00);
+CreateDynamicObject(349, 264.23, 120.66, 1004.83,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 264.23, 120.66, 1005.43,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 264.23, 120.66, 1005.73,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 264.23, 120.66, 1006.03,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 264.23, 120.66, 1006.33,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 265.61, 120.66, 1006.03,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 265.60, 120.66, 1006.33,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 266.88, 120.66, 1006.33,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 266.88, 120.66, 1006.03,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 268.20, 120.66, 1006.33,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 268.20, 120.66, 1006.03,   0.00, 9.00, 7.00);
+CreateDynamicObject(348, 266.01, 120.66, 1005.13,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 265.41, 120.66, 1005.43,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 266.01, 120.66, 1005.43,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 265.41, 120.66, 1005.73,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 266.01, 120.66, 1005.73,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 266.63, 120.66, 1005.73,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 267.25, 120.66, 1005.73,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 267.99, 120.66, 1005.73,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 268.59, 120.66, 1005.73,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 266.63, 120.66, 1005.43,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 267.25, 120.66, 1005.43,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 267.99, 120.66, 1005.43,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 268.59, 120.66, 1005.43,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 266.63, 120.66, 1005.13,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 267.25, 120.66, 1005.13,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 267.99, 120.66, 1005.13,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 268.59, 120.66, 1005.13,   0.00, 0.00, 5.00);
+CreateDynamicObject(349, 269.50, 120.66, 1006.03,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 269.50, 120.66, 1006.33,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 269.50, 120.66, 1005.73,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 269.50, 120.66, 1005.43,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 269.50, 120.66, 1005.13,   0.00, 9.00, 7.00);
+CreateDynamicObject(349, 269.50, 120.66, 1004.83,   0.00, 9.00, 7.00);
+CreateDynamicObject(348, 265.41, 120.66, 1004.83,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 266.01, 120.66, 1004.83,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 266.63, 120.66, 1004.83,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 267.27, 120.66, 1004.83,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 268.00, 120.66, 1004.83,   0.00, 0.00, 5.00);
+CreateDynamicObject(348, 268.59, 120.66, 1004.83,   0.00, 0.00, 5.00);
+CreateDynamicObject(358, 270.38, 120.32, 1005.73,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 120.32, 1006.03,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 120.32, 1006.33,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 118.98, 1005.73,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 118.98, 1006.03,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 118.98, 1006.33,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 118.98, 1005.37,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 117.70, 1006.33,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 117.70, 1006.03,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 117.70, 1005.73,   0.00, 5.00, 275.00);
+CreateDynamicObject(358, 270.38, 117.70, 1005.37,   0.00, 5.00, 275.00);
+CreateDynamicObject(334, 270.39, 120.21, 1004.97,   0.00, 95.00, 270.00);
+CreateDynamicObject(334, 270.39, 118.89, 1005.25,   0.00, 95.00, 270.00);
+CreateDynamicObject(334, 270.39, 118.89, 1004.97,   0.00, 95.00, 270.00);
+CreateDynamicObject(334, 270.39, 117.57, 1005.25,   0.00, 95.00, 270.00);
+CreateDynamicObject(334, 270.39, 117.57, 1004.97,   0.00, 95.00, 270.00);
+CreateDynamicObject(2359, 265.40, 120.02, 1004.78,   0.00, 0.00, 190.00);
+CreateDynamicObject(941, 268.18, 120.16, 1004.09,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 264.54, 119.83, 1003.96,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 264.54, 119.83, 1004.19,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 264.54, 119.83, 1004.42,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 264.54, 120.23, 1004.42,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 264.54, 120.23, 1004.19,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 264.54, 120.23, 1003.96,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 264.54, 120.23, 1003.73,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 263.97, 119.98, 1003.73,   0.00, 0.00, 90.00);
+CreateDynamicObject(2358, 263.97, 119.98, 1003.96,   0.00, 0.00, 90.00);
+CreateDynamicObject(2358, 263.97, 119.98, 1004.19,   0.00, 0.00, 90.00);
+CreateDynamicObject(3015, 267.97, 119.74, 1003.81,   0.00, 0.00, 0.00);
+CreateDynamicObject(3015, 268.41, 119.74, 1003.81,   0.00, 0.00, 0.00);
+CreateDynamicObject(3015, 269.12, 119.74, 1003.81,   0.00, 0.00, 0.00);
+CreateDynamicObject(18637, 263.74, 118.54, 1004.19,   80.00, 0.00, 90.00);
+CreateDynamicObject(18637, 263.74, 118.02, 1004.19,   80.00, 0.00, 90.00);
+CreateDynamicObject(18637, 263.74, 117.50, 1004.19,   80.00, 0.00, 90.00);
+CreateDynamicObject(2040, 265.30, 119.87, 1003.72,   0.00, 0.00, 0.00);
+CreateDynamicObject(2040, 265.48, 119.87, 1003.72,   0.00, 0.00, 0.00);
+CreateDynamicObject(2040, 265.66, 119.87, 1003.72,   0.00, 0.00, 0.00);
+CreateDynamicObject(2040, 265.84, 119.87, 1003.72,   0.00, 0.00, 0.00);
+CreateDynamicObject(2040, 265.12, 119.87, 1003.94,   0.00, 0.00, 0.00);
+CreateDynamicObject(2040, 265.30, 119.87, 1003.94,   0.00, 0.00, 0.00);
+CreateDynamicObject(2041, 265.48, 119.87, 1004.04,   0.00, 0.00, 0.00);
+CreateDynamicObject(343, 265.75, 120.13, 1004.69,   90.00, 5.00, 187.00);
+CreateDynamicObject(343, 265.66, 120.12, 1004.69,   90.00, 5.00, 187.00);
+CreateDynamicObject(343, 265.58, 120.11, 1004.69,   90.00, 5.00, 187.00);
+CreateDynamicObject(343, 265.50, 120.11, 1004.69,   90.00, 5.00, 187.00);
+CreateDynamicObject(343, 265.42, 120.10, 1004.69,   90.00, 5.00, 187.00);
+CreateDynamicObject(343, 266.08, 120.02, 1004.63,   2.00, 0.00, 187.00);
+CreateDynamicObject(343, 265.99, 119.92, 1004.63,   2.00, 0.00, 139.54);
+CreateDynamicObject(365, 266.32, 120.11, 1004.73,   0.00, -8.00, 0.00);
+CreateDynamicObject(365, 266.24, 119.99, 1004.73,   0.00, -8.00, 0.00);
+CreateDynamicObject(365, 266.34, 120.01, 1004.73,   0.00, -8.00, 0.00);
+CreateDynamicObject(2358, 269.81, 119.24, 1003.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.21, 119.24, 1003.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 269.81, 118.52, 1003.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 269.81, 117.80, 1003.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 269.81, 117.08, 1003.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.23, 117.08, 1003.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.23, 117.80, 1003.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.23, 118.52, 1003.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 269.81, 117.08, 1003.96,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.23, 117.80, 1003.96,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.23, 117.08, 1003.96,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 269.81, 117.80, 1003.96,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 269.82, 118.54, 1003.96,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.24, 118.54, 1003.96,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.21, 119.24, 1003.96,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 269.81, 119.24, 1003.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.21, 119.24, 1004.19,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.24, 118.54, 1004.19,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 269.82, 118.54, 1004.19,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.23, 117.80, 1004.19,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 270.23, 117.08, 1004.19,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 269.00, 120.10, 1004.69,   0.00, 0.00, 302.94);
+CreateDynamicObject(2596, 267.91, 109.06, 1005.27,   0.00, 0.00, 270.00);
+CreateDynamicObject(2596, 267.91, 108.44, 1005.27,   0.00, 0.00, 270.00);
+CreateDynamicObject(2596, 267.91, 107.82, 1005.27,   0.00, 0.00, 270.00);
+CreateDynamicObject(2596, 267.91, 109.68, 1006.01,   0.00, 0.00, 270.00);
+CreateDynamicObject(2596, 267.91, 109.06, 1006.01,   0.00, 0.00, 270.00);
+CreateDynamicObject(2596, 267.91, 108.44, 1006.01,   0.00, 0.00, 270.00);
+CreateDynamicObject(2596, 267.91, 107.82, 1006.01,   0.00, 0.00, 270.00);
+CreateDynamicObject(19942, 263.58, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.58, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.58, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.50, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.42, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.34, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.26, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.18, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.10, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.02, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.94, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.86, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.78, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.70, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.62, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.66, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.74, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.54, 107.29, 1005.68,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.74, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.66, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.42, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.50, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.34, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.26, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.18, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.10, 107.27, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.02, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.94, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.86, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.78, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.70, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.62, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.54, 107.29, 1005.38,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.74, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.66, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.50, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.42, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.34, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.26, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.18, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.10, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.02, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.94, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.86, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.78, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.70, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.62, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.54, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.74, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.66, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.50, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.42, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.34, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.26, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.18, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.10, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 263.02, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.94, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.86, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.78, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.70, 107.29, 1005.06,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.54, 107.29, 1004.74,   0.00, 0.00, 180.00);
+CreateDynamicObject(19942, 262.64, 107.42, 1004.67,   270.00, 90.00, -82.32);
+CreateDynamicObject(2165, 220.55, 119.34, 998.02,   0.00, 0.00, 0.00);
+CreateDynamicObject(1806, 221.22, 118.95, 998.00,   3.14, 0.00, 0.00);
+CreateDynamicObject(19805, 223.94, 124.78, 999.71,   0.00, 0.00, 0.00);
+CreateDynamicObject(19611, 223.93, 122.16, 998.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(19623, 223.94, 122.17, 999.65,   0.00, 0.00, 180.00);
+CreateDynamicObject(19302, 224.38, 112.63, 999.28,   0.00, 0.00, 180.00);
+CreateDynamicObject(19302, 224.38, 112.69, 999.28,   0.00, 0.00, 180.00);
+CreateDynamicObject(19302, 228.28, 112.63, 999.28,   0.00, 0.00, 180.00);
+CreateDynamicObject(19302, 220.40, 112.63, 999.28,   0.00, 0.00, 180.00);
+CreateDynamicObject(19302, 216.48, 112.63, 999.28,   0.00, 0.00, 180.00);
+CreateDynamicObject(19302, 228.28, 112.69, 999.28,   0.00, 0.00, 180.00);
+CreateDynamicObject(19302, 220.40, 112.69, 999.28,   0.00, 0.00, 180.00);
+CreateDynamicObject(19302, 216.48, 112.69, 999.28,   0.00, 0.00, 180.00);
+CreateDynamicObject(19304, 215.59, 112.63, 1001.14,   0.00, 0.00, 180.00);
+CreateDynamicObject(19304, 219.53, 112.63, 1001.14,   0.00, 0.00, 180.00);
+CreateDynamicObject(19304, 223.50, 112.63, 1001.14,   0.00, 0.00, 180.00);
+CreateDynamicObject(19304, 227.40, 112.63, 1001.14,   0.00, 0.00, 180.00);
+CreateDynamicObject(1800, 228.67, 106.01, 998.02,   0.00, 0.00, 0.00);
+CreateDynamicObject(1800, 224.48, 106.06, 998.02,   0.00, 0.00, 0.00);
+CreateDynamicObject(1800, 220.48, 106.10, 998.02,   0.00, 0.00, 0.00);
+CreateDynamicObject(1800, 216.55, 106.06, 998.02,   0.00, 0.00, 0.00);
+
 // Mapeo de puertas
 
 //Puertas - LSPD
@@ -15302,7 +15793,7 @@ case	NGMENU:
 		}
 		case 3: // NG Undercover
 		{
-			ShowPlayerDialog(playerid, FDUTYMENU4, DIALOG_STYLE_INPUT, "Encubierto","Escoge un skin (por ID).", "Ok", "Cancelar");
+			ShowPlayerDialog(playerid, FBITAQUILLA4, DIALOG_STYLE_INPUT, "Encubierto","Escoge un skin (por ID).", "Ok", "Cancelar");
 		}
 		case 4: // NG Heal
 		{
@@ -15980,33 +16471,26 @@ case	NGMENUWEP:
                     {
 					    case 1:
 				        {
-					        format(szMessage, sizeof(szMessage), "* Oficial %s coje una placa y su pistola.", GetPlayerNameEx(playerid));
+					        format(szMessage, sizeof(szMessage), "%s coge su identificación y su chaleco antibalas de su taquilla.", GetPlayerNameEx(playerid));
 					        ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 					        SetPlayerColor(playerid, TEAM_BLUE_COLOR);
-                            SetPlayerSkin(playerid, 280);
 					        SetPlayerArmour(playerid, 100.0);
 					        GivePlayerValidWeapon(playerid, 24);
-					        GivePlayerValidWeapon(playerid, 41);
-					        GivePlayerValidWeapon(playerid, 3);
 					        OnDuty[playerid] = 1;
                         }
                         case 2:
 				        {
-					        format(szMessage, sizeof(szMessage), "* Oficial %s coje una placa y su pistola.", GetPlayerNameEx(playerid));
+					        format(szMessage, sizeof(szMessage), "%s coge su identificación y su chaleco antibalas de su taquilla.", GetPlayerNameEx(playerid));
 					        ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 					        SetPlayerColor(playerid, TEAM_BLUE_COLOR);
-					        SetPlayerSkin(playerid, 194);
     				        SetPlayerArmour(playerid, 100.0);
-					        GivePlayerValidWeapon(playerid, 24);
-					        GivePlayerValidWeapon(playerid, 41);
-					        GivePlayerValidWeapon(playerid, 3);
 					        OnDuty[playerid] = 1;
                         }
 					}
 				}
 				else if(OnDuty[playerid] == 1)
 				{
-					format(szMessage, sizeof(szMessage), "* Oficial %s deja sus cosas en su casillero.", GetPlayerNameEx(playerid));
+					format(szMessage, sizeof(szMessage), "%s deja su identificación y su chaleco antibalas en su taquilla.", GetPlayerNameEx(playerid));
 					ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 					SetPlayerColor(playerid, TEAM_HIT_COLOR);
 					SetPlayerArmour(playerid, 0.0);
@@ -16014,28 +16498,30 @@ case	NGMENUWEP:
 					OnDuty[playerid] = 0;
 				}
 			}
-			if(listitem == 1) // LSPD Weapons
+			if(listitem == 1) // LSPD Armas
 			{
-				ShowPlayerDialog(playerid, DUTYMENU2, DIALOG_STYLE_LIST, "LSPD Equipo","Mace\nNite Stick\nDesert Eagle\nSPAS-12\nMP5\nM4A1\nAK-47\nSmoke Grenade\nShotgun\nRifle\nSniper Rifle\nKevlar Vest\nFirst Aid Kit\nAccessorios", "Ok", "Cancelar");
+				ShowPlayerDialog(playerid, DUTYMENU2, DIALOG_STYLE_LIST, "LSPD Equipo","Espray de pimienta\nTonfa\nDesert Eagle\nEscopeta\nM4A1\nRifle de francotirador\nGranada de gas\nCámara\nChaleco Antibalas\nAnalgésicos\nAccesorios", "Ok", "Cancelar");
 			}
 			if(listitem == 2) // LSPD SWAT Uniform
 			{
 			    if(Info[playerid][pDivision] == 5)
 			    {
 					SetPlayerSkin(playerid, 285);
+					SetPlayerArmour(playerid, 100.0);
+					
 				}
 				else
 				{
-				    SendClientMessageEx(playerid, COLOR_WHITE, "No eres de la división de SWAT.");
+				    SendClientMessageEx(playerid, COLOR_WHITE, "No perteneces a la Unidad de Intervención Policial.");
 				}
 			}
-			if(listitem == 3) // LSPD Uniforms
+			if(listitem == 3) // LSPD Uniformes
 			{
-				ShowPlayerDialog(playerid, DUTYMENU3, DIALOG_STYLE_LIST, "Uniformes LSPD","Cadete\nOficial Femenina\nOficial 1\nOficial 2\nOficial 3\nOficial Negro\nOficial Latino\nOficial Moto.\nOficial SWAT\nSargento\nCapitan\nComandante", "Ponerse", "Cancelar");
+				ShowPlayerDialog(playerid, DUTYMENU3, DIALOG_STYLE_LIST, "Uniformes LSPD","Uniforme 1 (Caucásico)\nUniforme 2 (Caucásico)\nUniforme 3 (Caucásico)\nUniforme 4 (Afroamericano)\nUniforme 5 (Latino)\nUniforme 6 (Motorista)\nUniforme 7 (Mujer)\nUniforme 8 (Mujer)", "Seleccionar", "Cancelar");
 			}
-			if(listitem == 4) // LSPD Undercover Uniform
+			if(listitem == 4) // Encubierto
 			{
-				ShowPlayerDialog(playerid, FDUTYMENU4, DIALOG_STYLE_INPUT, "Encubierto","Elige un Skin (por ID).", "Ok", "Cancelar");
+				ShowPlayerDialog(playerid, FBITAQUILLA4, DIALOG_STYLE_INPUT, "Encubierto","Elige un Skin (por ID).", "Ok", "Cancelar");
 			}
 		}
 	}
@@ -16048,46 +16534,28 @@ case	NGMENUWEP:
 				case 0: GivePlayerValidWeapon(playerid, 41);
 				case 1: GivePlayerValidWeapon(playerid, 3);
 				case 2: GivePlayerValidWeapon(playerid, 24);
-				case 3:
+				case 3: GivePlayerValidWeapon(playerid, 25);
+				case 4:
 				{
-					if(Info[playerid][pDivision] == 5 || Info[playerid][pRank] >= 1)
+					if(Info[playerid][pDivision] == 5 || Info[playerid][pRank] >= 3)
 					{
-						GivePlayerValidWeapon(playerid, 27);
-						Tax -= 10000;
+						GivePlayerValidWeapon(playerid, 31);
 					}
-					else SendClientMessageEx(playerid, COLOR_GREY, "* No eres de la división SWAT, o no eres mayor al rango 2.");
+					else SendClientMessageEx(playerid, COLOR_GREY, "* No eres de la Unidad de Intervención Policial, o no eres rango 3.");
 				}
-				case 4: GivePlayerValidWeapon(playerid, 29);
-				case 5: GivePlayerValidWeapon(playerid, 31);
-				case 6: // LSPD ak-47 *
+				case 5:
 				{
-					if(Info[playerid][pDivision] == 5 || Info[playerid][pRank] >= 1)
-					{
-						GivePlayerValidWeapon(playerid, 30);
-					}
-					else SendClientMessageEx(playerid, COLOR_GREY, "* No eres de la división SWAT, o no eres mayor al rango 3.");
-				}
-				case 7: // LSPD Smoke Bomb *
-				{
-					if(Info[playerid][pDivision] == 5 || Info[playerid][pRank] >= 1)
-					{
-						GivePlayerValidWeapon(playerid, 17);
-					}
-					else SendClientMessageEx(playerid, COLOR_GREY, "* No eres de la división SWAT, o no eres mayor al rango 3.");
-				}
-				case 8: GivePlayerValidWeapon(playerid, 25);
-				case 9: GivePlayerValidWeapon(playerid, 33);
-				case 10: // LSPD Sniper *
-				{
-					if(Info[playerid][pDivision] == 5 || Info[playerid][pRank] >= 1)
+					if(Info[playerid][pDivision] == 5 || Info[playerid][pRank] >= 3)
 					{
 						GivePlayerValidWeapon(playerid, 34);
 					}
-					else SendClientMessageEx(playerid, COLOR_GREY, "* No eres de la división SWAT, o no eres mayor al rango 3.");
+					else SendClientMessageEx(playerid, COLOR_GREY, "* No eres de la Unidad de Intervención Policial, o no eres rango 3.");
 				}
-				case 11: SetPlayerArmour(playerid, 100.0);
-				case 12: SetHP(playerid, 100);
-				case 13: ShowPlayerDialog( playerid, BUYTOYSCOP, DIALOG_STYLE_MSGBOX, "Accessorios", "Bienvenido al casillero de accesorios del LSPD","Continuar", "Cancelar" );
+				case 6: GivePlayerValidWeapon(playerid, 17);
+				case 7: GivePlayerValidWeapon(playerid, 43);
+				case 8: SetPlayerArmour(playerid, 100.0);
+				case 9: SetHP(playerid, 100);
+				case 10: ShowPlayerDialog( playerid, BUYTOYSCOP, DIALOG_STYLE_MSGBOX, "LSPD - Vestuario", "Accesorios del LSPD","Continuar", "Cancelar" );
 			}
 			else return SendClientMessageEx(playerid,COLOR_WHITE,"El gobierno no tiene fondos para facilitar armas.");
 		}
@@ -16098,22 +16566,18 @@ case	NGMENUWEP:
 		{
 		    switch(listitem)
 		    {
-		        case 0: SetPlayerSkin(playerid, 71);
-		        case 1: SetPlayerSkin(playerid, 141);
-		        case 2: SetPlayerSkin(playerid, 280);
-		        case 3: SetPlayerSkin(playerid, 266);
-		        case 4: SetPlayerSkin(playerid, 281);
-		        case 5: SetPlayerSkin(playerid, 265);
-		        case 6: SetPlayerSkin(playerid, 267);
-		        case 7: SetPlayerSkin(playerid, 284);
-		        case 8: SetPlayerSkin(playerid, 285);
-				case 9: SetPlayerSkin(playerid, 282);
-		        case 10: SetPlayerSkin(playerid, 283);
-		        case 11: SetPlayerSkin(playerid, 288);
+		        case 0: SetPlayerSkin(playerid, 280); //Uniforme 1 (Caucásico)
+		        case 1: SetPlayerSkin(playerid, 281); //Uniforme 2 (Caucásico)
+		        case 2: SetPlayerSkin(playerid, 266); //Uniforme 3 (Caucásico)
+		        case 3: SetPlayerSkin(playerid, 265); //Uniforme 4 (Afroamericano)
+		        case 4: SetPlayerSkin(playerid, 267); //Uniforme 5 (Latino)
+		        case 5: SetPlayerSkin(playerid, 284); //Uniforme 6 (Motorista)
+		        case 6: SetPlayerSkin(playerid, 306); //Uniforme 7 (Mujer)
+		        case 7: SetPlayerSkin(playerid, 307); //Uniforme 8 (Mujer)
 		    }
 		}
 	}
-	case FDUTYMENU:
+	case FBITAQUILLA:
 	{
 		if(response)
 		{
@@ -16121,19 +16585,15 @@ case	NGMENUWEP:
 			{
 				if(OnDuty[playerid] == 0)
 				{
-					format(szMessage, sizeof(szMessage), "* Agente %s coge una placa y una pistola de su casillero.", GetPlayerNameEx(playerid));
+					format(szMessage, sizeof(szMessage), "%s coge su identificación y su chaleco antibalas de su taquilla.", GetPlayerNameEx(playerid));
 					ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 					SetPlayerColor(playerid, TEAM_FBI_COLOR);
 					SetPlayerArmour(playerid, 100.0);
-					GivePlayerValidWeapon(playerid, 24);
-					GivePlayerValidWeapon(playerid, 41);
-					GivePlayerValidWeapon(playerid, 3);
-					GivePlayerValidWeapon(playerid, 29);
 					OnDuty[playerid] = 1;
 				}
 				else if(OnDuty[playerid] == 1)
 				{
-					format(szMessage, sizeof(szMessage), "* Agente %s deja su placa y su arma en su casillero.", GetPlayerNameEx(playerid));
+					format(szMessage, sizeof(szMessage), "%s deja su identificación y su chaleco antibalas en su taquilla.", GetPlayerNameEx(playerid));
 					ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 					SetPlayerColor(playerid, TEAM_HIT_COLOR);
 					SetPlayerSkin(playerid, Info[playerid][pChar]);
@@ -16144,30 +16604,31 @@ case	NGMENUWEP:
 		}
 		if(listitem == 1) // FBI Weapons
 		{
-			ShowPlayerDialog(playerid, FDUTYMENU2, DIALOG_STYLE_LIST, "FBI Armas","Mace\nNite Stick\nDesert Eagle\nSPAS-12\nMP5\nM4A1\nAK-47\nSmoke Grenade\nCamara\nSniper Rifle\nTactical Vest\nFirst Aid Kit\nAccesorios", "Ok", "Cancelar");
+			ShowPlayerDialog(playerid, FBITAQUILLA2, DIALOG_STYLE_LIST, "FBI Armas","Espray de pimienta\nTonfa\nDesert Eagle\nEscopeta\nM4A1\nRifle de francotirador\nGranada de gas\nCámara\nChaleco Antibalas\nAnalgésicos\nAccesorios", "Seleccionar", "Cancelar");
 		}
 		if(listitem == 2) // FBI SWAT Uniform
 		{
-       	    if(Info[playerid][pRank] > 3)
-			{
-				SetPlayerSkin(playerid, 285);
-			}
-			else
-			{
-				SendClientMessageEx(playerid, COLOR_GREY, "* No tienes el rango requerido (3)!");
-				return 1;
-			}
-		}
+			    if(Info[playerid][pDivision] == 5)
+			    {
+					SetPlayerSkin(playerid, 285);
+					SetPlayerArmour(playerid, 100.0);
+
+				}
+				else
+				{
+				    SendClientMessageEx(playerid, COLOR_WHITE, "No perteneces a la Unidad de Intervención.");
+				}
+        }
 		if(listitem == 3) // FBI Uniforms
 		{
-			ShowPlayerDialog(playerid, FDUTYMENU3, DIALOG_STYLE_LIST, "Uniformes FBI","Agente con escudo\nAgente 1\nAgente 2\nAgente Asiatico\nAgente Asiatico 2\nSWAT\nMujer", "Poner", "Cancelar");
+			ShowPlayerDialog(playerid, FBITAQUILLA3, DIALOG_STYLE_LIST, "Uniformes FBI","Uniforme identificado\nTrajeado 1 (Caucásico)\nTrajeado 2 (Caucásico)\nTrajeado 3 (Afroamericano)\nTrajeado 4 (Afroamericano)\nTrajeado 5 (Asiático)\nTrajeado 6 (Mujer)", "Seleccionar", "Cancelar");
 		}
 		if(listitem == 4) // FBI Undercover Uniform
 		{
-			ShowPlayerDialog(playerid, FDUTYMENU4, DIALOG_STYLE_INPUT, "Encubierto","Elige un skin (por ID).", "Ok", "Cancelar");
+			ShowPlayerDialog(playerid, FBITAQUILLA4, DIALOG_STYLE_INPUT, "Encubierto","Elige un skin (por ID).", "Seleccionar", "Cancelar");
 		}
 	}
-	case FDUTYMENU2:
+	case FBITAQUILLA2:
 	{
 		if(response)
 		{
@@ -16177,48 +16638,60 @@ case	NGMENUWEP:
 				case 0: GivePlayerValidWeapon(playerid, 41);
 				case 1: GivePlayerValidWeapon(playerid, 3);
 				case 2: GivePlayerValidWeapon(playerid, 24);
-				case 3:	GivePlayerValidWeapon(playerid, 27);
-				case 4: GivePlayerValidWeapon(playerid, 29);
-				case 5: GivePlayerValidWeapon(playerid, 31);
-				case 6: GivePlayerValidWeapon(playerid, 30);
-				case 7: GivePlayerValidWeapon(playerid, 17);
-				case 8: GivePlayerValidWeapon(playerid, 43);
-				case 9: GivePlayerValidWeapon(playerid, 34);
-				case 10: SetPlayerArmour(playerid, 100);
-				case 11: SetHP(playerid, 100);
+				case 3:	GivePlayerValidWeapon(playerid, 25);
+				case 4:
+				{
+					if(Info[playerid][pDivision] == 5 || Info[playerid][pRank] >= 3)
+					{
+						GivePlayerValidWeapon(playerid, 31);
+					}
+					else SendClientMessageEx(playerid, COLOR_GREY, "* No eres de la Unidad de Intervención o no eres rango 3.");
+				}
+				case 5:
+				{
+					if(Info[playerid][pDivision] == 5 || Info[playerid][pRank] >= 3)
+					{
+						GivePlayerValidWeapon(playerid, 34);
+					}
+					else SendClientMessageEx(playerid, COLOR_GREY, "* No eres de la Unidad de Intervención o no eres rango 3.");
+				}
+				case 6: GivePlayerValidWeapon(playerid, 41);
+				case 7: GivePlayerValidWeapon(playerid, 43);
+				case 8: SetPlayerArmour(playerid, 100);
+				case 9: SetHP(playerid, 100);
 				default: ShowPlayerDialog( playerid, BUYTOYSCOP, DIALOG_STYLE_MSGBOX, "Accesorios", "Bienvenido al casillero de accesorios del FBI!","Continuar", "Cancelar" );
 			}
 		}
 	}
-	case FDUTYMENU3:
+	case FBITAQUILLA3:
 	{
 		if(response)
 		{
-			if(listitem == 0) // FBI Uniforms
+			if(listitem == 0) // Uniforme identificado
 			{
 				SetPlayerSkin(playerid, 286);
 			}
-			if(listitem == 1) //FBI Uniforms
+			if(listitem == 1) //Trajeado 1 (Caucásico)
 			{
-				SetPlayerSkin(playerid, 166);
+				SetPlayerSkin(playerid, 164);
 			}
-			if(listitem == 2) // FBI Uniforms
+			if(listitem == 2) //Trajeado 2 (Caucásico)
 			{
 				SetPlayerSkin(playerid, 165);
 			}
-			if(listitem == 3) // FBI Uniforms
+			if(listitem == 3) //Trajeado 3 (Afroamericano)
 			{
-				SetPlayerSkin(playerid, 294);
+				SetPlayerSkin(playerid, 163);
 			}
-			if(listitem == 4) // FBI Uniforms
+			if(listitem == 4) //Trajeado 4 (Afroamericano)
 			{
-				SetPlayerSkin(playerid, 120);
+				SetPlayerSkin(playerid, 166);
 			}
-			if(listitem == 5) //FBI Uniforms
+			if(listitem == 5) //Trajeado 5 (Asiático)
 			{
-				SetPlayerSkin(playerid, 285);
+				SetPlayerSkin(playerid, 208);
 			}
-			if(listitem == 6) //FBI Uniforms
+			if(listitem == 6) //Trajeado 6 (Mujer)
 			{
 				SetPlayerSkin(playerid, 141);
 			}
@@ -16279,13 +16752,13 @@ case	NGMENUWEP:
     	    }
 	    }
 	}*/
-	case FDUTYMENU4:
+	case FBITAQUILLA4:
 	{
 		if(response)
 		{
  	        new skinid = strval(inputtext);
-	        if(!IsValidSkin(skinid)) return SendClientMessageEx(playerid, COLOR_GRAD2, "ERROR! Skin de 1 a 299");
-			if(!IsPublicSkin(skinid)) return ShowPlayerDialog(playerid, FDUTYMENU4, DIALOG_STYLE_INPUT, "Encubierto","Skin Inválido. Escoge otro.", "Seleccionar", "Cancelar");
+	        if(!IsValidSkin(skinid)) return SendClientMessageEx(playerid, COLOR_GRAD2, "Selecciona una skin (IDs: 0 - 311)");
+			if(!IsPublicSkin(skinid)) return ShowPlayerDialog(playerid, FBITAQUILLA4, DIALOG_STYLE_INPUT, "Encubierto","Skin Inválido. Escoge otro.", "Seleccionar", "Cancelar");
 			Info[playerid][pChar] = skinid;
 			SetPlayerSkin(playerid, Info[playerid][pChar]);
 		}
@@ -31252,18 +31725,6 @@ CMD:tomarpizza(playerid, params[])
 	}
 	return 1;
 }
-CMD:saem(playerid, params[])
-{
-	if(Team_GuardiaNacional(playerid))
-	{
-		if(IsPlayerInRangeOfPoint(playerid,10.0,298.0089,-106.0455,985.5322) && GetPlayerVirtualWorld(playerid) == 8)// NG Duty
-		{
-			ShowPlayerDialog(playerid, NGMENU, DIALOG_STYLE_LIST, "Equipo","Duty\nUniformes\nArmas\nEncubierto\nKevlar Vest\nFirst Aid Kit\nAccessorios\nParacaídas", "Select", "Cancel");
-		}
-		else return SendClientMessageEx(playerid, COLOR_GREY, "* No puedes acceder a los casilleros de la Guardia Nacional.");
-	}
-	return 1;
-}
 
 zcmd(racall, playerid, params[])
 {
@@ -34360,23 +34821,25 @@ else SendClientMessageEx(playerid, COLOR_GRAD2, "  No eres policía!");
 return 1;
 }
 
-CMD:fbi(playerid, params[]){
+CMD:taquilla(playerid, params[]){
 if(Team_FBI(playerid))	{
 	if(PlayerToPoint(5, playerid, 310.6649,-1537.4591,-45.1338) || PlayerToPoint(5, playerid, 310.6895,-1543.0925,-45.1338))		{
-		ShowPlayerDialog(playerid, FDUTYMENU, DIALOG_STYLE_LIST, "FBI Menu","Duty\nEquipo\nUniforme SWAT\nUniformes\nEncubierto", "Ok", "Cancelar");
+		ShowPlayerDialog(playerid, FBITAQUILLA, DIALOG_STYLE_LIST, "FBI - Taquilla","Duty\nEquipo\nOperaciones Especiales\nUniformes\nEncubierto", "Seleccionar", "Cancelar");
 	}
-	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en los casilleros del FBI.");
-}
-return 1;
-}
-
-CMD:lspd(playerid, params[]){
-if(Team_LSPD(playerid))	{
+	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en el vestuario.");
+	}
+else if(Team_LSPD(playerid))	{
 	if(PlayerToPoint(5, playerid, 1457.2192,-1761.9324,3285.2859) || PlayerToPoint(5, playerid,327.2326,307.2340,999.1484) ){
-		ShowPlayerDialog(playerid, DUTYMENU, DIALOG_STYLE_LIST, "LSPD Menu","Duty\nEquipo\nSWAT\nUniformes\nEncubierto", "Ok", "Cancelar");
+		ShowPlayerDialog(playerid, DUTYMENU, DIALOG_STYLE_LIST, "LSPD - Taquilla","Duty\nEquipo\nSWAT\nUniformes\nEncubierto", "Seleccionar", "Cancelar");
 	}
-	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en los casilleros de LSPD.");
-}
+	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en el vestuario.");
+    }
+else if(Team_GuardiaNacional(playerid))	{
+	if(PlayerToPoint(5, playerid,298.0089,-106.0455,985.5322)){
+		ShowPlayerDialog(playerid, NGMENU, DIALOG_STYLE_LIST, "Guardia Nacional - Taquilla","Duty\nUniformes\nArmas\nEncubierto\nKevlar Vest\nFirst Aid Kit\nAccessorios\nParacaídas", "Seleccionar", "Cancelar");
+	}
+	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en el vestuario.");
+    }
 return 1;
 }
 
@@ -40783,6 +41246,62 @@ function MapsRemoveForPlayer(playerid)
 	// Twin Towers Prison By Jayceon
 	RemoveBuildingForPlayer(playerid, 4080, 1787.1328, -1565.6797, 11.9688, 0.25);
     RemoveBuildingForPlayer(playerid, 4000, 1787.1328, -1565.6797, 11.9688, 0.25);
+    //LSPD Interior by Jayceon
+    RemoveBuildingForPlayer(playerid, 1771, 216.6484, 108.4219, 998.6719, 0.25);
+    RemoveBuildingForPlayer(playerid, 1771, 220.5703, 108.4219, 998.6719, 0.25);
+    RemoveBuildingForPlayer(playerid, 1771, 224.5625, 108.4219, 998.6719, 0.25);
+    RemoveBuildingForPlayer(playerid, 2165, 223.0703, 120.0625, 998.0156, 0.25);
+    RemoveBuildingForPlayer(playerid, 2165, 223.0703, 122.0469, 998.0156, 0.25);
+    RemoveBuildingForPlayer(playerid, 1806, 223.3984, 120.4219, 998.0000, 0.25);
+    RemoveBuildingForPlayer(playerid, 1715, 221.9766, 123.7344, 1009.2188, 0.25);
+    RemoveBuildingForPlayer(playerid, 1715, 222.0781, 124.6641, 1009.2188, 0.25);
+    RemoveBuildingForPlayer(playerid, 1715, 223.6016, 123.6797, 1009.2188, 0.25);
+    RemoveBuildingForPlayer(playerid, 1715, 223.6406, 124.6250, 1009.2188, 0.25);
+    RemoveBuildingForPlayer(playerid, 1715, 222.0547, 125.6719, 1009.2188, 0.25);
+    RemoveBuildingForPlayer(playerid, 1715, 222.8281, 127.2266, 1009.2188, 0.25);
+    RemoveBuildingForPlayer(playerid, 2029, 222.9531, 126.3750, 1009.2109, 0.25);
+    RemoveBuildingForPlayer(playerid, 1715, 223.6250, 125.6797, 1009.2188, 0.25);
+    RemoveBuildingForPlayer(playerid, 2197, 225.4375, 121.1797, 1009.2500, 0.25);
+    RemoveBuildingForPlayer(playerid, 2197, 226.2031, 121.1797, 1009.2500, 0.25);
+    RemoveBuildingForPlayer(playerid, 2356, 224.2031, 121.7266, 997.9922, 0.25);
+    RemoveBuildingForPlayer(playerid, 2204, 225.1094, 122.7422, 1009.2422, 0.25);
+    RemoveBuildingForPlayer(playerid, 2204, 225.1094, 125.9688, 1009.2422, 0.25);
+    RemoveBuildingForPlayer(playerid, 1771, 228.7031, 108.4219, 998.6719, 0.25);
+    RemoveBuildingForPlayer(playerid, 2210, 226.7891, 128.3984, 1009.2109, 0.25);
+    RemoveBuildingForPlayer(playerid, 2197, 226.9922, 121.1797, 1009.2500, 0.25);
+    RemoveBuildingForPlayer(playerid, 2199, 228.6719, 119.7500, 1009.2422, 0.25);
+	RemoveBuildingForPlayer(playerid, 1715, 228.3516, 124.1172, 1009.2188, 0.25);
+	RemoveBuildingForPlayer(playerid, 1714, 229.1953, 126.0234, 1009.2109, 0.25);
+	RemoveBuildingForPlayer(playerid, 1715, 229.6328, 124.1172, 1009.2109, 0.25);
+	RemoveBuildingForPlayer(playerid, 2206, 230.0078, 125.1172, 1009.2031, 0.25);
+	RemoveBuildingForPlayer(playerid, 2241, 232.2813, 127.8984, 1009.7344, 0.25);
+	RemoveBuildingForPlayer(playerid, 2211, 231.2891, 128.3906, 1009.2188, 0.25);
+	RemoveBuildingForPlayer(playerid, 1715, 235.7500, 109.5469, 1009.2188, 0.25);
+	RemoveBuildingForPlayer(playerid, 1715, 235.8438, 110.8203, 1009.2188, 0.25);
+	RemoveBuildingForPlayer(playerid, 2194, 236.6875, 108.9922, 1010.3516, 0.25);
+	RemoveBuildingForPlayer(playerid, 1714, 237.8438, 109.8906, 1009.2734, 0.25);
+	RemoveBuildingForPlayer(playerid, 2184, 236.6172, 111.0156, 1009.2813, 0.25);
+	RemoveBuildingForPlayer(playerid, 14847, 246.2344, 117.8047, 1005.6094, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 259.3984, 107.8750, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 261.5781, 107.8750, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 1806, 269.5391, 108.2109, 1003.5859, 0.25);
+	RemoveBuildingForPlayer(playerid, 1806, 272.8438, 108.2109, 1003.5859, 0.25);
+	RemoveBuildingForPlayer(playerid, 1806, 276.0313, 108.2109, 1003.5859, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 259.4063, 108.7109, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 259.4766, 109.5469, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 261.5781, 108.7109, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 261.5313, 109.5469, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 2165, 274.6875, 108.5703, 1003.5938, 0.25);
+	RemoveBuildingForPlayer(playerid, 2165, 271.5234, 108.5703, 1003.5938, 0.25);
+	RemoveBuildingForPlayer(playerid, 2165, 276.3281, 108.5703, 1003.5938, 0.25);
+	RemoveBuildingForPlayer(playerid, 2165, 269.8359, 108.5703, 1003.5938, 0.25);
+	RemoveBuildingForPlayer(playerid, 2165, 273.1406, 108.5703, 1003.5938, 0.25);
+	RemoveBuildingForPlayer(playerid, 2356, 270.4375, 108.8047, 1003.6016, 0.25);
+	RemoveBuildingForPlayer(playerid, 2356, 273.7344, 108.8047, 1003.6016, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 259.4063, 111.2813, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 259.4453, 110.3672, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 259.4453, 112.0547, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 1722, 261.4766, 110.3672, 1007.7891, 0.25);
 	// Guardia Nacional by Jayceon
     RemoveBuildingForPlayer(playerid, 16590, 199.3438, 1943.7891, 18.2031, 0.25);
     RemoveBuildingForPlayer(playerid, 16619, 199.3359, 1943.8750, 18.2031, 0.25);
