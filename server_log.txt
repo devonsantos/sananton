@@ -29650,3 +29650,1708 @@ Number of vehicle models: 68
 [join] Devon_Santos has joined the server (1:127.0.0.1)
 [death] Jayceon_Santos died 54
 [part] Devon_Santos has left the server (1:0)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[connection] 127.0.0.1:50352 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:50352 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+[part] Devon_Santos has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[connection] 127.0.0.1:60006 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:60006 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:62964 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:62964 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:49819 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:49819 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:50997 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:50997 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[part] Devon_Santos has left the server (0:0)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[connection] 127.0.0.1:59675 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:59675 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+[query:p] from 127.0.0.1
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[connection] 127.0.0.1:55839 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:55839 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:49678 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:49678 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:56382 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:56382 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:64881 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:64881 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:57850 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:57850 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:52266 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:52266 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+[part] Devon_Santos has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[query:i] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:c] from 127.0.0.1
+[query:r] from 127.0.0.1
+[query:p] from 127.0.0.1
+[query:p] from 127.0.0.1
+[connection] 127.0.0.1:58833 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:58833 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:58260 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:58260 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:54340 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:54340 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:57849 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:57849 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:60469 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:60469 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:61452 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:61452 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+
+Server Plugins
+--------------
+ Loading plugin: sscanf
+
+
+ ===============================
+
+      sscanf plugin loaded.     
+
+         Version:  2.8.1        
+
+   (c) 2012 Alex "Y_Less" Cole  
+
+ ===============================
+
+  Loaded.
+ Loading plugin: streamer
+
+
+*** Streamer Plugin v2.6.1 by Incognito loaded ***
+
+  Loaded.
+ Loaded 2 plugins.
+
+
+Filterscripts
+---------------
+  Loading filterscript '123.amx'...
+  Loading filterscript 'VIP.amx'...
+  Unable to load filterscript 'VIP.amx'.
+  Loaded 1 filterscripts.
+
+ 
+ ======================================= 
+ |                                     | 
+ |        YSI version 1.04.0000        | 
+ |        By Alex "Y_Less" Cole        | 
+ |                                     | 
+ ======================================= 
+ 
+onfoot_rate = 40  (int, read-only)
+incar_rate = 40  (int, read-only)
+weapon_rate = 40  (int, read-only)
+EnableTirePopping() function is removed.
+[warning] EnableZoneNames() is removed since 0.3
+AllowAdminTeleport() : function is deprecated. Please see OnPlayerClickMap()
+[script] Houses Loaded Successfully . . .
+[script] Stuff Loaded Successfully . . .
+[script] Server Stats Loaded Successfully . . .
+[script] Families Loaded Successfully . . .
+[script] Points Loaded Successfully . . .
+[script] DynamicDoors Loaded Successfully . . .
+[script] Sale Cars Loaded Successfully . . .
+[script] MOTD´s Loaded Successfully . . .
+[script] Velocity Cameras Loaded Successfully . . .
+[script] Atm's Loaded Successfully . . .
+[script] Codes VIP Loaded Successfully . . .
+[script] Houses Loaded Successfully . . .
+ 
+ 
+-------------------------------------------
+**Initiating Gamemode
+* Loading AMX...
+* Welcome to San Antón Roleplay
+-------------------------------------------
+ 
+Number of vehicle models: 68
+[connection] 127.0.0.1:61700 requests connection cookie.
+[connection] incoming connection: 127.0.0.1:61700 id: 0
+[join] Devon_Santos has joined the server (0:127.0.0.1)
+[query:i] from 25.0.131.56
+[query:p] from 25.0.131.56
+[query:i] from 25.0.131.56
+[query:p] from 25.0.131.56
+[query:c] from 25.0.131.56
+[query:r] from 25.0.131.56
+[query:p] from 25.0.131.56
+[query:p] from 25.0.131.56
+[query:i] from 25.0.131.56
+[query:p] from 25.0.131.56
+[query:c] from 25.0.131.56
+[query:r] from 25.0.131.56
+[query:p] from 25.0.131.56
+[query:p] from 25.0.131.56
+[query:p] from 25.0.131.56
+[query:p] from 25.0.131.56
+[connection] 25.0.131.56:51510 requests connection cookie.
+[connection] incoming connection: 25.0.131.56:51510 id: 1
+[join] Jayceon_Santos has joined the server (1:25.0.131.56)
+[death] Jayceon_Santos died 54
+[part] Jayceon_Santos has left the server (1:1)
+[query:p] from 25.0.131.56
