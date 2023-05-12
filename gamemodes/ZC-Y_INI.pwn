@@ -4768,7 +4768,7 @@ for(new i = 0; i < MAX_PLAYERS; i++)
    		 		UpdatePlayerVehicleMods(i, v);
 				DestroyVehicle(PlayerVehicleInfo[i][v][pvId]);
 				VehicleFuel[PlayerVehicleInfo[i][v][pvId]] = 500;
-				PlayerVehicleInfo[i][v][pvId] = INVALID_PLAYER_VEHICLE_ID;
+				//PlayerVehicleInfo[i][v][pvId] = INVALID_PLAYER_VEHICLE_ID;
 				PlayerVehicleInfo[i][v][pvStored] = 1;
 			}
 			else
@@ -12923,24 +12923,37 @@ CMD:darseguroveh(playerid, params[])
 	if (Info[playerid][pAdmin] >= 5)
 	{
 	    new player;
-		if(!sscanf(params, "i", player))
+		if(!sscanf(params, "d", player))
 		{
 		    if(IsPlayerConnectedEx(player))
 			{
 				new vstring[1024],iCount;
 				for(new i; i < MAX_PLAYERVEHICLES; i++)
 				{
-				    if(PlayerVehicleInfo[player][i][pvInsurance] == 0)
-					{
-						format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[PlayerVehicleInfo[player][i][pvModelId] - 400]);
-						++iCount;
+				    if(PlayerVehicleInfo[player][i][pvId] != INVALID_PLAYER_VEHICLE_ID)
+				    {
+                        if(PlayerVehicleInfo[player][i][pvInsurance] == 1)
+						{
+							format(vstring, sizeof(vstring), "%s\n%s {9ACD32}(Asegurado){FFFFFF}", vstring, VehicleName[PlayerVehicleInfo[player][i][pvModelId] - 400]);
+							++iCount;
+						}
+						else if(PlayerVehicleInfo[player][i][pvStored] == 1)
+						{
+							format(vstring, sizeof(vstring), "%s\n%s {FF6347}(En depósito){FFFFFF}", vstring, VehicleName[PlayerVehicleInfo[player][i][pvModelId] - 400]);
+							++iCount;
+						}
+						else if(PlayerVehicleInfo[player][i][pvInsurance] == 0)
+						{
+							format(vstring, sizeof(vstring), "%s\n%s {FFA500}(Disponible para asegurar){FFFFFF}", vstring, VehicleName[PlayerVehicleInfo[player][i][pvModelId] - 400]);
+							++iCount;
+						}
+						else format(vstring, sizeof(vstring), "%s\nNada", vstring);
+						if(iCount)
+						{
+							ShowPlayerDialog(player, VEHICLE_INSURANCE, DIALOG_STYLE_LIST, "Vehículos", vstring, "Asegurar", "Cancelar");
+						}
+						else return SendClientMessageEx(playerid, COLOR_GREY, "ERROR: El jugador ya tiene asegurados todos sus vehículos.");
 					}
-					else format(vstring, sizeof(vstring), "%s\nNada", vstring);
-					if(iCount)
-					{
-						ShowPlayerDialog(player, VEHICLE_INSURANCE, DIALOG_STYLE_LIST, "Vehículos", vstring, "Asegurar", "Cancelar");
-					}
-					else return SendClientMessageEx(playerid, COLOR_GREY, "ERROR: El jugador ya tiene asegurados todos sus vehículos.");
 				}
 			}
 			else return SendClientMessageEx(playerid, COLOR_GREY, "ERROR: El jugador no está conectado.");
@@ -14839,15 +14852,15 @@ case	VEHICLE_INSURANCE:
 {
     if(response)
     {
-
-		if(PlayerVehicleInfo[playerid][listitem][pvInsurance] == 0)
+		if (PlayerVehicleInfo[playerid][listitem][pvInsurance] == 1) SendClientMessageEx(playerid, COLOR_GREY, "* Este coche ya está asegurado.");
+		else if (PlayerVehicleInfo[playerid][listitem][pvStored] == 1) SendClientMessageEx(playerid, COLOR_GREY, "* Este coche se encuentra en el depósito y no es posible asegurarlo.");
+		else if(PlayerVehicleInfo[playerid][listitem][pvInsurance] == 0)
 		{
 			format(szMessage, sizeof(szMessage), "Has asegurado tu %s.", VehicleName[PlayerVehicleInfo[playerid][listitem][pvModelId] - 400]);
 			SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 			SendClientMessageEx(playerid, COLOR_GRAD2, "Recuerda que si tu vehículo queda destruido, se llevará una sóla vez al depósito y tendrás que asegurarlo de nuevo para no perderlo.");
 			PlayerVehicleInfo[playerid][listitem][pvInsurance] = 1;
 		}
-		else SendClientMessageEx(playerid, COLOR_GREY, "* Este coche, o bien no existe, o ya está asegurado.");
     }
 	return 1;
 }
@@ -17905,7 +17918,8 @@ case	NGMENUWEP:
 			    if(listitem == i)
 			    {
 			        new Float: carPos[3];
-			        if(PlayerVehicleInfo[playerid][i][pvId] > INVALID_PLAYER_VEHICLE_ID)
+			        if(PlayerVehicleInfo[playerid][i][pvImpounded] || PlayerVehicleInfo[playerid][i][pvStored]) SendClientMessageEx(playerid, COLOR_WHITE, "No se puede rastrear un vehículo confiscado o en el depósito. Si desea recuperarlo, tiene que pagar la multa o retirarlo.");
+			        else if(PlayerVehicleInfo[playerid][i][pvId] > INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][i][pvStored] == 0)
 			        {
 			        	GetVehiclePos(PlayerVehicleInfo[playerid][i][pvId], carPos[0], carPos[1], carPos[2]);
 			        	if(GetPVarInt(playerid, "Packages") == 0 || EMSAccepted[playerid] == 999 || MedicAccepted[playerid] == 999 || MechanicCallTime[playerid] == 0)
@@ -17920,7 +17934,6 @@ case	NGMENUWEP:
 						}
 						else return SendClientMessageEx(playerid, COLOR_WHITE, "Primero ve al checkpoint que se te asigno primero, debes de estar en una llamada o algo.");
 					}
-					else if(PlayerVehicleInfo[playerid][i][pvImpounded] || PlayerVehicleInfo[playerid][i][pvStored]) SendClientMessageEx(playerid, COLOR_WHITE, "No se puede rastrear un vehículo confiscado o en el depósito. Si desea recuperarlo, tiene que pagar la multa o retirarlo.");
 					else SendClientMessageEx(playerid, COLOR_WHITE, "No se puede rastrear un vehículo que no existe o no está spawneado.");
 			    }
 			}
@@ -17992,7 +18005,7 @@ case	NGMENUWEP:
 	        for(new i = 0; i < MAX_PLAYERVEHICLES; i++){
 	            if(listitem == i){
 					new Float: carPos[3], id = GetPVarInt(playerid, "playeraffectedcarTP");
-					if(PlayerVehicleInfo[id][i][pvId] > INVALID_PLAYER_VEHICLE_ID){
+					if(PlayerVehicleInfo[id][i][pvId] > INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[id][i][pvStored] == 0){
 						GetVehiclePos(PlayerVehicleInfo[id][i][pvId], carPos[0], carPos[1], carPos[2]);
 						SetPlayerVirtualWorld(playerid,GetVehicleVirtualWorld(PlayerVehicleInfo[id][i][pvId]));
 						SetPlayerInterior(playerid,0);
@@ -29155,7 +29168,7 @@ if(IsACop(playerid))
 		SendClientMessageEx(playerid, COLOR_GRAD2, string);
         for(new i=0; i<MAX_PLAYERVEHICLES; i++)
      	{
-		    if(PlayerVehicleInfo[giveplayerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID)
+		    if(PlayerVehicleInfo[giveplayerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[giveplayerid][i][pvStored] == 0)
 			{
 				format(string, sizeof(string), "Registro del Coche: %d | Modelo: %s | Multa: $%d.",PlayerVehicleInfo[giveplayerid][i][pvId],GetVehicleName(PlayerVehicleInfo[giveplayerid][i][pvId]),PlayerVehicleInfo[giveplayerid][i][pvTicket]);
 				SendClientMessageEx(playerid, COLOR_WHITE, string);
@@ -29500,7 +29513,7 @@ if(Info[playerid][pVehicleKeysFrom] != INVALID_PLAYER_ID)
     if(IsPlayerConnectedEx(ownerid))
 	{
         new d = Info[playerid][pVehicleKeys];
-        if(PlayerVehicleInfo[ownerid][d][pvId] != INVALID_PLAYER_VEHICLE_ID) GetVehiclePos(PlayerVehicleInfo[ownerid][d][pvId], x, y, z);
+        if(PlayerVehicleInfo[ownerid][d][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[ownerid][d][pvStored] == 0) GetVehiclePos(PlayerVehicleInfo[ownerid][d][pvId], x, y, z);
         if(IsPlayerInRangeOfPoint(playerid, 3.0, x, y, z))
 		{
             if(PlayerVehicleInfo[ownerid][d][pvLock] > 0)
@@ -29532,7 +29545,7 @@ if(Info[playerid][pVehicleKeysFrom] != INVALID_PLAYER_ID)
 }
 for(new d = 0 ; d < MAX_PLAYERVEHICLES; d++)
 {
-    if(PlayerVehicleInfo[playerid][d][pvId] != INVALID_PLAYER_VEHICLE_ID) GetVehiclePos(PlayerVehicleInfo[playerid][d][pvId], x, y, z);
+    if(PlayerVehicleInfo[playerid][d][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][d][pvStored] == 0) GetVehiclePos(PlayerVehicleInfo[playerid][d][pvId], x, y, z);
     if(IsPlayerInRangeOfPoint(playerid, 3.0, x, y, z))
 	{
         if(PlayerVehicleInfo[playerid][d][pvLock] > 0 && PlayerVehicleInfo[playerid][d][pvLocked] == 0)
@@ -29591,7 +29604,7 @@ CMD:quitarllave(playerid, params[])
 new vstring[512], iValidVehicles;
 for(new i=0; i<MAX_PLAYERVEHICLES; i++)
 {
-    if(PlayerVehicleInfo[playerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID)
+    if(PlayerVehicleInfo[playerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][i][pvStored] == 0)
 		format(vstring, sizeof(vstring), "%s\n%s (ID: %d)", vstring, GetVehicleName(PlayerVehicleInfo[playerid][i][pvId]), GetPlayerNameEx(PlayerVehicleInfo[playerid][i][pvAllowedPlayerId])), ++iValidVehicles;
 
     else if(PlayerVehicleInfo[playerid][i][pvImpounded] == 1)
@@ -29619,7 +29632,7 @@ CMD:gps(playerid, params[])
 new vstring[1024];
 for(new i; i < MAX_PLAYERVEHICLES; i++)
 {
-	if(PlayerVehicleInfo[playerid][i][pvId] > INVALID_PLAYER_VEHICLE_ID)
+	if(PlayerVehicleInfo[playerid][i][pvId] > INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][i][pvStored] == 0)
 	{
 		format(vstring, sizeof(vstring), "%s\n%s (ID: %d)", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400], PlayerVehicleInfo[playerid][i][pvId]);
 	}
@@ -29676,7 +29689,7 @@ if(IsPlayerConnectedEx(giveplayerid))
 
 		for(new i; i < MAX_PLAYERVEHICLES; i++)
 		{
-			if(PlayerVehicleInfo[playerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID)
+			if(PlayerVehicleInfo[playerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][i][pvStored] == 0)
 				format(vstring, sizeof(vstring), "%s\n%s", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]), ++iValidVehicles;
 
 			else if(PlayerVehicleInfo[playerid][i][pvImpounded] == 1)
@@ -36081,7 +36094,7 @@ CMD:gmaletero(playerid, params[])
 	new pvid = -1, Float: x, Float: y, Float: z;
 	for(new d = 0 ; d < MAX_PLAYERVEHICLES; d++)
 	{
-		if(PlayerVehicleInfo[playerid][d][pvId] != INVALID_PLAYER_VEHICLE_ID) GetVehiclePos(PlayerVehicleInfo[playerid][d][pvId], x, y, z);
+		if(PlayerVehicleInfo[playerid][d][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][d][pvStored] == 0) GetVehiclePos(PlayerVehicleInfo[playerid][d][pvId], x, y, z);
 		if(IsPlayerInRangeOfPoint(playerid, 3.0, x, y, z))
 		{
 			pvid = d;
@@ -36137,7 +36150,7 @@ CMD:smaletero(playerid, params[])
 	new Float: fVehPos[3], slot = strval(params);
 	for(new d = 0 ; d < MAX_PLAYERVEHICLES; d++)
 	{
-		if(PlayerVehicleInfo[playerid][d][pvId] != INVALID_PLAYER_VEHICLE_ID)
+		if(PlayerVehicleInfo[playerid][d][pvId] != INVALID_PLAYER_VEHICLE_ID && PlayerVehicleInfo[playerid][d][pvStored] == 0)
 		{
 			GetVehiclePos(PlayerVehicleInfo[playerid][d][pvId], fVehPos[0], fVehPos[1], fVehPos[2]);
 			if(IsPlayerInRangeOfPoint(playerid, 4.0, fVehPos[0], fVehPos[1], fVehPos[2]))
