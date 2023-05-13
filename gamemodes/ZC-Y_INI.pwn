@@ -7355,8 +7355,8 @@ CarVIP[11] = AddStaticVehicle(522,784.6225,-1406.1603,4201.7720,359.5880,34,12);
 CarVIP[12] = AddStaticVehicle(559,780.6603,-1406.1317,4201.7720,359.5880,12,67); // SAFE CAR 13
 CarVIP[13] = AddStaticVehicle(562,776.2884,-1406.1002,4201.7725,359.5880,13,76); // SAFE CAR 14
 // 3D Label
-CreateDynamic3DTextLabel("Ventana del depósito\n{FFFFFF}Usa /retirarvehiculo para retirar tu vehículo del depósito",COLOR_YELLOW,1764.9680, -1714.8041, 13.7300+0.6,15.0); // depósito de vehiculos
-CreateDynamic3DTextLabel("Ventana de seguros\n{FFFFFF}Usa /contratarseguro para contratar el seguro de tu vehículo",COLOR_YELLOW,1764.8262, -1711.6860, 13.7300+0.6,15.0); // Oficina de seguros (Contrato)
+CreateDynamic3DTextLabel("Ventana del depósito\n{FFFFFF}Usa /retirarvehiculo para retirar tu vehículo del depósito",COLOR_YELLOW,1764.9680, -1714.8041, 13.7300+0.6,4.0); // depósito de vehiculos
+CreateDynamic3DTextLabel("Ventana de seguros\n{FFFFFF}Usa /contratarseguro para contratar el seguro de tu vehículo",COLOR_YELLOW,1764.8262, -1711.6860, 13.7300+0.6,4.0); // Oficina de seguros (Contrato)
 CreateDynamic3DTextLabel("/ctoys\n Para accesorios Gold +.",COLOR_YELLOW,802.5069,-1419.6813,1016.4688+0.6,4.0); // Gold+ VIP Room
 CreateDynamic3DTextLabel("/regalo\npara ver el interior.",COLOR_YELLOW,798.0074,-1419.0095,1016.4688+0.8,8.0);/// VIP Lounge
 CreateDynamic3DTextLabel("/lockervip\nPara abrir el VIP locker.",COLOR_YELLOW,798.4911,-1416.1251,1016.4688+0.6,4.0);/// VIP locker room
@@ -7372,10 +7372,11 @@ CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,1510.4861, -1467.8789, 9.4+0.6,
 CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,1559.3228,-1693.7491,5.8970+0.6,4.0);///arrest(LSPD)
 CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,613.3228,-589.1623,17.2266+0.6,4.0);///arrest(LSPD)
 //CreateDynamic3DTextLabel("/arrestojudicial\n(Sólo Policías)",COLOR_DBLUE,1455.6334,-1692.9596,15.4303+0.6,3.0); // arrest warr jud
-CreateDynamic3DTextLabel("LSPD - Vestuarios\n{FFFFFF}Utiliza /vestuario! ", COLOR_BLUE, 270.1910, 110.1838, 1004.5365, 10, 0);
-CreateDynamic3DTextLabel("LSPD - Armería\n{FFFFFF}Utiliza /armeria! ", COLOR_BLUE, 266.0581, 115.3661, 1004.5365, 10, 0);
-CreateDynamic3DTextLabel("LSPD - Multas\n{FFFFFF}Utiliza /pagarmulta!", COLOR_YELLOW, 240.1017, 112.7440, 1003.8015, 10, 0);
-CreateDynamic3DTextLabel("LSPD - Licencias\n{FFFFFF}Utiliza /licencia! ", COLOR_YELLOW, 252.5445, 117.4007, 1003.8015, 10, 0);
+
+CreateDynamic3DTextLabel("LSPD - Vestuarios\n{FFFFFF}Utiliza /vestuario! ", COLOR_BLUE, 270.1910, 110.1838, 1004.5365+0.6,4.0);
+CreateDynamic3DTextLabel("LSPD - Armería\n{FFFFFF}Utiliza /armeria! ", COLOR_BLUE, 266.0581, 115.3661, 1004.5365+0.6,4.0);
+CreateDynamic3DTextLabel("LSPD - Multas\n{FFFFFF}Utiliza /pagarmulta!", COLOR_YELLOW, 240.1017, 112.7440, 1003.8015+0.6,4.0);
+CreateDynamic3DTextLabel("LSPD - Licencias\n{FFFFFF}Utiliza /licencia! ", COLOR_YELLOW, 252.5445, 117.4007, 1003.8015+0.6,4.0);
 CreateDynamic3DTextLabel("Trajes\n/equipo", 								COLOR_YELLOW, 	1188.8640,-1351.4312,2423.2649, 4.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,600,0);
 CreateDynamic3DTextLabel("Armeria\n/equipo", 								COLOR_YELLOW, 	-392.3932,-1446.7029,26.1182, 4.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 CreateDynamic3DTextLabel("Depósito\n/embargar", 							COLOR_LIGHTBLUE, 1658.9924,-1807.1152,13.5508, 20.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
@@ -13034,23 +13035,21 @@ CMD:contratarseguro(playerid, params[])
 	{
 		new text[][] =
 		{
-			"{33CCFF}Contrato de Seguro de Vehículo\n",
+			"Contrato de Seguro de Vehículo\n\n",
 			"{FFFF00}1. Cobertura y Beneficios:\n",
 			"{FFFFFF}   a) El seguro de vehículo cubrirá los gastos de reparación en caso de siniestro/destrucción del vehículo asegurado.\n",
 			"{FFFFFF}   b) En caso de siniestro, el vehículo será trasladado al depósito de vehículos sin ningún costo adicional.\n",
-			"{FFFFFF}   c) El retiro del vehículo del depósito es gratuito y no implicará ningún cargo al asegurado.\n",
+			"{FFFFFF}   c) El retiro del vehículo del depósito es gratuito y no implicará ningún cargo al asegurado.\n\n",
 			"{FFFF00}2. Renovación del Seguro:\n",
-			"{FFFFFF}   a) Una vez que el vehículo haya sido retirado del depósito, se requerirá la contratación de un nuevo seguro para poder recoger el vehículo en el futuro.\n",
-			"{FFFFFF}   b) En caso de no tener contratado ningún seguro, el sistema no se hará cargo de los gastos de reparación y el vehículo será dado de baja y trasladado al desguace más cercano.\n",
+			"{FFFFFF}   a) Una vez que el vehículo haya sido retirado del depósito, se requerirá la contratación de un nuevo seguro.\n",
+			"{FFFFFF}   b) En caso de no tener contratado ningún seguro, el vehículo será dado de baja y trasladado al desguace más cercano.\n\n",
 			"{FFFF00}3. Compensación en el Desguace:\n",
 			"{FFFFFF}   a) En caso de que el vehículo sea dado de baja y trasladado al desguace, se otorgará al asegurado una compensación equivalente al 25% del valor total del vehículo.\n",
-			"{FFFFFF}   b) La compensación se proporcionará como forma de indemnización por la pérdida del vehículo.\n",
-			"{FFFF00}4. Responsabilidades del Asegurado:\n",
-			"{FFFFFF}   a) El asegurado deberá mantener el seguro de vehículo vigente para recibir los beneficios de cobertura en caso de siniestro.\n"
+			"{FFFFFF}   b) La compensación se proporcionará como forma de indemnización por la pérdida del vehículo.\n"
 		};
-		new dialogs[4096];
-		format(dialogs,sizeof(dialogs),"%s%s%s%s%s%s%s%s%s%s%s%s%s",text[0],text[1],text[2],text[3],text[4],text[5],text[6],text[7],text[8],text[9],text[10],text[11],text[12]);
-		ShowPlayerDialog(playerid, MSG_CONTRATO_VEH, DIALOG_STYLE_MSGBOX, "Condiciones del contrato", dialogs , "Continuar", "Cancelar" );
+		new dialogs[2054];
+		format(dialogs,sizeof(dialogs),"%s%s%s%s%s%s%s%s%s%s%s",text[0],text[1],text[2],text[3],text[4],text[5],text[6],text[7],text[8],text[9],text[10]);
+		ShowPlayerDialog(playerid, MSG_CONTRATO_VEH, DIALOG_STYLE_MSGBOX, "Condiciones del contrato", dialogs , "Continuar", "" );
 	}
 	else return SendClientMessageEx(playerid, COLOR_GREY, "No estás en la oficina de seguros.");
 	return 1;
@@ -15000,6 +14999,12 @@ case	VEHICLE_INSURANCE:
 			SendClientMessageEx(playerid, COLOR_GRAD2, "Recuerda que si tu vehículo queda destruido, se llevará una sóla vez al depósito y tendrás que asegurarlo de nuevo para no perderlo.");
 			PlayerVehicleInfo[playerid][listitem][pvInsurance] = 1;
 			PlayerPlaySound(playerid, 1054, 0,0,0);
+			new Float:priceVehicle = PlayerVehicleInfo[playerid][listitem][pvPrice]*0.15;
+    		new stringVehicle[128];
+    		Bought(playerid, floatround(priceVehicle));
+			format(stringVehicle, sizeof(stringVehicle), "Has pagado $%d por el seguro", floatround(priceVehicle));
+	        SendClientMessageEx(playerid, COLOR_WHITE, stringVehicle);
+
 		}
     }
 	return 1;
@@ -15024,7 +15029,8 @@ case    MSG_CONTRATO_VEH:
 			}
 			else if(PlayerVehicleInfo[playerid][i][pvInsurance] == 0)
 			{
-				format(vstring, sizeof(vstring), "%s\n%s {FFA500}(Disponible para asegurar){FFFFFF}", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+			    new Float:priceInsurance = PlayerVehicleInfo[playerid][i][pvPrice]*0.15;
+				format(vstring, sizeof(vstring), "%s\n%s {FFA500}(Disponible para asegurar){FFFFFF} - $%d", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400], floatround(priceInsurance));
 				++iCount;
 			}
 			else format(vstring, sizeof(vstring), "%s\nNada", vstring);
