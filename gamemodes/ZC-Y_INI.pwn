@@ -501,6 +501,8 @@ native IsValidVehicle(vehicleid);
 #define             DIALOG_CDSTEREOMENU         (246)
 #define             VEHICLE_DEPOSIT             (247) // DIALOGO DEPÓSITO DE VEHICULOS BY MÉNDEZ
 #define             VEHICLE_INSURANCE           (248) // DIALOGO ASEGURADORA DE VEHICULOS BY MÉNDEZ
+#define             VEHICLE_INSURANCE_ADMIN     (249) // DIALOGO ASEGURADORA DE VEHICULOS ADMIN BY MÉNDEZ
+#define             MSG_CONTRATO_VEH            (250) // DIÁLOGO CONTRATO SEGURO DE VEHICULOS BY MÉNDEZ
 
 //Rak samp
 #define             RakSAMP                     "DA0E5085558CCACC88ECCA40C4CEC49A9408EEE8"
@@ -4773,13 +4775,38 @@ for(new i = 0; i < MAX_PLAYERS; i++)
 			}
 			else
 			{
-	    		SendClientMessageEx(i, -1, "AVISO: Tu vehículo ha quedado totalmente siniestro y se ha dado de baja.");
+	    		SendClientMessageEx(i, COLOR_RED, "AVISO: Tu vehículo ha quedado totalmente siniestro y se ha dado de baja.");
 	    		PlayerVehicleInfo[i][v][pvInsurance] = 0;
 	    		new priceVehicle = PlayerVehicleInfo[i][v][pvPrice] / 4;
 	    		new stringVehicle[128];
 	    		Earn(i, priceVehicle);
    				format(stringVehicle, sizeof(stringVehicle), "Te han pagado un cuarto del importe de tu vehículo al darlo de baja en el desguace ($%d).", priceVehicle);
 		        SendClientMessageEx(i, COLOR_LIGHTBLUE, stringVehicle);
+				DestroyVehicle(PlayerVehicleInfo[i][v][pvId]);
+				PlayerVehicleInfo[i][v][pvId] = 0;
+	            PlayerVehicleInfo[i][v][pvModelId] = 0;
+				PlayerVehicleInfo[i][v][pvPosX] = 0.0;
+				PlayerVehicleInfo[i][v][pvPosY] = 0.0;
+				PlayerVehicleInfo[i][v][pvPosZ] = 0.0;
+				PlayerVehicleInfo[i][v][pvPosAngle] = 0.0;
+				PlayerVehicleInfo[i][v][pvLock] = 0;
+				PlayerVehicleInfo[i][v][pvLocked] = 0;
+				PlayerVehicleInfo[i][v][pvPaintJob] = -1;
+				PlayerVehicleInfo[i][v][pvColor1] = 0;
+				PlayerVehicleInfo[i][v][pvColor2] = 0;
+				PlayerVehicleInfo[i][v][pvPrice] = 0;
+				PlayerVehicleInfo[i][v][pvImpounded] = 0;
+				PlayerVehicleInfo[i][v][pvInsurance] = 0;
+				PlayerVehicleInfo[i][v][pvStored] = 0;
+				strcpy(PlayerVehicleInfo[i][v][pvAllowPlayer], "Nadie", MAX_PLAYER_NAME);
+				PlayerVehicleInfo[i][v][pvPark] = 0;
+				PlayerVehicleInfo[i][v][pvAllowedPlayerId] = INVALID_PLAYER_ID;
+				for(new m = 0; m < MAX_MODS; m++)
+				{
+					PlayerVehicleInfo[i][v][pvMods][m] = 0;
+				}
+				PlayerVehicleInfo[i][v][pvStereo] = 0;
+				PlayerCars--;
 			}
 		}
 	}
@@ -7328,7 +7355,8 @@ CarVIP[11] = AddStaticVehicle(522,784.6225,-1406.1603,4201.7720,359.5880,34,12);
 CarVIP[12] = AddStaticVehicle(559,780.6603,-1406.1317,4201.7720,359.5880,12,67); // SAFE CAR 13
 CarVIP[13] = AddStaticVehicle(562,776.2884,-1406.1002,4201.7725,359.5880,13,76); // SAFE CAR 14
 // 3D Label
-CreateDynamic3DTextLabel("{33CCFF}Depósito de vehículos asegurados\n{FFFFFF}Usa /retirarvehiculo para retirar tu vehículo del depósito",COLOR_YELLOW,1774.6976,-1704.7273,13.5204+0.6,15.0); // depósito de vehiculos
+CreateDynamic3DTextLabel("Ventana del depósito\n{FFFFFF}Usa /retirarvehiculo para retirar tu vehículo del depósito",COLOR_YELLOW,1764.9680, -1714.8041, 13.7300+0.6,15.0); // depósito de vehiculos
+CreateDynamic3DTextLabel("Ventana de seguros\n{FFFFFF}Usa /contratarseguro para contratar el seguro de tu vehículo",COLOR_YELLOW,1764.8262, -1711.6860, 13.7300+0.6,15.0); // Oficina de seguros (Contrato)
 CreateDynamic3DTextLabel("/ctoys\n Para accesorios Gold +.",COLOR_YELLOW,802.5069,-1419.6813,1016.4688+0.6,4.0); // Gold+ VIP Room
 CreateDynamic3DTextLabel("/regalo\npara ver el interior.",COLOR_YELLOW,798.0074,-1419.0095,1016.4688+0.8,8.0);/// VIP Lounge
 CreateDynamic3DTextLabel("/lockervip\nPara abrir el VIP locker.",COLOR_YELLOW,798.4911,-1416.1251,1016.4688+0.6,4.0);/// VIP locker room
@@ -7684,6 +7712,87 @@ CreateDynamicObject(2636,1441.56921387,-1773.48974609,-91.98388672,0.00000000,0.
 CreateDynamicObject(2636,1441.64038086,-1770.79077148,-91.98388672,0.00000000,0.00000000,90.00000000); //object(cj_pizza_chair) (4)
 CreateDynamicObject(949,1426.48339844,-1780.31542969,-91.98339081,0.00000000,0.00000000,0.00000000); //object(plant_pot_4) (6)
 CreateDynamicObject(1749,1436.92639160,-1767.83996582,-90.76416779,0.00000000,0.00000000,0.00000000); //object(med_tv_3) (1)
+
+//Oficina de seguros By Jayceon
+CreateDynamicObject(1566, 1758.70, -1716.47, 14.05,   0.00, 0.00, 90.00);
+CreateDynamicObject(1566, 1758.69, -1713.30, 14.05,   0.00, 0.00, 270.00);
+CreateDynamicObject(19354, 1758.85, -1714.86, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(1566, 1758.96, -1716.45, 14.05,   0.00, 0.00, 90.00);
+CreateDynamicObject(1566, 1758.95, -1713.30, 14.05,   0.00, 0.00, 270.00);
+CreateDynamicObject(19400, 1758.85, -1711.67, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(19400, 1758.85, -1718.07, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(19400, 1760.55, -1719.60, 14.29,   0.00, 0.00, 90.00);
+CreateDynamicObject(19354, 1763.76, -1719.60, 14.29,   0.00, 0.00, 90.00);
+CreateDynamicObject(19354, 1760.55, -1710.14, 14.29,   0.00, 0.00, 90.00);
+CreateDynamicObject(19384, 1763.76, -1708.70, 14.29,   0.00, 0.00, 90.00);
+CreateDynamicObject(19384, 1765.45, -1718.07, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(19400, 1765.45, -1714.86, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(19400, 1765.45, -1711.67, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(19355, 1767.14, -1710.14, 14.29,   0.00, 0.00, 90.00);
+CreateDynamicObject(19355, 1768.82, -1711.67, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(19355, 1768.82, -1714.86, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(19355, 1767.14, -1719.60, 14.29,   0.00, 0.00, 90.00);
+CreateDynamicObject(19375, 1763.98, -1714.87, 12.47,   0.00, 90.00, 0.00);
+CreateDynamicObject(1501, 1765.44, -1717.30, 12.54,   0.00, 0.00, 270.00);
+CreateDynamicObject(1649, 1765.44, -1715.21, 16.23,   0.00, 90.00, 270.00);
+CreateDynamicObject(1649, 1765.44, -1711.21, 16.29,   0.00, 90.00, 270.00);
+CreateDynamicObject(2008, 1766.27, -1712.20, 12.56,   0.00, 0.00, 90.00);
+CreateDynamicObject(2008, 1766.27, -1715.36, 12.56,   0.00, 0.00, 90.00);
+CreateDynamicObject(1671, 1766.99, -1711.43, 12.99,   0.00, 0.00, 303.42);
+CreateDynamicObject(1671, 1766.74, -1714.48, 12.99,   0.00, 0.00, 256.38);
+CreateDynamicObject(2164, 1768.70, -1710.87, 12.56,   0.00, 0.00, 270.00);
+CreateDynamicObject(2164, 1768.70, -1712.65, 12.56,   0.00, 0.00, 270.00);
+CreateDynamicObject(19385, 1768.82, -1718.07, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(1537, 1768.81, -1718.81, 12.54,   0.00, 0.00, 270.00);
+CreateDynamicObject(2167, 1768.69, -1714.42, 12.56,   0.00, 0.00, 270.00);
+CreateDynamicObject(2202, 1768.28, -1715.32, 12.56,   0.00, 0.00, 270.00);
+CreateDynamicObject(2445, 1765.52, -1711.19, 12.68,   0.00, 0.00, 270.00);
+CreateDynamicObject(2445, 1765.52, -1712.18, 12.68,   0.00, 0.00, 270.00);
+CreateDynamicObject(2445, 1765.52, -1712.21, 12.70,   0.00, 180.00, 270.00);
+CreateDynamicObject(2445, 1765.52, -1711.22, 12.70,   0.00, 180.00, 270.00);
+CreateDynamicObject(2445, 1765.52, -1714.33, 12.68,   0.00, 0.00, 270.00);
+CreateDynamicObject(2445, 1765.52, -1715.33, 12.68,   0.00, 0.00, 270.00);
+CreateDynamicObject(2445, 1765.52, -1715.35, 12.70,   0.00, 180.00, 270.00);
+CreateDynamicObject(2445, 1765.52, -1714.36, 12.70,   0.00, 180.00, 270.00);
+CreateDynamicObject(2162, 1767.47, -1719.53, 12.54,   0.00, 0.00, 180.00);
+CreateDynamicObject(2342, 1766.31, -1711.97, 13.50,   0.00, 0.00, 0.00);
+CreateDynamicObject(2894, 1765.61, -1711.70, 13.73,   0.00, 0.00, 270.00);
+CreateDynamicObject(2961, 1762.33, -1719.47, 14.20,   0.00, 0.00, 180.00);
+CreateDynamicObject(11713, 1762.94, -1719.47, 14.31,   0.00, 0.00, 90.00);
+CreateDynamicObject(2690, 1759.59, -1710.37, 13.81,   0.00, 0.00, 0.00);
+CreateDynamicObject(1808, 1760.43, -1710.51, 12.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(1649, 1758.83, -1711.72, 15.10,   0.00, 90.00, 90.00);
+CreateDynamicObject(1649, 1758.86, -1718.51, 15.10,   0.00, 90.00, 90.00);
+CreateDynamicObject(1649, 1760.35, -1719.60, 15.10,   0.00, 90.00, 180.00);
+CreateDynamicObject(19354, 1762.07, -1708.62, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(19354, 1765.45, -1708.46, 14.29,   0.00, 0.00, 0.00);
+CreateDynamicObject(19356, 1763.80, -1708.46, 12.47,   0.00, 90.00, 0.00);
+CreateDynamicObject(1537, 1764.50, -1708.70, 12.54,   0.00, 0.00, 0.00);
+CreateDynamicObject(19834, 1763.75, -1708.79, 13.91,   0.00, 20.00, 0.00);
+CreateDynamicObject(19834, 1763.75, -1708.80, 14.13,   0.00, -20.00, 0.00);
+CreateDynamicObject(2611, 1764.20, -1719.45, 14.35,   0.00, 0.00, 180.00);
+CreateDynamicObject(2309, 1761.12, -1719.37, 12.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(2309, 1760.38, -1719.37, 12.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(2309, 1759.61, -1719.37, 12.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(2309, 1761.88, -1719.37, 12.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(1549, 1765.03, -1713.23, 12.56,   0.00, 0.00, 90.00);
+CreateDynamicObject(2670, 1764.73, -1713.60, 12.65,   0.00, 0.00, 37.98);
+CreateDynamicObject(19896, 1765.67, -1714.06, 13.75,   0.00, 0.00, -132.66);
+CreateDynamicObject(2674, 1764.60, -1711.32, 12.58,   0.00, 0.00, 0.00);
+CreateDynamicObject(2674, 1764.22, -1714.78, 12.58,   0.00, 0.00, -154.92);
+CreateDynamicObject(2611, 1768.68, -1715.99, 14.35,   0.00, 0.00, 270.00);
+CreateDynamicObject(2271, 1768.23, -1714.59, 14.67,   0.00, 0.00, 270.00);
+CreateDynamicObject(2596, 1766.30, -1710.53, 14.79,   0.00, 0.00, 0.00);
+CreateDynamicObject(2961, 1767.12, -1710.27, 14.06,   0.00, 0.00, 0.00);
+CreateDynamicObject(1510, 1765.72, -1714.23, 13.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(19625, 1765.79, -1714.18, 13.80,   40.00, 0.00, 300.00);
+CreateDynamicObject(1510, 1765.60, -1712.32, 13.74,   0.00, 0.00, 0.00);
+CreateDynamicObject(19625, 1765.67, -1712.26, 13.80,   40.00, 0.00, 300.00);
+CreateDynamicObject(19836, 1763.63, -1708.88, 12.56,   0.00, 0.00, 0.00);
+CreateDynamicObject(19377, 1763.98, -1714.87, 16.12,   0.00, 90.00, 0.00);
+CreateDynamicObject(19362, 1763.80, -1708.46, 16.12,   0.00, 90.00, 0.00);
+CreateDynamicObject(2241, 1762.58, -1709.25, 12.91,   0.00, 0.00, -39.36);
+CreateDynamicObject(2267, 1760.45, -1710.28, 14.86,   0.00, 0.00, 0.00);
 
 // Guardia Nacional By Jayceon
 CreateDynamicObject(19312, 191.14, 1870.04, 21.48,   0.00, 0.00, 0.00);
@@ -12896,7 +13005,7 @@ function OnPlayerRegister(playerid, password[])
 // Depósito oficina de seguros by Méndez
 CMD:retirarvehiculo(playerid, params[])
 {
-if(IsPlayerInRangeOfPoint(playerid, 3.0, 1774.6976,-1704.7273,13.5204))
+if(IsPlayerInRangeOfPoint(playerid, 3.0, 1764.9680, -1714.8041, 13.7300))
 {
 	new vstring[1024],iCount;
 	for(new i; i < MAX_PLAYERVEHICLES; i++)
@@ -12918,6 +13027,35 @@ else SendClientMessageEx(playerid, COLOR_GRAD2, "No estás en el depósito de la o
 return 1;
 }
 // Dar seguro de vehiculo by Méndez
+CMD:contratarseguro(playerid, params[])
+{
+	if(IsPlayerInRangeOfPoint(playerid, 3.0, 1764.8262, -1711.6860, 13.7300))
+	{
+		new text[][] =
+		{
+			"{33CCFF}Contrato de Seguro de Vehículo\n",
+			"{FFFF00}1. Cobertura y Beneficios:\n",
+			"{FFFFFF}   a) El seguro de vehículo cubrirá los gastos de reparación en caso de siniestro/destrucción del vehículo asegurado.\n",
+			"{FFFFFF}   b) En caso de siniestro, el vehículo será trasladado al depósito de vehículos sin ningún costo adicional.\n",
+			"{FFFFFF}   c) El retiro del vehículo del depósito es gratuito y no implicará ningún cargo al asegurado.\n",
+			"{FFFF00}2. Renovación del Seguro:\n",
+			"{FFFFFF}   a) Una vez que el vehículo haya sido retirado del depósito, se requerirá la contratación de un nuevo seguro para poder recoger el vehículo en el futuro.\n",
+			"{FFFFFF}   b) En caso de no tener contratado ningún seguro, el sistema no se hará cargo de los gastos de reparación y el vehículo será dado de baja y trasladado al desguace más cercano.\n",
+			"{FFFF00}3. Compensación en el Desguace:\n",
+			"{FFFFFF}   a) En caso de que el vehículo sea dado de baja y trasladado al desguace, se otorgará al asegurado una compensación equivalente al 25% del valor total del vehículo.\n",
+			"{FFFFFF}   b) La compensación se proporcionará como forma de indemnización por la pérdida del vehículo.\n",
+			"{FFFF00}4. Responsabilidades del Asegurado:\n",
+			"{FFFFFF}   a) El asegurado deberá mantener el seguro de vehículo vigente para recibir los beneficios de cobertura en caso de siniestro.\n"
+		};
+		new dialogs[4096];
+		format(dialogs,sizeof(dialogs),"%s%s%s%s%s%s%s%s%s%s%s%s%s",text[0],text[1],text[2],text[3],text[4],text[5],text[6],text[7],text[8],text[9],text[10],text[11],text[12]);
+		ShowPlayerDialog(playerid, MSG_CONTRATO_VEH, DIALOG_STYLE_MSGBOX, "Condiciones del contrato", dialogs , "Continuar", "Cancelar" );
+	}
+	else return SendClientMessageEx(playerid, COLOR_GREY, "No estás en la oficina de seguros.");
+	return 1;
+}
+
+// Dar seguro de vehiculo admin by Méndez
 CMD:darseguroveh(playerid, params[])
 {
 	if (Info[playerid][pAdmin] >= 5)
@@ -12950,7 +13088,7 @@ CMD:darseguroveh(playerid, params[])
 						else format(vstring, sizeof(vstring), "%s\nNada", vstring);
 						if(iCount)
 						{
-							ShowPlayerDialog(player, VEHICLE_INSURANCE, DIALOG_STYLE_LIST, "Vehículos", vstring, "Asegurar", "Cancelar");
+							ShowPlayerDialog(player, VEHICLE_INSURANCE_ADMIN, DIALOG_STYLE_LIST, "Vehículos", vstring, "Asegurar", "Cancelar");
 						}
 						else return SendClientMessageEx(playerid, COLOR_GREY, "ERROR: El jugador ya tiene asegurados todos sus vehículos.");
 					}
@@ -14860,6 +14998,57 @@ case	VEHICLE_INSURANCE:
 			SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 			SendClientMessageEx(playerid, COLOR_GRAD2, "Recuerda que si tu vehículo queda destruido, se llevará una sóla vez al depósito y tendrás que asegurarlo de nuevo para no perderlo.");
 			PlayerVehicleInfo[playerid][listitem][pvInsurance] = 1;
+			PlayerPlaySound(playerid, 1054, 0,0,0);
+		}
+    }
+	return 1;
+}
+
+case    MSG_CONTRATO_VEH:
+{
+	new vstring[1024],iCount;
+	for(new i; i < MAX_PLAYERVEHICLES; i++)
+	{
+	    if(PlayerVehicleInfo[playerid][i][pvId] != INVALID_PLAYER_VEHICLE_ID)
+	    {
+            if(PlayerVehicleInfo[playerid][i][pvInsurance] == 1)
+			{
+				format(vstring, sizeof(vstring), "%s\n%s {9ACD32}(Asegurado){FFFFFF}", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+				++iCount;
+			}
+			else if(PlayerVehicleInfo[playerid][i][pvStored] == 1)
+			{
+				format(vstring, sizeof(vstring), "%s\n%s {FF6347}(En depósito){FFFFFF}", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+				++iCount;
+			}
+			else if(PlayerVehicleInfo[playerid][i][pvInsurance] == 0)
+			{
+				format(vstring, sizeof(vstring), "%s\n%s {FFA500}(Disponible para asegurar){FFFFFF}", vstring, VehicleName[PlayerVehicleInfo[playerid][i][pvModelId] - 400]);
+				++iCount;
+			}
+			else format(vstring, sizeof(vstring), "%s\nNada", vstring);
+			if(iCount)
+			{
+				ShowPlayerDialog(playerid, VEHICLE_INSURANCE, DIALOG_STYLE_LIST, "Vehículos", vstring, "Asegurar", "Cancelar");
+			}
+			else return SendClientMessageEx(playerid, COLOR_GREY, "Ya tienes asegurados todos tus vehículos.");
+		}
+	}
+}
+
+case	VEHICLE_INSURANCE_ADMIN:
+{
+    if(response)
+    {
+		if (PlayerVehicleInfo[playerid][listitem][pvInsurance] == 1) SendClientMessageEx(playerid, COLOR_GREY, "* Este coche ya está asegurado.");
+		else if (PlayerVehicleInfo[playerid][listitem][pvStored] == 1) SendClientMessageEx(playerid, COLOR_GREY, "* Este coche se encuentra en el depósito y no es posible asegurarlo.");
+		else if(PlayerVehicleInfo[playerid][listitem][pvInsurance] == 0)
+		{
+			format(szMessage, sizeof(szMessage), "Has asegurado tu %s.", VehicleName[PlayerVehicleInfo[playerid][listitem][pvModelId] - 400]);
+			SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
+			SendClientMessageEx(playerid, COLOR_GRAD2, "Recuerda que si tu vehículo queda destruido, se llevará una sóla vez al depósito y tendrás que asegurarlo de nuevo para no perderlo.");
+			PlayerVehicleInfo[playerid][listitem][pvInsurance] = 1;
+			PlayerPlaySound(playerid, 1054, 0,0,0);
 		}
     }
 	return 1;
