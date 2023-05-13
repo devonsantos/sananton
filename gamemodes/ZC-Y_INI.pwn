@@ -7372,12 +7372,13 @@ CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,1510.4861, -1467.8789, 9.4+0.6,
 CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,1559.3228,-1693.7491,5.8970+0.6,4.0);///arrest(LSPD)
 CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,613.3228,-589.1623,17.2266+0.6,4.0);///arrest(LSPD)
 //CreateDynamic3DTextLabel("/arrestojudicial\n(Sólo Policías)",COLOR_DBLUE,1455.6334,-1692.9596,15.4303+0.6,3.0); // arrest warr jud
-CreateDynamic3DTextLabel("LSPD\n/LSPD", COLOR_BLUE,1457.1671,-1760.7666,3285.2859+0.8, 4.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1);
+CreateDynamic3DTextLabel("LSPD - Vestuarios\n{FFFFFF}Utiliza /vestuario! ", COLOR_BLUE, 270.1910, 110.1838, 1004.5365, 10, 0);
+CreateDynamic3DTextLabel("LSPD - Armería\n{FFFFFF}Utiliza /armeria! ", COLOR_BLUE, 266.0581, 115.3661, 1004.5365, 10, 0);
+CreateDynamic3DTextLabel("LSPD - Multas\n{FFFFFF}Utiliza /pagarmulta!", COLOR_YELLOW, 240.1017, 112.7440, 1003.8015, 10, 0);
+CreateDynamic3DTextLabel("LSPD - Licencias\n{FFFFFF}Utiliza /licencia! ", COLOR_YELLOW, 252.5445, 117.4007, 1003.8015, 10, 0);
 CreateDynamic3DTextLabel("Trajes\n/equipo", 								COLOR_YELLOW, 	1188.8640,-1351.4312,2423.2649, 4.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,600,0);
 CreateDynamic3DTextLabel("Armeria\n/equipo", 								COLOR_YELLOW, 	-392.3932,-1446.7029,26.1182, 4.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 CreateDynamic3DTextLabel("Depósito\n/embargar", 							COLOR_LIGHTBLUE, 1658.9924,-1807.1152,13.5508, 20.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
-CreateDynamic3DTextLabel("Multas\n{FFFFFF}/pagarm", 					    COLOR_LIGHTBLUE, 1475.4143,-1752.8630,3285.2859+0.6, 8.0);
-CreateDynamic3DTextLabel("/licencia\n{FFFFFF}Para obtener una", 			COLOR_LIGHTBLUE, 1470.1620,-1755.8926,3285.2859+0.6, 8.0);
 //CreateDynamic3DTextLabel("Concesionario\n{FFFFFF}/comprarcoche", 			COLOR_LIGHTBLUE, 545.2712,-1293.3248,17.2422+0.6, 30.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 //CreateDynamic3DTextLabel("Concesionario\n{FFFFFF}/comprarcoche", 			COLOR_LIGHTBLUE, 2131.9119,-1150.1757,24.1872+0.6, 30.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 //CreateDynamic3DTextLabel("Lugar de Cambio de Nombre \nUsa /cambiarnombre para cambiar tu nombre.",COLOR_YELLOW, 1443.5162,-1461.0831,1616.3073+0.6, 6.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
@@ -29496,7 +29497,7 @@ switch(Info[playerid][pMember])
 return 1;
 }
 
-CMD:pagarm(playerid, params[])
+CMD:pagarmulta(playerid, params[])
 {
 if(IsPlayerInRangeOfPoint(playerid, 3.0, 1475.4143,-1752.8630,3285.2859))
 {
@@ -32784,7 +32785,7 @@ CMD:revive(playerid, params[])
 }
 CMD:licencia(playerid, params[])
 {
-	if(!IsPlayerInRangeOfPoint(playerid,2.0,1470.1620,-1755.8926,3285.2859)) { return 1; }
+	if(!IsPlayerInRangeOfPoint(playerid,2.0,252.5445, 117.4007, 1003.8015)) { return 1; }
 	if(Info[playerid][pWantedLevel] > 0) return SendClientMessageEx(playerid, COLOR_GREY, "* Tienes órden de arresto, te prohibieron la adquisición de licencias.");
 	ShowPlayerDialog(playerid, DIALOG_LICENSE_BUY, DIALOG_STYLE_LIST, "Selecciona el tipo de licencia que deseas.", "Licencia de conducir ($1,000)\r\nLicencia de Navegación ($3,000)\r\nLicencia de Vuelo ($3,000)\r\nLicencia de Taxista ($2,000)\r\nLicencia de Armas ($4,000)", "Comprar", "Cancelar");
 	return 1;
@@ -35164,7 +35165,7 @@ else SendClientMessageEx(playerid, COLOR_GRAD2, "  No eres policía!");
 return 1;
 }
 
-CMD:taquilla(playerid, params[]){
+CMD:vestuario(playerid, params[]){
 if(Team_FBI(playerid))	{
 	if(PlayerToPoint(5, playerid, 310.6649,-1537.4591,-45.1338) || PlayerToPoint(5, playerid, 310.6895,-1543.0925,-45.1338))		{
 		ShowPlayerDialog(playerid, FBITAQUILLA, DIALOG_STYLE_LIST, "FBI - Taquilla","Duty\nEquipo\nOperaciones Especiales\nUniformes\nEncubierto", "Seleccionar", "Cancelar");
@@ -35172,7 +35173,7 @@ if(Team_FBI(playerid))	{
 	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en el vestuario.");
 	}
 else if(Team_LSPD(playerid))	{
-	if(PlayerToPoint(5, playerid, 1457.2192,-1761.9324,3285.2859) || PlayerToPoint(5, playerid,327.2326,307.2340,999.1484) ){
+	if(PlayerToPoint(5, playerid, 270.1910, 110.1838, 1004.5365) ){
 		ShowPlayerDialog(playerid, DUTYMENU, DIALOG_STYLE_LIST, "LSPD - Taquilla","Duty\nEquipo\nSWAT\nUniformes\nEncubierto", "Seleccionar", "Cancelar");
 	}
 	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en el vestuario.");
