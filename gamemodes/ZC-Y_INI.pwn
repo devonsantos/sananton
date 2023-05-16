@@ -5686,23 +5686,22 @@ switch (Info[targetid][pMember]) // employer/rank/division data is pulled from h
         employer = "LSPD";
 		switch(Info[targetid][pRank])
 		{
-		    case 1: rank = "Cadete";
+		    case 1: rank = "Policía";
 		    case 2: rank = "Oficial";
-		    case 3: rank = "Detective";
-		    case 4: rank = "Sargento";
-		    case 5: rank = "Teniente";
-		    case 6: rank = "Comandante";
-		    default: rank = "Cadete";
+		    case 3: rank = "Subinspector";
+		    case 4: rank = "Inspector";
+		    case 5: rank = "Inspector jefe";
+		    case 6: rank = "Comisario";
+		    default: rank = "Policía";
 		}
 		switch(Info[targetid][pDivision])
 		{
-		    case 1: division = "General";
-		    case 2: division = "DIVCRI";
-		    case 3: division = "DIVOES";
-		    case 4: division = "DIVANDRO";
+		    case 1: division = "SC";
+		    case 2: division = "UDYCO";
+		    case 3: division = "UDEV";
+		    case 4: division = "UI";
 		    case 5: division = "SWAT";
-		    case 6: division = "UL";
-		    default: division = "Ninguna";
+		    default: division = "SC";
 		}
 	}
 	case 2:
@@ -5711,21 +5710,21 @@ switch (Info[targetid][pMember]) // employer/rank/division data is pulled from h
 		switch(Info[targetid][pRank])
 		{
 		    case 1: rank = "Agente";
-		    case 2: rank = "Agente Superior";
-		    case 3: rank = "Agente Especial";
-		    case 4: rank = "Agente Especializado";
-		    case 5: rank = "Sub/Director";
+		    case 2: rank = "Agente Especial";
+		    case 3: rank = "Subinspector";
+		    case 4: rank = "Inspector";
+		    case 5: rank = "Inspector jefe";
 		    case 6: rank = "Director";
-		    default: rank = "Agente";
+		    default: rank = "Oficial";
 		}
 		switch(Info[targetid][pDivision])
 		{
-		    case 1: division = "General";
-		    case 2: division = "DIVHO";
-		    case 3: division = "UCO";
+		    case 1: division = "SC";
+		    case 2: division = "UDEV";
+		    case 3: division = "UDYCO";
 		    case 4: division = "UI";
-		    case 5: division = "RR.HH";
-		    default: division = "DIVHO";
+		    case 5: division = "UIC";
+		    default: division = "SC";
 		}
 	}
 	case 3:
@@ -7349,10 +7348,11 @@ CreateDynamic3DTextLabel("/arrestar",COLOR_DBLUE,613.3228,-589.1623,17.2266+0.6,
 CreateDynamic3DTextLabel("FBI - Vestuarios\n{FFFFFF}Utiliza /vestuario ", COLOR_YELLOW, 318.0818, -1479.5901, -39.2614,4.0);
 CreateDynamic3DTextLabel("FBI - Armería\n{FFFFFF}Utiliza /armeria ", COLOR_YELLOW,307.5468, -1477.1956, -38.9414,4.0);
 CreateDynamic3DTextLabel("FBI - Comunicaciones\n{FFFFFF}Utiliza /comunicaciones ", COLOR_YELLOW,314.6129, -1479.0408, -39.2614,4.0);
-CreateDynamic3DTextLabel("LSPD - Vestuarios\n{FFFFFF}Utiliza /vestuario! ", COLOR_BLUE, 270.1910, 110.1838, 1004.5565,4.0);
-CreateDynamic3DTextLabel("LSPD - Armería\n{FFFFFF}Utiliza /armeria! ", COLOR_BLUE, 266.0581, 115.3661, 1004.5565,4.0);
-CreateDynamic3DTextLabel("LSPD - Multas\n{FFFFFF}Utiliza /pagarmulta!", COLOR_YELLOW, 240.1017, 112.7440, 1003.8015,4.0);
-CreateDynamic3DTextLabel("LSPD - Licencias\n{FFFFFF}Utiliza /licencia! ", COLOR_YELLOW, 252.5445, 117.4007, 1003.8015,4.0);
+CreateDynamic3DTextLabel("LSPD - Comunicaciones\n{FFFFFF}Utiliza /comunicaciones ", COLOR_BLUE,263.2009, 107.6469, 1004.9775,4.0);
+CreateDynamic3DTextLabel("LSPD - Vestuarios\n{FFFFFF}Utiliza /vestuario ", COLOR_BLUE, 270.3058, 109.6974, 1004.9775,4.0);
+CreateDynamic3DTextLabel("LSPD - Armería\n{FFFFFF}Utiliza /armeria ", COLOR_BLUE, 265.9243, 115.2880, 1004.9775,4.0);
+CreateDynamic3DTextLabel("LSPD - Multas\n{FFFFFF}Utiliza /pagarmulta", COLOR_YELLOW, 240.1017, 112.7440, 1003.8015,4.0);
+CreateDynamic3DTextLabel("LSPD - Licencias\n{FFFFFF}Utiliza /licencia ", COLOR_YELLOW, 252.5445, 117.4007, 1003.8015,4.0);
 CreateDynamic3DTextLabel("Trajes\n/equipo", 								COLOR_YELLOW, 	1188.8640,-1351.4312,2423.2649, 4.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,600,0);
 CreateDynamic3DTextLabel("Armeria\n/equipo", 								COLOR_YELLOW, 	-392.3932,-1446.7029,26.1182, 4.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 CreateDynamic3DTextLabel("Depósito\n/embargar", 							COLOR_LIGHTBLUE, 1658.9924,-1807.1152,13.5508, 20.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
@@ -9710,6 +9710,7 @@ CreateDynamicObject(19304, 320.89, 312.22, 1001.25,   0.00, 0.00, 90.24);
 CreateDynamicObject(19304, 320.89, 316.23, 1001.25,   0.00, 0.00, 90.24);
 
 //LSPD Interior by Jayceon
+CreateObject(19301, 246.2344, 117.8047, 1005.6094,   0.00, 0.00, 180.00);
 CreateDynamicObject(2637, 2526.59, -1667.51, 14.57,   0.00, 0.00, 0.00);
 CreateDynamicObject(2637, 2528.70, -1667.50, 14.57,   0.00, 0.00, 0.00);
 CreateDynamicObject(3657, 2534.00, -1665.28, 14.68,   0.00, 0.00, 268.69);
@@ -9780,7 +9781,6 @@ CreateDynamicObject(1721, 213.80, 123.50, 998.00,   0.00, 0.00, 270.00);
 CreateDynamicObject(15038, 219.00, 124.10, 998.60,   0.00, 0.00, 0.00);
 CreateDynamicObject(15038, 214.20, 126.50, 998.60,   0.00, 0.00, 0.00);
 CreateDynamicObject(3089, 1564.10, -1667.30, 28.70,   0.00, 0.00, 0.00);
-CreateObject(19301, 246.2344, 117.8047, 1005.6094,   0.00, 0.00, 180.00);
 CreateDynamicObject(1722, 260.86, 107.61, 1007.81,   0.00, 0.00, 270.00);
 CreateDynamicObject(1722, 260.86, 108.22, 1007.81,   0.00, 0.00, 270.00);
 CreateDynamicObject(1722, 260.86, 108.84, 1007.81,   0.00, 0.00, 270.00);
@@ -9914,8 +9914,8 @@ CreateDynamicObject(2073, 229.23, 124.69, 1012.02,   0.00, 0.00, 0.00);
 CreateDynamicObject(1722, 229.27, 126.53, 1009.21,   0.00, 0.00, 180.00);
 CreateDynamicObject(1722, 230.01, 122.77, 1009.21,   0.00, 0.00, 0.00);
 CreateDynamicObject(1722, 228.63, 122.77, 1009.21,   0.00, 0.00, 0.00);
-CreateDynamicObject(1510, 230.31, 124.19, 1010.02,   0.00, 0.00, 0.00);
-CreateDynamicObject(19625, 230.35, 124.15, 1010.07,   50.00, 10.00, -156.22);
+CreateDynamicObject(1510, 230.31, 124.19, 1010.00,   0.00, 0.00, 0.00);
+CreateDynamicObject(19625, 230.35, 124.15, 1010.05,   36.62, -10.58, -156.22);
 CreateDynamicObject(1958, 228.44, 124.35, 1009.99,   0.00, 0.00, 180.00);
 CreateDynamicObject(19302, 253.15, 117.41, 1004.56,   0.00, 270.00, 90.00);
 CreateDynamicObject(19302, 253.21, 117.41, 1004.56,   0.00, 270.00, 90.00);
@@ -10170,7 +10170,63 @@ CreateDynamicObject(2886, 239.39, 116.26, 1003.50,   0.00, 0.00, 270.00);
 CreateDynamicObject(2002, 225.56, 124.63, 1009.21,   0.00, 0.00, 90.00);
 CreateDynamicObject(1722, 235.55, 109.65, 1009.21,   0.00, 0.00, 270.00);
 CreateDynamicObject(1722, 235.55, 110.61, 1009.21,   0.00, 0.00, 270.00);
-
+CreateDynamicObject(1569, 244.90, 106.80, 1002.23,   0.00, 0.00, 0.00);
+CreateDynamicObject(1569, 247.90, 106.80, 1002.23,   0.00, 0.00, 180.00);
+CreateDynamicObject(2063, 272.04, 120.51, 1004.50,   0.00, 0.00, 0.00);
+CreateDynamicObject(2063, 272.04, 118.41, 1004.50,   0.00, 0.00, 0.00);
+CreateDynamicObject(2063, 272.04, 116.27, 1004.50,   0.00, 0.00, 180.00);
+CreateDynamicObject(2607, 275.25, 119.82, 1003.95,   0.00, 0.00, 90.00);
+CreateDynamicObject(1550, 273.48, 120.48, 1003.94,   0.00, 0.00, 0.00);
+CreateDynamicObject(1550, 273.64, 116.15, 1003.94,   0.00, 0.00, 0.00);
+CreateDynamicObject(1550, 273.43, 116.52, 1003.94,   0.00, 0.00, -84.42);
+CreateDynamicObject(1575, 273.12, 116.24, 1004.39,   0.00, 0.00, 90.00);
+CreateDynamicObject(1575, 273.12, 116.24, 1004.53,   0.00, 0.00, 90.00);
+CreateDynamicObject(1575, 272.76, 116.24, 1004.39,   0.00, 0.00, 90.00);
+CreateDynamicObject(1575, 272.76, 116.24, 1004.53,   0.00, 0.00, 90.00);
+CreateDynamicObject(1575, 272.40, 116.24, 1004.39,   0.00, 0.00, 90.00);
+CreateDynamicObject(1575, 272.76, 116.24, 1004.83,   0.00, 0.00, 90.00);
+CreateDynamicObject(1575, 272.40, 116.24, 1004.83,   0.00, 0.00, 90.00);
+CreateDynamicObject(2611, 274.46, 116.04, 1005.14,   0.00, 0.00, 180.00);
+CreateDynamicObject(3014, 275.26, 120.51, 1004.53,   0.00, 0.00, 0.00);
+CreateDynamicObject(3014, 272.82, 120.50, 1005.51,   0.00, 0.00, 0.00);
+CreateDynamicObject(3014, 272.22, 120.50, 1005.51,   0.00, 0.00, 0.00);
+CreateDynamicObject(3014, 271.62, 120.50, 1005.51,   0.00, 0.00, 0.00);
+CreateDynamicObject(3014, 271.02, 120.50, 1005.51,   0.00, 0.00, 0.00);
+CreateDynamicObject(3014, 271.02, 118.40, 1005.51,   0.00, 0.00, 0.00);
+CreateDynamicObject(3014, 271.62, 118.40, 1005.51,   0.00, 0.00, 0.00);
+CreateDynamicObject(3014, 271.62, 116.28, 1005.51,   0.00, 0.00, 0.00);
+CreateDynamicObject(3014, 271.02, 116.28, 1005.51,   0.00, 0.00, 0.00);
+CreateDynamicObject(3014, 272.22, 116.28, 1005.51,   0.00, 0.00, 0.00);
+CreateDynamicObject(2926, 271.09, 117.33, 1003.62,   0.00, 0.00, 270.00);
+CreateDynamicObject(2925, 271.09, 117.33, 1003.62,   0.00, 0.00, 270.00);
+CreateDynamicObject(2358, 271.16, 118.36, 1004.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 271.96, 118.36, 1004.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 272.76, 118.36, 1004.55,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 272.76, 118.36, 1004.99,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 271.96, 118.36, 1004.99,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 272.76, 118.36, 1004.07,   0.00, 0.00, 0.00);
+CreateDynamicObject(351, 273.30, 120.44, 1004.41,   84.12, -49.02, 249.60);
+CreateDynamicObject(351, 272.07, 120.42, 1004.41,   84.12, -49.02, 88.02);
+CreateDynamicObject(352, 271.97, 120.59, 1004.42,   86.16, -57.42, 6.78);
+CreateDynamicObject(355, 271.57, 120.55, 1004.42,   86.16, -57.42, 256.44);
+CreateDynamicObject(355, 272.89, 120.47, 1004.86,   86.16, -57.42, 240.66);
+CreateDynamicObject(2358, 271.12, 120.49, 1004.99,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 271.12, 120.49, 1004.07,   0.00, 0.00, 0.00);
+CreateDynamicObject(2358, 271.86, 120.49, 1004.07,   0.00, 0.00, 0.00);
+CreateDynamicObject(1886, 278.42, 113.10, 1007.43,   19.92, 0.00, -146.46);
+CreateDynamicObject(1886, 260.93, 112.99, 1007.43,   19.92, 0.00, -242.88);
+CreateDynamicObject(1495, 275.77, 116.36, 1003.63,   0.00, 0.00, 90.00);
+CreateDynamicObject(1495, 275.77, 117.85, 1003.63,   0.00, 0.00, 90.00);
+CreateDynamicObject(2690, 275.97, 119.25, 1004.79,   0.00, 0.00, 90.00);
+CreateDynamicObject(2690, 275.53, 119.25, 1004.79,   0.00, 0.00, 270.00);
+CreateDynamicObject(1886, 267.81, 112.01, 1007.25,   19.92, 0.00, 316.92);
+CreateDynamicObject(1886, 225.37, 119.92, 1012.89,   15.84, 0.00, 141.00);
+CreateDynamicObject(1886, 214.05, 115.99, 1002.12,   21.00, 0.00, 51.78);
+CreateDynamicObject(1886, 229.00, 116.07, 1002.18,   14.66, -0.18, -49.74);
+CreateDynamicObject(1886, 219.59, 124.24, 1002.18,   14.66, -0.18, -15.78);
+CreateDynamicObject(19897, 230.16, 124.26, 1009.99,   0.00, 0.00, -46.86);
+CreateDynamicObject(19172, 239.30, 110.04, 1011.29,   0.00, 0.00, 270.00);
+CreateDynamicObject(1216, 229.10, 114.62, 998.49,   0.00, 0.00, 270.00);
 // Mapeo de puertas
 
 //Puertas - LSPD
@@ -16414,6 +16470,7 @@ case	NGMENU:
 			{
 				format(szMessage, sizeof(szMessage), "*  %s toma su identificación y armas de la taquilla.", GetPlayerNameEx(playerid));
 				ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+				SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como de servicio.");
 				SetPlayerColor(playerid, COLOR_NG);
 				SetPlayerSkin(playerid, 287);
     			SetPlayerArmour(playerid, 100.0);
@@ -16425,6 +16482,7 @@ case	NGMENU:
 			{
 				format(szMessage, sizeof(szMessage), "*  %s deja su identificación y armas en la taquilla.", GetPlayerNameEx(playerid));
 				ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+				SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como fuera de servicio.");
 				ResetPlayerWeaponsEx(playerid);
 				SetPlayerColor(playerid, TEAM_HIT_COLOR);
 				SetPlayerArmour(playerid, 0.0);
@@ -17124,16 +17182,15 @@ case	NGMENUWEP:
 				        {
 					        format(szMessage, sizeof(szMessage), "%s coge su identificación y su chaleco antibalas de su taquilla.", GetPlayerNameEx(playerid));
 					        ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-					        SetPlayerColor(playerid, TEAM_BLUE_COLOR);
+					        SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como en servicio.");
 					        SetPlayerArmour(playerid, 100.0);
-					        GivePlayerValidWeapon(playerid, 24);
 					        OnDuty[playerid] = 1;
                         }
                         case 2:
 				        {
 					        format(szMessage, sizeof(szMessage), "%s coge su identificación y su chaleco antibalas de su taquilla.", GetPlayerNameEx(playerid));
 					        ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-					        SetPlayerColor(playerid, TEAM_BLUE_COLOR);
+					        SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como en servicio.");
     				        SetPlayerArmour(playerid, 100.0);
 					        OnDuty[playerid] = 1;
                         }
@@ -17143,37 +17200,40 @@ case	NGMENUWEP:
 				{
 					format(szMessage, sizeof(szMessage), "%s deja su identificación y su chaleco antibalas en su taquilla.", GetPlayerNameEx(playerid));
 					ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-					SetPlayerColor(playerid, TEAM_HIT_COLOR);
+					SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como fuera de servicio.");
 					SetPlayerArmour(playerid, 0.0);
 					SetPlayerSkin(playerid, Info[playerid][pChar]);
 					OnDuty[playerid] = 0;
 				}
-			//}
-			//if(listitem == 1) // LSPD Armas
-			//{
-			//	ShowPlayerDialog(playerid, LSPDARMERIA, DIALOG_STYLE_LIST, "LSPD Equipo","Espray de pimienta\nTonfa\nDesert Eagle\nEscopeta\nM4A1\nRifle de francotirador\nGranada de gas\nCámara\nChaleco Antibalas\nAnalgésicos\nAccesorios", "Ok", "Cancelar");
 			}
-			if(listitem == 1) // LSPD SWAT Uniform
+			if(listitem == 1) // LSPD Uniformes
+			{
+				ShowPlayerDialog(playerid, DUTYMENU3, DIALOG_STYLE_LIST, "Uniformes LSPD","Uniforme 1 (Caucásico)\nUniforme 2 (Caucásico)\nUniforme 3 (Caucásico)\nUniforme 4 (Afroamericano)\nUniforme 5 (Latino)\nUniforme 6 (Motorista)\nUniforme 7 (Mujer)\nUniforme 8 (Mujer)", "Seleccionar", "Cancelar");
+			}
+			if(listitem == 2) // Encubierto
+   			{
+ 				if(Info[playerid][pDivision] == 2 || Info[playerid][pDivision] == 3 ||Info[playerid][pDivision] == 4)
+			    {
+					ShowPlayerDialog(playerid, FBITAQUILLA4, DIALOG_STYLE_INPUT, "Encubierto","Elige un Skin (por ID).", "Ok", "Cancelar");
+				}
+				else
+				{
+				    SendClientMessageEx(playerid, COLOR_WHITE, "No perteneces a una unidad de investigación.");
+				}
+			}
+			if(listitem == 3) // LSPD SWAT Uniform
 			{
 			    if(Info[playerid][pDivision] == 5)
 			    {
 					SetPlayerSkin(playerid, 285);
 					SetPlayerArmour(playerid, 100.0);
-					
 				}
 				else
 				{
 				    SendClientMessageEx(playerid, COLOR_WHITE, "No perteneces a la Unidad de Intervención Policial.");
 				}
 			}
-			if(listitem == 2) // LSPD Uniformes
-			{
-				ShowPlayerDialog(playerid, DUTYMENU3, DIALOG_STYLE_LIST, "Uniformes LSPD","Uniforme 1 (Caucásico)\nUniforme 2 (Caucásico)\nUniforme 3 (Caucásico)\nUniforme 4 (Afroamericano)\nUniforme 5 (Latino)\nUniforme 6 (Motorista)\nUniforme 7 (Mujer)\nUniforme 8 (Mujer)", "Seleccionar", "Cancelar");
-			}
-			if(listitem == 3) // Encubierto
-   {
-				ShowPlayerDialog(playerid, FBITAQUILLA4, DIALOG_STYLE_INPUT, "Encubierto","Elige un Skin (por ID).", "Ok", "Cancelar");
-			}
+			
 		}
 	}
  	case LSPDARMERIA:
@@ -17238,7 +17298,7 @@ case	NGMENUWEP:
 				{
 					format(szMessage, sizeof(szMessage), "%s coge su identificación y su chaleco antibalas de su taquilla.", GetPlayerNameEx(playerid));
 					ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-					SetPlayerColor(playerid, TEAM_FBI_COLOR);
+					SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como en servicio.");
 					SetPlayerArmour(playerid, 100.0);
 					OnDuty[playerid] = 1;
 				}
@@ -17246,31 +17306,19 @@ case	NGMENUWEP:
 				{
 					format(szMessage, sizeof(szMessage), "%s deja su identificación y su chaleco antibalas en su taquilla.", GetPlayerNameEx(playerid));
 					ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-					SetPlayerColor(playerid, TEAM_HIT_COLOR);
+					SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como fuera de servicio.");
 					SetPlayerSkin(playerid, Info[playerid][pChar]);
 					SetPlayerArmour(playerid, 0.0);
 					OnDuty[playerid] = 0;
 				}
 			}
 		}
-		if(listitem == 1) // FBI - Unidad de Intervención
-		{
-			    if(Info[playerid][pDivision] == 5)
-			    {
-					SetPlayerSkin(playerid, 285);
-					SetPlayerArmour(playerid, 100.0);
 
-				}
-				else
-				{
-				    SendClientMessageEx(playerid, COLOR_WHITE, "No perteneces a la Unidad de Intervención.");
-				}
-        }
-		if(listitem == 2) // FBI - Uniformes
+		if(listitem == 1) // FBI - Uniformes
 		{
 			ShowPlayerDialog(playerid, FBITAQUILLA3, DIALOG_STYLE_LIST, "Uniformes FBI","Uniforme identificado\nTrajeado 1 (Caucásico)\nTrajeado 2 (Caucásico)\nTrajeado 3 (Afroamericano)\nTrajeado 4 (Afroamericano)\nTrajeado 5 (Asiático)\nTrajeado 6 (Mujer)", "Seleccionar", "Cancelar");
 		}
-		if(listitem == 3) // FBI - Encubierto
+		if(listitem == 2) // FBI - Encubierto
 		{
   			if(Info[playerid][pRank] >= 2)
 					{
@@ -17281,6 +17329,19 @@ case	NGMENUWEP:
 	 		SendClientMessageEx(playerid, COLOR_WHITE, "No eres rango 2.");
 			}
 		}
+		if(listitem == 3) // FBI - Unidad de Intervención
+		{
+			    if(Info[playerid][pDivision] == 5)
+			    {
+					SetPlayerSkin(playerid, 285);
+					SetPlayerArmour(playerid, 100.0);
+				}
+				else
+				{
+				    SendClientMessageEx(playerid, COLOR_WHITE, "No perteneces a la Unidad de Intervención.");
+				}
+        }
+		
 	}
 	case FBIARMERIA:
 	{
@@ -21855,9 +21916,9 @@ case	NGMENUWEP:
 				if(IsAPolice(playerid))
 	    		{
 	        		SendClientMessageEx(playerid, COLOR_GENERAL, "Los Santos Police Department");
-	        		SendClientMessageEx(playerid, COLOR_WHITE, "/radio /r /d (/m)egafono /su /duty /(des)esposar /tazer /ap /radargun /fondos /limpiarcamion /vmaletero /ram /luces");
-	        		SendClientMessageEx(playerid, COLOR_WHITE, "/quitar /multar /detener /bk(c) (/tlc) /miranda /bar /qb /placa /expediente /embargar /tgunmaletero /(q)(p)spikes /placaex");
-					SendClientMessageEx(playerid, COLOR_WHITE, "(/ant)ecedente (/su)spect /limpiar /sospechosos /lspddiv /verllaves /vcoche /dejarmulta /LSPD /arrestar /destruirplanta");
+	        		SendClientMessageEx(playerid, COLOR_WHITE, "/radio /r /d (/m)egafono /su /duty /(des)esposar /tazer /comunicaciones /armeria /vestuario  /fondos /limpiarcamion /vmaletero /ram /luces");
+	        		SendClientMessageEx(playerid, COLOR_WHITE, "/quitar /multar /detener /bk(c) (/tlc) /miranda /bar /qb /placa /expediente /embargar /tgunmaletero /ap /radargun /(q)(p)spikes /placaex");
+					SendClientMessageEx(playerid, COLOR_WHITE, "(/ant)ecedente (/su)spect /limpiar /sospechosos /lspddiv /verllaves /vcoche /dejarmulta /arrestar /destruirplanta");
 	    		}
 	    		else if(Team_SAMD(playerid))
 				{
@@ -24337,12 +24398,12 @@ zcmd(f, playerid, params[])
             	    {
             	        switch(Info[playerid][pRank])
             	        {
-            	            case 6: format(facstring, sizeof(facstring), "{04FFFF}** (( Comandante %s: %s )) **", GetPlayerNameEx(playerid), params);
-            	            case 5: format(facstring, sizeof(facstring), "** (( Teniente %s: %s ))  **", GetPlayerNameEx(playerid), params);
-            	            case 4: format(facstring, sizeof(facstring), "** (( Sargento %s: %s )) **", GetPlayerNameEx(playerid), params);
-            	            case 3: format(facstring, sizeof(facstring), "** (( Detective %s: %s ))  **", GetPlayerNameEx(playerid), params);
+            	            case 6: format(facstring, sizeof(facstring), "{04FFFF}** (( Comisario %s: %s )) **", GetPlayerNameEx(playerid), params);
+            	            case 5: format(facstring, sizeof(facstring), "** (( Inspector jefe %s: %s ))  **", GetPlayerNameEx(playerid), params);
+            	            case 4: format(facstring, sizeof(facstring), "** (( Inspector %s: %s )) **", GetPlayerNameEx(playerid), params);
+            	            case 3: format(facstring, sizeof(facstring), "** (( Subinspector %s: %s ))  **", GetPlayerNameEx(playerid), params);
             	            case 2: format(facstring, sizeof(facstring), "** (( Oficial %s: %s ))  **", GetPlayerNameEx(playerid), params);
-            	            case 1: format(facstring, sizeof(facstring), "** (( Cadete %s: %s ))  **", GetPlayerNameEx(playerid), params);
+            	            case 1: format(facstring, sizeof(facstring), "** (( Policía %s: %s ))  **", GetPlayerNameEx(playerid), params);
             	        }
             	    }
             	    case 2:
@@ -24350,10 +24411,10 @@ zcmd(f, playerid, params[])
             	        switch(Info[playerid][pRank])
             	        {
             	            case 6: format(facstring, sizeof(facstring), "{04FFFF}** (( Director %s: %s )) **", GetPlayerNameEx(playerid), params);
-            	            case 5: format(facstring, sizeof(facstring), "** (( Sub-Director %s: %s ))  **", GetPlayerNameEx(playerid), params);
-            	            case 4: format(facstring, sizeof(facstring), "** (( Agente Esp. %s: %s )) **", GetPlayerNameEx(playerid), params);
-            	            case 3: format(facstring, sizeof(facstring), "** (( Agente Especial %s: %s ))  **", GetPlayerNameEx(playerid), params);
-            	            case 2: format(facstring, sizeof(facstring), "** (( Agente Superior %s: %s ))  **", GetPlayerNameEx(playerid), params);
+            	            case 5: format(facstring, sizeof(facstring), "** (( Inspector jefe %s: %s ))  **", GetPlayerNameEx(playerid), params);
+            	            case 4: format(facstring, sizeof(facstring), "** (( Inspector %s: %s )) **", GetPlayerNameEx(playerid), params);
+            	            case 3: format(facstring, sizeof(facstring), "** (( Subinspector %s: %s ))  **", GetPlayerNameEx(playerid), params);
+            	            case 2: format(facstring, sizeof(facstring), "** (( Agente especial %s: %s ))  **", GetPlayerNameEx(playerid), params);
             	            case 1: format(facstring, sizeof(facstring), "** (( Agente %s: %s ))  **", GetPlayerNameEx(playerid), params);
             	        }
             	    }
@@ -24462,22 +24523,21 @@ zcmd(d, playerid, params[])
     	{
         	switch(Info[playerid][pRank])
         	{
-				case 1: rank = "Cadete";
+				case 1: rank = "Policía";
 				case 2: rank = "Oficial";
-				case 3: rank = "Detective";
-				case 4: rank = "Sargento";
-				case 5: rank = "Teniente";
-				case 6: rank = "Comandante";
+				case 3: rank = "Subinspector";
+				case 4: rank = "Inspector";
+				case 5: rank = "Inspector jefe";
+				case 6: rank = "Comisario";
 				default: rank = "[Error]";
 			}
 			switch(Info[playerid][pDivision])
 			{
-				case 2: div = " (DIVCRI)";
-				case 3: div = " (DIVOES)";
-				case 4: div = " (DIVANDRO)";
+				case 2: div = " (UDYCO)";
+				case 3: div = " (UDEV)";
+				case 4: div = " (UI)";
 				case 5: div = " (SWAT)";
-				case 6: div = " (UL)";
-				default: div = "";
+				default: div = "SC";
 			}
 			format(szMessage, sizeof(szMessage), "** [LSPD] %s%s %s: %s **", rank,div, GetPlayerNameEx(playerid), params);
 		}
@@ -24486,20 +24546,20 @@ zcmd(d, playerid, params[])
 	    	switch(Info[playerid][pRank])
 	    	{
 				case 1: rank = "Agente";
-				case 2: rank = "Agente Superior";
-				case 3: rank = "Agente Especial";
-				case 4: rank = "Criminalista";
-				case 5: rank = "Sub/Director";
+				case 2: rank = "Agente especial";
+				case 3: rank = "Subinspector";
+				case 4: rank = "Inspector";
+				case 5: rank = "Inspector Jefe";
 				case 6: rank = "Director";
 				default: rank = "[Error]";
 			}
 			switch(Info[playerid][pDivision])
 			{
-				case 2: div = " (OS)";
-				case 3: div = " (UCO)";
+				case 2: div = " (UDEV)";
+				case 3: div = " (UDYCO)";
 				case 4: div = " (UI)";
-				case 5: div = " (UAE)";
-				default: div = "";
+				case 5: div = " (UIC)";
+				default: div = "SC";
 			}
         	format(szMessage, sizeof(szMessage), "** [FBI] %s%s %s: %s **", rank,div, GetPlayerNameEx(playerid), params);
 		}
@@ -24596,22 +24656,21 @@ zcmd(r, playerid, params[])
 		{
 			switch(Info[playerid][pRank])
 			{
-				case 1: rank = "Cadete";
+				case 1: rank = "Policía";
 				case 2: rank = "Oficial";
-				case 3: rank = "Detective";
-				case 4: rank = "Sargento";
-				case 5: rank = "Teniente";
-				case 6: rank = "Comandante";
+				case 3: rank = "Subinspector";
+				case 4: rank = "Inspector";
+				case 5: rank = "Inspector jefe";
+				case 6: rank = "Comisario";
 				default: rank = "[Error]";
 			}
 			switch(Info[playerid][pDivision])
 			{
-				case 2: div = " (DIVCRI)";
-				case 3: div = " (DIVOES)";
-				case 4: div = " (DIVANDRO)";
+				case 2: div = " (UDEV)";
+				case 3: div = " (UDYCO)";
+				case 4: div = " (UI)";
 				case 5: div = " (SWAT)";
-				case 6: div = " (UL)";
-				default: div = "";
+				default: div = "SC";
 			}
 			format(szMessage, sizeof(szMessage), "** %s%s %s: %s **", rank,div, GetPlayerNameEx(playerid), params);
 			SendRadioMessage(1, TEAM_RADIO_COLOR, szMessage);
@@ -24621,20 +24680,20 @@ zcmd(r, playerid, params[])
 		    switch(Info[playerid][pRank])
 		    {
 				case 1: rank = "Agente";
-				case 2: rank = "Agente Superior";
-				case 3: rank = "Agente Especial";
-				case 4: rank = "Agente Especializado";
-				case 5: rank = "Sub/Director";
+				case 2: rank = "Agente especial";
+				case 3: rank = "subinspector";
+				case 4: rank = "Inspector";
+				case 5: rank = "Inspector jefe";
 				case 6: rank = "Director";
 				default: rank = "[Error]";
 			}
 			switch(Info[playerid][pDivision])
 			{
-				case 2: div = " (OS)";
-				case 3: div = " (UCO)";
+				case 2: div = " (UDEV)";
+				case 3: div = " (UDYCO)";
 				case 4: div = " (UI)";
-				case 5: div = " (UAE)";
-				default: div = "";
+				case 5: div = " (UIC)";
+				default: div = "SC";
 			}
 			format(szMessage, sizeof(szMessage), "** %s%s %s: %s **", rank,div, GetPlayerNameEx(playerid), params);
 			SendRadioMessage(2, TEAM_RADIO_COLOR, szMessage);
@@ -24760,7 +24819,7 @@ zcmd(lspddiv, playerid, params[])
 		if(sscanf(params, "dd", giveplayerid, division))
 		{
 			SendClientMessageEx(playerid, COLOR_WHITE, "USA: /lspddiv [playerid] [#division]");
-			SendClientMessageEx(playerid, COLOR_GRAD2, "Divisiones LSPD: 1 (Ninguna), 2 (DIVCRI), 3 (DIVOES), 4 (DIVANDRO), 5 (SWAT), 6 (UL)");
+			SendClientMessageEx(playerid, COLOR_GRAD2, "Divisiones LSPD: 1 (SC), 2 (UDYCO), 3 (UDEV), 4 (UI), 5 (SWAT)");
 			return 1;
 		}
 		if (Info[playerid][pRank] == 6)
@@ -24772,49 +24831,41 @@ zcmd(lspddiv, playerid, params[])
 					if(division == 3)
 					{
 						Info[giveplayerid][pDivision] = 3;
-						format(szMessage, sizeof(szMessage), "%s te ha invitado a formar parte de la División de Operaciones Especiales [DIVOES].", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%s te ha solicitado formar parte de la Unidad de Delincuencia Especialmente Violenta[UDEV].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has invitado a %s para unirse a la División de Operaciones Especiales [DIVOES].", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de la Unidad de Delincuencia Especialmente Violenta[UDEV].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 					else if(division == 2)
 					{
 						Info[giveplayerid][pDivision] = 2;
-						format(szMessage, sizeof(szMessage), "%s te ha invitado a formar parte de la División de Criminalistica [DIVCRI].", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%s te ha solicitado formar parte de la Unidad de Drogas Y Crimen Organizado[UDYCO].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has invitado a %s para unirse a la División de Criminalistica [DIVCRI].", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de la Unidad de Drogas Y Crimen Organizado[UDYCO].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 					else if(division == 4)
 					{
 						Info[giveplayerid][pDivision] = 4;
-						format(szMessage, sizeof(szMessage), "%s te ha invitado a formar parte de la División de Anti-Drogas [DIVANDRO].", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%s te ha solicitado formar parte de la Unidad de Información[UI].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has invitado a %s para unirse a la División de Anti-Drogas [DIVANDRO].", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de la Unidad de Información[UI].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 					else if(division == 5)
 					{
 						Info[giveplayerid][pDivision] = 5;
-						format(szMessage, sizeof(szMessage), "%s te ha invitado a formar parte de la SWAT.", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%s te ha solicitado formar parte de la Unidad de Intervención[SWAT].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has invitado a %s para unirse a la SWAT.", GetPlayerNameEx(giveplayerid));
-						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
-					}
-					else if(division == 6)
-					{
-						Info[giveplayerid][pDivision] = 6;
-						format(szMessage, sizeof(szMessage), "%s te ha invitado a formar parte de la Unidad de Licencieros.", GetPlayerNameEx(playerid));
-						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has invitado a %s para unirse a la Unidad de Licencieros.", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de la Unidad de Intervención[SWAT].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 					else if(division == 1)
 					{
 						Info[giveplayerid][pDivision] = 1;
-						format(szMessage, sizeof(szMessage), "%s te ha echado de la división actual", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%s te ha solicitado formar parte de Seguridad Ciudadana[SC].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has echado a %s de su división.", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de Seguridad Ciudadana[SC].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 				}
@@ -24833,7 +24884,7 @@ zcmd(fbidiv, playerid, params[])
 		if(sscanf(params, "dd", giveplayerid, division))
 		{
 		SendClientMessageEx(playerid, COLOR_WHITE, "USA: /fbidiv [playerid] [#division]");
-		SendClientMessageEx(playerid, COLOR_GRAD2, "Divisiones FBI: 1 (Ninguna), 2 (DIVHO), 3 (UCO), 4 (UI), 5 (RR.HH)");
+		SendClientMessageEx(playerid, COLOR_GRAD2, "Divisiones FBI: 1 (SC), 2 (UDEV), 3 (UDYCO), 4 (UI), 5 (UIC)");
 		return 1;
 		}
 
@@ -24846,41 +24897,41 @@ zcmd(fbidiv, playerid, params[])
 					if(division == 3)
 					{
 						Info[giveplayerid][pDivision] = 3;
-						format(szMessage, sizeof(szMessage), "%s te ha invitado a formar parte de la Unidad de Crimen Organizado [UCO].", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%s te ha solicitado formar parte de la Unidad de Drogas y Crimen Organizado [UDYCO].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has invitado a %s para unirse a la Unidad de Crimen Organizado [UCO].", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de la Unidad de Drogas y Crimen Organizado [UDYCO].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 					else if(division == 2)
 					{
 						Info[giveplayerid][pDivision] = 2;
-						format(szMessage, sizeof(szMessage), "%s te ha invitado a formar parte de la División de Homicidios [DIVHO].", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%%s te ha solicitado formar parte de la Unidad de Delincuencia Especialmente Violenta[UDEV].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has invitado a %s para unirse a la División de Homicidios [DIVHO].", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de la Unidad de Delincuencia Especialmente Violenta[UDEV].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 					else if(division == 4)
 					{
 						Info[giveplayerid][pDivision] = 4;
-						format(szMessage, sizeof(szMessage), "%s te ha invitado a formar parte de la Unidad de Investigación [UI].", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%s te ha solicitado formar parte de la Unidad de Intervención[UI].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has invitado a %s para unirse a la Unidad de Investigación [UI].", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de la Unidad de Intervención[UI].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 					else if(division == 5)
 					{
 						Info[giveplayerid][pDivision] = 5;
-						format(szMessage, sizeof(szMessage), "%s te ha invitado a formar parte de la Unidad de Agentes Especiales [UAE].", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%s te ha solicitado formar parte de la Unidad de Inteligencia Criminal[UIC].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has invitado a %s para unirse a la Unidad de Agentes Especiales [UAE].", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de la Unidad de Inteligencia Criminal[UIC].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 					else if(division == 1)
 					{
 						Info[giveplayerid][pDivision] = 1;
-						format(szMessage, sizeof(szMessage), "%s te ha echado de la división actual", GetPlayerNameEx(playerid));
+						format(szMessage, sizeof(szMessage), "%s te ha solicitado formar parte de Seguridad Ciudadana[SC].", GetPlayerNameEx(playerid));
 						SendClientMessageEx(giveplayerid, COLOR_GENERAL, szMessage);
-						format(szMessage, sizeof(szMessage), "Has echado a %s de su división.", GetPlayerNameEx(giveplayerid));
+						format(szMessage, sizeof(szMessage), "Has solicitado a %s formar parte de Seguridad Ciudadana[SC].", GetPlayerNameEx(giveplayerid));
 						SendClientMessageEx(playerid, COLOR_GENERAL, szMessage);
 					}
 				}
@@ -26229,7 +26280,7 @@ zcmd(gob, playerid, params[])
 	{
 		if(Info[playerid][pLeader] == 1)
     	{
-		    format(string, sizeof(string), "[LSPD] Comandante %s: %s", GetPlayerNameEx(playerid), params[0]);
+		    format(string, sizeof(string), "[LSPD] Comisario %s: %s", GetPlayerNameEx(playerid), params[0]);
 			SendClientMessageToAllEx(COLOR_GOBALL, string);
     	}
 		else if(Info[playerid][pLeader] == 2)
@@ -29927,7 +29978,7 @@ return 1;
 
 CMD:pagarmulta(playerid, params[])
 {
-if(IsPlayerInRangeOfPoint(playerid, 3.0, 1475.4143,-1752.8630,3285.2859))
+if(IsPlayerInRangeOfPoint(playerid, 3.0, 240.1017, 112.7440, 1003.8015))
 {
 
     if(Info[playerid][pCarLic] == 0) return SendClientMessageEx(playerid, COLOR_GRAD2, "Una licencia de conducir válida es necesaria para liberar su vehículo del depósito municipal.");
@@ -35613,6 +35664,49 @@ else if(Team_GuardiaNacional(playerid))	{
     }
 return 1;
 }
+CMD:comunicaciones(playerid, params[]){
+if(Team_LSPD(playerid)) {
+	if(PlayerToPoint(5, playerid, 262.7900, 107.4900, 1004.6700)){
+		if(OnDuty[playerid] == 0 && !NoDuty(playerid)) return SendClientMessageEx(playerid, COLOR_GRAD2, " No estás de servicio.");
+		if(!RadioOn[playerid])
+		{
+			RadioOn[playerid] = 1;
+			format(szMessage, sizeof(szMessage), "*  %s toma una radio Walkie-Talkie del estante.", GetPlayerNameEx(playerid));
+			ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+			SendClientMessageEx(playerid, COLOR_WHITE, "Recogiste y encendiste tu radio.");
+		}
+		else
+		{
+			RadioOn[playerid] = 0;
+			format(szMessage, sizeof(szMessage), "*  %s deja su radio Walkie-Talkie en el estante.", GetPlayerNameEx(playerid));
+			ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+			SendClientMessageEx(playerid, COLOR_WHITE, "Apagaste y dejaste tu radio.");
+		}
+		}
+	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en la sala de comunicaciones.");
+	}
+else if(Team_FBI(playerid)) {
+	if(PlayerToPoint(5, playerid, 314.6129, -1479.0408, -39.2614)){
+		if(OnDuty[playerid] == 0 && !NoDuty(playerid)) return SendClientMessageEx(playerid, COLOR_GRAD2, " No estás de servicio.");
+		if(!RadioOn[playerid])
+		{
+ 			RadioOn[playerid] = 1;
+			format(szMessage, sizeof(szMessage), "*  %s toma una radio Walkie-Talkie del estante.", GetPlayerNameEx(playerid));
+			ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+			SendClientMessageEx(playerid, COLOR_WHITE, "Recogiste y encendiste tu radio.");
+		}
+		else
+		{
+			RadioOn[playerid] = 0;
+			format(szMessage, sizeof(szMessage), "*  %s deja su radio Walkie-Talkie en el estante.", GetPlayerNameEx(playerid));
+			ProxDetector(30.0, playerid, szMessage, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+			SendClientMessageEx(playerid, COLOR_WHITE, "Apagaste y dejaste tu radio.");
+		}
+		}
+	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en la sala de comunicaciones.");
+	}
+return 1;
+}
 CMD:armeria(playerid, params[]){
 if(Team_FBI(playerid))	{
 	if(PlayerToPoint(5, playerid, 307.5468, -1477.1956, -38.9414))		{
@@ -35621,7 +35715,7 @@ if(Team_FBI(playerid))	{
 	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en la armería.");
 	}
 else if(Team_LSPD(playerid))	{
-	if(PlayerToPoint(5, playerid, 266.0581, 115.3661, 1004.5365) ){
+	if(PlayerToPoint(5, playerid, 265.9243, 115.2880, 1004.9775) ){
 		ShowPlayerDialog(playerid, LSPDARMERIA, DIALOG_STYLE_LIST, "LSPD Equipo","Espray de pimienta\nTonfa\nDesert Eagle\nEscopeta\nM4A1\nRifle de francotirador\nGranada de gas\nCámara\nChaleco Antibalas\nAnalgésicos\nAccesorios", "Ok", "Cancelar");
 	}
 	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en la armería.");
@@ -35637,13 +35731,13 @@ return 1;
 CMD:vestuario(playerid, params[]){
 if(Team_FBI(playerid))	{
 	if(PlayerToPoint(5, playerid,318.0818, -1479.5901, -39.2614))		{
-		ShowPlayerDialog(playerid, FBITAQUILLA, DIALOG_STYLE_LIST, "FBI - Taquilla","Duty\nOperaciones Especiales\nUniformes\nEncubierto", "Seleccionar", "Cancelar");
+		ShowPlayerDialog(playerid, FBITAQUILLA, DIALOG_STYLE_LIST, "FBI - Taquilla","Servicio\nUniformes\nEncubierto\nOperaciones Especiales", "Seleccionar", "Cancelar");
 	}
 	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en el vestuario.");
 	}
 else if(Team_LSPD(playerid))	{
-	if(PlayerToPoint(5, playerid, 270.1910, 110.1838, 1004.5365) ){
-		ShowPlayerDialog(playerid, DUTYMENU, DIALOG_STYLE_LIST, "LSPD - Taquilla","Duty\nSWAT\nUniformes\nEncubierto", "Seleccionar", "Cancelar");
+	if(PlayerToPoint(5, playerid, 270.3058, 109.6974, 1004.9775) ){
+		ShowPlayerDialog(playerid, DUTYMENU, DIALOG_STYLE_LIST, "LSPD - Taquilla","Servicio\nUniformes\nEncubierto\nSWAT", "Seleccionar", "Cancelar");
 	}
 	else SendClientMessageEx(playerid, COLOR_WHITE, "No estás en el vestuario.");
     }
@@ -36333,21 +36427,21 @@ SendClientMessageEx( playerid, COLOR_WHITE, string );
 return 1;
 }
 
-CMD:placaex(playerid, params[]){
-if(IsACop(playerid) || Info[playerid][pMember] == 4 || Info[playerid][pLeader] == 4 && GetPVarInt(playerid, "IsInArena") == 0 && !GetPVarInt(playerid, "EventToken") && Info[playerid][pJailed] == 0){
-	if(OnDuty[playerid] == 1){
-		OnDuty[playerid] = 0;
-		SetPlayerToTeamColor(playerid);
-		SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como fuera de servicio.");
-	}
-	else{
-		OnDuty[playerid] = 1;
-		SetPlayerToTeamColor(playerid);
-		SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como en servicio.");
-	}
-}
-return 1;
-}
+//CMD:placaex(playerid, params[]){
+//	if(IsACop(playerid) || Info[playerid][pMember] == 4 || Info[playerid][pLeader] == 4 && GetPVarInt(playerid, "IsInArena") == 0 && !GetPVarInt(playerid, "EventToken") && Info[playerid][pJailed] == 0){
+//		if(OnDuty[playerid] == 1){
+//			OnDuty[playerid] = 0;
+//			SetPlayerToTeamColor(playerid);
+//			SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como fuera de servicio.");
+//		}
+//		else{
+//			OnDuty[playerid] = 1;
+//			SetPlayerToTeamColor(playerid);
+//			SendClientMessageEx(playerid, COLOR_WHITE, "Ahora serás visto como en servicio.");
+//		}
+//	}
+//	return 1;
+//	}
 
 CMD:arrestar(playerid, params[]){
 if(IsACop(playerid)){
@@ -42117,6 +42211,8 @@ function MapsRemoveForPlayer(playerid)
 	RemoveBuildingForPlayer(playerid, 1722, 259.4453, 110.3672, 1007.7891, 0.25);
 	RemoveBuildingForPlayer(playerid, 1722, 259.4453, 112.0547, 1007.7891, 0.25);
 	RemoveBuildingForPlayer(playerid, 1722, 261.4766, 110.3672, 1007.7891, 0.25);
+	RemoveBuildingForPlayer(playerid, 1535, 244.8828, 106.8828, 1002.2031, 0.25);
+	RemoveBuildingForPlayer(playerid, 1535, 247.9141, 106.9141, 1002.2031, 0.25);
 	// Guardia Nacional by Jayceon
     RemoveBuildingForPlayer(playerid, 16590, 199.3438, 1943.7891, 18.2031, 0.25);
     RemoveBuildingForPlayer(playerid, 16619, 199.3359, 1943.8750, 18.2031, 0.25);
@@ -42166,13 +42262,6 @@ function MapsRemoveForPlayer(playerid)
 	RemoveBuildingForPlayer(playerid, 1294, 987.7422, -973.4766, 43.5781, 0.25);
 	RemoveBuildingForPlayer(playerid, 6130, 1117.5859, -1490.0078, 32.7188, 0.25);
 	RemoveBuildingForPlayer(playerid, 6255, 1117.5859, -1490.0078, 32.7188, 0.25);
-
-    //24/7 Ayunta By Map Team ZC 2013
-    RemoveBuildingForPlayer(playerid, 4051, 1371.8203, -1754.8203, 19.0469, 0.25);
-    RemoveBuildingForPlayer(playerid, 4191, 1353.2578, -1764.5313, 15.5938, 0.25);
-    RemoveBuildingForPlayer(playerid, 4022, 1353.2578, -1764.5313, 15.5938, 0.25);
-    RemoveBuildingForPlayer(playerid, 1532, 1353.1328, -1759.6563, 12.5000, 0.25);
-    RemoveBuildingForPlayer(playerid, 4021, 1371.8203, -1754.8203, 19.0469, 0.25);
 
     //Taxi Cab Ext By Map Team ZC 2013
     RemoveBuildingForPlayer(playerid, 5024, 1748.8438, -1883.0313, 14.1875, 0.25);
